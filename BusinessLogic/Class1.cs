@@ -9,5 +9,7 @@ namespace BusinessLogic
     public class Class1
     {
         //Hej jeg hedder Anders
+
+        // Ændringer sker 
     }
 }
