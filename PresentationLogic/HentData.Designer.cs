@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lbl_cpr = new System.Windows.Forms.Label();
             this.txt_indtastCpr = new System.Windows.Forms.TextBox();
             this.btn_hentData = new System.Windows.Forms.Button();
@@ -50,6 +50,7 @@
             this.lbl_middelBT_value = new System.Windows.Forms.Label();
             this.btn_filtreret = new System.Windows.Forms.Button();
             this.btn_ufiltreret = new System.Windows.Forms.Button();
+            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             ((System.ComponentModel.ISupportInitialize)(this.chart_måling)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,17 +122,17 @@
             // chart_måling
             // 
             this.chart_måling.BackColor = System.Drawing.Color.Black;
-            chartArea1.Name = "ChartArea1";
-            this.chart_måling.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart_måling.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart_måling.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart_måling.Legends.Add(legend2);
             this.chart_måling.Location = new System.Drawing.Point(318, 20);
             this.chart_måling.Name = "chart_måling";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart_måling.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart_måling.Series.Add(series2);
             this.chart_måling.Size = new System.Drawing.Size(1239, 976);
             this.chart_måling.TabIndex = 7;
             this.chart_måling.Text = "chart1";
@@ -233,7 +234,7 @@
             this.btn_filtreret.Name = "btn_filtreret";
             this.btn_filtreret.Size = new System.Drawing.Size(245, 100);
             this.btn_filtreret.TabIndex = 17;
-            this.btn_filtreret.Text = "Filtrerede målinger";
+            this.btn_filtreret.Text = "Filtrer måling";
             this.btn_filtreret.UseVisualStyleBackColor = true;
             // 
             // btn_ufiltreret
@@ -242,8 +243,15 @@
             this.btn_ufiltreret.Name = "btn_ufiltreret";
             this.btn_ufiltreret.Size = new System.Drawing.Size(245, 100);
             this.btn_ufiltreret.TabIndex = 18;
-            this.btn_ufiltreret.Text = "Ufiltrerede målinger";
+            this.btn_ufiltreret.Text = "Filtrer måling";
             this.btn_ufiltreret.UseVisualStyleBackColor = true;
+            // 
+            // hScrollBar1
+            // 
+            this.hScrollBar1.Location = new System.Drawing.Point(420, 923);
+            this.hScrollBar1.Name = "hScrollBar1";
+            this.hScrollBar1.Size = new System.Drawing.Size(947, 21);
+            this.hScrollBar1.TabIndex = 19;
             // 
             // HentData
             // 
@@ -251,6 +259,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1914, 1045);
+            this.Controls.Add(this.hScrollBar1);
             this.Controls.Add(this.btn_ufiltreret);
             this.Controls.Add(this.btn_filtreret);
             this.Controls.Add(this.lbl_middelBT_value);
@@ -300,5 +309,6 @@
         private System.Windows.Forms.Label lbl_middelBT_value;
         private System.Windows.Forms.Button btn_filtreret;
         private System.Windows.Forms.Button btn_ufiltreret;
+        private System.Windows.Forms.HScrollBar hScrollBar1;
     }
 }
