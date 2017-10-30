@@ -16,5 +16,10 @@ namespace PresentationLogic
         {
             InitializeComponent();
         }
+
+        private void HentData_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
