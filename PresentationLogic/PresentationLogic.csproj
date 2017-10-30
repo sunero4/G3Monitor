@@ -49,11 +49,29 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maaleindstillinger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maaleindstillinger.Designer.cs">
+      <DependentUpon>Maaleindstillinger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nulpunktsjustering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nulpunktsjustering.Designer.cs">
+      <DependentUpon>Nulpunktsjustering.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maaleindstillinger.resx">
+      <DependentUpon>Maaleindstillinger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nulpunktsjustering.resx">
+      <DependentUpon>Nulpunktsjustering.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

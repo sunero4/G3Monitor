@@ -32,14 +32,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBrugernavn = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.rbtnOP = new System.Windows.Forms.RadioButton();
             this.rbtnTekniker = new System.Windows.Forms.RadioButton();
             this.rbtnStartMål = new System.Windows.Forms.RadioButton();
             this.rbtnHentdata = new System.Windows.Forms.RadioButton();
             this.rbtnStartKalib = new System.Windows.Forms.RadioButton();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -74,19 +76,10 @@
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 3;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 111);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Vælg profession";
-            // 
             // rbtnOP
             // 
             this.rbtnOP.AutoSize = true;
-            this.rbtnOP.Location = new System.Drawing.Point(13, 128);
+            this.rbtnOP.Location = new System.Drawing.Point(23, 41);
             this.rbtnOP.Name = "rbtnOP";
             this.rbtnOP.Size = new System.Drawing.Size(107, 17);
             this.rbtnOP.TabIndex = 5;
@@ -97,7 +90,7 @@
             // rbtnTekniker
             // 
             this.rbtnTekniker.AutoSize = true;
-            this.rbtnTekniker.Location = new System.Drawing.Point(161, 128);
+            this.rbtnTekniker.Location = new System.Drawing.Point(255, 41);
             this.rbtnTekniker.Name = "rbtnTekniker";
             this.rbtnTekniker.Size = new System.Drawing.Size(67, 17);
             this.rbtnTekniker.TabIndex = 6;
@@ -108,7 +101,7 @@
             // rbtnStartMål
             // 
             this.rbtnStartMål.AutoSize = true;
-            this.rbtnStartMål.Location = new System.Drawing.Point(13, 184);
+            this.rbtnStartMål.Location = new System.Drawing.Point(23, 49);
             this.rbtnStartMål.Name = "rbtnStartMål";
             this.rbtnStartMål.Size = new System.Drawing.Size(80, 17);
             this.rbtnStartMål.TabIndex = 7;
@@ -119,7 +112,7 @@
             // rbtnHentdata
             // 
             this.rbtnHentdata.AutoSize = true;
-            this.rbtnHentdata.Location = new System.Drawing.Point(161, 184);
+            this.rbtnHentdata.Location = new System.Drawing.Point(146, 49);
             this.rbtnHentdata.Name = "rbtnHentdata";
             this.rbtnHentdata.Size = new System.Drawing.Size(72, 17);
             this.rbtnHentdata.TabIndex = 8;
@@ -130,7 +123,7 @@
             // rbtnStartKalib
             // 
             this.rbtnStartKalib.AutoSize = true;
-            this.rbtnStartKalib.Location = new System.Drawing.Point(271, 184);
+            this.rbtnStartKalib.Location = new System.Drawing.Point(255, 49);
             this.rbtnStartKalib.Name = "rbtnStartKalib";
             this.rbtnStartKalib.Size = new System.Drawing.Size(98, 17);
             this.rbtnStartKalib.TabIndex = 9;
@@ -140,41 +133,54 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(16, 223);
+            this.btnLogin.Location = new System.Drawing.Point(19, 346);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(80, 29);
             this.btnLogin.TabIndex = 10;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // groupBox1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 168);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Vælg funktion";
+            this.groupBox1.Controls.Add(this.rbtnTekniker);
+            this.groupBox1.Controls.Add(this.rbtnOP);
+            this.groupBox1.Location = new System.Drawing.Point(19, 113);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(391, 100);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Vælg profession";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rbtnStartMål);
+            this.groupBox2.Controls.Add(this.rbtnHentdata);
+            this.groupBox2.Controls.Add(this.rbtnStartKalib);
+            this.groupBox2.Location = new System.Drawing.Point(19, 224);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(391, 100);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Vælg funktion";
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 350);
-            this.Controls.Add(this.label4);
+            this.ClientSize = new System.Drawing.Size(483, 427);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.rbtnStartKalib);
-            this.Controls.Add(this.rbtnHentdata);
-            this.Controls.Add(this.rbtnStartMål);
-            this.Controls.Add(this.rbtnTekniker);
-            this.Controls.Add(this.rbtnOP);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtBrugernavn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Login";
             this.Text = "G3-monitor: Login";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,13 +192,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBrugernavn;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton rbtnOP;
         private System.Windows.Forms.RadioButton rbtnTekniker;
         private System.Windows.Forms.RadioButton rbtnStartMål;
         private System.Windows.Forms.RadioButton rbtnHentdata;
         private System.Windows.Forms.RadioButton rbtnStartKalib;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
