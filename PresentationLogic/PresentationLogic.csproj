@@ -52,6 +52,7 @@
     </Compile>
     <Compile Include="HentData.Designer.cs">
       <DependentUpon>HentData.cs</DependentUpon>
+    </Compile>
 
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
