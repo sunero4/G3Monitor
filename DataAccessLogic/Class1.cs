@@ -8,5 +8,11 @@ namespace DataAccessLogic
 {
     public class Class1
     {
+
+        //Hej jeg hedder Stine
+
+        // hej igen 
+
+        // hej igen igen 
     }
 }
