@@ -10,6 +10,7 @@ namespace G3Monitor
     {
         static void Main(string[] args)
         {
+            // Line her 
         }
     }
 }
