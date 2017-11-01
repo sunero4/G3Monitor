@@ -44,11 +44,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+
     <Compile Include="Måling.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Måling.Designer.cs">
       <DependentUpon>Måling.cs</DependentUpon>
+
+    <Compile Include="HentData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HentData.Designer.cs">
+      <DependentUpon>HentData.cs</DependentUpon>
+    </Compile>
+
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,12 +75,20 @@
     </Compile>
     <Compile Include="Nulpunktsjustering.Designer.cs">
       <DependentUpon>Nulpunktsjustering.cs</DependentUpon>
+
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+
     <EmbeddedResource Include="Måling.resx">
       <DependentUpon>Måling.cs</DependentUpon>
+
+
+    <EmbeddedResource Include="HentData.resx">
+      <DependentUpon>HentData.cs</DependentUpon>
+    </EmbeddedResource>
+
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
