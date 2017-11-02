@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class TeknikerDTO
+    public class TeknikerDTO
     {
         private string _brugernavn;
         public string Brugernavn

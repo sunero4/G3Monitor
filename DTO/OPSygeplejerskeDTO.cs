@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace DTO
 {
-    class OPSygeplejerskeDTO
+    public class OPSygeplejerskeDTO
     {
         private string _brugernavn;
         public string Brugernavn
