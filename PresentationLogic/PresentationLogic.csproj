@@ -83,7 +83,7 @@
 
     <EmbeddedResource Include="Måling.resx">
       <DependentUpon>Måling.cs</DependentUpon>
-
+    </EmbeddedResource>
 
     <EmbeddedResource Include="HentData.resx">
       <DependentUpon>HentData.cs</DependentUpon>
