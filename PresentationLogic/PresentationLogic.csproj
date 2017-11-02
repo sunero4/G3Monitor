@@ -50,7 +50,7 @@
     </Compile>
     <Compile Include="Måling.Designer.cs">
       <DependentUpon>Måling.cs</DependentUpon>
-
+    </Compile>
     <Compile Include="HentData.cs">
       <SubType>Form</SubType>
     </Compile>
