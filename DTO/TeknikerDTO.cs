@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DTO
+{
+    class TeknikerDTO
+    {
+        private string _brugernavn;
+        public string Brugernavn
+        {
+            get => _brugernavn;
+            set
+            {
+                if (value.Length == 8)
+                {
+                    _brugernavn = value;
+                }
+            }
+        }
+
+        public byte[] HashedPassword { get; set; }
+
+        public byte[] Salt { get; set; }
+    }
+}
