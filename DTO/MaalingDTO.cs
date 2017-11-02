@@ -29,4 +29,6 @@ namespace DTO
         public DateTime MaaleTidspunkt { get; set; }
 
     }
+
+
 }

@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using DTO;
 
 namespace DataAccessLogic
@@ -12,9 +15,20 @@ namespace DataAccessLogic
     {
         public void SaveBloodPressureData(PatientDTO patient)
         {
-            XDocument xDoc = new XDocument(FileInformation.FilePath);
+            try
+            {
+                var xSerializer = new XmlSerializer(typeof(PatientDTO));
 
-            XElement xElement = new XElement(xDoc.Root);
+                using (var writer = new StreamWriter(FileInformation.FilePath))
+                {
+                    xSerializer.Serialize(writer, patient);
+                }
+            }
+            catch (XmlException e)
+            {
+                Console.WriteLine(e.Message);
+                //Handle exception here
+            }
 
         }
     }

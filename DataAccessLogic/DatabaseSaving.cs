@@ -10,6 +10,7 @@ namespace DataAccessLogic
 {
     class DatabaseSaving : ISaving
     {
+        private SaveCommandBuilder _commandBuilder;
         public void SaveBloodPressureData(PatientDTO patient)
         {
             try
@@ -17,12 +18,8 @@ namespace DataAccessLogic
                 using (SqlConnection conn = new SqlConnection(ConnectionInfo.Connectionstring))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand(ConnectionInfo.SaveBloodPressureQuery, conn))
+                    using (SqlCommand cmd = _commandBuilder.BuildCommand(patient, conn))
                     {
-                        cmd.Parameters.AddWithValue("@cpr", patient.CPR);
-                        cmd.Parameters.AddWithValue("@maaledata", patient.Maalinger.MaaleData);
-                        cmd.Parameters.AddWithValue("@kommentar", patient.Maalinger.Kommentar);
-                        cmd.Parameters.AddWithValue("@tidspunkt", patient.Maalinger.MaaleTidspunkt);
                         cmd.ExecuteNonQuery();
                     }
                 }
