@@ -44,10 +44,12 @@
     <Compile Include="FileInformation.cs" />
     <Compile Include="FileSaving.cs" />
     <Compile Include="ICommandBuilder.cs" />
+    <Compile Include="IQueryBuilder.cs" />
     <Compile Include="ISaving.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DatabaseSaving.cs" />
     <Compile Include="SaveCommandBuilder.cs" />
+    <Compile Include="SaveQueryBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">
