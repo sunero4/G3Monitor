@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class OPSygeplejerskeDTO
+    public class OPSygeplejerskeDTO : MedarbejderDTO
     {
         private string _brugernavn;
         public string Brugernavn

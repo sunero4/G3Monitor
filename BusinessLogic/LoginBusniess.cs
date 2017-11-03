@@ -8,13 +8,13 @@ using DTO;
 
 namespace BusinessLogic
 {
-    public class LoginBusniess:
+    public class LoginBusniess
     {
-        private IDataAccess _iDataAccess;
+        //private IDataAccess _iDataAccess;
 
-        public bool CheckLogin(OPSygeplejerskeDTO op)
-        {
-            return _iDataAccess.CheckLogin(op);
-        }
+        //public bool CheckLogin(OPSygeplejerskeDTO op)
+        //{
+        //    return _iDataAccess.CheckLogin(op);
+        //}
     }
 }

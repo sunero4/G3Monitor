@@ -7,19 +7,26 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    class SCDataAcess: iDataAccess
+    class SCDataAcess: IDataAccess
 
     {
         private LoginData loginData;
+        private Salt salt; 
 
         public SCDataAcess()
         {
             loginData = new LoginData();
+            salt = new Salt();
         }
 
         public bool CheckLogin(OPSygeplejerskeDTO op)
         {
             return loginData.CheckLogin(op);
+        }
+
+        public byte[] GetSalt(OPSygeplejerskeDTO op)
+        {
+            return salt.getSalt(op); 
         }
     }
 

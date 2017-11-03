@@ -30,16 +30,16 @@ namespace DataAccessLogic
         // Login 
         //Metode der laver et opslag i den lokale databse i employee tabellen og tjekker om det id-nummer der er indsat i metoden findes i den lokale database.
         //derudover tjekker metoden også om id-nummeret er 6 cifre langt, som det skal være. Hvis begge betingelser er opfyldt returneres true ellers returneres false.
-        public bool CheckLogin( OPSygeplejerskeDTO opSygeplejerske)
+        public bool CheckLogin( MedarbejderDTO medarbejder)
         {
             bool checkLogin = false;
 
-            cmd = new SqlCommand("select * from db_owner.OPsygeplejerske where Brugernavn =" + opSygeplejerske.Brugernavn + "", OpenConnectionDatabase);
-            cmd = new SqlCommand("select * from db_owner.OPsygeplejerske where HashedPassword =" + opSygeplejerske.HashedPassword + "", OpenConnectionDatabase);
+            cmd = new SqlCommand("select * from dbKlinisk.OPsygeplejerske where Brugernavn =" + medarbejder.Brugernavn + " And Hashedpassword = " + medarbejder.HashedPassword, OpenConnectionDatabase);
+           
 
             rdr = cmd.ExecuteReader(); //iterator løber det igennem
 
-            if (rdr.Read() && opSygeplejerske.Brugernavn.Length==10)
+            if (rdr.Read())
             {
                 return true; 
             }

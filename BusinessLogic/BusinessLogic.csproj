@@ -54,6 +54,10 @@
       <Project>{4b1f2ce6-e5b7-4174-bf52-3c1cc13db93a}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{8b757f6a-8716-4203-81da-093d9e2f832a}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

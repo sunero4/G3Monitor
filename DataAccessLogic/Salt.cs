@@ -31,12 +31,12 @@ namespace DataAccessLogic
         {
             byte[] salt = new byte[32];
             
-            cmd = new SqlCommand("select * from db_owner.OPsygeplejerske where Salt =" + opSygeplejerske.Salt + "", OpenConnectionDatabase);
+            cmd = new SqlCommand("select Salt from db_owner.OPsygeplejerske where Brugernavn =" + opSygeplejerske.Brugernavn + "", OpenConnectionDatabase);
             rdr = cmd.ExecuteReader(); //iterator løber det igennem
 
             if (rdr.Read())
             {
-                salt = (byte[]) rdr["Måledata"];
+                salt = (byte[]) rdr["Salt"];
             }
             OpenConnectionDatabase.Close(); //lukker man en OpenConnection properti
             return salt;

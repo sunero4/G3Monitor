@@ -10,30 +10,29 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
 using DTO;
+using Interfaces;
 
 namespace PresentationLogic
 {
     public partial class Login : Form
     {
-        public Login()
+        private IBusinessLogic _iBusinessLogic;
+        public Login(IBusinessLogic iBusiness)
         {
             InitializeComponent();
+            _iBusinessLogic = iBusiness;
         }
         private Måling _myMåling;
         
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // OP-sygeplejerske
-
-            OPSygeplejerskeDTO opSygeplejerske = new OPSygeplejerskeDTO();
-            opSygeplejerske.Brugernavn = txtBrugernavn.Text;
-            opSygeplejerske.HashedPassword = PasswordSecurity.HashAndSaltPassword(txtPassword.Text, getSalt); 
-                _iBusinessLogic.GetSalt(opSygeplejerske.Brugernavn)); 
-           LoginBusniess validerLogin = new LoginBusniess();
-
-            bool validerLogin = _iBusinessLogic.CheckLogin(opSygeplejerske);
-                if (rbtnOP.Checked)
+                if (rbtnOP.Checked && txtBrugernavn.Text.Length == 10)
             {
+                OPSygeplejerskeDTO opSygeplejerske = new OPSygeplejerskeDTO();
+                opSygeplejerske.Brugernavn = txtBrugernavn.Text;
+                opSygeplejerske.HashedPassword = _iBusinessLogic.HashAndSaltPassword(txtPassword.Text, _iBusinessLogic.GetSalt(opSygeplejerske));
+                bool validerLogin = _iBusinessLogic.CheckLogin(opSygeplejerske);
                 rbtnStartKalib.Enabled = false;
                 if (validerLogin)
                 {
@@ -59,26 +58,32 @@ namespace PresentationLogic
 
             // Tekniker Ikke færdig 
             
-            bool BrugernavnTek = DTO(txtPassword.Text);
-            bool PasswordTek = PasswordSecurity.HashAndSaltPassword(txtPassword.Text, salt:);
-            if (rbtnTekniker.Checked)
+            
+            if (rbtnTekniker.Checked && txtBrugernavn.Text.Length == 8 )
             {
-                rbtnHentdata.Enabled = false;
+                TeknikerDTO _tekniker = new TeknikerDTO();
+                _tekniker.Brugernavn = txtBrugernavn.Text;
+                _tekniker.HashedPassword = _iBusinessLogic.HashAndSaltPassword(txtPassword.Text, _iBusinessLogic.GetSalt(_tekniker));
+                bool validerLogin = _iBusinessLogic.CheckLogin(_tekniker);
                 rbtnStartMål.Enabled = false;
-                if (BrugernavnTek && PasswordTek )
+                rbtnHentdata.Enabled = false; 
+                if (validerLogin)
                 {
                     if (rbtnStartKalib.Checked)
                     {
                         this.Hide();
-                        _myMåling = new Måling();
-                        _myMåling.Show();
+                        _myStartKalib = new Kalibrering();
+                        _myStartKalib.Show();
                     }
+                  
                 }
-                if (BrugernavnTek == false || PasswordTek == false)
+
+                if (validerLogin)
                 {
-                    MessageBox.Show("Ikke gyldigt login, prøv igen.");
+                    MessageBox.Show("Ikke gyldigt login, prøv igen. ");
                 }
             }
+        }
         }
     }
 }
