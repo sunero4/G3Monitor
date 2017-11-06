@@ -4,15 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLogic
+namespace BusinessLogic
 {
-    public class Class1
+    class Nulpunktsjustering
     {
-
-        //Hej jeg hedder Stine
-
-        // hej igen 
-
-        // hej igen igen 
     }
 }

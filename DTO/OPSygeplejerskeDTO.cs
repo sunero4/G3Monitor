@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace DTO
 {
-    class OPSygeplejerskeDTO
+    public class OPSygeplejerskeDTO : MedarbejderDTO
     {
         private string _brugernavn;
-        public string Brugernavn
+        public override string Brugernavn
         {
             get => _brugernavn;
             set
@@ -21,9 +22,9 @@ namespace DTO
             }
         }
 
-        public byte[] HashedPassword { get; set; }
+        public override byte[] HashedPassword { get; set; }     
 
-        public byte[] Salt { get; set; }
+        public override byte[] Salt { get; set; }
 
     }
 }
