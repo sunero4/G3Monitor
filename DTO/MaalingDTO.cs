@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class MaalingDTO
+    public class MaalingDTO
     {
         private string _kommentar;
 
@@ -29,4 +29,6 @@ namespace DTO
         public DateTime MaaleTidspunkt { get; set; }
 
     }
+
+
 }
