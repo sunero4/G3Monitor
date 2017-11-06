@@ -47,41 +47,46 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 39);
+            this.label1.Location = new System.Drawing.Point(43, 93);
+            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
+            this.label1.Size = new System.Drawing.Size(162, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Brugernavn";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 68);
+            this.label2.Location = new System.Drawing.Point(43, 162);
+            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(139, 32);
             this.label2.TabIndex = 1;
             this.label2.Text = "Password";
             // 
             // txtBrugernavn
             // 
-            this.txtBrugernavn.Location = new System.Drawing.Point(91, 39);
+            this.txtBrugernavn.Location = new System.Drawing.Point(243, 93);
+            this.txtBrugernavn.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtBrugernavn.Name = "txtBrugernavn";
-            this.txtBrugernavn.Size = new System.Drawing.Size(100, 20);
+            this.txtBrugernavn.Size = new System.Drawing.Size(260, 38);
             this.txtBrugernavn.TabIndex = 2;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(91, 68);
+            this.txtPassword.Location = new System.Drawing.Point(243, 162);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtPassword.Size = new System.Drawing.Size(260, 38);
             this.txtPassword.TabIndex = 3;
             // 
             // rbtnOP
             // 
             this.rbtnOP.AutoSize = true;
-            this.rbtnOP.Location = new System.Drawing.Point(23, 41);
+            this.rbtnOP.Location = new System.Drawing.Point(61, 98);
+            this.rbtnOP.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.rbtnOP.Name = "rbtnOP";
-            this.rbtnOP.Size = new System.Drawing.Size(107, 17);
+            this.rbtnOP.Size = new System.Drawing.Size(278, 36);
             this.rbtnOP.TabIndex = 5;
             this.rbtnOP.TabStop = true;
             this.rbtnOP.Text = "OP-sygeplejerske";
@@ -90,9 +95,10 @@
             // rbtnTekniker
             // 
             this.rbtnTekniker.AutoSize = true;
-            this.rbtnTekniker.Location = new System.Drawing.Point(255, 41);
+            this.rbtnTekniker.Location = new System.Drawing.Point(680, 98);
+            this.rbtnTekniker.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.rbtnTekniker.Name = "rbtnTekniker";
-            this.rbtnTekniker.Size = new System.Drawing.Size(67, 17);
+            this.rbtnTekniker.Size = new System.Drawing.Size(162, 36);
             this.rbtnTekniker.TabIndex = 6;
             this.rbtnTekniker.TabStop = true;
             this.rbtnTekniker.Text = "Tekniker";
@@ -101,9 +107,10 @@
             // rbtnStartMål
             // 
             this.rbtnStartMål.AutoSize = true;
-            this.rbtnStartMål.Location = new System.Drawing.Point(23, 49);
+            this.rbtnStartMål.Location = new System.Drawing.Point(61, 117);
+            this.rbtnStartMål.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.rbtnStartMål.Name = "rbtnStartMål";
-            this.rbtnStartMål.Size = new System.Drawing.Size(80, 17);
+            this.rbtnStartMål.Size = new System.Drawing.Size(205, 36);
             this.rbtnStartMål.TabIndex = 7;
             this.rbtnStartMål.TabStop = true;
             this.rbtnStartMål.Text = "Start måling";
@@ -112,9 +119,10 @@
             // rbtnHentdata
             // 
             this.rbtnHentdata.AutoSize = true;
-            this.rbtnHentdata.Location = new System.Drawing.Point(146, 49);
+            this.rbtnHentdata.Location = new System.Drawing.Point(389, 117);
+            this.rbtnHentdata.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.rbtnHentdata.Name = "rbtnHentdata";
-            this.rbtnHentdata.Size = new System.Drawing.Size(72, 17);
+            this.rbtnHentdata.Size = new System.Drawing.Size(176, 36);
             this.rbtnHentdata.TabIndex = 8;
             this.rbtnHentdata.TabStop = true;
             this.rbtnHentdata.Text = "Hent data";
@@ -123,9 +131,10 @@
             // rbtnStartKalib
             // 
             this.rbtnStartKalib.AutoSize = true;
-            this.rbtnStartKalib.Location = new System.Drawing.Point(255, 49);
+            this.rbtnStartKalib.Location = new System.Drawing.Point(680, 117);
+            this.rbtnStartKalib.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.rbtnStartKalib.Name = "rbtnStartKalib";
-            this.rbtnStartKalib.Size = new System.Drawing.Size(98, 17);
+            this.rbtnStartKalib.Size = new System.Drawing.Size(253, 36);
             this.rbtnStartKalib.TabIndex = 9;
             this.rbtnStartKalib.TabStop = true;
             this.rbtnStartKalib.Text = "Start kalibrering";
@@ -133,20 +142,24 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(19, 346);
+            this.btnLogin.Location = new System.Drawing.Point(51, 825);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(80, 29);
+            this.btnLogin.Size = new System.Drawing.Size(213, 69);
             this.btnLogin.TabIndex = 10;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rbtnTekniker);
             this.groupBox1.Controls.Add(this.rbtnOP);
-            this.groupBox1.Location = new System.Drawing.Point(19, 113);
+            this.groupBox1.Location = new System.Drawing.Point(51, 269);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(391, 100);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.groupBox1.Size = new System.Drawing.Size(1043, 238);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vælg profession";
@@ -156,18 +169,20 @@
             this.groupBox2.Controls.Add(this.rbtnStartMål);
             this.groupBox2.Controls.Add(this.rbtnHentdata);
             this.groupBox2.Controls.Add(this.rbtnStartKalib);
-            this.groupBox2.Location = new System.Drawing.Point(19, 224);
+            this.groupBox2.Location = new System.Drawing.Point(51, 534);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(391, 100);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.groupBox2.Size = new System.Drawing.Size(1043, 238);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Vælg funktion";
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 427);
+            this.ClientSize = new System.Drawing.Size(1288, 1018);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnLogin);
@@ -175,6 +190,7 @@
             this.Controls.Add(this.txtBrugernavn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "Login";
             this.Text = "G3-monitor: Login";
             this.groupBox1.ResumeLayout(false);

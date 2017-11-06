@@ -50,6 +50,10 @@
     <Compile Include="DatabaseSaving.cs" />
     <Compile Include="SaveCommandBuilder.cs" />
     <Compile Include="SaveQueryBuilder.cs" />
+    <Compile Include="LoginData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Salt.cs" />
+    <Compile Include="SCDataAcess.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

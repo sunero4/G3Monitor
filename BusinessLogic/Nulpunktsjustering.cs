@@ -6,16 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public class Class1
+    class Nulpunktsjustering
     {
-        //Hej jeg hedder Anders
-
-
-
-        //Jeg hedder altså stadig Anders
-
-        // Ændringer sker 
-        // wuhu 
-
     }
 }
