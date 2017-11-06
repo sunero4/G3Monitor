@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using Interfaces;
 
 namespace DataAccessLogic
 {
@@ -19,14 +20,14 @@ namespace DataAccessLogic
             salt = new Salt();
         }
 
-        public bool CheckLogin(OPSygeplejerskeDTO op)
+        public bool CheckLogin(MedarbejderDTO medarbejder)
         {
-            return loginData.CheckLogin(op);
+            return loginData.CheckLogin(medarbejder);
         }
 
-        public byte[] GetSalt(OPSygeplejerskeDTO op)
+        public byte[] GetSalt(MedarbejderDTO medarbejder)
         {
-            return salt.getSalt(op); 
+            return salt.GetSalt(medarbejder); 
         }
     }
 
