@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class PatientDTO
+    public class PatientDTO
     {
         private string _cpr;
         private string _fornavn;
@@ -48,6 +48,6 @@ namespace DTO
             }
         }
 
-        public List<MaalingDTO> Maalinger { get; set; }
+        public MaalingDTO Maalinger { get; set; }
     }
 }
