@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,22 +7,18 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    class DatabaseSaving : ISaving
+    class RetrivedData : IRetrivedData
     {
         private ICommandBuilder _commandBuilder;
         private IQueryBuilder _queryBuilder;
-        
-        public DatabaseSaving()
+
+        public RetrivedData()
         {
-            _commandBuilder = new SaveCommandBuilder();
-            _queryBuilder = new SaveQueryBuilder();
+            _commandBuilder = new RetrivedCommandBuilder();
+            _queryBuilder = new RetrivedQueryBuilder();
         }
 
-        /// <summary>
-        /// Saves data stored in the patient dto object in the database
-        /// </summary>
-        /// <param name="patient">Patient dto object containing the data to be saved</param>
-        public void SaveBloodPressureData(PatientDTO patient)
+        public MedarbejderDTO // Til line og Stine, enten skal vi lave metoden af en medarbejder DTO eller blot password
         {
             var query = _queryBuilder.BuildQuery(patient);
             try
@@ -39,11 +34,7 @@ namespace DataAccessLogic
             }
             catch (SqlException e)
             {
-                Console.WriteLine(e.Message);
-                //Find out how to handle sqlexceptions
-            }
-        }
-
+                Console.WriteLine(e.Message)
 
     }
 }

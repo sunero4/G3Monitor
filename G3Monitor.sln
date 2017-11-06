@@ -17,11 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic.Tests.Unit", "BusinessLogic.Tests.Unit\BusinessLogic.Tests.Unit.csproj", "{DCACBEA0-A5C9-4E56-B74B-5ED9EB4978DA}"
 EndProject
-
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLogic.Test.Unit", "DataAccessLogic.Test.Unit\DataAccessLogic.Test.Unit.csproj", "{C15EBCB2-5AAF-4615-90EE-C775B3B1EE5B}"
-
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLogic.Test.Unit", "DataAccessLogic.Test.Unit\DataAccessLogic.Test.Unit.csproj", "{3E1ADD32-E584-4C42-9502-B82AD939C46E}"
-
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,17 +53,10 @@ Global
 		{DCACBEA0-A5C9-4E56-B74B-5ED9EB4978DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCACBEA0-A5C9-4E56-B74B-5ED9EB4978DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCACBEA0-A5C9-4E56-B74B-5ED9EB4978DA}.Release|Any CPU.Build.0 = Release|Any CPU
-
 		{C15EBCB2-5AAF-4615-90EE-C775B3B1EE5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C15EBCB2-5AAF-4615-90EE-C775B3B1EE5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C15EBCB2-5AAF-4615-90EE-C775B3B1EE5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C15EBCB2-5AAF-4615-90EE-C775B3B1EE5B}.Release|Any CPU.Build.0 = Release|Any CPU
-
-		{3E1ADD32-E584-4C42-9502-B82AD939C46E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3E1ADD32-E584-4C42-9502-B82AD939C46E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3E1ADD32-E584-4C42-9502-B82AD939C46E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3E1ADD32-E584-4C42-9502-B82AD939C46E}.Release|Any CPU.Build.0 = Release|Any CPU
-
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
