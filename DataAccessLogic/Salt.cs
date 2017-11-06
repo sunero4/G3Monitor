@@ -27,11 +27,11 @@ namespace DataAccessLogic
             }
         }
 
-        public byte[] getSalt(OPSygeplejerskeDTO opSygeplejerske)
+        public byte[] GetSalt(MedarbejderDTO medarbejder)
         {
             byte[] salt = new byte[32];
             
-            cmd = new SqlCommand("select Salt from db_owner.OPsygeplejerske where Brugernavn =" + opSygeplejerske.Brugernavn + "", OpenConnectionDatabase);
+            cmd = new SqlCommand("select Salt from db_owner.OPsygeplejerske where Brugernavn =" + medarbejder.Brugernavn + "", OpenConnectionDatabase);
             rdr = cmd.ExecuteReader(); //iterator løber det igennem
 
             if (rdr.Read())
