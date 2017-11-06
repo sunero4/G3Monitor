@@ -10,9 +10,5 @@ namespace DataAccessLogic
     {
         public static string Connectionstring = "";
 
-        public static string SaveBloodPressureQuery =
-                "INSERT INTO Maaling (CPR, Måledata, Kommentar, Maaletidspunkt) VALUES (@cpr, @maaledata, @kommentar, @tidspunkt)"
-            ;
-
     }
 }

@@ -10,8 +10,8 @@ namespace DataAccessLogic
 {
     class DatabaseSaving : ISaving
     {
-        private SaveCommandBuilder _commandBuilder;
-        private SaveQueryBuilder _queryBuilder;
+        private ICommandBuilder _commandBuilder;
+        private IQueryBuilder _queryBuilder;
 
         public DatabaseSaving()
         {

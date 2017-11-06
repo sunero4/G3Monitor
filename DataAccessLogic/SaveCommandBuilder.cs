@@ -9,7 +9,7 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    class SaveCommandBuilder : ICommandBuilder
+    public class SaveCommandBuilder : ICommandBuilder
     {
         /// <summary>
         /// Generates names for the parameters from patient properties

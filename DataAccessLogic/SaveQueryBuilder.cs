@@ -7,10 +7,10 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    class SaveQueryBuilder : IQueryBuilder
+    public class SaveQueryBuilder : IQueryBuilder
     {
         private StringBuilder _builder;
-        public string Tablename;
+        public string Tablename { get; set; }
         public List<string> ColumnNames { get; set; }
 
         public SaveQueryBuilder()

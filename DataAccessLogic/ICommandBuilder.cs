@@ -8,7 +8,7 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    interface ICommandBuilder
+    public interface ICommandBuilder
     {
         SqlCommand BuildCommand(PatientDTO patient, SqlConnection conn, string query);
 
