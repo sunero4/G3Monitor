@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace DataAccessLogic
     class RetrivedData : IRetrivedData
     {
         private ICommandBuilder _commandBuilder;
-        private IQueryBuilder _queryBuilder;
+        private IQueryBuilderMedarbejder _queryBuilder;
 
         public RetrivedData()
         {
@@ -18,15 +19,15 @@ namespace DataAccessLogic
             _queryBuilder = new RetrivedQueryBuilder();
         }
 
-        public MedarbejderDTO // Til line og Stine, enten skal vi lave metoden af en medarbejder DTO eller blot password
+        public MedarbejderDTO medarbejder()
         {
-            var query = _queryBuilder.BuildQuery(patient);
+            var query = _queryBuilder.BuildQuery(medarbejder); // Anders 
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionInfo.Connectionstring))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = _commandBuilder.BuildCommand(patient, conn, query))
+                    using (SqlCommand cmd = _commandBuilder.BuildCommand(medarbejder, conn, query))
                     {
                         cmd.ExecuteNonQuery();
                     }

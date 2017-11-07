@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICommandBuilderMedarbejder.cs" />
+    <Compile Include="IQueryBuilderMedarbejder.cs" />
     <Compile Include="RetrivedData.cs" />
     <Compile Include="IRetrivedData.cs" />
     <Compile Include="Class1.cs" />

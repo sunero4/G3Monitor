@@ -8,9 +8,9 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    public class RetrivedCommandBuilder : ICommandBuilder
+    public class RetrivedCommandBuilder : ICommandBuilderMedarbejder 
     {
-        public SqlCommand BuildCommand(PatientDTO patient, SqlConnection conn, string query)
+        public SqlCommand BuildCommand(MedarbejderDTO medarbejder, SqlConnection conn, string query)
         {
             //fdkmfm
         }

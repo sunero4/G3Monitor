@@ -8,11 +8,23 @@ using Interfaces;
 
 namespace DataAccessLogic
 {
-    public class RetrivedQueryBuilder: IQueryBuilder
+    public class RetrivedQueryBuilder: IQueryBuilderMedarbejder 
     {
-        public string BuildQuery(PatientDTO patient)
+        private StringBuilder _builder;
+        public string Tablename { get; set; }
+        public List<string> ColumnNames { get; set; }
+
+        public RetrivedQueryBuilder()
         {
-            //ndfjndl
+            ColumnNames = new List<string>() { "Brugernavn", "HashedPassword", "Salt" };
+        }
+
+            public string BuildQuery(MedarbejderDTO medarbejder)
+        {
+       
+            _builder = new StringBuilder();
+            _builder.Append("select * from Tabelname = ' " + Tablename + "'"); 
+            return _builder.ToString();
         }
 
     }
