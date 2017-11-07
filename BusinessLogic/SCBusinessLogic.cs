@@ -12,7 +12,7 @@ namespace BusinessLogic
     class SCBusinessLogic : IBusinessLogic
     {
         private IDataAccess _iDataAccess;
-
+        private Nulpunktsjustering _nulpunkt;
         public SCBusinessLogic(IDataAccess iDataAccess)
         {
             _iDataAccess = iDataAccess;
@@ -31,6 +31,12 @@ namespace BusinessLogic
         public byte[] HashAndSaltPassword(string password, byte[] salt)
         {
             return PasswordSecurity.HashAndSaltPassword(password, salt); 
+        }
+
+        public NulpunktsjusteringDTO PerformAdjustment()
+        {
+            var voltage = _iDataAccess.GetVoltage();
+            return _nulpunkt.PerformAdjustment(voltage);
         }
     }
 }

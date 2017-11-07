@@ -10,7 +10,7 @@ namespace DataAccessLogic.Test.Unit
     [TestFixture]
     class CommandBuilderTests
     {
-        private 
+        
         [SetUp]
         public void Setup()
         {
