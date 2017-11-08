@@ -19,11 +19,17 @@ namespace DataAccessLogic
             ColumnNames = new List<string>() { "Brugernavn", "HashedPassword", "Salt" };
         }
 
-            public string BuildQuery(MedarbejderDTO medarbejder)
+        /// <summary>
+        /// Builds an Sql SELECT query from a predefined list of columnnames and property names on the medarbejder dto
+        /// object
+        /// </summary>
+        /// <param name="medarbejder">medarbejder dto object with properties to be used for naming parameters</param>
+        /// <returns>SQL Select from query</returns>
+        public string BuildQuery(MedarbejderDTO medarbejder)
         {
        
             _builder = new StringBuilder();
-            _builder.Append("select * from Tabelname = ' " + Tablename + "'"); 
+            _builder.Append("select * from = " + Tablename + " where Brugernavn = @brugernavn"); 
             return _builder.ToString();
         }
 

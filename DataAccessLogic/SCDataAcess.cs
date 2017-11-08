@@ -11,18 +11,18 @@ namespace DataAccessLogic
     class SCDataAcess: IDataAccess
 
     {
-        private LoginData loginData;
+        private IRetrivedData retrivedData; 
         private Salt salt; 
 
         public SCDataAcess()
         {
-            loginData = new LoginData();
+            retrivedData = new RetrivedData();
             salt = new Salt();
         }
 
-        public bool CheckLogin(MedarbejderDTO medarbejder)
+        public MedarbejderDTO CheckLogin(MedarbejderDTO medarbejder)
         {
-            return loginData.CheckLogin(medarbejder);
+            return retrivedData.CheckLogin(medarbejder);
         }
 
         public byte[] GetSalt(MedarbejderDTO medarbejder)

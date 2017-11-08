@@ -10,6 +10,7 @@ namespace DataAccessLogic
 {
     interface ICommandBuilderMedarbejder
     {
-        SqlCommand BuildCommand(MedarbejderDTO medarbejder, SqlConnection conn, string query); 
+        SqlCommand BuildCommand(MedarbejderDTO medarbejder, SqlConnection conn, string query);
+        
     }
 }

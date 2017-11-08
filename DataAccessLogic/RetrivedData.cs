@@ -10,7 +10,7 @@ namespace DataAccessLogic
 {
     class RetrivedData : IRetrivedData
     {
-        private ICommandBuilder _commandBuilder;
+        private ICommandBuilderMedarbejder _commandBuilder;
         private IQueryBuilderMedarbejder _queryBuilder;
 
         public RetrivedData()
@@ -19,9 +19,14 @@ namespace DataAccessLogic
             _queryBuilder = new RetrivedQueryBuilder();
         }
 
-        public MedarbejderDTO medarbejder()
+        /// <summary>
+        /// Retrieved data which matches medarbejder dto.brugernavn object in the database
+        /// </summary>
+        /// <param name="medarbejder"></param>
+        /// <returns></returns>
+        public MedarbejderDTO CheckLogin (MedarbejderDTO medarbejder)
         {
-            var query = _queryBuilder.BuildQuery(medarbejder); // Anders 
+            var query = _queryBuilder.BuildQuery(medarbejder); 
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionInfo.Connectionstring))
@@ -35,7 +40,14 @@ namespace DataAccessLogic
             }
             catch (SqlException e)
             {
-                Console.WriteLine(e.Message)
+                Console.WriteLine(e.Message);
 
+            }
+            return medarbejder; 
+        }
     }
 }
+
+        
+    
+

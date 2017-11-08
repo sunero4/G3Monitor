@@ -20,7 +20,8 @@ namespace BusinessLogic
 
         public bool CheckLogin(MedarbejderDTO medarbejder)
         {
-            return _iDataAccess.CheckLogin(medarbejder);
+            return _login.CheckLogin(medarbejder, _iDataAccess.CheckLogin(medarbejder));
+            
         }
 
         public byte[] GetSalt(MedarbejderDTO medarbejder)
