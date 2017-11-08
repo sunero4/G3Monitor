@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    class VoltageToPressureConversion
+    public class VoltageToPressureConversion
     {
         private readonly double _supplyVoltage;
         private readonly double _sensitivy;

@@ -7,9 +7,15 @@ using DTO;
 
 namespace BusinessLogic
 {
-    class Nulpunktsjustering
+    public class Nulpunktsjustering
     {
         private VoltageToPressureConversion _conversion;
+
+        public Nulpunktsjustering()
+        {
+            _conversion = new VoltageToPressureConversion();
+        }
+
         public NulpunktsjusteringDTO PerformAdjustment(double voltage)
         {
             var result = new NulpunktsjusteringDTO()

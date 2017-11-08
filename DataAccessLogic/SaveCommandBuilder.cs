@@ -20,7 +20,7 @@ namespace DataAccessLogic
         {
             var parameters = new List<string>();
 
-            Type type = patient.GetType();
+            Type type = patient.Maalinger.GetType();
 
             foreach (var property in type.GetProperties())
             {
@@ -46,7 +46,8 @@ namespace DataAccessLogic
 
             for (int i = 1, n = type.GetProperties().Length; i < n; i++)
             {
-                cmd.Parameters.AddWithValue(parameters[i - 1], conn);
+                var prop = type.GetProperties();
+                cmd.Parameters.AddWithValue(parameters[i], type.GetProperties()[i].GetValue(patient.Maalinger, null));
             }
 
             return cmd;
