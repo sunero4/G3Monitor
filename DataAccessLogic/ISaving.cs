@@ -7,7 +7,7 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    interface ISaving
+    public interface ISaving
     {
         void SaveBloodPressureData(PatientDTO patient);
 
