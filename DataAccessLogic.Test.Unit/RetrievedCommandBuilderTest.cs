@@ -30,7 +30,7 @@ namespace DataAccessLogic.Test.Unit
         }
 
         [Test]
-        public void fkffk_fkkf_kfkf()
+        public void BuildCommand_MedarbejderDTO_MedarbejderCommandIsTrue()
         {
             var cmd = _uut.BuildCommand(_medarbejderDto,new SqlConnection(),"" ); 
             Assert.That(cmd.Parameters == _cmd.Parameters, Is.EqualTo(true));
