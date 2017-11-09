@@ -52,11 +52,11 @@ namespace PresentationLogic
 
                 if (validerLogin)
                     {
-                        MessageBox.Show("Ikke gyldigt login, prøv igen. ");
+                        MessageBox.Show("Brugernavn eller password er forkert, prøv igen. ");
                     }
             }
 
-            // Tekniker Ikke færdig 
+            // Tekniker Ikke færdig, mangler forbindelsen til kalibrering 
             
             
             if (rbtnTekniker.Checked && txtBrugernavn.Text.Length == 8 )
@@ -80,7 +80,7 @@ namespace PresentationLogic
 
                 if (validerLogin)
                 {
-                    MessageBox.Show("Ikke gyldigt login, prøv igen. ");
+                    MessageBox.Show("Brugernavn eller password er forkert, prøv igen.. ");
                 }
             }
         }

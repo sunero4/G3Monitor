@@ -26,6 +26,15 @@ namespace DataAccessLogic
         /// <returns></returns>
         public MedarbejderDTO CheckLogin (MedarbejderDTO medarbejder)
         {
+            MedarbejderDTO medarbejderOut;
+            if (medarbejder.GetType() == new OPSygeplejerskeDTO().GetType())
+            {
+                medarbejderOut = new OPSygeplejerskeDTO();
+            }
+            else
+            {
+                medarbejderOut = new TeknikerDTO();
+            }
             var query = _queryBuilder.BuildQuery(medarbejder); 
             try
             {
@@ -34,7 +43,16 @@ namespace DataAccessLogic
                     conn.Open();
                     using (SqlCommand cmd = _commandBuilder.BuildCommand(medarbejder, conn, query))
                     {
-                        cmd.ExecuteNonQuery();
+                        using (SqlDataReader rdr = cmd.ExecuteReader())
+                        {
+                            while (rdr.Read())
+                            {
+                                medarbejderOut.Brugernavn = rdr.GetString(rdr.GetOrdinal("Brugernavn"));
+                                medarbejderOut.HashedPassword = (byte[]) rdr["HashedPassword"];
+                            }
+
+
+                        }
                     }
                 }
             }
@@ -43,7 +61,7 @@ namespace DataAccessLogic
                 Console.WriteLine(e.Message);
 
             }
-            return medarbejder; 
+            return medarbejderOut; 
         }
     }
 }

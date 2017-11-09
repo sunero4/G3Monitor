@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
+
 namespace DataAccessLogic.Test.Unit
 {
 
     [TestFixture]
-    class BrugerValideringTest
+    class RetrievedDataTest
     {
 
 
