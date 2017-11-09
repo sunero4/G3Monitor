@@ -16,6 +16,7 @@ namespace DataAccessLogic
 
         public RetrivedQueryBuilder()
         {
+            
             ColumnNames = new List<string>() { "Brugernavn", "HashedPassword", "Salt" };
         }
 
@@ -25,11 +26,11 @@ namespace DataAccessLogic
         /// </summary>
         /// <param name="medarbejder">medarbejder dto object with properties to be used for naming parameters</param>
         /// <returns>SQL Select from query</returns>
-        public string BuildQuery(MedarbejderDTO medarbejder)
+        public string BuildQuery(MedarbejderDTO medarbejder, string tableName)
         {
-       
+            Tablename = tableName;
             _builder = new StringBuilder();
-            _builder.Append("select * from = " + Tablename + " where Brugernavn = @brugernavn"); 
+            _builder.Append("select * from " + Tablename + " where Brugernavn = @brugernavn"); 
             return _builder.ToString();
         }
 

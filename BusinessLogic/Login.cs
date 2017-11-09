@@ -9,7 +9,7 @@ using Interfaces;
 
 namespace BusinessLogic
 {
-    class Login
+    public class Login
     {
         // Lav en metode der tjekker om første parameter er lig anden parameter (DTO parameter med retrieved data) 
         // herved tjekker vi om der findes en bruger og om password eksitere 

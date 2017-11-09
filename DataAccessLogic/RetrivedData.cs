@@ -8,7 +8,7 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    class RetrivedData : IRetrivedData
+    public class RetrivedData : IRetrivedData
     {
         private ICommandBuilderMedarbejder _commandBuilder;
         private IQueryBuilderMedarbejder _queryBuilder;
@@ -27,15 +27,18 @@ namespace DataAccessLogic
         public MedarbejderDTO CheckLogin (MedarbejderDTO medarbejder)
         {
             MedarbejderDTO medarbejderOut;
+            string tableName;
             if (medarbejder.GetType() == new OPSygeplejerskeDTO().GetType())
             {
                 medarbejderOut = new OPSygeplejerskeDTO();
+                tableName = "OPsygeplerjske"; 
             }
             else
             {
                 medarbejderOut = new TeknikerDTO();
+                tableName = "Tekniker"; 
             }
-            var query = _queryBuilder.BuildQuery(medarbejder); 
+            var query = _queryBuilder.BuildQuery(medarbejder, tableName); 
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionInfo.Connectionstring))

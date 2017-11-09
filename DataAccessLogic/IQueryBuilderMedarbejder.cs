@@ -7,8 +7,8 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    interface IQueryBuilderMedarbejder
+    public interface IQueryBuilderMedarbejder
     {
-        string BuildQuery(MedarbejderDTO medarbejder);
+        string BuildQuery(MedarbejderDTO medarbejder, string tableName);
     }
 }

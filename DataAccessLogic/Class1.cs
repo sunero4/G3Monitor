@@ -9,10 +9,9 @@ namespace DataAccessLogic
 {
     class Class1
     {
-
-        NI_DAQVoltage daq = new NI_DAQVoltage()
+        private NI_DAQVoltage daq = new NI_DAQVoltage()
         {
-            
-        }
+
+        };
     }
 }

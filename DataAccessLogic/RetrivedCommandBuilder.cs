@@ -12,19 +12,7 @@ namespace DataAccessLogic
     {
 
 
-        /// <summary>
-        /// Generates name for the parameter from medarbejder.Brugernavn property
-        /// </summary>
-        /// <param name="medarbejder">Medarbejder dto object with property to be used for the parameter</param>
-        /// <returns>parameteren for medarbejder at [0] witch is Brugernavn</returns>
-        public string GetParameters(MedarbejderDTO medarbejder)
-            {
-                Type type = medarbejder.GetType();
 
-                string param = "@" + type.GetProperties()[0].Name.ToLower();
-
-                return param;
-            }
 
         /// <summary>
         /// Aads SQl parameters to an SQL command 
@@ -36,9 +24,8 @@ namespace DataAccessLogic
         public SqlCommand BuildCommand(MedarbejderDTO medarbejder, SqlConnection conn, string query)
             {
                 var cmd = new SqlCommand(query, conn);
-                var param = GetParameters(medarbejder);
 
-                cmd.Parameters.AddWithValue(param, conn);
+                cmd.Parameters.AddWithValue("@brugernavn", medarbejder.Brugernavn);
 
                 return cmd;
             }

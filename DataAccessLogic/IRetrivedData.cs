@@ -7,7 +7,7 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    interface IRetrivedData
+    public interface IRetrivedData
     {
 
         MedarbejderDTO CheckLogin(MedarbejderDTO medarbejder);
