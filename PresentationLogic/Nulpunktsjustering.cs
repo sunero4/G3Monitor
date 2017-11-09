@@ -8,19 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
+using Interfaces;
 
 namespace PresentationLogic
 {
     public partial class Nulpunktsjustering : Form
     {
-        public Nulpunktsjustering()
+        private IBusinessLogic _businessLogic;
+        private NulpunktsjusteringDTO _nulpunkt;
+        public Nulpunktsjustering(IBusinessLogic businessLogic)
         {
             InitializeComponent();
+            _businessLogic = businessLogic;
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            
+            _nulpunkt = _businessLogic.PerformAdjustment();
         }
     }
 }

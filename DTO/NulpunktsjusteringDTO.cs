@@ -8,20 +8,21 @@ namespace DTO
 {
     public class NulpunktsjusteringDTO
     {
-        private int _nulpunktsjustering;
+        private double _nulpunktsjustering;
 
-        public int Nulpunktsjustering
+        public double Nulpunktsjustering
         {
             get => _nulpunktsjustering;
             set   
             {
                 if (value > 0)
                 {
-                    Nulpunktsjustering = value;
+                    _nulpunktsjustering = value;
                     // Skriv andre evt restriktioner 
                 }
             }
         }
     }
     
+
 }

@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace DataAccessLogic
 {
-    static class ConnectionInfo
+    public static class ConnectionInfo
     {
-        public static string Connectionstring = "F17ST2ITS2201608531";
+        private const string DBLocal = "F17ST2ITS2201608531";
+        public static string Connectionstring = "Data Source=i4dab.ase.au.dk;Initial Catalog=" + DBLocal + ";Persist Security Info=True;User ID=" + DBLocal + ";Password=" + DBLocal + "";
+
 
     }
 }

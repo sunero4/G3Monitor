@@ -11,13 +11,16 @@ namespace DataAccessLogic
     class SCDataAcess: IDataAccess
 
     {
-        private IRetrivedData retrivedData; 
-        private Salt salt; 
+        private LoginData _loginData;
+        private Salt _salt;
+        private IDaqMeasurement _daqMeasurement;
 
         public SCDataAcess()
         {
             retrivedData = new RetrivedData();
             salt = new Salt();
+            _loginData = new LoginData();
+            _salt = new Salt();
         }
 
         public MedarbejderDTO CheckLogin(MedarbejderDTO medarbejder)
@@ -27,7 +30,14 @@ namespace DataAccessLogic
 
         public byte[] GetSalt(MedarbejderDTO medarbejder)
         {
-            return salt.GetSalt(medarbejder); 
+            return _salt.GetSalt(medarbejder); 
+        }
+
+        public double GetVoltage()
+        {
+            var daq = new DAQ();
+            _daqMeasurement = new DaqMeasurementNulpunkt(daq.GetDaq());
+            return _daqMeasurement.GetVoltage();
         }
     }
 

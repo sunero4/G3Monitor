@@ -55,6 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrugerValideringTest.cs" />
+
+    <Compile Include="RetrievedDataTest.cs" />
     <Compile Include="RetrievedCommandBuilderTest.cs" />
     <Compile Include="CommandBuilderTests.cs" />
     <Compile Include="DatabaseSavingTests.cs" />

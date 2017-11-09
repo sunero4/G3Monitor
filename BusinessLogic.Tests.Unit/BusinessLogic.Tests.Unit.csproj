@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LoginTest.cs" />
+    <Compile Include="NulpunktsjusteringTests.cs" />
     <Compile Include="PasswordSecurityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
