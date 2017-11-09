@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ST2Prj2LibNI_DAQ;
+using DTO;
 
 namespace DataAccessLogic
 {
-    class Class1
+    public interface IRetrivedData
     {
-        private NI_DAQVoltage daq = new NI_DAQVoltage()
-        {
 
-        };
+        MedarbejderDTO CheckLogin(MedarbejderDTO medarbejder);
+
     }
 }

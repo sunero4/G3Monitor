@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4B1F2CE6-E5B7-4174-BF52-3C1CC13DB93A}</ProjectGuid>
+    <ProjectGuid>{DCACBEA0-A5C9-4E56-B74B-5ED9EB4978DA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DTO</RootNamespace>
-    <AssemblyName>DTO</AssemblyName>
+    <RootNamespace>BusinessLogic.Tests.Unit</RootNamespace>
+    <AssemblyName>BusinessLogic.Tests.Unit</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=3.8.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.8.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,13 +43,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MaalingDTO.cs" />
-    <Compile Include="MedarbejderDTO.cs" />
-    <Compile Include="NulpunktsjusteringDTO.cs" />
-    <Compile Include="OPSygeplejerskeDTO.cs" />
-    <Compile Include="PatientDTO.cs" />
+    <Compile Include="LoginTest.cs" />
+    <Compile Include="PasswordSecurityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TeknikerDTO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{1fcb8901-6de9-4a84-a261-4fbbb2a85382}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{4b1f2ce6-e5b7-4174-bf52-3c1cc13db93a}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

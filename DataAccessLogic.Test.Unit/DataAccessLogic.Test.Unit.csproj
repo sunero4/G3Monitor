@@ -4,11 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9F43BC7F-F112-46A5-89BE-AF91083B538C}</ProjectGuid>
+    <ProjectGuid>{C15EBCB2-5AAF-4615-90EE-C775B3B1EE5B}</ProjectGuid>
+    <ProjectGuid>{C15EBCB2-5AAF-4615-90EE-C775B3B1EE5B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataAccessLogic</RootNamespace>
-    <AssemblyName>DataAccessLogic</AssemblyName>
+    <RootNamespace>DataAccessLogic.Test.Unit</RootNamespace>
+    <AssemblyName>DataAccessLogic.Test.Unit</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,11 +32,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ST2Prj2LibNI-DAQ">
-      <HintPath>..\..\..\..\Downloads\ST2PRJ2Support\ST2Prj2LibNI-DAQ\bin\Debug\ST2Prj2LibNI-DAQ.dll</HintPath>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NSubstitute, Version=3.1.0.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\NSubstitute.3.1.0\lib\net45\NSubstitute.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.8.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.8.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,34 +55,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICommandBuilderMedarbejder.cs" />
-    <Compile Include="IQueryBuilderMedarbejder.cs" />
-    <Compile Include="RetrivedData.cs" />
-    <Compile Include="IRetrivedData.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="ConnectionInfo.cs" />
-    <Compile Include="FileInformation.cs" />
-    <Compile Include="FileSaving.cs" />
-    <Compile Include="ICommandBuilder.cs" />
-    <Compile Include="IQueryBuilder.cs" />
-    <Compile Include="ISaving.cs" />
-    <Compile Include="DatabaseSaving.cs" />
-    <Compile Include="RetrivedCommandBuilder.cs" />
-    <Compile Include="RetrivedQueryBuilder.cs" />
-    <Compile Include="SaveCommandBuilder.cs" />
-    <Compile Include="SaveQueryBuilder.cs" />
+    <Compile Include="RetrievedCommandBuilderTest.cs" />
+    <Compile Include="CommandBuilderTests.cs" />
+    <Compile Include="DatabaseSavingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Salt.cs" />
-    <Compile Include="SCDataAcess.cs" />
+    <Compile Include="QueryBuilderTests.cs" />
+    <Compile Include="RetrievedQueryBuilderTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLogic\DataAccessLogic.csproj">
+      <Project>{9f43bc7f-f112-46a5-89be-af91083b538c}</Project>
+      <Name>DataAccessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{4b1f2ce6-e5b7-4174-bf52-3c1cc13db93a}</Project>
       <Name>DTO</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
-      <Project>{8b757f6a-8716-4203-81da-093d9e2f832a}</Project>
-      <Name>Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

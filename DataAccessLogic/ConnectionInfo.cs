@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ST2Prj2LibNI_DAQ;
 
 namespace DataAccessLogic
 {
-    class Class1
+    static class ConnectionInfo
     {
-        private NI_DAQVoltage daq = new NI_DAQVoltage()
-        {
+        public static string Connectionstring = "F17ST2ITS2201608531";
 
-        };
     }
 }

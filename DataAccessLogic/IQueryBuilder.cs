@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTO;
 
-namespace BusinessLogic
+namespace DataAccessLogic
 {
-    public class Class1
+    public interface IQueryBuilder
     {
-        //Hej jeg hedder Anders
-
-        // Ændringer sker 
-        // wuhu 
+        string BuildQuery(PatientDTO patient);
     }
 }
