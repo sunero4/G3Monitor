@@ -17,13 +17,15 @@ namespace DataAccessLogic
 
         public SCDataAcess()
         {
+            retrivedData = new RetrivedData();
+            salt = new Salt();
             _loginData = new LoginData();
             _salt = new Salt();
         }
 
-        public bool CheckLogin(MedarbejderDTO medarbejder)
+        public MedarbejderDTO CheckLogin(MedarbejderDTO medarbejder)
         {
-            return _loginData.CheckLogin(medarbejder);
+            return retrivedData.CheckLogin(medarbejder);
         }
 
         public byte[] GetSalt(MedarbejderDTO medarbejder)

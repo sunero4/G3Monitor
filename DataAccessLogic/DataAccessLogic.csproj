@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICommandBuilderMedarbejder.cs" />
+    <Compile Include="IQueryBuilderMedarbejder.cs" />
+    <Compile Include="RetrivedData.cs" />
     <Compile Include="DAQ.cs" />
     <Compile Include="DaqMeasurementNulpunkt.cs" />
     <Compile Include="DatabaseLogin.cs" />
@@ -55,6 +58,8 @@
     <Compile Include="IQueryBuilder.cs" />
     <Compile Include="ISaving.cs" />
     <Compile Include="DatabaseSaving.cs" />
+    <Compile Include="RetrivedCommandBuilder.cs" />
+    <Compile Include="RetrivedQueryBuilder.cs" />
     <Compile Include="SaveCommandBuilder.cs" />
     <Compile Include="SaveQueryBuilder.cs" />
     <Compile Include="LoginData.cs" />
