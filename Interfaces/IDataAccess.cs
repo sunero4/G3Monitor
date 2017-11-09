@@ -9,7 +9,7 @@ namespace Interfaces
 {
     public interface IDataAccess
     {
-        bool CheckLogin(MedarbejderDTO medarbejder);
+        MedarbejderDTO CheckLogin(MedarbejderDTO medarbejder);
 
 
         byte[] GetSalt(MedarbejderDTO medarbejder);

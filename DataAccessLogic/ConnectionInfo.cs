@@ -8,7 +8,7 @@ namespace DataAccessLogic
 {
     static class ConnectionInfo
     {
-        public static string Connectionstring = "";
+        public static string Connectionstring = "F17ST2ITS2201608531";
 
     }
 }

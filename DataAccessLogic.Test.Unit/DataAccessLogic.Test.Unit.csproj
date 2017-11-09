@@ -4,20 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-
     <ProjectGuid>{C15EBCB2-5AAF-4615-90EE-C775B3B1EE5B}</ProjectGuid>
-
-    <ProjectGuid>{3E1ADD32-E584-4C42-9502-B82AD939C46E}</ProjectGuid>
-
+    <ProjectGuid>{C15EBCB2-5AAF-4615-90EE-C775B3B1EE5B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DataAccessLogic.Test.Unit</RootNamespace>
     <AssemblyName>DataAccessLogic.Test.Unit</AssemblyName>
-
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -52,19 +46,20 @@
   </ItemGroup>
   <ItemGroup>
 
+    <Compile Include="RetrievedDataTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+
+
     <Compile Include="BrugerValideringTest.cs" />
 
     <Compile Include="CommandBuilderTests.cs" />
     <Compile Include="DatabaseSavingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryBuilderTests.cs" />
-
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-
-
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLogic\DataAccessLogic.csproj">
       <Project>{9f43bc7f-f112-46a5-89be-af91083b538c}</Project>
@@ -75,6 +70,5 @@
       <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
-
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

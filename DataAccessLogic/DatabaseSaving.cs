@@ -12,7 +12,7 @@ namespace DataAccessLogic
     {
         private ICommandBuilder _commandBuilder;
         private IQueryBuilder _queryBuilder;
-
+        
         public DatabaseSaving()
         {
             _commandBuilder = new SaveCommandBuilder();
