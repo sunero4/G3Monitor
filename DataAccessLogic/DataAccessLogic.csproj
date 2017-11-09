@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalibrationRetrieval.cs" />
     <Compile Include="ICommandBuilderMedarbejder.cs" />
+    <Compile Include="ICalibrationDataRetrieval.cs" />
     <Compile Include="IQueryBuilderMedarbejder.cs" />
     <Compile Include="RetrivedData.cs" />
     <Compile Include="DAQ.cs" />
