@@ -47,11 +47,6 @@
   <ItemGroup>
 
     <Compile Include="RetrievedDataTest.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-
-
-    <Compile Include="BrugerValideringTest.cs" />
-
     <Compile Include="CommandBuilderTests.cs" />
     <Compile Include="DatabaseSavingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
