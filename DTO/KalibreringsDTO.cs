@@ -10,5 +10,7 @@ namespace DTO
     {
         public List<int> ExpectedValue { get; set; }
         public List<int> ActualValue { get; set; }
+        public DateTime Time { get; set; }
+        public string Technician { get; set; }
     }
 }
