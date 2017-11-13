@@ -8,11 +8,11 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    class DatabaseSaving : ISaving
+    public class DatabaseSaving : ISaving
     {
         private ICommandBuilder _commandBuilder;
         private IQueryBuilder _queryBuilder;
-
+        
         public DatabaseSaving()
         {
             _commandBuilder = new SaveCommandBuilder();

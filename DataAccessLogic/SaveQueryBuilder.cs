@@ -15,16 +15,16 @@ namespace DataAccessLogic
 
         public SaveQueryBuilder()
         {
+            Tablename = "Maaling";
             ColumnNames = new List<string>() {"CPR", "Måledata", "Kommentar", "Maaletidspunkt"};
         }
 
         /// <summary>
-        /// Builds an Sql INSERT query from a predefined list of columnnames and property names on the patient dto
-        /// object
+        /// Builds an Sql INSERT query from a predefined list of columnnames
         /// </summary>
         /// <param name="patient">Patient dto object with properties to be used for naming parameters</param>
         /// <returns>Sql INSERT query</returns>
-        public string BuildQuery(PatientDTO patient)
+        public string BuildQuery(MedarbejderDTO patient)
         {
             _builder = new StringBuilder();
             _builder.Append("INSERT INTO " + Tablename + "(");
@@ -36,18 +36,7 @@ namespace DataAccessLogic
                 if (i == n - 1)
                     _builder.Append(ColumnNames[i] + ") ");
             }
-            _builder.Append("VALUES (");
-
-            Type type = patient.Maalinger.GetType();
-
-            //Skip the first property as it contains the ID that is automatically incremented in the database
-            for (int i = 1, n = type.GetProperties().Length; i < n; i++)
-            {
-                if(i < n - 1)
-                    _builder.Append("@" + type.GetProperties()[i].Name.ToLower() + ", ");
-                if (i == n - 1)
-                    _builder.Append("@" + type.GetProperties()[i].Name.ToLower() + ")");
-            }
+            _builder.Append("VALUES (@cpr, @maaledata, @kommentar, @maaletidspunkt)");
 
             return _builder.ToString();
         }

@@ -17,5 +17,7 @@ namespace Interfaces
 
         byte[] HashAndSaltPassword(string password, byte[] salt);
 
+        NulpunktsjusteringDTO PerformAdjustment();
+
     }
 }
