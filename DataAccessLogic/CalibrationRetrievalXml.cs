@@ -25,9 +25,11 @@ namespace DataAccessLogic
 
             var result = (from x in calibrations.Element("Calibrations").Elements("Calibration")
                 select (string)x.Attribute("Technician")).First();
-            Console.WriteLine(result);
 
-
+            var kal = new KalibreringsDTO()
+            {
+                
+            }
         }
     }
 }
