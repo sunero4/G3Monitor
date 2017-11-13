@@ -19,12 +19,9 @@ namespace DataAccessLogic
 
                 var e = xDoc.Root;
 
-                if (e != null)
-                {
-                    e.Add(new XElement("Calibration",
-                        new XAttribute("Time", kalibrering.Time.Date),
-                        new XAttribute("Technician", kalibrering.Technician)));
-                }
+                e?.Add(new XElement("Calibration",
+                    new XAttribute("Time", kalibrering.Time.Date),
+                    new XAttribute("Technician", kalibrering.Technician)));
 
                 var e1 = xDoc.Descendants("Calibration")
                     .FirstOrDefault(x => (DateTime)x.Attribute("Time") == kalibrering.Time);
