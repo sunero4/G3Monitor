@@ -44,6 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Kalibrering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kalibrering.Designer.cs">
+      <DependentUpon>Kalibrering.cs</DependentUpon>
+    </Compile>
     <Compile Include="Måling.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Kalibrering.resx">
+      <DependentUpon>Kalibrering.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Måling.resx">
       <DependentUpon>Måling.cs</DependentUpon>
     </EmbeddedResource>

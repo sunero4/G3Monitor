@@ -57,13 +57,17 @@
   <ItemGroup>
     <Compile Include="BrugerValideringTest.cs" />
 
+
     <Compile Include="RetrievedDataTest.cs" />
     <Compile Include="RetrievedCommandBuilderTest.cs" />
+
     <Compile Include="CommandBuilderTests.cs" />
     <Compile Include="DatabaseSavingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryBuilderTests.cs" />
+
     <Compile Include="RetrievedQueryBuilderTest.cs" />
+
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
