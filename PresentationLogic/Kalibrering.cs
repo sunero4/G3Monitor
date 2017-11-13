@@ -8,14 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using Interfaces;
 
 namespace PresentationLogic
 {
     public partial class Kalibrering : Form
     {
-        public Kalibrering()
+        private IBusinessLogic _iBusinessLogic;
+        public Kalibrering(IBusinessLogic iBusiness)
         {
             InitializeComponent();
+            _iBusinessLogic = iBusiness;
         }
         private void btnAfslutKali_Click(object sender, EventArgs e)
         {
@@ -25,11 +28,17 @@ namespace PresentationLogic
             }
   
         }
+
+      
         private void btnNyMåling_Click(object sender, EventArgs e)
         {
             txtIndtastTryk.Clear();
             txtMåltTryk.Clear();
-           
+            
+          
+                  // _kalibreringsDto.addValue(_iDataAccess.getSingleReading());
+               
+
         }
         private void btnSletMåling_Click(object sender, EventArgs e)
         {
