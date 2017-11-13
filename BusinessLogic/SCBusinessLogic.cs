@@ -46,5 +46,6 @@ namespace BusinessLogic
             var voltage = _iDataAccess.GetVoltage();
             return _nulpunkt.PerformAdjustment(voltage);
         }
+        public KalibreringsDTO 
     }
 }

@@ -8,19 +8,18 @@ using Interfaces;
 
 namespace DataAccessLogic
 {
-    class SCDataAcess: IDataAccess
+    public class SCDataAcess: IDataAccess
 
     {
-        private LoginData _loginData;
+        private RetrivedData retrivedData;
         private Salt _salt;
         private IDaqMeasurement _daqMeasurement;
 
         public SCDataAcess()
         {
             retrivedData = new RetrivedData();
-            salt = new Salt();
-            _loginData = new LoginData();
             _salt = new Salt();
+         
         }
 
         public MedarbejderDTO CheckLogin(MedarbejderDTO medarbejder)
