@@ -44,8 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalibrationRetrievalXml.cs" />
+    <Compile Include="ClearXmlFileContent.cs" />
     <Compile Include="ICommandBuilderMedarbejder.cs" />
     <Compile Include="ICalibrationDataRetrieval.cs" />
+    <Compile Include="IDataRemoval.cs" />
     <Compile Include="IQueryBuilderMedarbejder.cs" />
     <Compile Include="ISaveCalibration.cs" />
     <Compile Include="RetrivedData.cs" />
