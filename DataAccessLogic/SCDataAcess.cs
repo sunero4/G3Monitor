@@ -14,6 +14,7 @@ namespace DataAccessLogic
         private RetrivedData retrivedData;
         private Salt _salt;
         private IDaqMeasurement _daqMeasurement;
+        private SaveCalibrationXml _saveCalibrationXml;
 
         public SCDataAcess()
         {
@@ -25,6 +26,11 @@ namespace DataAccessLogic
         public MedarbejderDTO CheckLogin(MedarbejderDTO medarbejder)
         {
             return retrivedData.CheckLogin(medarbejder);
+        }
+
+        public void SaveCalibration(KalibreringsDTO kalibrering)
+        {
+            _saveCalibrationXml.Save(kalibrering);
         }
 
         public byte[] GetSalt(MedarbejderDTO medarbejder)

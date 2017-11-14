@@ -29,15 +29,15 @@ namespace BusinessLogic
             List<double> actual = _kalibreringsDto.ActualValue.Select<int, double>(i => i).ToList();
 
             OrdinaryLeastSquares ols = new OrdinaryLeastSquares();
-            SimpleLinearRegression _linearRegression = ols.Learn(expected.ToArray(), actual.ToArray());
+            SimpleLinearRegression linearRegression = ols.Learn(expected.ToArray(), actual.ToArray());
 
-            double slope = _linearRegression.Slope;
-            double intercept = _linearRegression.Intercept;
+            double slope = linearRegression.Slope;
+            double intercept = linearRegression.Intercept;
 
             _kalibreringsDto.Slope = slope;
             _kalibreringsDto.Intercept = intercept;
 
-            _iDataAccess.uploadCalibation(_kalibreringsDto); // opdateres af Anders - evt. andet metodenavn
+            _iDataAccess.SaveCalibration(_kalibreringsDto);
         }
     }
 }

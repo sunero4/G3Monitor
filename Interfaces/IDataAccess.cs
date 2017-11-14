@@ -12,7 +12,7 @@ namespace Interfaces
     {
         MedarbejderDTO CheckLogin(MedarbejderDTO medarbejder);
 
-
+        void SaveCalibration(KalibreringsDTO kalibrering);
         byte[] GetSalt(MedarbejderDTO medarbejder);
         double GetVoltage();
 
