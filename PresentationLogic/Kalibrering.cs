@@ -28,8 +28,6 @@ namespace PresentationLogic
             }
   
         }
-
-      
         private void btnNyMåling_Click(object sender, EventArgs e)
         {
             txtIndtastTryk.Clear();

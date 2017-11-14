@@ -44,9 +44,10 @@
             this.chartMåltTryk = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.ListBoxMåltTryk = new System.Windows.Forms.ListBox();
             this.btnAfslutKali = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtR2Værdi = new System.Windows.Forms.TextBox();
             this.btnSletMåling = new System.Windows.Forms.Button();
+            this.ScrollBarHældning = new System.Windows.Forms.VScrollBar();
+            this.txtHældningskoefficient = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartMåltTryk)).BeginInit();
             this.SuspendLayout();
@@ -146,7 +147,7 @@
             legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
             legend1.Name = "Legend1";
             this.chartMåltTryk.Legends.Add(legend1);
-            this.chartMåltTryk.Location = new System.Drawing.Point(234, 135);
+            this.chartMåltTryk.Location = new System.Drawing.Point(221, 135);
             this.chartMåltTryk.Name = "chartMåltTryk";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -181,23 +182,6 @@
             this.btnAfslutKali.UseVisualStyleBackColor = true;
             this.btnAfslutKali.Click += new System.EventHandler(this.btnAfslutKali_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(573, 139);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(141, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "R^2-værdi for det målte tryk:";
-            // 
-            // txtR2Værdi
-            // 
-            this.txtR2Værdi.Location = new System.Drawing.Point(576, 162);
-            this.txtR2Værdi.Name = "txtR2Værdi";
-            this.txtR2Værdi.ReadOnly = true;
-            this.txtR2Værdi.Size = new System.Drawing.Size(57, 20);
-            this.txtR2Værdi.TabIndex = 5;
-            // 
             // btnSletMåling
             // 
             this.btnSletMåling.Location = new System.Drawing.Point(19, 379);
@@ -208,14 +192,38 @@
             this.btnSletMåling.UseVisualStyleBackColor = true;
             this.btnSletMåling.Click += new System.EventHandler(this.btnSletMåling_Click);
             // 
+            // ScrollBarHældning
+            // 
+            this.ScrollBarHældning.Location = new System.Drawing.Point(620, 151);
+            this.ScrollBarHældning.Name = "ScrollBarHældning";
+            this.ScrollBarHældning.Size = new System.Drawing.Size(14, 20);
+            this.ScrollBarHældning.TabIndex = 15;
+            // 
+            // txtHældningskoefficient
+            // 
+            this.txtHældningskoefficient.Location = new System.Drawing.Point(566, 151);
+            this.txtHældningskoefficient.Name = "txtHældningskoefficient";
+            this.txtHældningskoefficient.Size = new System.Drawing.Size(51, 20);
+            this.txtHældningskoefficient.TabIndex = 14;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(563, 135);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(148, 13);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Juster hældningskoefficienten";
+            // 
             // Kalibrering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(727, 454);
-            this.Controls.Add(this.btnSletMåling);
-            this.Controls.Add(this.txtR2Værdi);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.ScrollBarHældning);
+            this.Controls.Add(this.txtHældningskoefficient);
+            this.Controls.Add(this.btnSletMåling);
             this.Controls.Add(this.btnAfslutKali);
             this.Controls.Add(this.ListBoxMåltTryk);
             this.Controls.Add(this.chartMåltTryk);
@@ -244,9 +252,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAfslutKali;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtR2Værdi;
         private System.Windows.Forms.Button btnNyMåling;
         private System.Windows.Forms.Button btnSletMåling;
+        private System.Windows.Forms.VScrollBar ScrollBarHældning;
+        private System.Windows.Forms.TextBox txtHældningskoefficient;
+        private System.Windows.Forms.Label label3;
     }
 }
