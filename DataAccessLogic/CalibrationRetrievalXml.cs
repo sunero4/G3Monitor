@@ -41,17 +41,29 @@ namespace DataAccessLogic
         }
 
 
+        /// <summary>
+        /// Gets the username of the technician who made the calibration
+        /// </summary>
+        /// <param name="closestTime">The time for the most recent calibration</param>
+        /// <param name="calibrations">The XDocument containing the calibration data</param>
+        /// <returns>Name of the technician who made the calibration corresponding to the
+        /// closestTime parameter</returns>
         private string GetTechnician(DateTime closestTime, XDocument calibrations)
         {
             var tech = (from x in calibrations.Element("Calibrations")?.Elements("Calibration")
                 where (DateTime)x.Attribute("Time") == closestTime
                 select (string)x.Attribute("Technician")).First();
 
-            byte[] mtinn = new byte[5];
-
             return tech;
         }
 
+        /// <summary>
+        /// Gets all expected values from a certain calibration
+        /// </summary>
+        /// <param name="closestTime">The time for the most recent calibration</param>
+        /// <param name="calibrations">The XDocument containing the calibration data</param>
+        /// <returns>All expected values from the calibration corresponding to the
+        /// closestTime parameter</returns>
         private List<int> GetExpectedValues(DateTime closestTime, XDocument calibrations)
         {
             var exp = (from x in calibrations.Elements("Calibrations").Elements("Calibration")
@@ -62,6 +74,12 @@ namespace DataAccessLogic
             return exp;
         }
 
+        /// <summary>
+        /// Gets all actual values from a certain calibration
+        /// </summary>
+        /// <param name="closestTime">The time for the most recent calibration</param>
+        /// <param name="calibrations">The XDocument containing the calibration data</param>
+        /// <returns></returns>
         private List<int> GetActualValues(DateTime closestTime, XDocument calibrations)
         {
             var act = (from x in calibrations.Elements("Calibrations").Elements("Calibration")
