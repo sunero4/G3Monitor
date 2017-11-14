@@ -22,9 +22,8 @@ namespace BusinessLogic
             _kalibreringsDto = new KalibreringsDTO();
         }
 
-        public void calibrateSystem()
+        public void CalibrateSystem()
         {
-          
             List<double> expected = _kalibreringsDto.ExpectedValue.Select<int, double>(i => i).ToList();
             List<double> actual = _kalibreringsDto.ActualValue.Select<int, double>(i => i).ToList();
 

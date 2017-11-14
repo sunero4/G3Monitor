@@ -12,7 +12,7 @@ namespace DataAccessLogic
     class SaveCalibrationXml : ISaveCalibration
     {
         /// <summary>
-        /// Saves calibratin data
+        /// Saves calibration data
         /// </summary>
         /// <param name="kalibrering">DTO holding the calibration values</param>
         public void Save(KalibreringsDTO kalibrering)
@@ -33,16 +33,20 @@ namespace DataAccessLogic
                 var e1 = xDoc.Descendants("Calibration")
                     .FirstOrDefault(x => (DateTime)x.Attribute("Time") == kalibrering.Time);
 
-                //Save all the expected and actual values
-                for (int i = 0; i < kalibrering.ActualValue.Count; i++)
+                if (e1 != null)
                 {
-                    var e2 = new XElement("CalibrationValues");
+                    e1.Add(new XElement("Slope", kalibrering.Slope));
+                    e1.Add(new XElement("Intercept", kalibrering.Intercept));
+                    //Save all the expected and actual values
+                    for (int i = 0; i < kalibrering.ActualValue.Count; i++)
+                    {
+                        var e2 = new XElement("CalibrationValues");
 
-                    e2.Add(new XElement("ExpectedValue", kalibrering.ExpectedValue[i]),
-                        new XElement("ActualValue", kalibrering.ActualValue[i]));
+                        e2.Add(new XElement("ExpectedValue", kalibrering.ExpectedValue[i]),
+                            new XElement("ActualValue", kalibrering.ActualValue[i]));
 
-                    //Question mark indicates null checking
-                    e1?.Add(e2);
+                        e1.Add(e2);
+                    }
                 }
 
                 xDoc.Save(FileInformation.FilePath);
