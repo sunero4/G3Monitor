@@ -23,7 +23,7 @@ namespace DataAccessLogic
 
         public PatientDTO HentData(PatientDTO patient)
         {
-            PatientDTO patientOut = new PatientDTO(){Maalinger = new MaalingDTO()};
+            PatientDTO patientOut = new PatientDTO() {ListMaalinger = new List<MaalingDTO>()};
            
             
             
@@ -37,14 +37,17 @@ namespace DataAccessLogic
                     {
                         using (SqlDataReader rdr = cmd.ExecuteReader())
                         {
+                            MaalingDTO maaling = new MaalingDTO();
                             while (rdr.Read())
                             {
                                 patientOut.CPR = rdr.GetString(rdr.GetOrdinal("CPR"));
                                 patientOut.Fornavn = rdr.GetString(rdr.GetOrdinal("Fornavn"));
                                 patientOut.Efternavn = rdr.GetString(rdr.GetOrdinal("Efternavn"));
-                                patientOut.Maalinger.MaaleData = (byte[])rdr["Måledata"];
-                                patientOut.Maalinger.Kommentar = rdr.GetString(rdr.GetOrdinal("Kommentar"));
-                                patientOut.Maalinger.MaaleTidspunkt = rdr.GetDateTime(rdr.GetOrdinal("Maaletidspunkt")); 
+                                maaling.MaaleData = (byte[]) rdr["Måledata"];
+                                maaling.Kommentar = rdr.GetString(rdr.GetOrdinal("Kommentar"));
+                                maaling.MaaleTidspunkt = rdr.GetDateTime(rdr.GetOrdinal("Maaletidspunkt"));
+                                
+                                patientOut.ListMaalinger.Add(maaling);
                             }
 
 
