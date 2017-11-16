@@ -43,6 +43,7 @@
     <Compile Include="KalibreringsDTO.cs" />
     <Compile Include="MaalingDTO.cs" />
     <Compile Include="MedarbejderDTO.cs" />
+    <Compile Include="Monitoreringsindstillinger.cs" />
     <Compile Include="NulpunktsjusteringDTO.cs" />
     <Compile Include="OPSygeplejerskeDTO.cs" />
     <Compile Include="PatientDTO.cs" />
