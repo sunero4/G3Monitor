@@ -15,12 +15,19 @@ namespace DataAccessLogic
         private Salt _salt;
         private IDaqMeasurement _daqMeasurement;
         private SaveCalibrationXml _saveCalibrationXml;
+        private PatientInfoRetrieval _patientInfoRetrieval;
 
         public SCDataAcess()
         {
             retrivedData = new RetrivedData();
             _salt = new Salt();
+            _patientInfoRetrieval = new PatientInfoRetrieval();
          
+        }
+
+        public PatientDTO GetPatientInfo(PatientDTO patient)
+        {
+            return _patientInfoRetrieval.HentData(patient);
         }
 
         public MedarbejderDTO CheckLogin(MedarbejderDTO medarbejder)

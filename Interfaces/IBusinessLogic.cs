@@ -19,5 +19,7 @@ namespace Interfaces
 
         NulpunktsjusteringDTO PerformAdjustment();
 
+        PatientDTO GetPatientInfo(PatientDTO patient);
+
     }
 }

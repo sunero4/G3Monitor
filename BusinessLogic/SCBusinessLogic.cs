@@ -13,15 +13,14 @@ namespace BusinessLogic
     {
         private IDataAccess _iDataAccess;
         private Nulpunktsjustering _nulpunkt;
-        public SCBusinessLogic(IDataAccess iDataAccess)
-        {
         private Login _login;
-       
+   
 
-        public SCBusinessLogic(IDataAccess iDataAccess, Login login)
+        public SCBusinessLogic(IDataAccess iDataAccess)
         {   
             _iDataAccess = iDataAccess;
-            _login = login; 
+            _login = new Login();
+            _nulpunkt = new Nulpunktsjustering();
         }
 
         public bool CheckLogin(MedarbejderDTO medarbejder)
@@ -46,6 +45,16 @@ namespace BusinessLogic
             var voltage = _iDataAccess.GetVoltage();
             return _nulpunkt.PerformAdjustment(voltage);
         }
-        public KalibreringsDTO 
+
+        public PatientDTO GetPatientInfo(PatientDTO patient)
+        {
+            var patientOut = _iDataAccess.GetPatientInfo(patient);
+            return patientOut;
+        }
+
+        public KalibreringsDTO GetCalibration()
+        {
+            
+        }
     }
 }

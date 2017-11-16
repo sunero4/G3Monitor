@@ -50,6 +50,9 @@
     <Compile Include="IDataRemoval.cs" />
     <Compile Include="IQueryBuilderMedarbejder.cs" />
     <Compile Include="ISaveCalibration.cs" />
+    <Compile Include="PatientInfoCommandBuilder.cs" />
+    <Compile Include="PatientInfoQueryBuilder.cs" />
+    <Compile Include="PatientInfoRetrieval.cs" />
     <Compile Include="RetrivedData.cs" />
     <Compile Include="DAQ.cs" />
     <Compile Include="DaqMeasurementNulpunkt.cs" />
