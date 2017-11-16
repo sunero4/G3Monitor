@@ -8,7 +8,7 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    public class RetrivedCommandBuilder : ICommandBuilderMedarbejder 
+    public class RetrivedLoginCommandBuilder : ICommandBuilderMedarbejder 
     {
 
 

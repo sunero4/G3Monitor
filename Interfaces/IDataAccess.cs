@@ -15,6 +15,7 @@ namespace Interfaces
 
         byte[] GetSalt(MedarbejderDTO medarbejder);
         double GetVoltage();
+        PatientDTO HentData(PatientDTO patient);
 
     }
 }

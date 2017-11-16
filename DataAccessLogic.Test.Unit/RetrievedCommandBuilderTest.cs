@@ -24,7 +24,7 @@ namespace DataAccessLogic.Test.Unit
         public void Setup()
         {
             _medarbejderDto = new OPSygeplejerskeDTO();
-           _uut = new RetrivedCommandBuilder();
+           _uut = new RetrivedLoginCommandBuilder();
             _cmd = new SqlCommand();
             _cmd.Parameters.AddWithValue("@brugernavn", _medarbejderDto.Brugernavn);
         }

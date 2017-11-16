@@ -25,8 +25,8 @@ namespace DataAccessLogic.Test.Unit
         {
             _expectedQueryOP = "select * from OPsygeplejerske where Brugernavn = @brugernavn";
             _expectedQueryTek = "select * from Tekniker where Brugernavn = @brugernavn";
-            _queryBuilderMedarbejderOP = new RetrivedQueryBuilder();
-            _queryBuilderMedarbejderTek = new RetrivedQueryBuilder();
+            _queryBuilderMedarbejderOP = new RetrivedLoginQueryBuilder();
+            _queryBuilderMedarbejderTek = new RetrivedLoginQueryBuilder();
 
             _opSygeplejerske = new OPSygeplejerskeDTO()
             {

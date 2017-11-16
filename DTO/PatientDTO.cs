@@ -49,5 +49,7 @@ namespace DTO
         }
 
         public MaalingDTO Maalinger { get; set; }
+
+        public bool FindesData { get; set; } = true; 
     }
 }

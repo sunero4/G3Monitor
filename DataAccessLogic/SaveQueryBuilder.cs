@@ -24,7 +24,7 @@ namespace DataAccessLogic
         /// </summary>
         /// <param name="patient">Patient dto object with properties to be used for naming parameters</param>
         /// <returns>Sql INSERT query</returns>
-        public string BuildQuery(MedarbejderDTO patient)
+        public string BuildQuery(PatientDTO patient)
         {
             _builder = new StringBuilder();
             _builder.Append("INSERT INTO " + Tablename + "(");

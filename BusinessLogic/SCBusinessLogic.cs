@@ -13,15 +13,20 @@ namespace BusinessLogic
     {
         private IDataAccess _iDataAccess;
         private Nulpunktsjustering _nulpunkt;
+        private Login _login;
+        private RetrievedDataDivider _retrievedDataDivider;
+        private DataConverter _dataConverter;
+
         public SCBusinessLogic(IDataAccess iDataAccess)
         {
-        private Login _login;
-       
+        }
 
-        public SCBusinessLogic(IDataAccess iDataAccess, Login login)
-        {   
+        public SCBusinessLogic(IDataAccess iDataAccess, Login login, DataConverter dataConverter, RetrievedDataDivider retrievedDataDivider)
+        {
+            _dataConverter = dataConverter; 
             _iDataAccess = iDataAccess;
-            _login = login; 
+            _login = login;
+            _retrievedDataDivider = retrievedDataDivider;
         }
 
         public bool CheckLogin(MedarbejderDTO medarbejder)
@@ -29,6 +34,28 @@ namespace BusinessLogic
             var medarbejderOut = _iDataAccess.CheckLogin(medarbejder);
             return _login.CheckLogin(medarbejder, medarbejderOut);
             
+        }
+
+        public List<double> ConvertArrayToDoubles(byte[] maaledata)
+        {
+            //var PatientOut = _iDataAccess.HentData(maaledata);
+            return _dataConverter.ConvertArrayToDoubles(maaledata);
+            
+        }
+
+        public PatientDTO HentData(PatientDTO patient)
+        {
+            PatientDTO patientDto = _iDataAccess.HentData(patient);
+            if (patientDto.Maalinger.MaaleData == null)
+            {
+                patientDto.FindesData = false;
+            }
+            return patientDto;
+        }
+
+        public List<MaalingDTO> RetrievedDivider(byte[] bpValues)
+        {
+            return _retrievedDataDivider.RetrievedDivider(bpValues);
         }
 
         public byte[] GetSalt(MedarbejderDTO medarbejder)
@@ -46,6 +73,6 @@ namespace BusinessLogic
             var voltage = _iDataAccess.GetVoltage();
             return _nulpunkt.PerformAdjustment(voltage);
         }
-        public KalibreringsDTO 
+        //public KalibreringsDTO 
     }
 }

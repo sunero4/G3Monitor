@@ -8,15 +8,15 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    public class RetrivedData : IRetrivedData
+    public class RetrivedLoginData : IRetrivedLoginData
     {
         private ICommandBuilderMedarbejder _commandBuilder;
         private IQueryBuilderMedarbejder _queryBuilder;
 
-        public RetrivedData()
+        public RetrivedLoginData()
         {
-            _commandBuilder = new RetrivedCommandBuilder();
-            _queryBuilder = new RetrivedQueryBuilder();
+            _commandBuilder = new RetrivedLoginCommandBuilder();
+            _queryBuilder = new RetrivedLoginQueryBuilder();
         }
 
         /// <summary>

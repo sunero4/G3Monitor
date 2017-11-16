@@ -11,20 +11,27 @@ namespace DataAccessLogic
     public class SCDataAcess: IDataAccess
 
     {
-        private RetrivedData retrivedData;
+        private RetrivedLoginData retrivedLoginData;
+        private RetrievedData retrievedData;
         private Salt _salt;
         private IDaqMeasurement _daqMeasurement;
 
         public SCDataAcess()
         {
-            retrivedData = new RetrivedData();
+            retrivedLoginData = new RetrivedLoginData();
+            retrievedData = new RetrievedData();
             _salt = new Salt();
          
         }
 
         public MedarbejderDTO CheckLogin(MedarbejderDTO medarbejder)
         {
-            return retrivedData.CheckLogin(medarbejder);
+            return retrivedLoginData.CheckLogin(medarbejder);
+        }
+
+        public PatientDTO HentData(PatientDTO patient)
+        {
+            return retrievedData.HentData(patient); 
         }
 
         public byte[] GetSalt(MedarbejderDTO medarbejder)

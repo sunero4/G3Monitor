@@ -19,5 +19,11 @@ namespace Interfaces
 
         NulpunktsjusteringDTO PerformAdjustment();
 
+        PatientDTO HentData(PatientDTO patient);
+
+        List<MaalingDTO> RetrievedDivider(byte[] bpValues);
+
+        List<double> ConvertArrayToDoubles(byte[] maaledata); 
+
     }
 }

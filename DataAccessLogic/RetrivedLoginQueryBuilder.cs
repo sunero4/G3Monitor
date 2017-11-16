@@ -8,13 +8,13 @@ using Interfaces;
 
 namespace DataAccessLogic
 {
-    public class RetrivedQueryBuilder: IQueryBuilderMedarbejder 
+    public class RetrivedLoginQueryBuilder: IQueryBuilderMedarbejder 
     {
         private StringBuilder _builder;
         public string Tablename { get; set; }
         public List<string> ColumnNames { get; set; }
 
-        public RetrivedQueryBuilder()
+        public RetrivedLoginQueryBuilder()
         {
             
             ColumnNames = new List<string>() { "Brugernavn", "HashedPassword", "Salt" };
