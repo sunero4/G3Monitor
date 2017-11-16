@@ -19,7 +19,7 @@ namespace DataAccessLogic
         /// </summary>
         /// <param name="patient">DTO holding the patient data</param>
         /// <param name="maaling">DTO holding the blood pressure measurement data</param>
-        public void SaveBloodPressureData(PatientDTO patient, MaalingDTO maaling)
+        public void SaveBloodPressureData(PatientDTO patient)
         {
             _xDoc = XDocument.Load(FileInformation.FilePath);
 
@@ -30,10 +30,10 @@ namespace DataAccessLogic
             //If saving for patient is not already initiated in the XDocument, create a starting tag for it
             if (e == null)
             {
-                SaveNewPatient(maaling, patient.CPR, _xDoc);
+                SaveNewPatient(patient.Maalinger, patient.CPR, _xDoc);
             }
             //Save blood pressure values
-            SaveValues(maaling, patient.CPR, _xDoc);
+            SaveValues(patient.Maalinger, patient.CPR, _xDoc);
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace DataAccessLogic
             e.Add(new XElement("Maaling",
                 new XAttribute("ID", maaling.MaaleID),
                 new XAttribute("MaaleTidspunkt", maaling.MaaleTidspunkt),
-                new XAttribute("CPR", "1234567890"),
+                new XAttribute("CPR", "cpr"),
                 new XElement("Kommentar", maaling.Kommentar)
             ));
 

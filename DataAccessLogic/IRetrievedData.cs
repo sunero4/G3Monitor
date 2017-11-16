@@ -7,8 +7,8 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    interface IRetrievedData
+    public interface IRetrievedData<T>
     {
-        PatientDTO HentData(PatientDTO patient);
+        T HentData(PatientDTO patient);
     }
 }

@@ -8,7 +8,7 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    public class PatientInfoRetrieval : IRetrievedData
+    public class PatientInfoRetrieval : IRetrievedData<PatientDTO>
     {
         private PatientInfoCommandBuilder _commandBuilder;
         private PatientInfoQueryBuilder _queryBuilder;
