@@ -44,8 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalibrationRetrievalXml.cs" />
+    <Compile Include="ClearXmlFileContent.cs" />
     <Compile Include="ICommandBuilderMedarbejder.cs" />
     <Compile Include="ICalibrationDataRetrieval.cs" />
+    <Compile Include="IDataRemoval.cs" />
     <Compile Include="IQueryBuilderMedarbejder.cs" />
     <Compile Include="IRetrievedData.cs" />
     <Compile Include="ISaveCalibration.cs" />
@@ -53,6 +55,10 @@
     <Compile Include="RetrievedData.cs" />
     <Compile Include="RetrievedQueryBuilder.cs" />
     <Compile Include="RetrivedLoginData.cs" />
+    <Compile Include="PatientInfoCommandBuilder.cs" />
+    <Compile Include="PatientInfoQueryBuilder.cs" />
+    <Compile Include="PatientInfoRetrieval.cs" />
+    <Compile Include="RetrivedData.cs" />
     <Compile Include="DAQ.cs" />
     <Compile Include="DaqMeasurementNulpunkt.cs" />
     <Compile Include="DatabaseLogin.cs" />

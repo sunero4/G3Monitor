@@ -25,5 +25,7 @@ namespace Interfaces
 
         List<double> ConvertArrayToDoubles(byte[] maaledata); 
 
+        PatientDTO GetPatientInfo(PatientDTO patient);
+
     }
 }

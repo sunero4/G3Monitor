@@ -73,6 +73,16 @@ namespace BusinessLogic
             var voltage = _iDataAccess.GetVoltage();
             return _nulpunkt.PerformAdjustment(voltage);
         }
-        //public KalibreringsDTO 
+
+        public PatientDTO GetPatientInfo(PatientDTO patient)
+        {
+            var patientOut = _iDataAccess.GetPatientInfo(patient);
+            return patientOut;
+        }
+
+        public KalibreringsDTO GetCalibration()
+        {
+            
+        }
     }
 }

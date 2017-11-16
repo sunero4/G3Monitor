@@ -12,10 +12,11 @@ namespace Interfaces
     {
         MedarbejderDTO CheckLogin(MedarbejderDTO medarbejder);
 
-
+        void SaveCalibration(KalibreringsDTO kalibrering);
         byte[] GetSalt(MedarbejderDTO medarbejder);
         double GetVoltage();
         PatientDTO HentData(PatientDTO patient);
 
+        PatientDTO GetPatientInfo(PatientDTO patient);
     }
 }

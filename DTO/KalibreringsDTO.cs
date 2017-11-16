@@ -13,19 +13,8 @@ namespace DTO
         public DateTime Time { get; set; }
         public string Technician { get; set; }
 
-        private double _slope;
-        public double Slope
-        {
-            get => _slope;
-            set => _slope = value;
-        }
+        public double Slope { get; set; }
 
-        private double _intercept;
-        public double Intercept
-        {
-            get => _intercept;
-            set => _intercept = value;
-        }
-
+        public double Intercept { get; set; }
     }
 }

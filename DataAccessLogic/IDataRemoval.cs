@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DTO;
 
 namespace DataAccessLogic
 {
-    public interface ISaving
+    interface IDataRemoval
     {
-        void SaveBloodPressureData(PatientDTO patient, MaalingDTO maaling);
-
+        void ClearData();
     }
 }

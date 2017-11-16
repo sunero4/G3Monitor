@@ -10,10 +10,6 @@ namespace DataAccessLogic
 {
     public class RetrivedLoginCommandBuilder : ICommandBuilderMedarbejder 
     {
-
-
-
-
         /// <summary>
         /// Aads SQl parameters to an SQL command 
         /// </summary>
