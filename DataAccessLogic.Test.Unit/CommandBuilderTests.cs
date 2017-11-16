@@ -12,7 +12,7 @@ namespace DataAccessLogic.Test.Unit
     [TestFixture]
     class CommandBuilderTests
     {
-        private ICommandBuilder _commandBuilder;
+        private ICommandBuilder<PatientDTO> _commandBuilder;
         private SqlCommand _command;
         private PatientDTO _patient;
         [SetUp]

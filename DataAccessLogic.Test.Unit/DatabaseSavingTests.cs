@@ -12,8 +12,8 @@ namespace DataAccessLogic.Test.Unit
 {
     class DatabaseSavingTests
     {
-        private IQueryBuilder _queryBuilder;
-        private ICommandBuilder _commandBuilder;
+        private IQueryBuilder<PatientDTO> _queryBuilder;
+        private ICommandBuilder<PatientDTO> _commandBuilder;
         private ISaving _saving;
         private PatientDTO _patient;
 
@@ -22,8 +22,8 @@ namespace DataAccessLogic.Test.Unit
         {
             _patient = new PatientDTO() {CPR = "1234567890" ,Maalinger = new MaalingDTO() {Kommentar = "", MaaleTidspunkt = DateTime.Now, MaaleData = new byte[] {123, 45, 67}}};
             _saving = new DatabaseSaving();
-            _queryBuilder = Substitute.For<IQueryBuilder>();
-            _commandBuilder = Substitute.For<ICommandBuilder>();
+            _queryBuilder = Substitute.For<IQueryBuilder<PatientDTO>>();
+            _commandBuilder = Substitute.For<ICommandBuilder<PatientDTO>>();
         }
 
         //Test won't run because the statement that I am trying to execute references a foreign key not in the

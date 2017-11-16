@@ -7,8 +7,8 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    public interface IQueryBuilder
+    public interface IQueryBuilder<T>
     {
-        string BuildQuery(PatientDTO patient);
+        string BuildQuery(T input);
     }
 }

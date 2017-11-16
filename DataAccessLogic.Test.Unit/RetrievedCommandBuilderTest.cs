@@ -15,7 +15,7 @@ namespace DataAccessLogic.Test.Unit
     [TestFixture]
     class RetrievedCommandBuilderTest
     {
-        private ICommandBuilderMedarbejder _uut;
+        private ICommandBuilder<MedarbejderDTO> _uut;
         private SqlCommand _cmd;
         private MedarbejderDTO _medarbejderDto;
             

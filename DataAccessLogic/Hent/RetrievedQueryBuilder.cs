@@ -8,7 +8,7 @@ using Interfaces;
 
 namespace DataAccessLogic
 {
-    public class RetrievedQueryBuilder :IQueryBuilder
+    public class RetrievedQueryBuilder :IQueryBuilder<PatientDTO>
     {
         private StringBuilder _builder;
 

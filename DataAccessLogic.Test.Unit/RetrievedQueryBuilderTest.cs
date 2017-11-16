@@ -12,8 +12,8 @@ namespace DataAccessLogic.Test.Unit
     [TestFixture]
     class RetrievedQueryBuilderTest
     {
-        private IQueryBuilderMedarbejder _queryBuilderMedarbejderOP;
-        private IQueryBuilderMedarbejder _queryBuilderMedarbejderTek;
+        private IQueryBuilder<MedarbejderDTO> _queryBuilderMedarbejderOP;
+        private IQueryBuilder<MedarbejderDTO> _queryBuilderMedarbejderTek;
         private OPSygeplejerskeDTO _opSygeplejerske;
         private TeknikerDTO _tekniker;
         private string _expectedQueryOP;
@@ -25,8 +25,8 @@ namespace DataAccessLogic.Test.Unit
         {
             _expectedQueryOP = "select * from OPsygeplejerske where Brugernavn = @brugernavn";
             _expectedQueryTek = "select * from Tekniker where Brugernavn = @brugernavn";
-            _queryBuilderMedarbejderOP = new RetrivedLoginQueryBuilder();
-            _queryBuilderMedarbejderTek = new RetrivedLoginQueryBuilder();
+            _queryBuilderMedarbejderOP = new RetrivedLoginQueryBuilder("OPsygeplejerske");
+            _queryBuilderMedarbejderTek = new RetrivedLoginQueryBuilder("Tekniker");
 
             _opSygeplejerske = new OPSygeplejerskeDTO()
             {
@@ -43,13 +43,13 @@ namespace DataAccessLogic.Test.Unit
         [Test]
         public void BuildQueryOP_CreateCorrectQueryOP_CorrectQueryOP()
         {
-            string query = _queryBuilderMedarbejderOP.BuildQuery(_opSygeplejerske, "OPsygeplejerske"); 
+            string query = _queryBuilderMedarbejderOP.BuildQuery(_opSygeplejerske); 
             Assert.That(_expectedQueryOP.SequenceEqual(query), string.Format("Error message: Generated query does not match the expected. Generated was {0}, expected was: {1}", query, _expectedQueryOP));
         }
 
         public void BuildQueryTek_CreateCorrectQueryTek_CorrectQueryTek()
         {
-            string query = _queryBuilderMedarbejderTek.BuildQuery(_tekniker, "Tekniker");
+            string query = _queryBuilderMedarbejderTek.BuildQuery(_tekniker);
             Assert.That(_expectedQueryTek.SequenceEqual(query), string.Format("Error message: Generated query does not match the expected. Generated was {0}, expected was: {1}", query, _expectedQueryTek));
         }
 

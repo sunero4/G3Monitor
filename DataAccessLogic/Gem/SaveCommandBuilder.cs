@@ -9,7 +9,7 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    public class SaveCommandBuilder : ICommandBuilder
+    public class SaveCommandBuilder : ICommandBuilder<PatientDTO>
     {
         /// <summary>
         /// Adds Sql parameters to an Sql command

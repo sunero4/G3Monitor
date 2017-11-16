@@ -9,31 +9,30 @@ using Interfaces;
 
 namespace DataAccessLogic
 {
-    public class RetrievedData :IRetrievedData
+    public class RetrievedData :IRetrievedData<PatientDTO>
     {
-        private ICommandBuilder _commandBuilder;
-        private IQueryBuilder _queryBuilder;
+        private ICommandBuilder<PatientDTO> _commandBuilder;
+        private IQueryBuilder<PatientDTO> _queryBuilder;
+        private PatientDTO _patient;
 
-
-        public RetrievedData()
+        public RetrievedData(PatientDTO patient)
         {
             _commandBuilder = new RetrievedCommandBuilder();
             _queryBuilder = new RetrievedQueryBuilder();
+            _patient = patient;
         }
 
-        public PatientDTO HentData(PatientDTO patient)
+        public PatientDTO HentData()
         {
             PatientDTO patientOut = new PatientDTO() {ListMaalinger = new List<MaalingDTO>()};
-           
             
-            
-            var query = _queryBuilder.BuildQuery(patient);
+            var query = _queryBuilder.BuildQuery(_patient);
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionInfo.Connectionstring))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = _commandBuilder.BuildCommand(patient, conn, query))
+                    using (SqlCommand cmd = _commandBuilder.BuildCommand(_patient, conn, query))
                     {
                         using (SqlDataReader rdr = cmd.ExecuteReader())
                         {
@@ -49,8 +48,6 @@ namespace DataAccessLogic
                                 
                                 patientOut.ListMaalinger.Add(maaling);
                             }
-
-
                         }
                     }
                 }

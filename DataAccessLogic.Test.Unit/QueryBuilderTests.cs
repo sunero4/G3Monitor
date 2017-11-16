@@ -11,7 +11,7 @@ namespace DataAccessLogic.Test.Unit
     [TestFixture]
     class QueryBuilderTests
     {
-        private IQueryBuilder _queryBuilder;
+        private IQueryBuilder<PatientDTO> _queryBuilder;
         private PatientDTO _patient;
         private MaalingDTO _maaling;
         private string _expectedQuery;

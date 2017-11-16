@@ -8,7 +8,7 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    public class RetrivedLoginCommandBuilder : ICommandBuilderMedarbejder 
+    public class RetrivedLoginCommandBuilder : ICommandBuilder<MedarbejderDTO>
     {
         /// <summary>
         /// Aads SQl parameters to an SQL command 

@@ -8,16 +8,14 @@ using Interfaces;
 
 namespace DataAccessLogic
 {
-    public class RetrivedLoginQueryBuilder: IQueryBuilderMedarbejder 
+    public class RetrivedLoginQueryBuilder: IQueryBuilder<MedarbejderDTO>
     {
         private StringBuilder _builder;
         public string Tablename { get; set; }
-        public List<string> ColumnNames { get; set; }
 
-        public RetrivedLoginQueryBuilder()
+        public RetrivedLoginQueryBuilder(string tableName)
         {
-            
-            ColumnNames = new List<string>() { "Brugernavn", "HashedPassword", "Salt" };
+            Tablename = tableName;
         }
 
         /// <summary>
@@ -26,9 +24,8 @@ namespace DataAccessLogic
         /// </summary>
         /// <param name="medarbejder">medarbejder dto object with properties to be used for naming parameters</param>
         /// <returns>SQL Select from query</returns>
-        public string BuildQuery(MedarbejderDTO medarbejder, string tableName)
+        public string BuildQuery(MedarbejderDTO medarbejder)
         {
-            Tablename = tableName;
             _builder = new StringBuilder();
             _builder.Append("select * from " + Tablename + " where Brugernavn = @brugernavn"); 
             return _builder.ToString();

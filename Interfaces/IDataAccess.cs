@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
-using ST2Prj2LibNI_DAQ;
 
 namespace Interfaces
 {
