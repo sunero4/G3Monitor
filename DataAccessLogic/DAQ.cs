@@ -7,7 +7,7 @@ using ST2Prj2LibNI_DAQ;
 
 namespace DataAccessLogic
 {
-    class DAQ
+    public class DAQ
     {
         private NI_DAQVoltage _daq;
 
