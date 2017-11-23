@@ -10,13 +10,13 @@ namespace DataAccessLogic
 {
     public class RetrivedLoginData : IRetrivedLoginData
     {
-        private ICommandBuilderMedarbejder _commandBuilder;
-        private IQueryBuilderMedarbejder _queryBuilder;
+        private ICommandBuilder<MedarbejderDTO> _commandBuilder;
+        private IQueryBuilder<MedarbejderDTO> _queryBuilder;
 
         public RetrivedLoginData()
         {
             _commandBuilder = new RetrivedLoginCommandBuilder();
-            _queryBuilder = new RetrivedLoginQueryBuilder();
+            _queryBuilder = new RetrivedLoginQueryBuilder("Temporary");
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace DataAccessLogic
                 medarbejderOut = new TeknikerDTO();
                 tableName = "Tekniker"; 
             }
-            var query = _queryBuilder.BuildQuery(medarbejder, tableName); 
+            var query = _queryBuilder.BuildQuery(medarbejder); 
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionInfo.Connectionstring))

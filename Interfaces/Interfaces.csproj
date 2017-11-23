@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="IBusinessLogic.cs" />
     <Compile Include="IDataAccess.cs" />
-    <Compile Include="IPresentation.cs" />
+    <Compile Include="IPresentationLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -13,26 +13,24 @@ namespace DataAccessLogic
     {
         private ICommandBuilder<PatientDTO> _commandBuilder;
         private IQueryBuilder<PatientDTO> _queryBuilder;
-        private PatientDTO _patient;
 
-        public RetrievedData(PatientDTO patient)
+        public RetrievedData()
         {
             _commandBuilder = new RetrievedCommandBuilder();
             _queryBuilder = new RetrievedQueryBuilder();
-            _patient = patient;
         }
 
-        public PatientDTO HentData()
+        public PatientDTO HentData(PatientDTO patient)
         {
             PatientDTO patientOut = new PatientDTO() {ListMaalinger = new List<MaalingDTO>()};
             
-            var query = _queryBuilder.BuildQuery(_patient);
+            var query = _queryBuilder.BuildQuery(patient);
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionInfo.Connectionstring))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = _commandBuilder.BuildCommand(_patient, conn, query))
+                    using (SqlCommand cmd = _commandBuilder.BuildCommand(patient, conn, query))
                     {
                         using (SqlDataReader rdr = cmd.ExecuteReader())
                         {

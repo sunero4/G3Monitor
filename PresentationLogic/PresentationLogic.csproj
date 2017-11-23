@@ -81,6 +81,7 @@
       <DependentUpon>Nulpunktsjustering.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SCPresentationLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Kalibrering.resx">

@@ -9,7 +9,7 @@ using Interfaces;
 
 namespace BusinessLogic
 {
-    class SCBusinessLogic : IBusinessLogic
+    public class SCBusinessLogic : IBusinessLogic
     {
         private IDataAccess _iDataAccess;
         private Nulpunktsjustering _nulpunkt;
@@ -19,14 +19,11 @@ namespace BusinessLogic
 
         public SCBusinessLogic(IDataAccess iDataAccess)
         {
-        }
-
-        public SCBusinessLogic(IDataAccess iDataAccess, Login login, DataConverter dataConverter, RetrievedDataDivider retrievedDataDivider)
-        {
-            _dataConverter = dataConverter; 
             _iDataAccess = iDataAccess;
-            _login = login;
-            _retrievedDataDivider = retrievedDataDivider;
+            _nulpunkt = new Nulpunktsjustering();
+            _login = new Login();
+            _retrievedDataDivider = new RetrievedDataDivider();
+            _dataConverter = new DataConverter();
         }
 
         public bool CheckLogin(MedarbejderDTO medarbejder)
@@ -82,7 +79,7 @@ namespace BusinessLogic
 
         public KalibreringsDTO GetCalibration()
         {
-            
+            return new KalibreringsDTO();
         }
     }
 }

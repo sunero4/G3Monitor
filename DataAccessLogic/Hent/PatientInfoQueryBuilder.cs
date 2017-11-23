@@ -7,7 +7,7 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    public class PatientInfoQueryBuilder : IQueryBuilder
+    public class PatientInfoQueryBuilder : IQueryBuilder<PatientDTO>
     {
         private StringBuilder _builder;
         public string BuildQuery(PatientDTO patient)

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Interfaces
 {
-    class IPresentation
+    public interface IPresentationLogic
     {
-        
-        
+        void StartUpGui();
+
     }
 }

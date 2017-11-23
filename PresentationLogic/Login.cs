@@ -39,13 +39,13 @@ namespace PresentationLogic
                     if (rbtnStartMål.Checked)
                     {
                         this.Hide();
-                        _myMåling = new Måling();
+                        _myMåling = new Måling(_iBusinessLogic, new Monitoreringsindstillinger());
                         _myMåling.Show();
                     }
                     if (rbtnHentdata.Checked)
                     {
                         this.Hide();
-                        _myMåling = new Måling();
+                        _myMåling = new Måling(_iBusinessLogic, new Monitoreringsindstillinger());
                         _myMåling.Show();
                     }
                 }
