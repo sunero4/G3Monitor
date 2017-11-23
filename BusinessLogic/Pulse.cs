@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using Accord.Math;
+using Accord.Math.Transforms;
 
 namespace BusinessLogic
 {
@@ -34,6 +37,21 @@ namespace BusinessLogic
 
         private List<int> Times(List<double> btList)
         {
+            var complex = btList.Select(x => (Complex) x).ToArray();
+
+            FourierTransform.FFT(complex, FourierTransform.Direction.Forward);
+
+            var fftList = complex.Select(x => x.Magnitude).Where(y => y > 200).ToList();
+
+            List<double> timesList = new List<double>();
+            for (int i = 0, n = complex.Length; i < n; i++)
+            {
+                if (complex[i].Magnitude > 200)
+                {
+                    timesList.Add(i * 0.001);
+                }
+            }
+
             double max = 0;
             var threshold = btList.Max() * 0.8;
             List<int> times = new List<int>();
