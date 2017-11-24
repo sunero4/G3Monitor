@@ -37,20 +37,21 @@ namespace BusinessLogic
 
         private List<int> Times(List<double> btList)
         {
-            var complex = btList.Select(x => (Complex) x).ToArray();
+            ////FFT??
+            //var complex = btList.Select(x => (Complex) x).ToArray();
 
-            FourierTransform.FFT(complex, FourierTransform.Direction.Forward);
+            //FourierTransform.FFT(complex, FourierTransform.Direction.Forward);
 
-            var fftList = complex.Select(x => x.Magnitude).Where(y => y > 200).ToList();
+            //var fftList = complex.Select(x => x.Magnitude).Where(y => y > 200).ToList();
 
-            List<double> timesList = new List<double>();
-            for (int i = 0, n = complex.Length; i < n; i++)
-            {
-                if (complex[i].Magnitude > 200)
-                {
-                    timesList.Add(i * 0.001);
-                }
-            }
+            //List<double> timesList = new List<double>();
+            //for (int i = 0, n = complex.Length; i < n; i++)
+            //{
+            //    if (complex[i].Magnitude > 200)
+            //    {
+            //        timesList.Add(i * 0.001);
+            //    }
+            //}
 
             double max = 0;
             var threshold = btList.Max() * 0.8;

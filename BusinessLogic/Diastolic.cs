@@ -18,21 +18,32 @@ namespace BusinessLogic
         /// <returns></returns>
         public double Calculate(List<double> btList)
         {
-            ////FFT???
-            //Converts the blood pressure values to complex numbers
-            var complex = btList.Select(x => (Complex)x).ToArray();
+            //////FFT???
+            ////Converts the blood pressure values to complex numbers
+            //var complex = btList.Select(x => (Complex)x).ToArray();
 
-            //Performs fast fourier transformation on the complex numbers
-            FourierTransform2.FFT(complex, FourierTransform.Direction.Forward);
+            ////Performs fast fourier transformation on the complex numbers
+            //FourierTransform2.FFT(complex, FourierTransform.Direction.Forward);
 
-            //Creates an array of the magnitudes of the fft bins
-            var diaFFT = complex.Select(x => x.Magnitude).ToArray();
+            ////Creates an array of the magnitudes of the fft bins
+            //var diaFFT = complex.Select(x => x.Magnitude).ToArray();
 
-            //Finds the index that holds the largest amplitude and takes the bloodpressure value at that index
-            var diaIndex = IndexCalculation.FindMaxIndex(diaFFT);   
-            var dia = btList[diaIndex];
+            ////Finds the index that holds the largest amplitude and takes the bloodpressure value at that index
+            //var diaIndex = IndexCalculation.FindMaxIndex(diaFFT);   
+            //var dia = btList[diaIndex];
 
-            return dia;
+            //return dia;
+
+            double min = 0;
+            var threshold = btList.Max() * 0.8;
+            for (int i = 0, n = btList.Count; i < n; i++)
+            {
+                if (btList[i] < btList[i + 1] && btList[i] < threshold && btList[i] <= min)
+                {
+                    min = btList[i];
+                }
+            }
+            return Convert.ToInt32(min);
 
         }
 
