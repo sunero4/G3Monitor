@@ -9,6 +9,7 @@ namespace BusinessLogic
 {
     public class ShowData : MeasurementSubjectBL
     {
+        private Queue<double> _slidingWindow;
         private Filtering _filter;
         private Pulse _pulse;
         private Systolic _sys;
@@ -16,6 +17,20 @@ namespace BusinessLogic
         private AverageBloodPressure _average;
         private PresentationDataContainer _container;
         private VoltageToPressureConversion _convert;
+
+        public Queue<double> SlidingWindow
+        {
+            get => _slidingWindow;
+            set
+            {
+                if (SlidingWindow.Count == 4000)
+                {
+                    SlidingWindow.DequeueMultipleElements(100);
+                }
+                _slidingWindow.EnqueueMultipleElements(value);
+            }
+        }
+
 
         public ShowData(PresentationDataContainer container)
         {
