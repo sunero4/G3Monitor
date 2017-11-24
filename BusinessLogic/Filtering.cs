@@ -7,12 +7,12 @@ using ObserverPattern;
 
 namespace BusinessLogic
 {
-    public class Systolic : MeasurementSubjectBL, IMeasurementObserver
+    public class Filtering : MeasurementSubjectBL, IMeasurementObserver
     {
         public List<double> BloodPressureValues { get; set; }
         private readonly VoltageToPressureConversion _subject;
 
-        public Systolic(VoltageToPressureConversion subject)
+        public Filtering(VoltageToPressureConversion subject)
         {
             _subject = subject;
             _subject.Attach(this);
@@ -22,6 +22,9 @@ namespace BusinessLogic
         {
             BloodPressureValues = _subject.ConvertedBPState;
         }
+
+
+
 
     }
 }

@@ -7,20 +7,21 @@ using ObserverPattern;
 
 namespace BusinessLogic
 {
-    public class Systolic : MeasurementSubjectBL, IMeasurementObserver
+    public class Saving : IRawDataObserver
     {
+        private BPConsumer _subject;
         public List<double> BloodPressureValues { get; set; }
-        private readonly VoltageToPressureConversion _subject;
 
-        public Systolic(VoltageToPressureConversion subject)
+        public Saving(BPConsumer subject)
         {
             _subject = subject;
             _subject.Attach(this);
+            //Strategy pattern til gem her
         }
 
         public void Update()
         {
-            BloodPressureValues = _subject.ConvertedBPState;
+            BloodPressureValues = _subject.BPState;
         }
 
     }
