@@ -40,13 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsumerSubject.cs" />
-    <Compile Include="ConvertSubject.cs" />
-    <Compile Include="IBloodPressureObserver.cs" />
     <Compile Include="BPDataContainer.cs" />
-    <Compile Include="IMeasurementObserver.cs" />
     <Compile Include="IPresentationObserver.cs" />
-    <Compile Include="IRawDataObserver.cs" />
     <Compile Include="MeasurementSubjectBL.cs" />
     <Compile Include="PresentationDataContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
