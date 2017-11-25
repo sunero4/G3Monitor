@@ -10,7 +10,7 @@ namespace BusinessLogic
     public class ShowData : MeasurementSubjectBL
     {
         private Queue<double> _slidingWindow;
-        private Filtering _filter;
+        private IFilter _filter;
         private Pulse _pulse;
         private Systolic _sys;
         private Diastolic _dia;
@@ -32,9 +32,9 @@ namespace BusinessLogic
         }
 
 
-        public ShowData(PresentationDataContainer container)
+        public ShowData(PresentationDataContainer container, IFilter filter)
         {
-            _filter = new Filtering();
+            _filter = filter;
             _pulse = new Pulse();
             _average = new AverageBloodPressure();
             _dia = new Diastolic();

@@ -38,5 +38,10 @@ namespace PresentationLogic
         {
             subject.Detach(this);
         }
+
+        private void btn_filtrerMåling_Click(object sender, EventArgs e)
+        {
+            var ss = _iBusinessLogic.
+        }
     }
 }
