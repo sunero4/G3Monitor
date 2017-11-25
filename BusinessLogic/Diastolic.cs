@@ -16,7 +16,7 @@ namespace BusinessLogic
         /// </summary>
         /// <param name="btList"></param>
         /// <returns></returns>
-        public double Calculate(List<double> btList)
+        public int Calculate(List<double> btList)
         {
             //////FFT???
             ////Converts the blood pressure values to complex numbers

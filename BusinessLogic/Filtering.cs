@@ -7,21 +7,8 @@ using ObserverPattern;
 
 namespace BusinessLogic
 {
-    public class Filtering : MeasurementSubjectBL, IMeasurementObserver
+    public class Filtering
     {
-        public List<double> BloodPressureValues { get; set; }
-        private readonly VoltageToPressureConversion _subject;
-
-        public Filtering(VoltageToPressureConversion subject)
-        {
-            _subject = subject;
-            _subject.Attach(this);
-        }
-
-        public void Update()
-        {
-            BloodPressureValues = _subject.ConvertedBPState;
-        }
 
 
 

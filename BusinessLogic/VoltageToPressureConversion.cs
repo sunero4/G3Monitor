@@ -7,17 +7,13 @@ using ObserverPattern;
 
 namespace BusinessLogic
 {
-    public class VoltageToPressureConversion : ConvertSubject, IRawDataObserver
+    public class VoltageToPressureConversion
     {
         private BPConsumer _subject;
         private List<double> _bpValues;
         public List<double> ConvertedBPState { get; set; }
 
-        public VoltageToPressureConversion(BPConsumer subject)
-        {
-            _subject = subject;
-            _subject.Attach(this);
-        }
+
 
         public void HandleData()
         {
@@ -28,11 +24,6 @@ namespace BusinessLogic
         {
             //Do something
             return bp;
-        }
-
-        public void Update()
-        {
-            _bpValues = _subject.BPState;
         }
     }
 }

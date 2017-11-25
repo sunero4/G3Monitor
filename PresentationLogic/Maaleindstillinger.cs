@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DTO;
 using static System.Int32;
 using Interfaces;
+using ObserverPattern;
 
 namespace PresentationLogic
 {
@@ -48,7 +49,7 @@ namespace PresentationLogic
                     }
                 };
             }
-            _maalingForm = new Måling(_iBusinessLogic, _monitoring);
+            _maalingForm = new Måling(_iBusinessLogic, _monitoring, new PresentationDataContainer());
             _maalingForm.Show();
             this.Close();
         }

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using BusinessLogic;
 using DTO;
 using Interfaces;
+using ObserverPattern;
 
 namespace PresentationLogic
 {
@@ -39,13 +40,13 @@ namespace PresentationLogic
                     if (rbtnStartMål.Checked)
                     {
                         this.Hide();
-                        _myMåling = new Måling(_iBusinessLogic, new Monitoreringsindstillinger());
+                        _myMåling = new Måling(_iBusinessLogic, new Monitoreringsindstillinger(), new PresentationDataContainer());
                         _myMåling.Show();
                     }
                     if (rbtnHentdata.Checked)
                     {
                         this.Hide();
-                        _myMåling = new Måling(_iBusinessLogic, new Monitoreringsindstillinger());
+                        _myMåling = new Måling(_iBusinessLogic, new Monitoreringsindstillinger(), new PresentationDataContainer());
                         _myMåling.Show();
                     }
                 }

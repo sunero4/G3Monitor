@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using ObserverPattern;
 
@@ -10,6 +12,7 @@ namespace BusinessLogic
     public class ShowData : MeasurementSubjectBL
     {
         private Queue<double> _slidingWindow;
+        private ConcurrentQueue<BPDataContainer> _queue;
         private Filtering _filter;
         private Pulse _pulse;
         private Systolic _sys;
@@ -18,21 +21,24 @@ namespace BusinessLogic
         private PresentationDataContainer _container;
         private VoltageToPressureConversion _convert;
 
-        public Queue<double> SlidingWindow
+        public bool CanRun { get; set; }
+
+        public void SetSlidingWindow(List<double> data)
         {
-            get => _slidingWindow;
-            set
+            if (_slidingWindow.Count == 4000)
             {
-                if (SlidingWindow.Count == 4000)
-                {
-                    SlidingWindow.DequeueMultipleElements(100);
-                }
-                _slidingWindow.EnqueueMultipleElements(value);
+                _slidingWindow.DequeueMultipleElements(100);
             }
+            _slidingWindow.EnqueueMultipleElements(data);
+        }
+
+        public List<double> GetSlidingWindow()
+        {
+            return _slidingWindow.ToList();
         }
 
 
-        public ShowData(PresentationDataContainer container)
+        public ShowData(PresentationDataContainer container, ConcurrentQueue<BPDataContainer> queue)
         {
             _filter = new Filtering();
             _pulse = new Pulse();
@@ -41,21 +47,48 @@ namespace BusinessLogic
             _sys = new Systolic();
             _convert = new VoltageToPressureConversion();
             _container = container;
+            _queue = queue;
         }
 
-        public void HandleData()
+        public async void HandleData()
         {
-            _container.AverageBloodPressure = _average.CalculateAverageBP();
-            _container.SystolicPressure = _sys.CalculateSystolic();
-            _container.DiastolicPressure = _dia.CalculateDiastolic();
-            _container.Pulse = _pulse.CalculatePulse();
-            _container.FilteredBPValues = _filter.FilterBloodPressure();
+            BPDataContainer container;
+            while (!_queue.TryDequeue(out container))
+            {
+                Thread.Sleep(0);
+            }
+
+            var data = _convert.ConvertToPressure(container.BloodPressure);
+            //_container.FilteredBPValues = data;
+
+            SetSlidingWindow(data);
+
+            var bpData = GetSlidingWindow();
+
+            var tf = new TaskFactory();
+
+            var t = tf.StartNew(() => _container.FilteredBPValues = data);
+            var t1 = tf.StartNew(() => _container.AverageBloodPressure = _average.Calculate(bpData));
+            var t2 = tf.StartNew(() => _container.SystolicPressure = _sys.Calculate(bpData));
+            var t3 = tf.StartNew(() => _container.DiastolicPressure = _dia.Calculate(bpData));
+            var t4 = tf.StartNew(() => _container.Pulse = _pulse.Calculate(bpData));
+
+            await Task.WhenAll(t, t1, t2, t3, t4);
+            //_container.AverageBloodPressure = _average.Calculate(bpData);
+            //_container.SystolicPressure = _sys.Calculate(bpData);
+            //_container.DiastolicPressure = _dia.Calculate(bpData);
+            //_container.Pulse = _pulse.Calculate(bpData);
+            
+
             Notify();
         }
 
         public void Start()
         {
-
+            while (CanRun)
+            {
+                HandleData();
+            }
 
         }
 
