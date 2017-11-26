@@ -5,14 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Interfaces;
 using ObserverPattern;
 
 namespace BusinessLogic
 {
-    public class ShowData : MeasurementSubjectBL
+    public class ShowData
     {
-        private Queue<double> _slidingWindow;
-        private ConcurrentQueue<BPDataContainer> _queue;
         private Filtering _filter;
         private Pulse _pulse;
         private Systolic _sys;
@@ -20,25 +19,27 @@ namespace BusinessLogic
         private AverageBloodPressure _average;
         private PresentationDataContainer _container;
         private VoltageToPressureConversion _convert;
+        private BPConsumer _consumer;
+        private AutoResetEvent _event;
 
         public bool CanRun { get; set; }
 
-        public void SetSlidingWindow(List<double> data)
-        {
-            if (_slidingWindow.Count == 4000)
-            {
-                _slidingWindow.DequeueMultipleElements(100);
-            }
-            _slidingWindow.EnqueueMultipleElements(data);
-        }
+        //public void SetSlidingWindow(List<double> data)
+        //{
+        //    if (_slidingWindow.Count == 4000)
+        //    {
+        //        _slidingWindow.DequeueMultipleElements(100);
+        //    }
+        //    _slidingWindow.EnqueueMultipleElements(data);
+        //}
 
-        public List<double> GetSlidingWindow()
-        {
-            return _slidingWindow.ToList();
-        }
+        //public List<double> GetSlidingWindow()
+        //{
+        //    return _slidingWindow.ToList();
+        //}
 
 
-        public ShowData(PresentationDataContainer container, ConcurrentQueue<BPDataContainer> queue)
+        public ShowData(PresentationDataContainer container, IDataAccess dataAccess, BPConsumer consumer)
         {
             _filter = new Filtering();
             _pulse = new Pulse();
@@ -47,49 +48,48 @@ namespace BusinessLogic
             _sys = new Systolic();
             _convert = new VoltageToPressureConversion();
             _container = container;
-            _queue = queue;
+            _consumer = consumer;
+            _event = new AutoResetEvent(false);
         }
 
-        public async void HandleData()
+        public void HandleData()
         {
-            BPDataContainer container;
-            while (!_queue.TryDequeue(out container))
-            {
-                Thread.Sleep(0);
-            }
+            //Venter på et set event fra consumeren
+            _event.WaitOne();
+            var data = _consumer.BPState;
 
-            var data = _convert.ConvertToPressure(container.BloodPressure);
-            //_container.FilteredBPValues = data;
+            _container.SetSlidingWindow(data);
 
-            SetSlidingWindow(data);
-
-            var bpData = GetSlidingWindow();
-
+            var currentData = _container.GetSlidingWindow();
             var tf = new TaskFactory();
 
-            var t = tf.StartNew(() => _container.FilteredBPValues = data);
-            var t1 = tf.StartNew(() => _container.AverageBloodPressure = _average.Calculate(bpData));
-            var t2 = tf.StartNew(() => _container.SystolicPressure = _sys.Calculate(bpData));
-            var t3 = tf.StartNew(() => _container.DiastolicPressure = _dia.Calculate(bpData));
-            var t4 = tf.StartNew(() => _container.Pulse = _pulse.Calculate(bpData));
+            //Faster in parallel than sequential
+            var t2 = tf.StartNew(() => _container.AverageBloodPressure = _average.Calculate(currentData));
+            var t3 = tf.StartNew(() => _container.SystolicPressure = _sys.Calculate(currentData));
+            var t4 = tf.StartNew(() => _container.DiastolicPressure = _dia.Calculate(currentData));
+            var t5 = tf.StartNew(() => _container.Pulse = _pulse.Calculate(currentData));
 
-            await Task.WhenAll(t, t1, t2, t3, t4);
-            //_container.AverageBloodPressure = _average.Calculate(bpData);
-            //_container.SystolicPressure = _sys.Calculate(bpData);
-            //_container.DiastolicPressure = _dia.Calculate(bpData);
-            //_container.Pulse = _pulse.Calculate(bpData);
-            
+            //Wait for all tasks to finish
+            Task.WaitAll(t2, t3, t4, t5);
 
-            Notify();
+            //Datacontainer is the subject, tell it to notify its observers
+            _container.Notify();
         }
 
         public void Start()
         {
+            CanRun = true;
+            Thread t1 = new Thread(_consumer.HandleData);
+            t1.Start();
+
             while (CanRun)
             {
                 HandleData();
             }
-
+            if (!CanRun)
+            {
+                _consumer.CanRun = false;
+            }
         }
 
 

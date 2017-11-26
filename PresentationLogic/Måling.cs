@@ -29,11 +29,31 @@ namespace PresentationLogic
 
         public new void Update()
         {
-            label_SysDia.Text = Convert.ToString(_container.SystolicPressure) + " / " +
-                                Convert.ToString(_container.DiastolicPressure);
-            label_MiddelBT.Text = Convert.ToString(_container.AverageBloodPressure);
-            label_Puls.Text = Convert.ToString(_container.Pulse);
-            Chart(_container.FilteredBPValues);
+            if (InvokeRequired)
+            {
+                BeginInvoke(new Action(() => Update()));
+            }
+
+            UpdateChart(_container);
+            UpdateBPValues(_container);
+        }
+
+        private void UpdateChart(PresentationDataContainer container)
+        {
+            chart1.Series[0].Points.Clear();
+            var data = container.GetSlidingWindow();
+            for (int i = 0, n = data.Count; i < n; i++)
+            {
+                chart1.Series[0].Points.AddXY(data[i], i);
+            }
+        }
+
+        private void UpdateBPValues(PresentationDataContainer container)
+        {
+            label_SysDia.Text = Convert.ToString(container.SystolicPressure) + " / " +
+                                Convert.ToString(container.DiastolicPressure);
+            label_MiddelBT.Text = Convert.ToString(container.AverageBloodPressure);
+            label_Puls.Text = Convert.ToString(container.Pulse);
         }
 
         public void AttachToSubject(MeasurementSubjectBL subject)
