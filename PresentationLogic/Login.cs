@@ -18,10 +18,12 @@ namespace PresentationLogic
     public partial class Login : Form
     {
         private IBusinessLogic _iBusinessLogic;
-        public Login(IBusinessLogic iBusiness)
+        private PresentationDataContainer _container;
+        public Login(IBusinessLogic iBusiness, PresentationDataContainer container)
         {
             InitializeComponent();
             _iBusinessLogic = iBusiness;
+            _container = container;
         }
         private Måling _myMåling;
         
@@ -40,7 +42,7 @@ namespace PresentationLogic
                     if (rbtnStartMål.Checked)
                     {
                         this.Hide();
-                        _myMåling = new Måling(_iBusinessLogic, new Monitoreringsindstillinger(), new PresentationDataContainer());
+                        _myMåling = new Måling(_iBusinessLogic, new Monitoreringsindstillinger(), _container);
                         _myMåling.Show();
                     }
                     if (rbtnHentdata.Checked)
@@ -51,7 +53,7 @@ namespace PresentationLogic
                     }
                 }
 
-                if (validerLogin)
+                if (!validerLogin)
                     {
                         MessageBox.Show("Brugernavn eller password er forkert, prøv igen. ");
                     }

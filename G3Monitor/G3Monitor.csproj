@@ -61,6 +61,10 @@
       <Project>{8b757f6a-8716-4203-81da-093d9e2f832a}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ObserverPattern\ObserverPattern.csproj">
+      <Project>{66d58343-c253-4310-9bc3-a358a08642c5}</Project>
+      <Name>ObserverPattern</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PresentationLogic\PresentationLogic.csproj">
       <Project>{971db151-840a-41e2-af46-0e37c1a1cb41}</Project>
       <Name>PresentationLogic</Name>

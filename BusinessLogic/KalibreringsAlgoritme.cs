@@ -17,7 +17,7 @@ namespace BusinessLogic
         private KalibreringsDTO _kalibreringsDto;
         public KalibreringsAlgoritme()
         {
-            _iDataAccess = new SCDataAcess();
+            //_iDataAccess = new SCDataAcess();
             
             _kalibreringsDto = new KalibreringsDTO();
         }

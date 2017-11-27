@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -29,31 +30,46 @@ namespace PresentationLogic
 
         public new void Update()
         {
-            if (InvokeRequired)
-            {
-                BeginInvoke(new Action(() => Update()));
-            }
+            var data = _container.GetSlidingWindow();
 
-            UpdateChart(_container);
+            UpdateChart(data);
             UpdateBPValues(_container);
         }
 
-        private void UpdateChart(PresentationDataContainer container)
+        private void UpdateChart(List<double> data) 
         {
-            chart1.Series[0].Points.Clear();
-            var data = container.GetSlidingWindow();
-            for (int i = 0, n = data.Count; i < n; i++)
+            if (InvokeRequired)
             {
-                chart1.Series[0].Points.AddXY(data[i], i);
+                BeginInvoke(new Action(() => UpdateChart(data)));
+            }
+            else
+            {
+                chart1.Series[0].Points.Clear();
+                for (int i = 0; i < data.Count; i++)
+                {
+                    chart1.Series[0].Points.Add(data[i], i);
+                }
+                //var bleh = data.Count - 1;
+                //for (int i = bleh; i < 4000; i++)
+                //{
+                //    chart1.Series[0].Points.AddXY(0, 0);
+                //}
             }
         }
 
         private void UpdateBPValues(PresentationDataContainer container)
         {
-            label_SysDia.Text = Convert.ToString(container.SystolicPressure) + " / " +
-                                Convert.ToString(container.DiastolicPressure);
-            label_MiddelBT.Text = Convert.ToString(container.AverageBloodPressure);
-            label_Puls.Text = Convert.ToString(container.Pulse);
+            if (InvokeRequired)
+            {
+                BeginInvoke(new Action(() => UpdateBPValues(container)));
+            }
+            else
+            {
+                label_SysDia.Text = Convert.ToString(container.SystolicPressure) + " / " +
+                                    Convert.ToString(container.DiastolicPressure);
+                label_MiddelBT.Text = Convert.ToString(container.AverageBloodPressure);
+                label_Puls.Text = Convert.ToString(container.Pulse);
+            }
         }
 
         public void AttachToSubject(MeasurementSubjectBL subject)
@@ -64,6 +80,13 @@ namespace PresentationLogic
         public void DetachFromSubject(MeasurementSubjectBL subject)
         {
             subject.Detach(this);
+        }
+
+        private void btn_StartMåling_Click(object sender, EventArgs e)
+        {
+            _container.Attach(this);
+            var t1 = new Thread(_iBusinessLogic.StartShowData);
+            t1.Start();
         }
     }
 }

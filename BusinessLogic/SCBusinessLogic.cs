@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using DataAccessLogic;
 using DTO;
 using Interfaces;
+using ObserverPattern;
 
 namespace BusinessLogic
 {
@@ -16,14 +19,20 @@ namespace BusinessLogic
         private Login _login;
         private RetrievedDataDivider _retrievedDataDivider;
         private DataConverter _dataConverter;
+        private BPConsumer _consumer;
+        private AutoResetEvent _event;
+        private ShowData _showData;
 
-        public SCBusinessLogic(IDataAccess iDataAccess)
+        public SCBusinessLogic(IDataAccess iDataAccess, ConcurrentQueue<BPDataContainer> queue, PresentationDataContainer container)
         {
+            _event = new AutoResetEvent(false);
             _iDataAccess = iDataAccess;
             _nulpunkt = new Nulpunktsjustering();
             _login = new Login();
             _retrievedDataDivider = new RetrievedDataDivider();
             _dataConverter = new DataConverter();
+            _consumer = new BPConsumer(queue, _iDataAccess, _event);
+            _showData = new ShowData(container, _iDataAccess, _consumer, _event);
         }
 
         public bool CheckLogin(MedarbejderDTO medarbejder)
@@ -67,7 +76,7 @@ namespace BusinessLogic
 
         public NulpunktsjusteringDTO PerformAdjustment()
         {
-            var voltage = _iDataAccess.GetVoltage();
+            var voltage = 4; //temporary
             return _nulpunkt.PerformAdjustment(voltage);
         }
 
@@ -80,6 +89,16 @@ namespace BusinessLogic
         public KalibreringsDTO GetCalibration()
         {
             return new KalibreringsDTO();
+        }
+
+        public void RunConsumer()
+        {
+            _consumer.Run();
+        }
+
+        public void StartShowData()
+        {
+            _showData.Start();
         }
     }
 }

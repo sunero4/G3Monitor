@@ -27,5 +27,9 @@ namespace Interfaces
 
         PatientDTO GetPatientInfo(PatientDTO patient);
 
+        void RunConsumer();
+
+        void StartShowData();
+
     }
 }

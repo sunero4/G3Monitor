@@ -25,7 +25,7 @@ namespace BusinessLogic
             //return Convert.ToInt32(sys);
             double max = 0;
             var threshold = btList.Max() * 0.8;
-            for (int i = 0, n = btList.Count; i < n; i++)
+            for (int i = 0, n = btList.Count - 1; i < n; i++)
             {
                 if (btList[i] > btList[i + 1] && btList[i] > threshold && btList[i] >= max)
                 {

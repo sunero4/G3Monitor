@@ -20,7 +20,7 @@ namespace BusinessLogic
         {
             var result = new NulpunktsjusteringDTO()
             {
-                Nulpunktsjustering = _conversion.ConvertToPressure(voltage)
+                Nulpunktsjustering = 2/*_conversion.ConvertToPressure(voltage)*/
             };
             return result;
         }

@@ -39,7 +39,7 @@ namespace BusinessLogic
         //}
 
 
-        public ShowData(PresentationDataContainer container, IDataAccess dataAccess, BPConsumer consumer)
+        public ShowData(PresentationDataContainer container, IDataAccess dataAccess, BPConsumer consumer, AutoResetEvent autoResetEvent)
         {
             _filter = new Filtering();
             _pulse = new Pulse();
@@ -49,7 +49,8 @@ namespace BusinessLogic
             _convert = new VoltageToPressureConversion();
             _container = container;
             _consumer = consumer;
-            _event = new AutoResetEvent(false);
+            _event = autoResetEvent;
+            CanRun = true;
         }
 
         public void HandleData()
@@ -79,7 +80,7 @@ namespace BusinessLogic
         public void Start()
         {
             CanRun = true;
-            Thread t1 = new Thread(_consumer.HandleData);
+            Thread t1 = new Thread(_consumer.Run);
             t1.Start();
 
             while (CanRun)

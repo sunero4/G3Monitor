@@ -15,7 +15,11 @@ namespace DataAccessLogic
         {
             _daq = new NI_DAQVoltage()
             {
-                //Jeg kan ikke huske, hvad den skal stå på, men opsætning af DAQ her
+                deviceName = "Dev2/ai0",
+                rangeMinimumVolt = 0,
+                rangeMaximumVolt = 5,
+                sampleRateInHz = 1000,
+                samplesPerChannel = 50
             };
         }
 

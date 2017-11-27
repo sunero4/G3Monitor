@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
@@ -30,15 +31,33 @@ namespace DataAccessLogic
         public byte[] GetSalt(MedarbejderDTO medarbejder)
         {
             byte[] salt = new byte[32];
-            
-            cmd = new SqlCommand("select Salt from db_owner.OPsygeplejerske where Brugernavn =" + medarbejder.Brugernavn + "", OpenConnectionDatabase);
-            rdr = cmd.ExecuteReader(); //iterator løber det igennem
 
-            if (rdr.Read())
+            using (SqlConnection conn = new SqlConnection(ConnectionInfo.Connectionstring))
             {
-                salt = (byte[]) rdr["Salt"];
+                conn.Open();
+                using (SqlCommand cmd =
+                    new SqlCommand("SELECT Salt FROM OPSygeplejerske WHERE Brugernavn = @brugernavn", conn))
+                {
+                    cmd.Parameters.AddWithValue("@brugernavn", medarbejder.Brugernavn);
+                    using (SqlDataReader rdr = cmd.ExecuteReader())
+                    {
+                        if (rdr.Read())
+                        {
+                            salt = (byte[])rdr["Salt"];
+                        }
+                    }
+                }
             }
-            OpenConnectionDatabase.Close(); //lukker man en OpenConnection properti
+
+
+            //    cmd = new SqlCommand("select Salt from OPSygeplejerske where Brugernavn =" + medarbejder.Brugernavn + "", OpenConnectionDatabase);
+            //rdr = cmd.ExecuteReader(); //iterator løber det igennem
+
+            //if (rdr.Read())
+            //{
+            //    salt = (byte[]) rdr["Salt"];
+            //}
+            //OpenConnectionDatabase.Close(); //lukker man en OpenConnection properti
             return salt;
         }
     }

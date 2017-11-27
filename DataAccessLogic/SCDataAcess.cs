@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using Interfaces;
+using ObserverPattern;
 
 namespace DataAccessLogic
 {
@@ -17,13 +19,17 @@ namespace DataAccessLogic
         private IDaqMeasurement _daqMeasurement;
         private SaveCalibrationXml _saveCalibrationXml;
         private PatientInfoRetrieval _patientInfoRetrieval;
+        private DAQData _producer;
+        private DAQ _daq;
 
-        public SCDataAcess()
+        public SCDataAcess(ConcurrentQueue<BPDataContainer> queue)
         {
             retrivedLoginData = new RetrivedLoginData();
             retrievedData = new RetrievedData();
             _salt = new Salt();
             _patientInfoRetrieval = new PatientInfoRetrieval();
+            _daq = new DAQ();
+            _producer = new DAQData(_daq, queue);
          
         }
 
@@ -52,11 +58,9 @@ namespace DataAccessLogic
             return _salt.GetSalt(medarbejder); 
         }
 
-        public double GetVoltage()
+        public void GetData()
         {
-            var daq = new DAQ();
-            _daqMeasurement = new DaqMeasurementNulpunkt(daq.GetDaq());
-            return _daqMeasurement.GetVoltage();
+            _producer.Start();
         }
     }
 

@@ -13,7 +13,7 @@ namespace Interfaces
 
         void SaveCalibration(KalibreringsDTO kalibrering);
         byte[] GetSalt(MedarbejderDTO medarbejder);
-        double GetVoltage();
+        void GetData();
         PatientDTO HentData(PatientDTO patient);
 
         PatientDTO GetPatientInfo(PatientDTO patient);

@@ -57,7 +57,7 @@ namespace BusinessLogic
             var threshold = btList.Max() * 0.8;
             List<int> times = new List<int>();
 
-            for (int i = 0; i < btList.Count; i++)
+            for (int i = 0, n = btList.Count - 1; i < n; i++)
             {
                 if (btList[i] > btList[i + 1] && btList[i] > threshold && btList[i] >= max)
                 {

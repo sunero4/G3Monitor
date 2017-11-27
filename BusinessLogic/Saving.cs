@@ -7,7 +7,7 @@ using ObserverPattern;
 
 namespace BusinessLogic
 {
-    public class Saving : IRawDataObserver
+    public class Saving
     {
         private BPConsumer _subject;
         public List<double> BloodPressureValues { get; set; }
@@ -15,7 +15,7 @@ namespace BusinessLogic
         public Saving(BPConsumer subject)
         {
             _subject = subject;
-            _subject.Attach(this);
+ 
             //Strategy pattern til gem her
         }
 

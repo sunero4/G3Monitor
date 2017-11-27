@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using BusinessLogic;
 using DataAccessLogic;
 using Interfaces;
+using ObserverPattern;
 using PresentationLogic;
 
 namespace G3Monitor
@@ -23,9 +26,15 @@ namespace G3Monitor
 
         public Program()
         {
-            _dataAccess = new SCDataAcess();
-            _businessLogic = new SCBusinessLogic(_dataAccess);
-            _presentationLogic = new SCPresentationLogic(_businessLogic);
+            var queue = new ConcurrentQueue<BPDataContainer>();
+            var presentationContainer = new PresentationDataContainer();
+            _dataAccess = new SCDataAcess(queue);
+            _businessLogic = new SCBusinessLogic(_dataAccess, queue, presentationContainer);
+            _presentationLogic = new SCPresentationLogic(_businessLogic, presentationContainer);
+
+            var t1 = new Thread(_dataAccess.GetData);
+            t1.Start();
+
             _presentationLogic.StartUpGui();
         }
     }

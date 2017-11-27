@@ -5,16 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Interfaces;
+using ObserverPattern;
 
 namespace PresentationLogic
 {
     public class SCPresentationLogic : IPresentationLogic
     {
         private IBusinessLogic _businessLogic;
-
-        public SCPresentationLogic(IBusinessLogic businessLogic)
+        private PresentationDataContainer _container;
+        public SCPresentationLogic(IBusinessLogic businessLogic, PresentationDataContainer container)
         {
             _businessLogic = businessLogic;
+            _container = container;
         }
 
 
@@ -23,7 +25,7 @@ namespace PresentationLogic
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.DoEvents();
-            Application.Run(new Login(_businessLogic));
+            Application.Run(new Login(_businessLogic, _container));
         }
     }
 }

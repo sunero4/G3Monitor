@@ -16,7 +16,7 @@ namespace DataAccessLogic
         public RetrivedLoginData()
         {
             _commandBuilder = new RetrivedLoginCommandBuilder();
-            _queryBuilder = new RetrivedLoginQueryBuilder("Temporary");
+            _queryBuilder = new RetrivedLoginQueryBuilder("OPSygeplejerske");
         }
 
         /// <summary>
@@ -39,6 +39,7 @@ namespace DataAccessLogic
                 tableName = "Tekniker"; 
             }
             var query = _queryBuilder.BuildQuery(medarbejder); 
+
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionInfo.Connectionstring))
