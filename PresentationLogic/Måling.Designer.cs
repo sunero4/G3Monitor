@@ -427,6 +427,7 @@ namespace PresentationLogic
             this.btn_UfiltrerMåling.TabIndex = 31;
             this.btn_UfiltrerMåling.Text = "Ufiltrer måling";
             this.btn_UfiltrerMåling.UseVisualStyleBackColor = true;
+            this.btn_UfiltrerMåling.Click += new System.EventHandler(this.btn_UfiltrerMåling_Click);
             // 
             // txtKommentar
             // 

@@ -9,38 +9,18 @@ using ObserverPattern;
 
 namespace BusinessLogic
 {
-    public class Filtering 
+    public class FilterFactory
     {
-        public static IFilter CreatFilter(string description)
+        // hvordan kommer det fra formen, er det også en string eller er det en bool
+        public static IFilter CreateFilter(bool button)
         {
-            if (description == "Filter")
+            if (button)
             {
-                IFilter filter = new Filter();
+                IFilter filter = new FilterBP();
                 return filter;
-            }
-            if (description == "AndetFilter")
-            {
-                IFilter rawFilter = new RawFilter();
-                return rawFilter;
-            }
-            else
-            {
-                throw new Exception("Fejl");
-            }
-        }
-        //Tilføjer kalibrering og nulpunktsjustering 
-        public List<double> AddFactor(List<data> containerData)
-        {
-
-            double kali = new KalibreringsDTO().Slope;
-            double nul = new NulpunktsjusteringDTO().Nulpunktsjustering;
-            for (int i = 0; i < containerData.Count; i++)
-            {
-                kali = kali * containerData[i];
-                nul = nul * kali;
-            }
-
-            return List<>;
+            }       
+                IFilter andetFilter = new RawFilter();
+                return andetFilter;
         }
 
     }

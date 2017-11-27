@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessLogic.Filter;
 using DataAccessLogic;
 using DTO;
 using Interfaces;
@@ -16,6 +17,7 @@ namespace BusinessLogic
         private Login _login;
         private RetrievedDataDivider _retrievedDataDivider;
         private DataConverter _dataConverter;
+        private IFilter _filter;
 
         public SCBusinessLogic(IDataAccess iDataAccess)
         {
@@ -24,6 +26,7 @@ namespace BusinessLogic
             _login = new Login();
             _retrievedDataDivider = new RetrievedDataDivider();
             _dataConverter = new DataConverter();
+            _filter = new FilterBP();
         }
 
         public bool CheckLogin(MedarbejderDTO medarbejder)
@@ -80,6 +83,11 @@ namespace BusinessLogic
         public KalibreringsDTO GetCalibration()
         {
             return new KalibreringsDTO();
+        }
+
+        public void CreateFilter(bool button)
+        {
+            _filter = FilterFactory.CreateFilter(button);
         }
     }
 }

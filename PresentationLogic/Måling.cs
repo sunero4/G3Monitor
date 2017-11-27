@@ -41,7 +41,12 @@ namespace PresentationLogic
 
         private void btn_filtrerMåling_Click(object sender, EventArgs e)
         {
-            var ss = _iBusinessLogic.
+            _iBusinessLogic.CreateFilter(true);
+        }
+
+        private void btn_UfiltrerMåling_Click(object sender, EventArgs e)
+        {
+            _iBusinessLogic.CreateFilter(false);
         }
     }
 }

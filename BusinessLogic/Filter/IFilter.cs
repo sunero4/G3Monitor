@@ -8,6 +8,6 @@ namespace BusinessLogic
 {
     public interface IFilter
     {
-        List<double> Filtrer(List<double> containerData); 
+        List<double> Smoothing(List<double> containerData); 
     }
 }
