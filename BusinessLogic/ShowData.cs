@@ -35,7 +35,7 @@ namespace BusinessLogic
         //    _slidingWindow.EnqueueMultipleElements(data);
         //}
 
-        public ShowData(PresentationDataContainer container, ConcurrentQueue<BPDataContainer> queue)
+        public ShowData(PresentationDataContainer container, ConcurrentQueue<BPDataContainer> queue, BPConsumer consumer, AutoResetEvent autoResetEvent)
         {
             _filter = new FilterFactory();
             _pulse = new Pulse();

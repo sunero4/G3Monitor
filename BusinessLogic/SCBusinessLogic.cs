@@ -34,7 +34,7 @@ namespace BusinessLogic
             _retrievedDataDivider = new RetrievedDataDivider();
             _dataConverter = new DataConverter();
             _consumer = new BPConsumer(queue, _iDataAccess, _event);
-            _showData = new ShowData(container, _iDataAccess, _consumer, _event);
+            _showData = new ShowData(container, queue, _consumer, _event);
             _filter = new FilterBP();
         }
 
