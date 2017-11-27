@@ -8,25 +8,13 @@ namespace DTO
 {
     public class MaalingDTO
     {
-        private string _kommentar;
+       
 
         public int MaaleID { get; set; }
 
         public byte[] MaaleData { get; set; }
+        public int Sekvensnr { get; set; }
 
-        public string Kommentar
-        {
-            get => _kommentar;
-            set
-            {
-                if (value.Length <= 500)
-                {
-                    _kommentar = value;
-                }
-            }
-        }
-
-        public DateTime MaaleTidspunkt { get; set; }
 
     }
 

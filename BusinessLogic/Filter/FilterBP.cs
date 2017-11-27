@@ -12,6 +12,12 @@ namespace BusinessLogic.Filter
     public class FilterBP:IFilter
     {
         private List<double> ChartList;
+
+        public FilterBP()
+        {
+            ChartList = new List<double>();
+        }
+
         public List<double> Smoothing(List<double> containerData)
         {
 

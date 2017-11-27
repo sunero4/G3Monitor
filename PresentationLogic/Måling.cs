@@ -92,7 +92,7 @@ namespace PresentationLogic
             _iBusinessLogic.CreateFilter(false);
         }
 
-        private void btn_StartMåling_Click(object sender, EventArgs e)
+        private void btn_StartMåling_Click_1(object sender, EventArgs e)
         {
             _container.Attach(this);
             var t1 = new Thread(_iBusinessLogic.StartShowData);

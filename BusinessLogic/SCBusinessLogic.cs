@@ -34,8 +34,9 @@ namespace BusinessLogic
             _retrievedDataDivider = new RetrievedDataDivider();
             _dataConverter = new DataConverter();
             _consumer = new BPConsumer(queue, _iDataAccess, _event);
-            _showData = new ShowData(container, queue, _consumer, _event);
             _filter = new FilterBP();
+            _showData = new ShowData(container, _consumer, _event, _iDataAccess, _filter);
+
         }
 
         public bool CheckLogin(MedarbejderDTO medarbejder)
