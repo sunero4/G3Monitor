@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using BusinessLogic.Filter;
 using DataAccessLogic;
 using DTO;
 using Interfaces;
@@ -19,6 +20,7 @@ namespace BusinessLogic
         private Login _login;
         private RetrievedDataDivider _retrievedDataDivider;
         private DataConverter _dataConverter;
+        private IFilter _filter;
         private BPConsumer _consumer;
         private AutoResetEvent _event;
         private ShowData _showData;
@@ -33,6 +35,7 @@ namespace BusinessLogic
             _dataConverter = new DataConverter();
             _consumer = new BPConsumer(queue, _iDataAccess, _event);
             _showData = new ShowData(container, _iDataAccess, _consumer, _event);
+            _filter = new FilterBP();
         }
 
         public bool CheckLogin(MedarbejderDTO medarbejder)
@@ -89,6 +92,11 @@ namespace BusinessLogic
         public KalibreringsDTO GetCalibration()
         {
             return new KalibreringsDTO();
+        }
+
+        public void CreateFilter(bool button)
+        {
+            _filter = FilterFactory.CreateFilter(button);
         }
 
         public void RunConsumer()

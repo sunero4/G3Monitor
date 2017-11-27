@@ -12,7 +12,9 @@ namespace BusinessLogic
 {
     public class ShowData
     {
-        private Filtering _filter;
+        private Queue<double> _slidingWindow;
+        private ConcurrentQueue<BPDataContainer> _queue;
+        private FilterFactory _filter;
         private Pulse _pulse;
         private Systolic _sys;
         private Diastolic _dia;
@@ -33,15 +35,9 @@ namespace BusinessLogic
         //    _slidingWindow.EnqueueMultipleElements(data);
         //}
 
-        //public List<double> GetSlidingWindow()
-        //{
-        //    return _slidingWindow.ToList();
-        //}
-
-
-        public ShowData(PresentationDataContainer container, IDataAccess dataAccess, BPConsumer consumer, AutoResetEvent autoResetEvent)
+        public ShowData(PresentationDataContainer container, ConcurrentQueue<BPDataContainer> queue)
         {
-            _filter = new Filtering();
+            _filter = new FilterFactory();
             _pulse = new Pulse();
             _average = new AverageBloodPressure();
             _dia = new Diastolic();

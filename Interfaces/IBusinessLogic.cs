@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 
+
 namespace Interfaces
 {
     public interface IBusinessLogic
@@ -26,6 +27,7 @@ namespace Interfaces
         List<double> ConvertArrayToDoubles(byte[] maaledata); 
 
         PatientDTO GetPatientInfo(PatientDTO patient);
+        void CreateFilter(bool button);
 
         void RunConsumer();
 

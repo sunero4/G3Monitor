@@ -3,15 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ObserverPattern;
 
-namespace BusinessLogic
+namespace BusinessLogic.Alarm
 {
-    public class Filtering
+    interface IAlarm
     {
-
-
-
-
     }
 }

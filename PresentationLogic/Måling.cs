@@ -82,6 +82,16 @@ namespace PresentationLogic
             subject.Detach(this);
         }
 
+        private void btn_filtrerMåling_Click(object sender, EventArgs e)
+        {
+            _iBusinessLogic.CreateFilter(true);
+        }
+
+        private void btn_UfiltrerMåling_Click(object sender, EventArgs e)
+        {
+            _iBusinessLogic.CreateFilter(false);
+        }
+
         private void btn_StartMåling_Click(object sender, EventArgs e)
         {
             _container.Attach(this);
