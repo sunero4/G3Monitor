@@ -24,8 +24,11 @@ namespace BusinessLogic
         private BPConsumer _consumer;
         private AutoResetEvent _event;
         private ShowData _showData;
+        private NulpunktsjusteringDTO _nulpunktDTO;
+        private KaliAndZero _kaliAndZero;
 
-        public SCBusinessLogic(IDataAccess iDataAccess, ConcurrentQueue<BPDataContainer> queue, PresentationDataContainer container)
+        public SCBusinessLogic(IDataAccess iDataAccess, ConcurrentQueue<BPDataContainer> queue,
+            PresentationDataContainer container)
         {
             _event = new AutoResetEvent(false);
             _iDataAccess = iDataAccess;
@@ -34,8 +37,9 @@ namespace BusinessLogic
             _retrievedDataDivider = new RetrievedDataDivider();
             _dataConverter = new DataConverter();
             _consumer = new BPConsumer(queue, _iDataAccess, _event);
-            _showData = new ShowData(container, queue, _consumer, _event);
             _filter = new FilterBP();
+            _kaliAndZero = new KaliAndZero(_nulpunktDTO, GetCalibration());
+            _showData = new ShowData(container, queue, _consumer, _event, _filter, _kaliAndZero);
         }
 
         public bool CheckLogin(MedarbejderDTO medarbejder)
@@ -107,6 +111,11 @@ namespace BusinessLogic
         public void StartShowData()
         {
             _showData.Start();
+        }
+
+        public void GetNulpunkt(NulpunktsjusteringDTO nulpunkt)
+        {
+            _nulpunktDTO = nulpunkt;
         }
     }
 }

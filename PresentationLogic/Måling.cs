@@ -20,12 +20,15 @@ namespace PresentationLogic
         private IBusinessLogic _iBusinessLogic;
         private Monitoreringsindstillinger _monitoring;
         private PresentationDataContainer _container;
+        private Nulpunktsjustering _nulpunktForm;
+        private NulpunktsjusteringDTO _nulpunkt;
         public Måling(IBusinessLogic iBusinessLogic, Monitoreringsindstillinger monitoring, PresentationDataContainer container)
         {
             InitializeComponent();
             _iBusinessLogic = iBusinessLogic;
             _monitoring = monitoring;
             _container = container;
+            _nulpunkt = new NulpunktsjusteringDTO();
         }
 
         public new void Update()
@@ -97,6 +100,11 @@ namespace PresentationLogic
             _container.Attach(this);
             var t1 = new Thread(_iBusinessLogic.StartShowData);
             t1.Start();
+        }
+
+        private void btn_Nulpunktsjustering_Click(object sender, EventArgs e)
+        {
+            _nulpunktForm = new Nulpunktsjustering(_iBusinessLogic, _nulpunkt);
         }
     }
 }

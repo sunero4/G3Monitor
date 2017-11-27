@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using BusinessLogic.Filter;
 using Interfaces;
 using ObserverPattern;
 
@@ -14,7 +15,7 @@ namespace BusinessLogic
     {
         private Queue<double> _slidingWindow;
         private ConcurrentQueue<BPDataContainer> _queue;
-        private FilterFactory _filter;
+        private IFilter _filter;
         private Pulse _pulse;
         private Systolic _sys;
         private Diastolic _dia;
@@ -23,6 +24,7 @@ namespace BusinessLogic
         private VoltageToPressureConversion _convert;
         private BPConsumer _consumer;
         private AutoResetEvent _event;
+        private KaliAndZero _kaliAndZero;
 
         public bool CanRun { get; set; }
 
@@ -35,9 +37,9 @@ namespace BusinessLogic
         //    _slidingWindow.EnqueueMultipleElements(data);
         //}
 
-        public ShowData(PresentationDataContainer container, ConcurrentQueue<BPDataContainer> queue, BPConsumer consumer, AutoResetEvent autoResetEvent)
+        public ShowData(PresentationDataContainer container, ConcurrentQueue<BPDataContainer> queue, BPConsumer consumer, AutoResetEvent autoResetEvent, IFilter filter, KaliAndZero kaliAndZero)
         {
-            _filter = new FilterFactory();
+            _filter = filter;
             _pulse = new Pulse();
             _average = new AverageBloodPressure();
             _dia = new Diastolic();
@@ -46,6 +48,7 @@ namespace BusinessLogic
             _container = container;
             _consumer = consumer;
             _event = autoResetEvent;
+            _kaliAndZero = kaliAndZero;
             CanRun = true;
         }
 
@@ -57,7 +60,8 @@ namespace BusinessLogic
 
             _container.SetSlidingWindow(data);
 
-            var currentData = _container.GetSlidingWindow();
+            var correctData = _kaliAndZero.AddKalibreringAndZero(_container.GetSlidingWindow());
+            var currentData = _filter.Smoothing(correctData);
             var tf = new TaskFactory();
 
             //Faster in parallel than sequential

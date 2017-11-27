@@ -11,72 +11,32 @@ namespace BusinessLogic
 {
     public class Pulse
     {
-        private Queue<double> _buffer;
+        private double _factor;
 
         public Pulse()
         {
-            _buffer = new Queue<double>(5);
+            //Multiply the bin number from the FFT with this - nth bin has value of: n * F_s / N
+            _factor = Convert.ToDouble(1000 / 4000);
         }
-
-        private double TimeDifferences(List<int> times)
+        public int Calculate(List<double> data)
         {
-            var differences = new List<double>();
-            double oldDifference = 0;
+            var complex = data.Select(x => (Complex) x).ToArray();
 
-            for (int i = 0; i < times.Count; i++)
-            {
-                var diff = times[i] - oldDifference;
-                differences.Add(diff);
-                oldDifference = times[i];
-            }
-
-            var averageDifference = differences.Average();
-
-            return averageDifference;
-        }
-
-        private List<int> Times(List<double> btList)
-        {
-            ////FFT??
-            //var complex = btList.Select(x => (Complex) x).ToArray();
-
-            //FourierTransform.FFT(complex, FourierTransform.Direction.Forward);
-
-            //var fftList = complex.Select(x => x.Magnitude).Where(y => y > 200).ToList();
-
-            //List<double> timesList = new List<double>();
-            //for (int i = 0, n = complex.Length; i < n; i++)
-            //{
-            //    if (complex[i].Magnitude > 200)
-            //    {
-            //        timesList.Add(i * 0.001);
-            //    }
-            //}
+            FourierTransform.FFT(complex, FourierTransform.Direction.Forward);
 
             double max = 0;
-            var threshold = btList.Max() * 0.8;
-            List<int> times = new List<int>();
-
-            for (int i = 0, n = btList.Count - 1; i < n; i++)
+            double maxFrequency = -1;
+            for (int i = 1; i < complex.Length; i++)
             {
-                if (btList[i] > btList[i + 1] && btList[i] > threshold && btList[i] >= max)
+                if (complex[i].Magnitude > max)
                 {
-                    max = btList[i];
-                    times.Add(i);
+                    max = complex[i].Magnitude;
+                    maxFrequency = i * _factor;
                 }
             }
-            return times;
-        }
 
-        public int Calculate(List<double> btList)
-        {
-            var times = Times(btList);
-            var diff = TimeDifferences(times);
-            _buffer.Enqueue(diff);
-
-            var pulse = 60000 / _buffer.Average();
-
-            return Convert.ToInt32(pulse);
+            var result = maxFrequency * 120;
+            return Convert.ToInt32(result);
         }
 
 

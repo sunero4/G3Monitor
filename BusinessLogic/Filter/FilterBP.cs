@@ -14,7 +14,6 @@ namespace BusinessLogic.Filter
         private List<double> ChartList;
         public List<double> Smoothing(List<double> containerData)
         {
-
             for (int i = 0; i < containerData.Count; i = i + 5)
             {
                 double average = (containerData.GetRange(i, 5).Average());
