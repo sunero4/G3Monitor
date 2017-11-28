@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class OperationsDataDTO
+    public class OperationsDTO
     {
         private string _kommentar;
         public List<MaalingDTO> Maaling { get; set; }

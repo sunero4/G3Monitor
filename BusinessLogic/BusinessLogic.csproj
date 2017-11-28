@@ -86,7 +86,6 @@
     <Compile Include="KalibreringsAlgoritme.cs" />
     <Compile Include="Pulse.cs" />
     <Compile Include="QueueExtensions.cs" />
-    <Compile Include="RetrievedDataDivider.cs" />
     <Compile Include="Saving\Saving.cs" />
     <Compile Include="SCBusinessLogic.cs" />
     <Compile Include="ShowData.cs" />

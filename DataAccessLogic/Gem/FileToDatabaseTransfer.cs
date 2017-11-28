@@ -9,7 +9,7 @@ namespace DataAccessLogic
 {
     public class FileToDatabaseTransfer
     {
-        private IRetrievedData<MaalingDTO> _dataRetrieval;
+        private IRetrievedData<List<MaalingDTO>> _dataRetrieval; 
         private ISaving _saving;
 
         public FileToDatabaseTransfer()
@@ -24,7 +24,7 @@ namespace DataAccessLogic
             UploadToDatabase(patient);
         }
 
-        public MaalingDTO GetData(PatientDTO patient)
+        public MaalingDTO GetData(PatientDTO patient) // SS 
         {
             return _dataRetrieval.HentData(patient);
         }
