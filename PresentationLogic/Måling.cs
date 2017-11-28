@@ -12,6 +12,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using DTO;
 using Interfaces;
 using ObserverPattern;
+using System.Media;
 
 namespace PresentationLogic
 {
@@ -56,7 +57,6 @@ namespace PresentationLogic
                 //}
             }
         }
-
         private void UpdateBPValues(PresentationDataContainer container)
         {
             if (InvokeRequired)
@@ -97,6 +97,18 @@ namespace PresentationLogic
             _container.Attach(this);
             var t1 = new Thread(_iBusinessLogic.StartShowData);
             t1.Start();
+        }
+
+        private void btn_DeaktiverAlarm_Click(object sender, EventArgs e) // virker det?
+        {
+            _container.Detach();
+            _iBusinessLogic.CreateAlarm(false); //slår alarmen fra?
+        }
+
+        private void btn_AktiverAlarm_Click(object sender, EventArgs e) // virker det?
+        {
+            _container.Attach();
+            _iBusinessLogic.CreateAlarm(true);
         }
     }
 }
