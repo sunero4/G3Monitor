@@ -132,16 +132,29 @@ namespace PresentationLogic
             var t1 = new Thread(_iBusinessLogic.StartShowData);
             t1.Start();
         }
-
+        System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         private void btn_DeaktiverAlarm_Click(object sender, EventArgs e) // virker det?
         {
-            _container.Detach();
+            timer.Interval = 120000;
+            timer.Tick += timer_Tick;
+            timer.Start();
+            btn_DeaktiverAlarm.Enabled = false;
             _iBusinessLogic.CreateAlarm(false); //slår alarmen fra?
+ 
+            _container.Detach(this);
+            
+        }
+        void timer_Tick(object sender, System.EventArgs e)
+        {
+            btn_DeaktiverAlarm.Enabled = true;
+            timer.Stop();
+            _iBusinessLogic.CreateAlarm(true);
+            _container.Attach(this);
         }
 
         private void btn_AktiverAlarm_Click(object sender, EventArgs e) // virker det?
         {
-            _container.Attach();
+            _container.Attach(this);
             _iBusinessLogic.CreateAlarm(true);
         }
     }

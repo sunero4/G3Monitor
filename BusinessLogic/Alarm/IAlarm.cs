@@ -8,5 +8,6 @@ namespace BusinessLogic.Alarm
 {
     interface IAlarm
     {
+        void StartAlarm()
     }
 }
