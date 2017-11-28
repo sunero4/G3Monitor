@@ -12,6 +12,12 @@ namespace BusinessLogic.Filter
     public class FilterBP:IFilter
     {
         private List<double> ChartList;
+
+        public FilterBP()
+        {
+            ChartList = new List<double>();
+        }
+
         public List<double> Smoothing(List<double> containerData)
         {
             for (int i = 0; i < containerData.Count; i = i + 5)
@@ -19,7 +25,7 @@ namespace BusinessLogic.Filter
                 double average = (containerData.GetRange(i, 5).Average());
                 ChartList.Add(average);
 
-                if (ChartList.Count > 50)
+                if (ChartList.Count > 64)
                 {
                     ChartList.RemoveAt(0);
                 }

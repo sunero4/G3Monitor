@@ -60,18 +60,27 @@ namespace BusinessLogic
 
             _container.SetSlidingWindow(data);
 
-            var correctData = _kaliAndZero.AddKalibreringAndZero(_container.GetSlidingWindow());
-            var currentData = _filter.Smoothing(correctData);
+            //var correctData = _kaliAndZero.AddKalibreringAndZero(_container.GetSlidingWindow());
+            var currentData = _filter.Smoothing(data);
             var tf = new TaskFactory();
 
             //Faster in parallel than sequential
-            var t2 = tf.StartNew(() => _container.AverageBloodPressure = _average.Calculate(currentData));
-            var t3 = tf.StartNew(() => _container.SystolicPressure = _sys.Calculate(currentData));
-            var t4 = tf.StartNew(() => _container.DiastolicPressure = _dia.Calculate(currentData));
-            var t5 = tf.StartNew(() => _container.Pulse = _pulse.Calculate(currentData));
+            _container.AverageBloodPressure = _average.Calculate(currentData);
+            _container.SystolicPressure = _sys.Calculate(currentData);
+            _container.DiastolicPressure = _dia.Calculate(currentData);
+
+            //var t2 = tf.StartNew(() => _container.AverageBloodPressure = _average.Calculate(currentData));
+            //var t3 = tf.StartNew(() => _container.SystolicPressure = _sys.Calculate(currentData));
+            //var t4 = tf.StartNew(() => _container.DiastolicPressure = _dia.Calculate(currentData));
+
+            //if (data.Count == 4096)
+            //{
+            //    var t5 = tf.StartNew(() => _container.Pulse = _pulse.Calculate(currentData));
+            //}
+
 
             //Wait for all tasks to finish
-            Task.WaitAll(t2, t3, t4, t5);
+            //Task.WaitAll(t2, t3, t4);
 
             //Datacontainer is the subject, tell it to notify its observers
             _container.Notify();

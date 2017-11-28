@@ -33,46 +33,54 @@ namespace PresentationLogic
 
         public new void Update()
         {
-            var data = _container.GetSlidingWindow();
-
-            UpdateChart(data);
             UpdateBPValues(_container);
         }
 
-        private void UpdateChart(List<double> data) 
-        {
-            if (InvokeRequired)
-            {
-                BeginInvoke(new Action(() => UpdateChart(data)));
-            }
-            else
-            {
-                chart1.Series[0].Points.Clear();
-                for (int i = 0; i < data.Count; i++)
-                {
-                    chart1.Series[0].Points.Add(data[i], i);
-                }
-                //var bleh = data.Count - 1;
-                //for (int i = bleh; i < 4000; i++)
-                //{
-                //    chart1.Series[0].Points.AddXY(0, 0);
-                //}
-            }
-        }
+        //private void UpdateChart(List<double> data) 
+        //{
+        //    if (InvokeRequired)
+        //    {
+        //        BeginInvoke(new Action(() => UpdateChart(data)));
+        //    }
+        //    else
+        //    {
+        //        chart1.Series[0].Points.Clear();
+        //        for (int i = 0; i < data.Count; i++)
+        //        {
+        //            chart1.Series[0].Points.Add(data[i], i);
+        //        }
+        //        //var bleh = data.Count - 1;
+        //        //for (int i = bleh; i < 4000; i++)
+        //        //{
+        //        //    chart1.Series[0].Points.AddXY(0, 0);
+        //        //}
+        //    }
+        //}
 
         private void UpdateBPValues(PresentationDataContainer container)
         {
+
             if (InvokeRequired)
             {
                 BeginInvoke(new Action(() => UpdateBPValues(container)));
             }
             else
             {
+                var data = container.GetSlidingWindow();
+
+                chart1.Series[0].Points.Clear();
+                for (int i = 0; i < data.Count; i++)
+                {
+                    chart1.Series[0].Points.Add(data[i], i);
+                }
                 label_SysDia.Text = Convert.ToString(container.SystolicPressure) + " / " +
                                     Convert.ToString(container.DiastolicPressure);
                 label_MiddelBT.Text = Convert.ToString(container.AverageBloodPressure);
                 label_Puls.Text = Convert.ToString(container.Pulse);
             }
+
+
+            
         }
 
         public void AttachToSubject(MeasurementSubjectBL subject)
@@ -95,16 +103,16 @@ namespace PresentationLogic
             _iBusinessLogic.CreateFilter(false);
         }
 
-        private void btn_StartMåling_Click(object sender, EventArgs e)
+        private void btn_Nulpunktsjustering_Click(object sender, EventArgs e)
+        {
+            _nulpunktForm = new Nulpunktsjustering(_iBusinessLogic, _nulpunkt);
+        }
+
+        private void btn_StartMåling_Click_1(object sender, EventArgs e)
         {
             _container.Attach(this);
             var t1 = new Thread(_iBusinessLogic.StartShowData);
             t1.Start();
-        }
-
-        private void btn_Nulpunktsjustering_Click(object sender, EventArgs e)
-        {
-            _nulpunktForm = new Nulpunktsjustering(_iBusinessLogic, _nulpunkt);
         }
     }
 }

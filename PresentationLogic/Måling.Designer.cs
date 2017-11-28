@@ -106,6 +106,7 @@ namespace PresentationLogic
             this.btn_StartMåling.TabIndex = 2;
             this.btn_StartMåling.Text = "Start måling";
             this.btn_StartMåling.UseVisualStyleBackColor = true;
+            this.btn_StartMåling.Click += new System.EventHandler(this.btn_StartMåling_Click_1);
             // 
             // btn_StopMåling
             // 

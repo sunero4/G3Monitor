@@ -18,12 +18,19 @@ namespace DataAccessLogic
             _daq = daq;
         }
 
+        public List<double> MeasureBP()
+        {
+            var data = _daq.GetData();
+
+            return data;
+        }
+
         public void GetData()
         { 
             var container = new BPDataContainer();
             while (true)
             {
-                container.BloodPressure = _daq.GetData();
+                container.BloodPressure = MeasureBP();
                 _queue.Enqueue(container);
             }
         }
