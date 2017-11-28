@@ -19,7 +19,7 @@ namespace DataAccessLogic
                 rangeMinimumVolt = 0,
                 rangeMaximumVolt = 5,
                 sampleRateInHz = 1000,
-                samplesPerChannel = 50
+                samplesPerChannel = 64
             };
         }
 

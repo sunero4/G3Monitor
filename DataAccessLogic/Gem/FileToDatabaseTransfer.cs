@@ -9,31 +9,29 @@ namespace DataAccessLogic
 {
     public class FileToDatabaseTransfer
     {
-        private IRetrievedData<MaalingDTO> _dataRetrieval;
+        private IRetrievedData<List<MaalingDTO>> _dataRetrieval; 
         private ISaving _saving;
-        private PatientDTO _patient;
 
-        public FileToDatabaseTransfer(PatientDTO patient)
+        public FileToDatabaseTransfer()
         {
-            _patient = patient;
             _dataRetrieval = new MeasurementRetrievalXml();
             _saving = new DatabaseSaving();
         }
 
-        public void TransferToDatabase()
+        public void TransferToDatabase(PatientDTO patient)
         {
-            GetData();
-            UploadToDatabase();
+            GetData(patient);
+            UploadToDatabase(patient);
         }
 
-        private void GetData()
+        public MaalingDTO GetData(PatientDTO patient) // SS 
         {
-            _dataRetrieval.HentData(_patient);
+            return _dataRetrieval.HentData(patient);
         }
 
-        private void UploadToDatabase()
+        private void UploadToDatabase(PatientDTO patient)
         {
-            _saving.SaveBloodPressureData(_patient);
+            _saving.SaveBloodPressureData(patient);
         }
     }
 }

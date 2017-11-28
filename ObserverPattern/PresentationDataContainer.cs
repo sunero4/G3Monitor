@@ -19,7 +19,7 @@ namespace ObserverPattern
         {
             if (_slidingWindow.Count == 4000)
             {
-                _slidingWindow.DequeueMultipleElements(100);
+                _slidingWindow.DequeueMultipleElements(data.Count);
             }
             _slidingWindow.EnqueueMultipleElements(data);
         }

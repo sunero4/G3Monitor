@@ -18,24 +18,26 @@ namespace BusinessLogic
         private IDataAccess _iDataAccess;
         private Nulpunktsjustering _nulpunkt;
         private Login _login;
-        private RetrievedDataDivider _retrievedDataDivider;
         private DataConverter _dataConverter;
         private IFilter _filter;
         private BPConsumer _consumer;
         private AutoResetEvent _event;
         private ShowData _showData;
+        private NulpunktsjusteringDTO _nulpunktDTO;
+        private KaliAndZero _kaliAndZero;
 
-        public SCBusinessLogic(IDataAccess iDataAccess, ConcurrentQueue<BPDataContainer> queue, PresentationDataContainer container)
+        public SCBusinessLogic(IDataAccess iDataAccess, ConcurrentQueue<BPDataContainer> queue,
+            PresentationDataContainer container)
         {
             _event = new AutoResetEvent(false);
             _iDataAccess = iDataAccess;
             _nulpunkt = new Nulpunktsjustering();
             _login = new Login();
-            _retrievedDataDivider = new RetrievedDataDivider();
             _dataConverter = new DataConverter();
             _consumer = new BPConsumer(queue, _iDataAccess, _event);
-            _showData = new ShowData(container, queue, _consumer, _event);
             _filter = new FilterBP();
+            _kaliAndZero = new KaliAndZero(_nulpunktDTO, GetCalibration());
+            _showData = new ShowData(container, queue, _consumer, _event, _filter, _kaliAndZero);
         }
 
         public bool CheckLogin(MedarbejderDTO medarbejder)
@@ -55,16 +57,11 @@ namespace BusinessLogic
         public PatientDTO HentData(PatientDTO patient)
         {
             PatientDTO patientDto = _iDataAccess.HentData(patient);
-            if (patientDto.Maalinger.MaaleData == null)
+            if (patientDto.ListOperation == null) // SS er i tvil om dette er rigtigt 
             {
                 patientDto.FindesData = false;
             }
             return patientDto;
-        }
-
-        public List<MaalingDTO> RetrievedDivider(byte[] bpValues)
-        {
-            return _retrievedDataDivider.RetrievedDivider(bpValues);
         }
 
         public byte[] GetSalt(MedarbejderDTO medarbejder)
@@ -107,6 +104,11 @@ namespace BusinessLogic
         public void StartShowData()
         {
             _showData.Start();
+        }
+
+        public void GetNulpunkt(NulpunktsjusteringDTO nulpunkt)
+        {
+            _nulpunktDTO = nulpunkt;
         }
     }
 }

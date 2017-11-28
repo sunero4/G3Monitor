@@ -15,10 +15,19 @@ namespace BusinessLogic.Filter
 {
     public class KaliAndZero
     {
+        private NulpunktsjusteringDTO _nulpunkt;
+        private KalibreringsDTO _kalibrering;
+
+        public KaliAndZero(NulpunktsjusteringDTO nulpunkt, KalibreringsDTO kalibrering)
+        {
+            _nulpunkt = nulpunkt;
+            _kalibrering = kalibrering;
+        }
+
         //Tilføjer kalibrering og nulpunktsjustering. Og Fjerner netstøj. 
         public List<double> AddKalibreringAndZero(List<double> containerData)
         {
-            double nul = new NulpunktsjusteringDTO().Nulpunktsjustering;
+            double nul = _nulpunkt.Nulpunktsjustering;
             double kali = new KalibreringsDTO().Slope;
             for (int i = 0; i < containerData.Count; i++)
             {

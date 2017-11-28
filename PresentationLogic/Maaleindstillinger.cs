@@ -41,11 +41,7 @@ namespace PresentationLogic
                     {
                         CPR = txtCPR.Text,
                         Fornavn = txtFornavn.Text,
-                        Efternavn = txtEfternavn.Text,
-                        Maalinger = new MaalingDTO()
-                        {
-                            Kommentar = txtKommentar.Text
-                        }
+                        Efternavn = txtEfternavn.Text
                     }
                 };
             }

@@ -16,10 +16,11 @@ namespace PresentationLogic
     {
         private IBusinessLogic _businessLogic;
         private NulpunktsjusteringDTO _nulpunkt;
-        public Nulpunktsjustering(IBusinessLogic businessLogic)
+        public Nulpunktsjustering(IBusinessLogic businessLogic, NulpunktsjusteringDTO nulpunkt)
         {
             InitializeComponent();
             _businessLogic = businessLogic;
+            _nulpunkt = nulpunkt;
         }
 
         private void btnStart_Click(object sender, EventArgs e)
