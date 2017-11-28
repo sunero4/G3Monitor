@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccessLogic.Hent;
 using DTO;
 using Interfaces;
 
@@ -11,13 +12,56 @@ namespace DataAccessLogic
 {
     public class RetrievedData :IRetrievedData<PatientDTO>
     {
-        private ICommandBuilder<PatientDTO> _commandBuilder;
-        private IQueryBuilder<PatientDTO> _queryBuilder;
+
+
+        private ICommandBuilder<PatientDTO> _operationCommandBuilder;
+        private ICommandBuilder<OperationsDTO> _measurementCommandBuilder;
+        private IQueryBuilder<List<OperationsDTO>> _operationQueryBuilder;
+        private IQueryBuilder<List<MaalingDTO>> _measurementQueryBuilder;
 
         public RetrievedData()
         {
-            _commandBuilder = new RetrievedCommandBuilder();
-            _queryBuilder = new RetrievedQueryBuilder();
+            _operationCommandBuilder = new OperationCommandBuilder();
+            _measurementCommandBuilder = new MeasurementCommandBuilder();
+            _operationQueryBuilder = new OperationQueryBuilder();
+            _measurementQueryBuilder = new MeasurementQueryBuilder();
+        }
+
+        public PatientDTO (PatientDTO patient)
+        {
+            var patientOut = new PatientDTO() {ListOperation = new List<OperationsDTO>()};
+            var idList = new List<int>();
+
+            var operationQuery = _operationQueryBuilder.BuildQuery(new List<OperationsDTO>());
+
+            var tempOperation = new OperationsDTO();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(operationQuery))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = _operationCommandBuilder.BuildCommand(patient, conn, operationQuery))
+                    {
+                        using (SqlDataReader rdr = cmd.ExecuteReader())
+                        {
+                            while (rdr.Read())
+                            {
+                                tempOperation.OperationsID = rdr.GetInt32(rdr.GetOrdinal("OperationsID"));
+                                tempOperation.Kalibrering = rdr.GetInt32(rdr.GetOrdinal("Kalibrering"));
+                                tempOperation.Kommentar = SafeGetString(rdr, "Kommentar");
+                                tempOperation.MaaleTidspunkt = rdr.GetDateTime(rdr.GetOrdinal("Maaletidspunkt"));
+                                tempOperation.Nulpunktjustering = rdr.GetInt32(rdr.GetOrdinal("Nulpunktsjustering"));
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public PatientDTO HentData(PatientDTO patient)
@@ -59,6 +103,15 @@ namespace DataAccessLogic
             }
             return patientOut; 
 
+        }
+
+        private string SafeGetString(SqlDataReader reader, string columnName)
+        {
+            if (!reader.IsDBNull(reader.GetOrdinal(columnName)))
+            {
+                return reader.GetString(reader.GetOrdinal(columnName));
+            }
+            return String.Empty;
         }
 
       

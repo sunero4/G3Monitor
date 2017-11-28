@@ -743,8 +743,7 @@ namespace PresentationLogic
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(957, 539);
-
+            this.ClientSize = new System.Drawing.Size(1119, 539);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtKommentar);
             this.Controls.Add(this.btn_UfiltrerMåling);

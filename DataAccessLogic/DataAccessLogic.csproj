@@ -54,6 +54,10 @@
     <Compile Include="DAQData.cs" />
     <Compile Include="Gem\Saving.cs" />
     <Compile Include="Hent\CalibrationRetrievalXml.cs" />
+    <Compile Include="Hent\MeasurementCommandBuilder.cs" />
+    <Compile Include="Hent\MeasurementQueryBuilder.cs" />
+    <Compile Include="Hent\OperationCommandBuilder.cs" />
+    <Compile Include="Hent\OperationQueryBuilder.cs" />
     <Compile Include="IRetrievedData.cs" />
     <Compile Include="Kalibrering\CalibrationQueryBuilderXml.cs" />
     <Compile Include="Gem\ClearXmlFileContent.cs" />
