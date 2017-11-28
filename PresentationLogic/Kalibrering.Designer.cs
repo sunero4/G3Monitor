@@ -173,7 +173,6 @@
             this.chartMåltTryk.Size = new System.Drawing.Size(896, 708);
             this.chartMåltTryk.TabIndex = 1;
             this.chartMåltTryk.Text = "chart1";
-            this.chartMåltTryk.Click += new System.EventHandler(this.chartMåltTryk_Click);
             // 
             // ListBoxMåltTryk
             // 
@@ -213,6 +212,7 @@
             this.ScrollBarHældning.Name = "ScrollBarHældning";
             this.ScrollBarHældning.Size = new System.Drawing.Size(34, 48);
             this.ScrollBarHældning.TabIndex = 15;
+            this.ScrollBarHældning.Scroll += new System.Windows.Forms.ScrollEventHandler(this.ScrollBarHældning_Scroll);
             // 
             // txtHældningskoefficient
             // 
@@ -221,6 +221,7 @@
             this.txtHældningskoefficient.Name = "txtHældningskoefficient";
             this.txtHældningskoefficient.Size = new System.Drawing.Size(129, 38);
             this.txtHældningskoefficient.TabIndex = 14;
+            this.txtHældningskoefficient.TextChanged += new System.EventHandler(this.txtHældningskoefficient_TextChanged);
             // 
             // label3
             // 

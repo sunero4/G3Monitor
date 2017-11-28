@@ -22,17 +22,27 @@ namespace DataAccessLogic.Test.Unit
             _command = new SqlCommand();
             _patient = new PatientDTO()
             {
-                Maalinger = new MaalingDTO()
+                
+                ListOperation = new List<OperationsDTO>()
                 {
+                    new OperationsDTO()
+                    {
                     Kommentar = "Test",
-                    MaaleData = new byte[] {123, 45, 96, 32},
+                    Maaling = new List<MaalingDTO>()
+                    {
+                        new MaalingDTO()
+                        {
+                            MaaleData = new byte[] {123, 45, 96, 32},
+                        }
+                    },
                     MaaleTidspunkt = DateTime.Today
+                    }
                 }
             };
             _command.Parameters.AddWithValue("@cpr", _patient.CPR);
-            _command.Parameters.AddWithValue("@maaledata", _patient.Maalinger.MaaleData);
-            _command.Parameters.AddWithValue("@kommentar", _patient.Maalinger.Kommentar);
-            _command.Parameters.AddWithValue("@maaletidspunkt", _patient.Maalinger.MaaleTidspunkt);
+            _command.Parameters.AddWithValue("@maaledata", _patient.ListOperation[0].Maaling);
+            _command.Parameters.AddWithValue("@kommentar", _patient.ListOperation[0].Kommentar);
+            _command.Parameters.AddWithValue("@maaletidspunkt", _patient.ListOperation[0].MaaleTidspunkt);
         }
 
         //Tests that correct amount of parameters are added to the command. Need to find out how to compare the

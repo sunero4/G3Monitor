@@ -52,6 +52,7 @@
     <Compile Include="MedarbejderDTO.cs" />
     <Compile Include="Monitoreringsindstillinger.cs" />
     <Compile Include="NulpunktsjusteringDTO.cs" />
+    <Compile Include="OperationsDataDTO.cs" />
     <Compile Include="OPSygeplejerskeDTO.cs" />
     <Compile Include="PatientDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -60,7 +60,7 @@ namespace PresentationLogic
             }
             else
             {
-                List<MaalingDTO> separatedbpValues = _iBusinessLogic.RetrievedDivider(_patient.ListMaalinger[index].MaaleData);
+                List<MaalingDTO> separatedbpValues = _patient.ListOperation[index].Maaling;
                 List<double> bpValues = _iBusinessLogic.ConvertArrayToDoubles(separatedbpValues[index].MaaleData);
                 for (int i = 0; i < 5000; i++)
                 {
@@ -71,16 +71,16 @@ namespace PresentationLogic
        
             // Udfyld patient/ data oplysninger 
 
-            txt_kommentarer.Text = _patient.Maalinger.Kommentar;
+            txt_kommentarer.Text = _patient.ListOperation[index].Kommentar;
             txt_patientNavn.Text = _patient.Fornavn + " " + _patient.Efternavn;
             txt_patientCpr.Text = _patient.CPR;
-            combo_ældreData.Text = _patient.Maalinger.MaaleTidspunkt.ToLongDateString(); // tjek om det virker SS og LD 
+            combo_ældreData.Text = _patient.ListOperation[index].MaaleTidspunkt.ToLongDateString(); // tjek om det virker SS og LD 
         }
 
         private void combo_ældreData_SelectedIndexChanged(object sender, EventArgs e)
         {
             PatientDTO patient = new PatientDTO();
-            int index = patient.ListMaalinger.FindIndex(x =>
+            int index = patient.ListOperation.FindIndex(x =>
                 x.MaaleTidspunkt == Convert.ToDateTime(combo_ældreData.SelectedItem)); 
             Chart(index);
         }

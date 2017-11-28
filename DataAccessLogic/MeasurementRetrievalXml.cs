@@ -7,7 +7,7 @@ using DTO;
 
 namespace DataAccessLogic
 {
-    public class MeasurementRetrievalXml : IRetrievedData<MaalingDTO>
+    public class MeasurementRetrievalXml : IRetrievedData<List<MaalingDTO>>
     {
         private IXmlQueryBuilder<IEnumerable<string>> _queryBuilder;
 
@@ -15,7 +15,7 @@ namespace DataAccessLogic
         {
             _queryBuilder = new DataRetrievalQueryBuilderXml();
         }
-        public MaalingDTO HentData(PatientDTO patient)
+        public List<MaalingDTO> HentData(PatientDTO patient)
         {
             var dataList = _queryBuilder.BuildQuery().ToList();
             var data = String.Join(String.Empty, dataList);
