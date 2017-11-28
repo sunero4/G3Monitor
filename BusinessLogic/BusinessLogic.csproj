@@ -71,6 +71,7 @@
     <Compile Include="Alarm\IAlarm.cs" />
     <Compile Include="AverageBloodPressure.cs" />
     <Compile Include="BPConsumer.cs" />
+    <Compile Include="CPRChecker.cs" />
     <Compile Include="DataConverter.cs" />
     <Compile Include="Diastolic.cs" />
     <Compile Include="Filter\FilterBP.cs" />
