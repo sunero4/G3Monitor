@@ -12,6 +12,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using DTO;
 using Interfaces;
 using ObserverPattern;
+using System.Media;
 
 namespace PresentationLogic
 {
@@ -73,6 +74,23 @@ namespace PresentationLogic
                 {
                     chart1.Series[0].Points.Add(data[i], i);
                 }
+
+                //var bleh = data.Count - 1;
+                //for (int i = bleh; i < 4000; i++)
+                //{
+                //    chart1.Series[0].Points.AddXY(0, 0);
+                //}
+            }
+        }
+        private void UpdateBPValues(PresentationDataContainer container)
+        {
+            if (InvokeRequired)
+            {
+                BeginInvoke(new Action(() => UpdateBPValues(container)));
+            }
+            else
+            {
+
                 label_SysDia.Text = Convert.ToString(container.SystolicPressure) + " / " +
                                     Convert.ToString(container.DiastolicPressure);
                 label_MiddelBT.Text = Convert.ToString(container.AverageBloodPressure);
@@ -113,6 +131,18 @@ namespace PresentationLogic
             _container.Attach(this);
             var t1 = new Thread(_iBusinessLogic.StartShowData);
             t1.Start();
+        }
+
+        private void btn_DeaktiverAlarm_Click(object sender, EventArgs e) // virker det?
+        {
+            _container.Detach();
+            _iBusinessLogic.CreateAlarm(false); //slår alarmen fra?
+        }
+
+        private void btn_AktiverAlarm_Click(object sender, EventArgs e) // virker det?
+        {
+            _container.Attach();
+            _iBusinessLogic.CreateAlarm(true);
         }
     }
 }

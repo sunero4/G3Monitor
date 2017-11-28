@@ -27,6 +27,8 @@ namespace Interfaces
         PatientDTO GetPatientInfo(PatientDTO patient);
         void CreateFilter(bool button);
 
+        void CreateAlarm(bool alarm);
+
         void RunConsumer();
 
         void StartShowData();
