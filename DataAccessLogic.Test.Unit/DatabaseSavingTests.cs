@@ -20,10 +20,16 @@ namespace DataAccessLogic.Test.Unit
         [SetUp]
         public void Setup()
         {
-            _patient = new PatientDTO() {CPR = "1234567890" ,Maalinger = new MaalingDTO() {Kommentar = "", MaaleTidspunkt = DateTime.Now, MaaleData = new byte[] {123, 45, 67}}};
+            // SS 
+            _patient = new PatientDTO() { CPR = "1234567890", ListOperation = new List<OperationsDTO>(){new OperationsDTO() { Kommentar = "", MaaleTidspunkt = DateTime.Now, Maaling = { new MaalingDTO() {MaaleData = new byte[] {123, 45, 67}, }}}}}  ;
             _saving = new DatabaseSaving();
             _queryBuilder = Substitute.For<IQueryBuilder<PatientDTO>>();
             _commandBuilder = Substitute.For<ICommandBuilder<PatientDTO>>();
+
+            //_patient = new PatientDTO() {CPR = "1234567890" ,Maalinger = new MaalingDTO() {Kommentar = "", MaaleTidspunkt = DateTime.Now, MaaleData = new byte[] {123, 45, 67}}};
+            //_saving = new DatabaseSaving();
+            //_queryBuilder = Substitute.For<IQueryBuilder<PatientDTO>>();
+            //_commandBuilder = Substitute.For<ICommandBuilder<PatientDTO>>();
         }
 
         //Test won't run because the statement that I am trying to execute references a foreign key not in the

@@ -22,7 +22,7 @@ namespace DataAccessLogic
 
         public PatientDTO HentData(PatientDTO patient)
         {
-            PatientDTO patientOut = new PatientDTO() {ListMaalinger = new List<MaalingDTO>()};
+            PatientDTO patientOut = new PatientDTO() {ListOperation = new List<OperationsDTO>()};
             
             var query = _queryBuilder.BuildQuery(patient);
             try
@@ -34,17 +34,19 @@ namespace DataAccessLogic
                     {
                         using (SqlDataReader rdr = cmd.ExecuteReader())
                         {
-                            MaalingDTO maaling = new MaalingDTO();
+                            OperationsDTO operation = new OperationsDTO(); 
                             while (rdr.Read())
                             {
                                 patientOut.CPR = rdr.GetString(rdr.GetOrdinal("CPR"));
                                 patientOut.Fornavn = rdr.GetString(rdr.GetOrdinal("Fornavn"));
                                 patientOut.Efternavn = rdr.GetString(rdr.GetOrdinal("Efternavn"));
-                                maaling.MaaleData = (byte[]) rdr["Måledata"];
-                                maaling.Kommentar = rdr.GetString(rdr.GetOrdinal("Kommentar"));
-                                maaling.MaaleTidspunkt = rdr.GetDateTime(rdr.GetOrdinal("Maaletidspunkt"));
                                 
-                                patientOut.ListMaalinger.Add(maaling);
+                                //SS 
+                                operation.Maaling[0].MaaleData = (byte[]) rdr["Måledata"];
+                                operation.Kommentar = rdr.GetString(rdr.GetOrdinal("Kommentar"));
+                                operation.MaaleTidspunkt = rdr.GetDateTime(rdr.GetOrdinal("Maaletidspunkt")); 
+
+                                patientOut.ListOperation.Add(operation); 
                             }
                         }
                     }

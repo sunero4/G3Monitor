@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="BPProducer.cs" />
     <Compile Include="DAQData.cs" />
+    <Compile Include="Gem\Saving.cs" />
     <Compile Include="Hent\CalibrationRetrievalXml.cs" />
     <Compile Include="IRetrievedData.cs" />
     <Compile Include="Kalibrering\CalibrationQueryBuilderXml.cs" />

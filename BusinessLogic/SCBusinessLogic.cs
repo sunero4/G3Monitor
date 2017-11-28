@@ -18,7 +18,6 @@ namespace BusinessLogic
         private IDataAccess _iDataAccess;
         private Nulpunktsjustering _nulpunkt;
         private Login _login;
-        private RetrievedDataDivider _retrievedDataDivider;
         private DataConverter _dataConverter;
         private IFilter _filter;
         private BPConsumer _consumer;
@@ -31,11 +30,11 @@ namespace BusinessLogic
             _iDataAccess = iDataAccess;
             _nulpunkt = new Nulpunktsjustering();
             _login = new Login();
-            _retrievedDataDivider = new RetrievedDataDivider();
             _dataConverter = new DataConverter();
             _consumer = new BPConsumer(queue, _iDataAccess, _event);
-            _showData = new ShowData(container, queue, _consumer, _event);
             _filter = new FilterBP();
+            _showData = new ShowData(container, _consumer, _event, _iDataAccess, _filter);
+
         }
 
         public bool CheckLogin(MedarbejderDTO medarbejder)
@@ -55,16 +54,11 @@ namespace BusinessLogic
         public PatientDTO HentData(PatientDTO patient)
         {
             PatientDTO patientDto = _iDataAccess.HentData(patient);
-            if (patientDto.Maalinger.MaaleData == null)
+            if (patientDto.ListOperation == null) // SS er i tvil om dette er rigtigt 
             {
                 patientDto.FindesData = false;
             }
             return patientDto;
-        }
-
-        public List<MaalingDTO> RetrievedDivider(byte[] bpValues)
-        {
-            return _retrievedDataDivider.RetrievedDivider(bpValues);
         }
 
         public byte[] GetSalt(MedarbejderDTO medarbejder)

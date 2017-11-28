@@ -12,9 +12,8 @@ namespace BusinessLogic
 {
     public class ShowData
     {
-        private Queue<double> _slidingWindow;
-        private ConcurrentQueue<BPDataContainer> _queue;
-        private FilterFactory _filter;
+       
+        private IFilter _filter;
         private Pulse _pulse;
         private Systolic _sys;
         private Diastolic _dia;
@@ -23,6 +22,7 @@ namespace BusinessLogic
         private VoltageToPressureConversion _convert;
         private BPConsumer _consumer;
         private AutoResetEvent _event;
+        
 
         public bool CanRun { get; set; }
 
@@ -35,9 +35,10 @@ namespace BusinessLogic
         //    _slidingWindow.EnqueueMultipleElements(data);
         //}
 
-        public ShowData(PresentationDataContainer container, ConcurrentQueue<BPDataContainer> queue, BPConsumer consumer, AutoResetEvent autoResetEvent)
+        public ShowData(PresentationDataContainer container, BPConsumer consumer, AutoResetEvent autoResetEvent, IDataAccess dataAccess, IFilter filter)
         {
-            _filter = new FilterFactory();
+
+            _filter = filter;
             _pulse = new Pulse();
             _average = new AverageBloodPressure();
             _dia = new Diastolic();
@@ -57,17 +58,17 @@ namespace BusinessLogic
 
             _container.SetSlidingWindow(data);
 
-            var currentData = _container.GetSlidingWindow();
+            var currentData = _filter.Smoothing(_container.GetSlidingWindow());
             var tf = new TaskFactory();
 
             //Faster in parallel than sequential
             var t2 = tf.StartNew(() => _container.AverageBloodPressure = _average.Calculate(currentData));
             var t3 = tf.StartNew(() => _container.SystolicPressure = _sys.Calculate(currentData));
             var t4 = tf.StartNew(() => _container.DiastolicPressure = _dia.Calculate(currentData));
-            var t5 = tf.StartNew(() => _container.Pulse = _pulse.Calculate(currentData));
+            //var t5 = tf.StartNew(() => _container.Pulse = _pulse.Calculate(currentData));
 
             //Wait for all tasks to finish
-            Task.WaitAll(t2, t3, t4, t5);
+            Task.WaitAll(t2, t3, t4 /*t5*/);
 
             //Datacontainer is the subject, tell it to notify its observers
             _container.Notify();
