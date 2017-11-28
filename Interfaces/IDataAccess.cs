@@ -13,9 +13,12 @@ namespace Interfaces
 
         void SaveCalibration(KalibreringsDTO kalibrering);
         byte[] GetSalt(MedarbejderDTO medarbejder);
-        void GetData();
         PatientDTO HentData(PatientDTO patient);
 
         PatientDTO GetPatientInfo(PatientDTO patient);
+
+        KalibreringsDTO GetCalibration();
+
+        void StartProducer();
     }
 }

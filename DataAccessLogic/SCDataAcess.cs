@@ -21,6 +21,7 @@ namespace DataAccessLogic
         private PatientInfoRetrieval _patientInfoRetrieval;
         private DAQData _producer;
         private DAQ _daq;
+        private ICalibrationDataRetrieval _calibrationRetrieval;
 
         public SCDataAcess(ConcurrentQueue<BPDataContainer> queue)
         {
@@ -30,12 +31,17 @@ namespace DataAccessLogic
             _patientInfoRetrieval = new PatientInfoRetrieval();
             _daq = new DAQ();
             _producer = new DAQData(_daq, queue);
-         
+            _calibrationRetrieval = new CalibrationRetrievalXml();
         }
 
         public PatientDTO GetPatientInfo(PatientDTO patient)
         {
             return _patientInfoRetrieval.HentData(patient);
+        }
+
+        public KalibreringsDTO GetCalibration()
+        {
+            return _calibrationRetrieval.GetCalibrationData();
         }
 
         public MedarbejderDTO CheckLogin(MedarbejderDTO medarbejder)
@@ -58,7 +64,7 @@ namespace DataAccessLogic
             return _salt.GetSalt(medarbejder); 
         }
 
-        public void GetData()
+        public void StartProducer()
         {
             _producer.Start();
         }

@@ -22,10 +22,10 @@ namespace DataAccessLogic
         {
             var cmd = new SqlCommand(query, conn);
 
-            cmd.Parameters.AddWithValue("@cpr", patient.CPR);
-            cmd.Parameters.AddWithValue("@maaledata", patient.Maalinger.MaaleData);
-            cmd.Parameters.AddWithValue("@kommentar", patient.Maalinger.Kommentar);
-            cmd.Parameters.AddWithValue("@maaletidspunkt", patient.Maalinger.MaaleTidspunkt);
+            //cmd.Parameters.AddWithValue("@cpr", patient.CPR);
+            //cmd.Parameters.AddWithValue("@maaledata", patient.Maalinger.MaaleData);
+            //cmd.Parameters.AddWithValue("@kommentar", patient.Maalinger.Kommentar);
+            //cmd.Parameters.AddWithValue("@maaletidspunkt", patient.Maalinger.MaaleTidspunkt);
 
             return cmd;
         }

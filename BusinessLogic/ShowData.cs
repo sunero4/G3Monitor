@@ -37,9 +37,8 @@ namespace BusinessLogic
         //    _slidingWindow.EnqueueMultipleElements(data);
         //}
 
-        public ShowData(PresentationDataContainer container, ConcurrentQueue<BPDataContainer> queue, BPConsumer consumer, AutoResetEvent autoResetEvent, IFilter filter, KaliAndZero kaliAndZero)
+        public ShowData(PresentationDataContainer container, ConcurrentQueue<BPDataContainer> queue, BPConsumer consumer, AutoResetEvent autoResetEvent)
         {
-            _filter = filter;
             _pulse = new Pulse();
             _average = new AverageBloodPressure();
             _dia = new Diastolic();
@@ -48,7 +47,6 @@ namespace BusinessLogic
             _container = container;
             _consumer = consumer;
             _event = autoResetEvent;
-            _kaliAndZero = kaliAndZero;
             CanRun = true;
         }
 
@@ -61,13 +59,14 @@ namespace BusinessLogic
             _container.SetSlidingWindow(data);
 
             //var correctData = _kaliAndZero.AddKalibreringAndZero(_container.GetSlidingWindow());
-            var currentData = _filter.Smoothing(data);
-            var tf = new TaskFactory();
+            //var currentData = _filter.Smoothing(data);
+
+            //var tf = new TaskFactory();
 
             //Faster in parallel than sequential
-            _container.AverageBloodPressure = _average.Calculate(currentData);
-            _container.SystolicPressure = _sys.Calculate(currentData);
-            _container.DiastolicPressure = _dia.Calculate(currentData);
+            _container.AverageBloodPressure = _average.Calculate(_container.GetSlidingWindow());
+            _container.SystolicPressure = _sys.Calculate(_container.GetSlidingWindow());
+            _container.DiastolicPressure = _dia.Calculate(_container.GetSlidingWindow());
 
             //var t2 = tf.StartNew(() => _container.AverageBloodPressure = _average.Calculate(currentData));
             //var t3 = tf.StartNew(() => _container.SystolicPressure = _sys.Calculate(currentData));

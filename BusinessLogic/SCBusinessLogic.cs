@@ -34,10 +34,10 @@ namespace BusinessLogic
             _nulpunkt = new Nulpunktsjustering();
             _login = new Login();
             _dataConverter = new DataConverter();
-            _consumer = new BPConsumer(queue, _iDataAccess, _event);
             _filter = new FilterBP();
-            _kaliAndZero = new KaliAndZero(_nulpunktDTO, GetCalibration());
-            _showData = new ShowData(container, queue, _consumer, _event, _filter, _kaliAndZero);
+            _consumer = new BPConsumer(queue, _iDataAccess, _event, _filter, new KaliAndZero(_nulpunktDTO, new KalibreringsDTO()));
+            _kaliAndZero = new KaliAndZero(_nulpunktDTO, new KalibreringsDTO());
+            _showData = new ShowData(container, queue, _consumer, _event);
         }
 
         public bool CheckLogin(MedarbejderDTO medarbejder)
@@ -88,7 +88,7 @@ namespace BusinessLogic
 
         public KalibreringsDTO GetCalibration()
         {
-            return new KalibreringsDTO();
+            return _iDataAccess.GetCalibration();
         }
 
         public void CreateFilter(bool button)
@@ -109,6 +109,11 @@ namespace BusinessLogic
         public void GetNulpunkt(NulpunktsjusteringDTO nulpunkt)
         {
             _nulpunktDTO = nulpunkt;
+        }
+
+        public void StartProducer()
+        {
+            _iDataAccess.StartProducer();
         }
     }
 }

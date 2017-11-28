@@ -32,8 +32,8 @@ namespace G3Monitor
             _businessLogic = new SCBusinessLogic(_dataAccess, queue, presentationContainer);
             _presentationLogic = new SCPresentationLogic(_businessLogic, presentationContainer);
 
-            var t1 = new Thread(_dataAccess.GetData);
-            t1.Start();
+            //var t1 = new Thread(_dataAccess.GetData);
+            //t1.Start();
 
             _presentationLogic.StartUpGui();
         }

@@ -113,6 +113,8 @@ namespace PresentationLogic
             _container.Attach(this);
             var t1 = new Thread(_iBusinessLogic.StartShowData);
             t1.Start();
+
+            _iBusinessLogic.StartProducer();
         }
     }
 }

@@ -7,7 +7,7 @@ using DTO;
 
 namespace DataAccessLogic.Hent
 {
-    public class MeasurementQueryBuilder : IQueryBuilder<List<MaalingDTO>>
+    public class MeasurementQueryBuilder : IQueryBuilder<PatientDTO>
     {
         private StringBuilder _stringBuilder;
 
@@ -17,7 +17,7 @@ namespace DataAccessLogic.Hent
         }
 
 
-        public string BuildQuery(List<MaalingDTO> input)
+        public string BuildQuery(PatientDTO input)
         {
             _stringBuilder.Append("SELECT * FROM Maaling WHERE MaaleID = @id");
             return _stringBuilder.ToString();

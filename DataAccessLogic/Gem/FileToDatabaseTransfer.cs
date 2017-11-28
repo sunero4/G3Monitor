@@ -26,7 +26,8 @@ namespace DataAccessLogic
 
         public MaalingDTO GetData(PatientDTO patient) // SS 
         {
-            return _dataRetrieval.HentData(patient);
+            //return _dataRetrieval.HentData(patient);
+            return new MaalingDTO();
         }
 
         private void UploadToDatabase(PatientDTO patient)

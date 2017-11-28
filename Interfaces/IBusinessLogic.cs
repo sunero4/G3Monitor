@@ -31,5 +31,8 @@ namespace Interfaces
 
         void StartShowData();
 
+        KalibreringsDTO GetCalibration();
+
+        void StartProducer();
     }
 }

@@ -17,7 +17,7 @@ namespace DataAccessLogic
         private ICommandBuilder<PatientDTO> _operationCommandBuilder;
         private ICommandBuilder<OperationsDTO> _measurementCommandBuilder;
         private IQueryBuilder<List<OperationsDTO>> _operationQueryBuilder;
-        private IQueryBuilder<List<MaalingDTO>> _measurementQueryBuilder;
+        private IQueryBuilder<PatientDTO> _measurementQueryBuilder;
 
         public RetrievedData()
         {
@@ -27,7 +27,7 @@ namespace DataAccessLogic
             _measurementQueryBuilder = new MeasurementQueryBuilder();
         }
 
-        public PatientDTO (PatientDTO patient)
+        public PatientDTO GetOperations (PatientDTO patient)
         {
             var patientOut = new PatientDTO() {ListOperation = new List<OperationsDTO>()};
             var idList = new List<int>();
@@ -51,6 +51,8 @@ namespace DataAccessLogic
                                 tempOperation.Kommentar = SafeGetString(rdr, "Kommentar");
                                 tempOperation.MaaleTidspunkt = rdr.GetDateTime(rdr.GetOrdinal("Maaletidspunkt"));
                                 tempOperation.Nulpunktjustering = rdr.GetInt32(rdr.GetOrdinal("Nulpunktsjustering"));
+
+                                patientOut.ListOperation.Add(tempOperation);
                             }
                         }
                     }
@@ -62,47 +64,40 @@ namespace DataAccessLogic
                 Console.WriteLine(e);
                 throw;
             }
+
+            return patientOut;
         }
 
         public PatientDTO HentData(PatientDTO patient)
         {
-            PatientDTO patientOut = new PatientDTO() {ListOperation = new List<OperationsDTO>()};
-            
-            var query = _queryBuilder.BuildQuery(patient);
-            try
+            var patientOut = GetOperations(patient);
+
+            var query = _measurementQueryBuilder.BuildQuery(patient);
+            var measurement = new MaalingDTO();
+
+
+            foreach (var operation in patientOut.ListOperation)
             {
-                using (SqlConnection conn = new SqlConnection(ConnectionInfo.Connectionstring))
+                using (SqlConnection conn = new SqlConnection(query))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = _commandBuilder.BuildCommand(patient, conn, query))
+                    using (SqlCommand cmd = _measurementCommandBuilder.BuildCommand(operation, conn, query))
                     {
                         using (SqlDataReader rdr = cmd.ExecuteReader())
                         {
-                            OperationsDTO operation = new OperationsDTO(); 
                             while (rdr.Read())
                             {
-                                patientOut.CPR = rdr.GetString(rdr.GetOrdinal("CPR"));
-                                patientOut.Fornavn = rdr.GetString(rdr.GetOrdinal("Fornavn"));
-                                patientOut.Efternavn = rdr.GetString(rdr.GetOrdinal("Efternavn"));
-                                
-                                //SS 
-                                operation.Maaling[0].MaaleData = (byte[]) rdr["Måledata"];
-                                operation.Kommentar = rdr.GetString(rdr.GetOrdinal("Kommentar"));
-                                operation.MaaleTidspunkt = rdr.GetDateTime(rdr.GetOrdinal("Maaletidspunkt")); 
+                                measurement.MaaleData = (byte[]) rdr["Måledata"];
+                                measurement.Sekvensnr = rdr.GetInt32(rdr.GetOrdinal("Sekvensnr"));
+                                measurement.MaaleID = rdr.GetInt32(rdr.GetOrdinal("Maaleid"));
 
-                                patientOut.ListOperation.Add(operation); 
+                                operation.Maaling.Add(measurement);
                             }
                         }
                     }
                 }
             }
-            catch (SqlException e)
-            {
-                Console.WriteLine(e.Message);
-
-            }
-            return patientOut; 
-
+            return patientOut;
         }
 
         private string SafeGetString(SqlDataReader reader, string columnName)

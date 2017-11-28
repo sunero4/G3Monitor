@@ -17,16 +17,17 @@ namespace DataAccessLogic
         }
         public List<MaalingDTO> HentData(PatientDTO patient)
         {
-            var dataList = _queryBuilder.BuildQuery().ToList();
-            var data = String.Join(String.Empty, dataList);
+            throw new NotImplementedException();
+            //var dataList = _queryBuilder.BuildQuery().ToList();
+            //var data = String.Join(String.Empty, dataList);
 
 
-            var maaling = new MaalingDTO()
-            {
-                MaaleData = Convert.FromBase64String(data)
-            };
+            //var maaling = new MaalingDTO()
+            //{
+            //    MaaleData = Convert.FromBase64String(data)
+            //};
 
-            return maaling;
+            //return maaling;
         }
 
         public byte[] ConvertToByteArray(string base64String)
