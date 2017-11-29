@@ -45,11 +45,11 @@
             this.ListBoxMåltTryk = new System.Windows.Forms.ListBox();
             this.btnAfslutKali = new System.Windows.Forms.Button();
             this.btnSletMåling = new System.Windows.Forms.Button();
-            this.ScrollBarHældning = new System.Windows.Forms.VScrollBar();
-            this.txtHældningskoefficient = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.numericKali = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartMåltTryk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKali)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -62,18 +62,21 @@
             this.groupBox1.Controls.Add(this.txtMåltTryk);
             this.groupBox1.Controls.Add(this.txtIndtastTryk);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(18, 23);
+            this.groupBox1.Location = new System.Drawing.Point(48, 55);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(696, 106);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.groupBox1.Size = new System.Drawing.Size(1856, 253);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mindst 3 trykmålinger skal foretages";
             // 
             // btnNyMåling
             // 
-            this.btnNyMåling.Location = new System.Drawing.Point(13, 19);
+            this.btnNyMåling.Location = new System.Drawing.Point(35, 45);
+            this.btnNyMåling.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnNyMåling.Name = "btnNyMåling";
-            this.btnNyMåling.Size = new System.Drawing.Size(86, 23);
+            this.btnNyMåling.Size = new System.Drawing.Size(229, 55);
             this.btnNyMåling.TabIndex = 7;
             this.btnNyMåling.Text = "Ny måling";
             this.btnNyMåling.UseVisualStyleBackColor = true;
@@ -82,26 +85,29 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(539, 59);
+            this.label5.Location = new System.Drawing.Point(1437, 141);
+            this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.Size = new System.Drawing.Size(97, 32);
             this.label5.TabIndex = 6;
             this.label5.Text = "mmHg";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(163, 60);
+            this.label4.Location = new System.Drawing.Point(435, 143);
+            this.label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.Size = new System.Drawing.Size(97, 32);
             this.label4.TabIndex = 5;
             this.label4.Text = "mmHg";
             // 
             // btnKalibrerMål
             // 
-            this.btnKalibrerMål.Location = new System.Drawing.Point(246, 45);
+            this.btnKalibrerMål.Location = new System.Drawing.Point(656, 107);
+            this.btnKalibrerMål.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnKalibrerMål.Name = "btnKalibrerMål";
-            this.btnKalibrerMål.Size = new System.Drawing.Size(118, 36);
+            this.btnKalibrerMål.Size = new System.Drawing.Size(315, 86);
             this.btnKalibrerMål.TabIndex = 4;
             this.btnKalibrerMål.Text = "Kalibrer måleudstyr";
             this.btnKalibrerMål.UseVisualStyleBackColor = true;
@@ -109,34 +115,38 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(407, 60);
+            this.label2.Location = new System.Drawing.Point(1085, 143);
+            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.Size = new System.Drawing.Size(121, 32);
             this.label2.TabIndex = 3;
             this.label2.Text = "Målt tryk";
             // 
             // txtMåltTryk
             // 
             this.txtMåltTryk.Enabled = false;
-            this.txtMåltTryk.Location = new System.Drawing.Point(473, 55);
+            this.txtMåltTryk.Location = new System.Drawing.Point(1261, 131);
+            this.txtMåltTryk.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtMåltTryk.Name = "txtMåltTryk";
             this.txtMåltTryk.ReadOnly = true;
-            this.txtMåltTryk.Size = new System.Drawing.Size(66, 20);
+            this.txtMåltTryk.Size = new System.Drawing.Size(169, 38);
             this.txtMåltTryk.TabIndex = 2;
             // 
             // txtIndtastTryk
             // 
-            this.txtIndtastTryk.Location = new System.Drawing.Point(80, 56);
+            this.txtIndtastTryk.Location = new System.Drawing.Point(213, 134);
+            this.txtIndtastTryk.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtIndtastTryk.Name = "txtIndtastTryk";
-            this.txtIndtastTryk.Size = new System.Drawing.Size(82, 20);
+            this.txtIndtastTryk.Size = new System.Drawing.Size(212, 38);
             this.txtIndtastTryk.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 60);
+            this.label1.Location = new System.Drawing.Point(40, 143);
+            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.Size = new System.Drawing.Size(152, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Indtast tryk";
             // 
@@ -147,7 +157,8 @@
             legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
             legend1.Name = "Legend1";
             this.chartMåltTryk.Legends.Add(legend1);
-            this.chartMåltTryk.Location = new System.Drawing.Point(221, 135);
+            this.chartMåltTryk.Location = new System.Drawing.Point(589, 322);
+            this.chartMåltTryk.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.chartMåltTryk.Name = "chartMåltTryk";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -159,23 +170,26 @@
             series2.Name = "Målte tryk";
             this.chartMåltTryk.Series.Add(series1);
             this.chartMåltTryk.Series.Add(series2);
-            this.chartMåltTryk.Size = new System.Drawing.Size(336, 297);
+            this.chartMåltTryk.Size = new System.Drawing.Size(896, 708);
             this.chartMåltTryk.TabIndex = 1;
             this.chartMåltTryk.Text = "chart1";
             // 
             // ListBoxMåltTryk
             // 
             this.ListBoxMåltTryk.FormattingEnabled = true;
-            this.ListBoxMåltTryk.Location = new System.Drawing.Point(19, 135);
+            this.ListBoxMåltTryk.ItemHeight = 31;
+            this.ListBoxMåltTryk.Location = new System.Drawing.Point(51, 322);
+            this.ListBoxMåltTryk.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.ListBoxMåltTryk.Name = "ListBoxMåltTryk";
-            this.ListBoxMåltTryk.Size = new System.Drawing.Size(189, 238);
+            this.ListBoxMåltTryk.Size = new System.Drawing.Size(497, 562);
             this.ListBoxMåltTryk.TabIndex = 2;
             // 
             // btnAfslutKali
             // 
-            this.btnAfslutKali.Location = new System.Drawing.Point(601, 395);
+            this.btnAfslutKali.Location = new System.Drawing.Point(1603, 942);
+            this.btnAfslutKali.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnAfslutKali.Name = "btnAfslutKali";
-            this.btnAfslutKali.Size = new System.Drawing.Size(113, 37);
+            this.btnAfslutKali.Size = new System.Drawing.Size(301, 88);
             this.btnAfslutKali.TabIndex = 3;
             this.btnAfslutKali.Text = "Afslut kalibrering";
             this.btnAfslutKali.UseVisualStyleBackColor = true;
@@ -183,59 +197,54 @@
             // 
             // btnSletMåling
             // 
-            this.btnSletMåling.Location = new System.Drawing.Point(19, 379);
+            this.btnSletMåling.Location = new System.Drawing.Point(51, 904);
+            this.btnSletMåling.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnSletMåling.Name = "btnSletMåling";
-            this.btnSletMåling.Size = new System.Drawing.Size(98, 32);
+            this.btnSletMåling.Size = new System.Drawing.Size(261, 76);
             this.btnSletMåling.TabIndex = 6;
             this.btnSletMåling.Text = "Slet måltpunkt";
             this.btnSletMåling.UseVisualStyleBackColor = true;
             this.btnSletMåling.Click += new System.EventHandler(this.btnSletMåling_Click);
             // 
-            // ScrollBarHældning
-            // 
-            this.ScrollBarHældning.Location = new System.Drawing.Point(620, 151);
-            this.ScrollBarHældning.Name = "ScrollBarHældning";
-            this.ScrollBarHældning.Size = new System.Drawing.Size(34, 20);
-            this.ScrollBarHældning.TabIndex = 15;
-            this.ScrollBarHældning.Scroll += new System.Windows.Forms.ScrollEventHandler(this.ScrollBarHældning_Scroll);
-            // 
-            // txtHældningskoefficient
-            // 
-            this.txtHældningskoefficient.Enabled = false;
-            this.txtHældningskoefficient.Location = new System.Drawing.Point(566, 151);
-            this.txtHældningskoefficient.Name = "txtHældningskoefficient";
-            this.txtHældningskoefficient.Size = new System.Drawing.Size(51, 20);
-            this.txtHældningskoefficient.TabIndex = 14;
-            this.txtHældningskoefficient.TextChanged += new System.EventHandler(this.txtHældningskoefficient_TextChanged);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(563, 135);
+            this.label3.Location = new System.Drawing.Point(1501, 322);
+            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 13);
+            this.label3.Size = new System.Drawing.Size(394, 32);
             this.label3.TabIndex = 16;
             this.label3.Text = "Juster hældningskoefficienten";
             // 
+            // numericKali
+            // 
+            this.numericKali.Location = new System.Drawing.Point(1507, 370);
+            this.numericKali.Name = "numericKali";
+            this.numericKali.Size = new System.Drawing.Size(154, 38);
+            this.numericKali.TabIndex = 17;
+            this.numericKali.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
             // Kalibrering
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(789, 448);
+            this.ClientSize = new System.Drawing.Size(2104, 1068);
+            this.Controls.Add(this.numericKali);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.ScrollBarHældning);
-            this.Controls.Add(this.txtHældningskoefficient);
             this.Controls.Add(this.btnSletMåling);
             this.Controls.Add(this.btnAfslutKali);
             this.Controls.Add(this.ListBoxMåltTryk);
             this.Controls.Add(this.chartMåltTryk);
             this.Controls.Add(this.groupBox1);
             this.Enabled = false;
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "Kalibrering";
             this.Text = "G3-monitor: Kalibrering";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartMåltTryk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKali)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,8 +265,7 @@
         private System.Windows.Forms.Button btnAfslutKali;
         private System.Windows.Forms.Button btnNyMåling;
         private System.Windows.Forms.Button btnSletMåling;
-        private System.Windows.Forms.VScrollBar ScrollBarHældning;
-        private System.Windows.Forms.TextBox txtHældningskoefficient;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown numericKali;
     }
 }

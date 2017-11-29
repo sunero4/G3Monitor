@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lbl_cpr = new System.Windows.Forms.Label();
             this.txt_indtastCpr = new System.Windows.Forms.TextBox();
             this.btn_hentData = new System.Windows.Forms.Button();
@@ -131,25 +131,25 @@
             // chart_måling
             // 
             this.chart_måling.BackColor = System.Drawing.Color.Black;
-            chartArea2.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisX2.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisY2.LineColor = System.Drawing.Color.White;
-            chartArea2.BackColor = System.Drawing.Color.Black;
-            chartArea2.Name = "ChartArea1";
-            this.chart_måling.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart_måling.Legends.Add(legend2);
+            chartArea1.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX2.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY2.LineColor = System.Drawing.Color.White;
+            chartArea1.BackColor = System.Drawing.Color.Black;
+            chartArea1.Name = "ChartArea1";
+            this.chart_måling.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_måling.Legends.Add(legend1);
             this.chart_måling.Location = new System.Drawing.Point(636, 39);
             this.chart_måling.Margin = new System.Windows.Forms.Padding(6);
             this.chart_måling.Name = "chart_måling";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "Blodtryk";
-            this.chart_måling.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Blodtryk";
+            this.chart_måling.Series.Add(series1);
             this.chart_måling.Size = new System.Drawing.Size(2478, 1891);
             this.chart_måling.TabIndex = 7;
             this.chart_måling.Text = "chart1";
@@ -310,6 +310,7 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "HentData";
             this.Text = "G3-monitor: Hent data";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.HentData_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart_måling)).EndInit();
             this.ResumeLayout(false);

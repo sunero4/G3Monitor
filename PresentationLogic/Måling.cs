@@ -30,6 +30,11 @@ namespace PresentationLogic
             _monitoring = monitoring;
             _container = container;
             _nulpunkt = new NulpunktsjusteringDTO();
+            numericMinSys.Text = _monitoring.MinimumSystolic.ToString();
+            numericMaksSys.Text = _monitoring.MinimumSystolic.ToString();
+            numericMinDia.Text = _monitoring.MinimumDiastolic.ToString();
+            numericMaksDia.Text = _monitoring.MaximumDiastolic.ToString(); 
+
         }
 
         public new void Update()
@@ -131,6 +136,11 @@ namespace PresentationLogic
             _container.Attach(this);
             var t1 = new Thread(_iBusinessLogic.StartShowData);
             t1.Start();
+            
+            if (numericMinSys.Text >  )
+            {
+                
+            }
         }
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         private void btn_DeaktiverAlarm_Click(object sender, EventArgs e) // virker det?
@@ -157,5 +167,27 @@ namespace PresentationLogic
             _container.Attach(this);
             _iBusinessLogic.CreateAlarm(true);
         }
+  
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            _monitoring.MinimumSystolic = Convert.ToInt32(numericMinSys.Text);
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            _monitoring.MaximumSystolic = Convert.ToInt32(numericMaksSys.Text);  
+        }
+
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+            _monitoring.MinimumDiastolic = Convert.ToInt32(numericMinDia.Text);
+        }
+
+        private void numericUpDown4_ValueChanged(object sender, EventArgs e)
+        {
+            _monitoring.MaximumDiastolic = Convert.ToInt32(numericMaksDia.Text); 
+        }
+
+      
     }
 }

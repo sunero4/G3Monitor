@@ -22,6 +22,7 @@ namespace PresentationLogic
             InitializeComponent();
             _iBusinessLogic = iBusiness;
             _kalibrering = new KalibreringsDTO();
+            numericKali.Text = _kalibrering.Slope.ToString();
         }
         private void btnAfslutKali_Click(object sender, EventArgs e)
         {
@@ -58,26 +59,10 @@ namespace PresentationLogic
             //}
         }
 
-        private void ScrollBarHældning_Scroll(object sender, ScrollEventArgs e)
+  
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-
-            // Scrollbar går op og ned 
-            if (e.OldValue > e.NewValue)
-            {
-                _kalibrering.Slope -= 1;
-                txtHældningskoefficient.Text = _kalibrering.ToString();
-                txtHældningskoefficient.Text = _kalibrering.Slope.ToString();
-            }
-            if (e.OldValue < e.NewValue)
-            {
-                txtHældningskoefficient.Text = _kalibrering.ToString();
-                txtHældningskoefficient.Text = _kalibrering.Slope.ToString();
-            }
-        }
-
-        private void txtHældningskoefficient_TextChanged(object sender, EventArgs e)
-        {
-
+            _kalibrering.Slope= Convert.ToInt32(numericKali.Text);
         }
     }
 }

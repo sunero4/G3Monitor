@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Media;
+using DTO;
 using ObserverPattern;
 
 namespace BusinessLogic.Alarm // Ikke færdig
@@ -17,19 +18,22 @@ namespace BusinessLogic.Alarm // Ikke færdig
         private int _minValueSys;
         //private int _newValue;
         private PresentationDataContainer _PresentationDataContainer;
+
+        private Monitoreringsindstillinger _monitoreringsindstillinger;
         SoundPlayer myAlarmSound = new SoundPlayer("//Mac/Home/Documents/1.Sundhedsteknologi/DSB/Del 1 Digital Signalbehandling/OpgaveløsningerL1(1)/sound.wav"); // STIEN skal være til computeren, der kører programmet!
 
-        public AlarmSound(PresentationDataContainer presentationDataContainer)
+        public AlarmSound(PresentationDataContainer presentationDataContainer, Monitoreringsindstillinger monitoreringsindstillinger)
         {
             _PresentationDataContainer = presentationDataContainer;
+            _monitoreringsindstillinger = monitoreringsindstillinger;
         }
         public void StartAlarm(int sys, int dia)
         {
-            if (_maxValueDia < dia || _minValueDia > dia || _maxValueSys < sys || _minValueSys > sys)
+            if (_monitoreringsindstillinger.MaximumDiastolic < dia || _monitoreringsindstillinger.MinimumDiastolic > dia || _monitoreringsindstillinger.MaximumSystolic < sys || _monitoreringsindstillinger.MinimumSystolic > sys)
             {
                 myAlarmSound.PlayLooping(); 
             }
-            else if (_maxValueDia > dia & _minValueDia < dia & _maxValueSys > sys & _minValueSys < sys)
+            else if (_monitoreringsindstillinger.MaximumDiastolic > dia & _monitoreringsindstillinger.MinimumDiastolic < dia & _monitoreringsindstillinger.MaximumSystolic > sys & _monitoreringsindstillinger.MinimumSystolic < sys)
             {
                 myAlarmSound.Stop();
             }
@@ -42,12 +46,12 @@ namespace BusinessLogic.Alarm // Ikke færdig
 
         public void AttachToSubject(MeasurementSubjectBL subject)
         {
-            throw new NotImplementedException();
+            subject.Attach(this);
         }
 
         public void DetachFromSubject(MeasurementSubjectBL subject)
         {
-            throw new NotImplementedException();
+            subject.Detach(this);
         }
     }
 }

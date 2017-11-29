@@ -4,19 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using ObserverPattern;
 
 namespace BusinessLogic.Alarm
 {
-    class AlarmFactory // Ikke færdig 
+    public class AlarmFactory // Ikke færdig 
     {
-        public static IAlarm CreateAlarm(bool alarm)
-        {
-            if (alarm)
-            {
-               IAlarm _alarm = new AlarmSound();
-               return _alarm;
-            }
-
+        
+        public static IAlarm CreateAlarm( PresentationDataContainer presentationDataContainer, Monitoreringsindstillinger monitoreringsindstillinger)
+        {      
+               IAlarm _alarm = new AlarmSound(presentationDataContainer, monitoreringsindstillinger);
+                return _alarm;  
         }
     }
 }

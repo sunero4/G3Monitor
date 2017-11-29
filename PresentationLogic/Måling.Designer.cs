@@ -47,16 +47,8 @@ namespace PresentationLogic
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txt_minimumSys = new System.Windows.Forms.TextBox();
-            this.txt_maksimumSys = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txt_minimumDia = new System.Windows.Forms.TextBox();
-            this.txt_maksimumDia = new System.Windows.Forms.TextBox();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
-            this.vScrollBar2 = new System.Windows.Forms.VScrollBar();
-            this.vScrollBar3 = new System.Windows.Forms.VScrollBar();
-            this.vScrollBar4 = new System.Windows.Forms.VScrollBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label_Puls = new System.Windows.Forms.Label();
@@ -70,8 +62,16 @@ namespace PresentationLogic
             this.txtKommentar = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.numericMinSys = new System.Windows.Forms.NumericUpDown();
+            this.numericMaksSys = new System.Windows.Forms.NumericUpDown();
+            this.numericMinDia = new System.Windows.Forms.NumericUpDown();
+            this.numericMaksDia = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMinSys)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMaksSys)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMinDia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMaksDia)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Nulpunktsjustering
@@ -131,6 +131,7 @@ namespace PresentationLogic
             this.btn_DeaktiverAlarm.TabIndex = 4;
             this.btn_DeaktiverAlarm.Text = "Deaktiver alarm";
             this.btn_DeaktiverAlarm.UseVisualStyleBackColor = true;
+            this.btn_DeaktiverAlarm.Click += new System.EventHandler(this.btn_DeaktiverAlarm_Click_1);
             // 
             // btn_AktiverAlarm
             // 
@@ -247,22 +248,6 @@ namespace PresentationLogic
             this.label6.TabIndex = 12;
             this.label6.Text = "Maksimum sys";
             // 
-            // txt_minimumSys
-            // 
-            this.txt_minimumSys.Location = new System.Drawing.Point(36, 223);
-            this.txt_minimumSys.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.txt_minimumSys.Name = "txt_minimumSys";
-            this.txt_minimumSys.Size = new System.Drawing.Size(120, 38);
-            this.txt_minimumSys.TabIndex = 13;
-            // 
-            // txt_maksimumSys
-            // 
-            this.txt_maksimumSys.Location = new System.Drawing.Point(248, 223);
-            this.txt_maksimumSys.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.txt_maksimumSys.Name = "txt_maksimumSys";
-            this.txt_maksimumSys.Size = new System.Drawing.Size(116, 38);
-            this.txt_maksimumSys.TabIndex = 14;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -283,67 +268,19 @@ namespace PresentationLogic
             this.label8.TabIndex = 16;
             this.label8.Text = "Maksimum dia";
             // 
-            // txt_minimumDia
-            // 
-            this.txt_minimumDia.Location = new System.Drawing.Point(40, 331);
-            this.txt_minimumDia.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.txt_minimumDia.Name = "txt_minimumDia";
-            this.txt_minimumDia.Size = new System.Drawing.Size(116, 38);
-            this.txt_minimumDia.TabIndex = 17;
-            // 
-            // txt_maksimumDia
-            // 
-            this.txt_maksimumDia.Location = new System.Drawing.Point(248, 331);
-            this.txt_maksimumDia.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.txt_maksimumDia.Name = "txt_maksimumDia";
-            this.txt_maksimumDia.Size = new System.Drawing.Size(116, 38);
-            this.txt_maksimumDia.TabIndex = 18;
-            // 
-            // vScrollBar1
-            // 
-            this.vScrollBar1.Location = new System.Drawing.Point(164, 223);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(29, 39);
-            this.vScrollBar1.TabIndex = 19;
-            // 
-            // vScrollBar2
-            // 
-            this.vScrollBar2.Location = new System.Drawing.Point(368, 223);
-            this.vScrollBar2.Name = "vScrollBar2";
-            this.vScrollBar2.Size = new System.Drawing.Size(29, 39);
-            this.vScrollBar2.TabIndex = 20;
-            // 
-            // vScrollBar3
-            // 
-            this.vScrollBar3.Location = new System.Drawing.Point(164, 331);
-            this.vScrollBar3.Name = "vScrollBar3";
-            this.vScrollBar3.Size = new System.Drawing.Size(29, 39);
-            this.vScrollBar3.TabIndex = 21;
-            // 
-            // vScrollBar4
-            // 
-            this.vScrollBar4.Location = new System.Drawing.Point(372, 333);
-            this.vScrollBar4.Name = "vScrollBar4";
-            this.vScrollBar4.Size = new System.Drawing.Size(28, 39);
-            this.vScrollBar4.TabIndex = 22;
-            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox1.Controls.Add(this.numericMaksDia);
+            this.groupBox1.Controls.Add(this.numericMinDia);
+            this.groupBox1.Controls.Add(this.numericMaksSys);
+            this.groupBox1.Controls.Add(this.numericMinSys);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.vScrollBar4);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.vScrollBar2);
             this.groupBox1.Controls.Add(this.btn_DeaktiverAlarm);
             this.groupBox1.Controls.Add(this.btn_AktiverAlarm);
-            this.groupBox1.Controls.Add(this.vScrollBar3);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txt_minimumSys);
-            this.groupBox1.Controls.Add(this.vScrollBar1);
-            this.groupBox1.Controls.Add(this.txt_maksimumSys);
-            this.groupBox1.Controls.Add(this.txt_maksimumDia);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.txt_minimumDia);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox1.Location = new System.Drawing.Point(36, 610);
@@ -464,6 +401,38 @@ namespace PresentationLogic
             this.label9.TabIndex = 33;
             this.label9.Text = "Kommentar til målingen:";
             // 
+            // numericMinSys
+            // 
+            this.numericMinSys.Location = new System.Drawing.Point(40, 205);
+            this.numericMinSys.Name = "numericMinSys";
+            this.numericMinSys.Size = new System.Drawing.Size(125, 38);
+            this.numericMinSys.TabIndex = 17;
+            this.numericMinSys.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // numericMaksSys
+            // 
+            this.numericMaksSys.Location = new System.Drawing.Point(250, 202);
+            this.numericMaksSys.Name = "numericMaksSys";
+            this.numericMaksSys.Size = new System.Drawing.Size(121, 38);
+            this.numericMaksSys.TabIndex = 18;
+            this.numericMaksSys.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            // 
+            // numericMinDia
+            // 
+            this.numericMinDia.Location = new System.Drawing.Point(40, 323);
+            this.numericMinDia.Name = "numericMinDia";
+            this.numericMinDia.Size = new System.Drawing.Size(125, 38);
+            this.numericMinDia.TabIndex = 19;
+            this.numericMinDia.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
+            // 
+            // numericMaksDia
+            // 
+            this.numericMaksDia.Location = new System.Drawing.Point(250, 323);
+            this.numericMaksDia.Name = "numericMaksDia";
+            this.numericMaksDia.Size = new System.Drawing.Size(121, 38);
+            this.numericMaksDia.TabIndex = 20;
+            this.numericMaksDia.ValueChanged += new System.EventHandler(this.numericUpDown4_ValueChanged);
+            // 
             // Måling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -493,9 +462,14 @@ namespace PresentationLogic
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "Måling";
             this.Text = "G3-monitor: Måling";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMinSys)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMaksSys)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMinDia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMaksDia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -516,16 +490,8 @@ namespace PresentationLogic
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txt_minimumSys;
-        private System.Windows.Forms.TextBox txt_maksimumSys;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txt_minimumDia;
-        private System.Windows.Forms.TextBox txt_maksimumDia;
-        private System.Windows.Forms.VScrollBar vScrollBar1;
-        private System.Windows.Forms.VScrollBar vScrollBar2;
-        private System.Windows.Forms.VScrollBar vScrollBar3;
-        private System.Windows.Forms.VScrollBar vScrollBar4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label_Puls;
@@ -539,5 +505,9 @@ namespace PresentationLogic
         private System.Windows.Forms.TextBox txtKommentar;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.NumericUpDown numericMaksDia;
+        private System.Windows.Forms.NumericUpDown numericMinDia;
+        private System.Windows.Forms.NumericUpDown numericMaksSys;
+        private System.Windows.Forms.NumericUpDown numericMinSys;
     }
 }
