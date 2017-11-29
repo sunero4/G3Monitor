@@ -16,7 +16,6 @@ namespace DataAccessLogic
         public SaveQueryBuilder()
         {
             Tablename = "Maaling";
-            ColumnNames = new List<string>() {"CPR", "Måledata", "Kommentar", "Maaletidspunkt"};
         }
 
         /// <summary>
@@ -27,6 +26,8 @@ namespace DataAccessLogic
         public string BuildQuery(PatientDTO patient)
         {
             _builder = new StringBuilder();
+
+
             _builder.Append("INSERT INTO " + Tablename + "(");
 
             for (int i = 0, n = ColumnNames.Count; i < n; i++)

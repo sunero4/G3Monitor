@@ -44,10 +44,10 @@ namespace BusinessLogic
             //var convertedData = _conversion.ConvertToPressure(container.BloodPressure);
 
             //filteredData = _kaliAndZero.AddKalibreringAndZero(container.BloodPressure);
-            filteredData = _filtering.Smoothing(container.BloodPressure);
+            //filteredData = _filtering.Smoothing(container.BloodPressure);
 
 
-            BPState = filteredData;
+            BPState = container.BloodPressure;
             //Set eventet sååååå controlleren får at vide den skal læse BPState
             _event.Set();
         }

@@ -38,7 +38,7 @@ namespace BusinessLogic
         //    _slidingWindow.EnqueueMultipleElements(data);
         //}
 
-        public ShowData(PresentationDataContainer container, ConcurrentQueue<BPDataContainer> queue, BPConsumer consumer, AutoResetEvent autoResetEvent)
+        public ShowData(PresentationDataContainer container, ConcurrentQueue<BPDataContainer> queue, BPConsumer consumer, AutoResetEvent autoResetEvent, IFilter filter)
         {
             _pulse = new Pulse();
             _average = new AverageBloodPressure();
@@ -49,6 +49,8 @@ namespace BusinessLogic
             _consumer = consumer;
             _event = autoResetEvent;
             CanRun = true;
+            _slidingWindow = new Queue<double>();
+            _filter = filter;
         }
 
         public void HandleData()
@@ -57,17 +59,19 @@ namespace BusinessLogic
             _event.WaitOne();
             var data = _consumer.BPState;
 
-            _container.SetSlidingWindow(data);
+            SetSlidingWindow(data);
 
-            //var correctData = _kaliAndZero.AddKalibreringAndZero(_container.GetSlidingWindow());
-            //var currentData = _filter.Smoothing(data);
+            data = GetSlidingWindow();
+            //var correctData = _kaliAndZero.AddKalibreringAndZero(data);
+            var currentData = _filter.Smoothing(data);
 
             //var tf = new TaskFactory();
 
             //Faster in parallel than sequential
-            _container.AverageBloodPressure = _average.Calculate(_container.GetSlidingWindow());
-            _container.SystolicPressure = _sys.Calculate(_container.GetSlidingWindow());
-            _container.DiastolicPressure = _dia.Calculate(_container.GetSlidingWindow());
+            _container.AverageBloodPressure = _average.Calculate(data);
+            _container.SystolicPressure = _sys.Calculate(data);
+            _container.DiastolicPressure = _dia.Calculate(data);
+            _container.FilteredBPValues = currentData;
 
             //var t2 = tf.StartNew(() => _container.AverageBloodPressure = _average.Calculate(currentData));
             //var t3 = tf.StartNew(() => _container.SystolicPressure = _sys.Calculate(currentData));
@@ -101,7 +105,19 @@ namespace BusinessLogic
                 _consumer.CanRun = false;
             }
         }
+        public void SetSlidingWindow(List<double> data)
+        {
+            if (_slidingWindow.Count >= 4000)
+            {
+                _slidingWindow.DequeueMultipleElements(data.Count);
+            }
+            _slidingWindow.EnqueueMultipleElements(data);
+        }
 
+        public List<double> GetSlidingWindow()
+        {
+            return _slidingWindow.ToList();
+        }
 
 
     }

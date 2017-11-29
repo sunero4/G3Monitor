@@ -66,7 +66,7 @@ namespace PresentationLogic
             }
             else
             {
-                var data = container.GetSlidingWindow();
+                var data = container.FilteredBPValues;
 
                 chart1.Series[0].Points.Clear();
                 for (int i = 0; i < data.Count; i++)

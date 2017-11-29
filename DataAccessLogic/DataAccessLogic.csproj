@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="BPProducer.cs" />
     <Compile Include="DAQData.cs" />
+    <Compile Include="Gem\PatientSaveQueryBuilder.cs" />
     <Compile Include="Gem\Saving.cs" />
     <Compile Include="Hent\CalibrationRetrievalXml.cs" />
     <Compile Include="Hent\MeasurementCommandBuilder.cs" />
@@ -75,6 +76,8 @@
     <Compile Include="Hent\PatientInfoQueryBuilder.cs" />
     <Compile Include="Hent\PatientInfoRetrieval.cs" />
     <Compile Include="DAQ.cs" />
+    <Compile Include="MeasurementSaveCommandBuilder.cs" />
+    <Compile Include="MeasurementSaveQueryBuilder.cs" />
     <Compile Include="Nulpunktsjustering\DaqMeasurementNulpunkt.cs" />
     <Compile Include="IDaqMeasurement.cs" />
     <Compile Include="Login\IRetrivedLoginData.cs" />
@@ -90,6 +93,9 @@
     <Compile Include="Gem\SaveCalibrationXml.cs" />
     <Compile Include="Gem\SaveCommandBuilder.cs" />
     <Compile Include="Gem\SaveQueryBuilder.cs" />
+    <Compile Include="OperationSaveCommandBuilder.cs" />
+    <Compile Include="OperationSaveQueryBuilder.cs" />
+    <Compile Include="PatientSaveCommandBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Login\Salt.cs" />
     <Compile Include="SCDataAcess.cs" />

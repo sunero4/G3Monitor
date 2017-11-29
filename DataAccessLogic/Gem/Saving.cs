@@ -34,11 +34,9 @@ namespace DataAccessLogic.Gem
                 {
                     _iSaving.SaveBloodPressureData(new PatientDTO());
                 }
-                               
             }
             catch (Exception)
             {
-                
                 _iSaving= new FileSaving();
             }
         }
