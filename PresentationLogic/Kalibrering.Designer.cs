@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnNyMåling = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,11 +45,11 @@
             this.ListBoxMåltTryk = new System.Windows.Forms.ListBox();
             this.btnAfslutKali = new System.Windows.Forms.Button();
             this.btnSletMåling = new System.Windows.Forms.Button();
-            this.ScrollBarHældning = new System.Windows.Forms.VScrollBar();
-            this.txtHældningskoefficient = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartMåltTryk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -87,7 +87,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1521, 179);
+            this.label5.Location = new System.Drawing.Point(1521, 208);
             this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(134, 44);
@@ -97,7 +97,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(486, 186);
+            this.label4.Location = new System.Drawing.Point(486, 215);
             this.label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(134, 44);
@@ -109,7 +109,7 @@
             this.btnKalibrerMål.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKalibrerMål.Location = new System.Drawing.Point(744, 144);
+            this.btnKalibrerMål.Location = new System.Drawing.Point(744, 173);
             this.btnKalibrerMål.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnKalibrerMål.Name = "btnKalibrerMål";
             this.btnKalibrerMål.Size = new System.Drawing.Size(315, 108);
@@ -120,7 +120,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1169, 181);
+            this.label2.Location = new System.Drawing.Point(1169, 210);
             this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(165, 44);
@@ -130,7 +130,7 @@
             // txtMåltTryk
             // 
             this.txtMåltTryk.Enabled = false;
-            this.txtMåltTryk.Location = new System.Drawing.Point(1345, 169);
+            this.txtMåltTryk.Location = new System.Drawing.Point(1345, 198);
             this.txtMåltTryk.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtMåltTryk.Name = "txtMåltTryk";
             this.txtMåltTryk.ReadOnly = true;
@@ -139,7 +139,7 @@
             // 
             // txtIndtastTryk
             // 
-            this.txtIndtastTryk.Location = new System.Drawing.Point(264, 177);
+            this.txtIndtastTryk.Location = new System.Drawing.Point(264, 206);
             this.txtIndtastTryk.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtIndtastTryk.Name = "txtIndtastTryk";
             this.txtIndtastTryk.Size = new System.Drawing.Size(212, 49);
@@ -148,7 +148,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 181);
+            this.label1.Location = new System.Drawing.Point(44, 210);
             this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(206, 44);
@@ -157,24 +157,24 @@
             // 
             // chartMåltTryk
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartMåltTryk.ChartAreas.Add(chartArea1);
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.Name = "Legend1";
-            this.chartMåltTryk.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chartMåltTryk.ChartAreas.Add(chartArea2);
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend2.Name = "Legend1";
+            this.chartMåltTryk.Legends.Add(legend2);
             this.chartMåltTryk.Location = new System.Drawing.Point(412, 536);
             this.chartMåltTryk.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.chartMåltTryk.Name = "chartMåltTryk";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Indtastet tryk";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "Målte tryk";
-            this.chartMåltTryk.Series.Add(series1);
-            this.chartMåltTryk.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Indtastet tryk";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "Målte tryk";
+            this.chartMåltTryk.Series.Add(series3);
+            this.chartMåltTryk.Series.Add(series4);
             this.chartMåltTryk.Size = new System.Drawing.Size(1077, 708);
             this.chartMåltTryk.TabIndex = 1;
             this.chartMåltTryk.Text = "chart1";
@@ -193,7 +193,7 @@
             // btnAfslutKali
             // 
             this.btnAfslutKali.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAfslutKali.Location = new System.Drawing.Point(1597, 1118);
+            this.btnAfslutKali.Location = new System.Drawing.Point(1513, 1118);
             this.btnAfslutKali.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnAfslutKali.Name = "btnAfslutKali";
             this.btnAfslutKali.Size = new System.Drawing.Size(314, 126);
@@ -214,23 +214,6 @@
             this.btnSletMåling.UseVisualStyleBackColor = true;
             this.btnSletMåling.Click += new System.EventHandler(this.btnSletMåling_Click);
             // 
-            // ScrollBarHældning
-            // 
-            this.ScrollBarHældning.Location = new System.Drawing.Point(1657, 574);
-            this.ScrollBarHældning.Name = "ScrollBarHældning";
-            this.ScrollBarHældning.Size = new System.Drawing.Size(34, 48);
-            this.ScrollBarHældning.TabIndex = 15;
-            this.ScrollBarHældning.Scroll += new System.Windows.Forms.ScrollEventHandler(this.ScrollBarHældning_Scroll);
-            // 
-            // txtHældningskoefficient
-            // 
-            this.txtHældningskoefficient.Location = new System.Drawing.Point(1513, 574);
-            this.txtHældningskoefficient.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.txtHældningskoefficient.Name = "txtHældningskoefficient";
-            this.txtHældningskoefficient.Size = new System.Drawing.Size(129, 38);
-            this.txtHældningskoefficient.TabIndex = 14;
-            this.txtHældningskoefficient.TextChanged += new System.EventHandler(this.txtHældningskoefficient_TextChanged);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -238,18 +221,25 @@
             this.label3.Location = new System.Drawing.Point(1505, 536);
             this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(525, 44);
+            this.label3.Size = new System.Drawing.Size(422, 88);
             this.label3.TabIndex = 16;
-            this.label3.Text = "Juster hældningskoefficienten";
+            this.label3.Text = "Juster \r\nhældningskoefficienten:";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown1.Location = new System.Drawing.Point(1513, 647);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(131, 61);
+            this.numericUpDown1.TabIndex = 17;
             // 
             // Kalibrering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2940, 1408);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.ScrollBarHældning);
-            this.Controls.Add(this.txtHældningskoefficient);
             this.Controls.Add(this.btnSletMåling);
             this.Controls.Add(this.btnAfslutKali);
             this.Controls.Add(this.ListBoxMåltTryk);
@@ -262,6 +252,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartMåltTryk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,8 +273,7 @@
         private System.Windows.Forms.Button btnAfslutKali;
         private System.Windows.Forms.Button btnNyMåling;
         private System.Windows.Forms.Button btnSletMåling;
-        private System.Windows.Forms.VScrollBar ScrollBarHældning;
-        private System.Windows.Forms.TextBox txtHældningskoefficient;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
