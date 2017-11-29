@@ -30,9 +30,9 @@ namespace PresentationLogic
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btn_Nulpunktsjustering = new System.Windows.Forms.Button();
             this.btn_Indstillinger = new System.Windows.Forms.Button();
             this.btn_StartMåling = new System.Windows.Forms.Button();
@@ -75,11 +75,12 @@ namespace PresentationLogic
             // btn_Nulpunktsjustering
             // 
             this.btn_Nulpunktsjustering.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_Nulpunktsjustering.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Nulpunktsjustering.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_Nulpunktsjustering.Location = new System.Drawing.Point(38, 32);
             this.btn_Nulpunktsjustering.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btn_Nulpunktsjustering.Name = "btn_Nulpunktsjustering";
-            this.btn_Nulpunktsjustering.Size = new System.Drawing.Size(142, 47);
+            this.btn_Nulpunktsjustering.Size = new System.Drawing.Size(173, 61);
             this.btn_Nulpunktsjustering.TabIndex = 0;
             this.btn_Nulpunktsjustering.Text = "Nulpunktsjustering ";
             this.btn_Nulpunktsjustering.UseVisualStyleBackColor = false;
@@ -87,22 +88,24 @@ namespace PresentationLogic
             // 
             // btn_Indstillinger
             // 
+            this.btn_Indstillinger.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Indstillinger.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_Indstillinger.Location = new System.Drawing.Point(38, 95);
+            this.btn_Indstillinger.Location = new System.Drawing.Point(38, 106);
             this.btn_Indstillinger.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btn_Indstillinger.Name = "btn_Indstillinger";
-            this.btn_Indstillinger.Size = new System.Drawing.Size(142, 45);
+            this.btn_Indstillinger.Size = new System.Drawing.Size(173, 58);
             this.btn_Indstillinger.TabIndex = 1;
             this.btn_Indstillinger.Text = "Indstillinger for måling";
             this.btn_Indstillinger.UseVisualStyleBackColor = true;
             // 
             // btn_StartMåling
             // 
+            this.btn_StartMåling.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_StartMåling.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_StartMåling.Location = new System.Drawing.Point(38, 156);
+            this.btn_StartMåling.Location = new System.Drawing.Point(38, 177);
             this.btn_StartMåling.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btn_StartMåling.Name = "btn_StartMåling";
-            this.btn_StartMåling.Size = new System.Drawing.Size(142, 48);
+            this.btn_StartMåling.Size = new System.Drawing.Size(173, 56);
             this.btn_StartMåling.TabIndex = 2;
             this.btn_StartMåling.Text = "Start måling";
             this.btn_StartMåling.UseVisualStyleBackColor = true;
@@ -110,33 +113,37 @@ namespace PresentationLogic
             // 
             // btn_StopMåling
             // 
+            this.btn_StopMåling.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_StopMåling.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_StopMåling.Location = new System.Drawing.Point(38, 218);
+            this.btn_StopMåling.Location = new System.Drawing.Point(38, 247);
             this.btn_StopMåling.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btn_StopMåling.Name = "btn_StopMåling";
-            this.btn_StopMåling.Size = new System.Drawing.Size(142, 47);
+            this.btn_StopMåling.Size = new System.Drawing.Size(173, 59);
             this.btn_StopMåling.TabIndex = 3;
             this.btn_StopMåling.Text = "Stop måling";
             this.btn_StopMåling.UseVisualStyleBackColor = true;
+            this.btn_StopMåling.Click += new System.EventHandler(this.btn_StopMåling_Click);
             // 
             // btn_DeaktiverAlarm
             // 
+            this.btn_DeaktiverAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_DeaktiverAlarm.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_DeaktiverAlarm.Location = new System.Drawing.Point(18, 218);
             this.btn_DeaktiverAlarm.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btn_DeaktiverAlarm.Name = "btn_DeaktiverAlarm";
-            this.btn_DeaktiverAlarm.Size = new System.Drawing.Size(136, 44);
+            this.btn_DeaktiverAlarm.Size = new System.Drawing.Size(195, 72);
             this.btn_DeaktiverAlarm.TabIndex = 4;
             this.btn_DeaktiverAlarm.Text = "Deaktiver alarm";
             this.btn_DeaktiverAlarm.UseVisualStyleBackColor = true;
             // 
             // btn_AktiverAlarm
             // 
+            this.btn_AktiverAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AktiverAlarm.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_AktiverAlarm.Location = new System.Drawing.Point(18, 279);
+            this.btn_AktiverAlarm.Location = new System.Drawing.Point(20, 306);
             this.btn_AktiverAlarm.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btn_AktiverAlarm.Name = "btn_AktiverAlarm";
-            this.btn_AktiverAlarm.Size = new System.Drawing.Size(136, 45);
+            this.btn_AktiverAlarm.Size = new System.Drawing.Size(193, 74);
             this.btn_AktiverAlarm.TabIndex = 5;
             this.btn_AktiverAlarm.Text = "Aktiver alarm";
             this.btn_AktiverAlarm.UseVisualStyleBackColor = true;
@@ -144,38 +151,39 @@ namespace PresentationLogic
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.Black;
-            chartArea1.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX2.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX2.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisY2.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea1.BackColor = System.Drawing.Color.Black;
-            chartArea1.BorderColor = System.Drawing.Color.White;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.ForeColor = System.Drawing.Color.White;
-            legend1.HeaderSeparatorColor = System.Drawing.Color.White;
-            legend1.ItemColumnSeparatorColor = System.Drawing.Color.White;
-            legend1.Name = "Legend1";
-            legend1.TitleForeColor = System.Drawing.Color.White;
-            legend1.TitleSeparatorColor = System.Drawing.Color.White;
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(230, 95);
+            chartArea2.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisX2.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisX2.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisY2.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.BackColor = System.Drawing.Color.Black;
+            chartArea2.BorderColor = System.Drawing.Color.White;
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend2.ForeColor = System.Drawing.Color.White;
+            legend2.HeaderSeparatorColor = System.Drawing.Color.White;
+            legend2.ItemColumnSeparatorColor = System.Drawing.Color.White;
+            legend2.Name = "Legend1";
+            legend2.TitleForeColor = System.Drawing.Color.White;
+            legend2.TitleSeparatorColor = System.Drawing.Color.White;
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(280, 32);
             this.chart1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.chart1.Name = "chart1";
-            series1.BackImageTransparentColor = System.Drawing.Color.White;
-            series1.BackSecondaryColor = System.Drawing.Color.White;
-            series1.BorderColor = System.Drawing.Color.White;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Color = System.Drawing.Color.White;
-            series1.LabelForeColor = System.Drawing.Color.Red;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(742, 573);
+            series2.BackImageTransparentColor = System.Drawing.Color.White;
+            series2.BackSecondaryColor = System.Drawing.Color.White;
+            series2.BorderColor = System.Drawing.Color.White;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Color = System.Drawing.Color.White;
+            series2.LabelForeColor = System.Drawing.Color.Red;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(1208, 692);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "chart1";
             // 
@@ -183,7 +191,7 @@ namespace PresentationLogic
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(970, 217);
+            this.label1.Location = new System.Drawing.Point(1567, 217);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 17);
@@ -194,7 +202,7 @@ namespace PresentationLogic
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(970, 315);
+            this.label2.Location = new System.Drawing.Point(1567, 315);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 17);
@@ -205,7 +213,7 @@ namespace PresentationLogic
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label3.Location = new System.Drawing.Point(970, 388);
+            this.label3.Location = new System.Drawing.Point(1567, 388);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 17);
@@ -348,7 +356,7 @@ namespace PresentationLogic
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.groupBox1.Size = new System.Drawing.Size(234, 342);
+            this.groupBox1.Size = new System.Drawing.Size(234, 409);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Alarm";
@@ -359,7 +367,7 @@ namespace PresentationLogic
             this.label_Puls.AutoSize = true;
             this.label_Puls.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Puls.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            this.label_Puls.Location = new System.Drawing.Point(1074, 192);
+            this.label_Puls.Location = new System.Drawing.Point(1671, 192);
             this.label_Puls.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_Puls.MaximumSize = new System.Drawing.Size(50, 52);
             this.label_Puls.Name = "label_Puls";
@@ -372,7 +380,7 @@ namespace PresentationLogic
             this.label_SysDia.AutoSize = true;
             this.label_SysDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_SysDia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label_SysDia.Location = new System.Drawing.Point(1074, 291);
+            this.label_SysDia.Location = new System.Drawing.Point(1671, 291);
             this.label_SysDia.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_SysDia.MaximumSize = new System.Drawing.Size(50, 52);
             this.label_SysDia.Name = "label_SysDia";
@@ -385,7 +393,7 @@ namespace PresentationLogic
             this.label_MiddelBT.AutoSize = true;
             this.label_MiddelBT.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_MiddelBT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.label_MiddelBT.Location = new System.Drawing.Point(1074, 362);
+            this.label_MiddelBT.Location = new System.Drawing.Point(1671, 362);
             this.label_MiddelBT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_MiddelBT.MaximumSize = new System.Drawing.Size(50, 52);
             this.label_MiddelBT.Name = "label_MiddelBT";
@@ -396,36 +404,37 @@ namespace PresentationLogic
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(970, 32);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(1567, 32);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(129, 17);
+            this.label12.Size = new System.Drawing.Size(151, 20);
             this.label12.TabIndex = 27;
             this.label12.Text = "Patientoplysninger:";
             // 
             // txt_patientNavn
             // 
-            this.txt_patientNavn.Location = new System.Drawing.Point(972, 61);
+            this.txt_patientNavn.Location = new System.Drawing.Point(1569, 61);
             this.txt_patientNavn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txt_patientNavn.Name = "txt_patientNavn";
-            this.txt_patientNavn.Size = new System.Drawing.Size(130, 22);
+            this.txt_patientNavn.Size = new System.Drawing.Size(197, 22);
             this.txt_patientNavn.TabIndex = 28;
             // 
             // txt_patientCPR
             // 
-            this.txt_patientCPR.Location = new System.Drawing.Point(972, 95);
+            this.txt_patientCPR.Location = new System.Drawing.Point(1569, 95);
             this.txt_patientCPR.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txt_patientCPR.Name = "txt_patientCPR";
-            this.txt_patientCPR.Size = new System.Drawing.Size(130, 22);
+            this.txt_patientCPR.Size = new System.Drawing.Size(197, 22);
             this.txt_patientCPR.TabIndex = 29;
             // 
             // btn_filtrerMåling
             // 
             this.btn_filtrerMåling.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_filtrerMåling.Location = new System.Drawing.Point(972, 505);
+            this.btn_filtrerMåling.Location = new System.Drawing.Point(1530, 455);
             this.btn_filtrerMåling.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btn_filtrerMåling.Name = "btn_filtrerMåling";
-            this.btn_filtrerMåling.Size = new System.Drawing.Size(126, 53);
+            this.btn_filtrerMåling.Size = new System.Drawing.Size(163, 68);
             this.btn_filtrerMåling.TabIndex = 30;
             this.btn_filtrerMåling.Text = "Filtrer måling";
             this.btn_filtrerMåling.UseVisualStyleBackColor = true;
@@ -434,10 +443,10 @@ namespace PresentationLogic
             // btn_UfiltrerMåling
             // 
             this.btn_UfiltrerMåling.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_UfiltrerMåling.Location = new System.Drawing.Point(972, 570);
+            this.btn_UfiltrerMåling.Location = new System.Drawing.Point(1530, 533);
             this.btn_UfiltrerMåling.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btn_UfiltrerMåling.Name = "btn_UfiltrerMåling";
-            this.btn_UfiltrerMåling.Size = new System.Drawing.Size(126, 51);
+            this.btn_UfiltrerMåling.Size = new System.Drawing.Size(163, 72);
             this.btn_UfiltrerMåling.TabIndex = 31;
             this.btn_UfiltrerMåling.Text = "Ufiltrer måling";
             this.btn_UfiltrerMåling.UseVisualStyleBackColor = true;
@@ -445,7 +454,7 @@ namespace PresentationLogic
             // 
             // txtKommentar
             // 
-            this.txtKommentar.Location = new System.Drawing.Point(1134, 454);
+            this.txtKommentar.Location = new System.Drawing.Point(1709, 455);
             this.txtKommentar.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtKommentar.Multiline = true;
             this.txtKommentar.Name = "txtKommentar";
@@ -455,10 +464,11 @@ namespace PresentationLogic
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1130, 419);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(1705, 419);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(159, 17);
+            this.label9.Size = new System.Drawing.Size(190, 20);
             this.label9.TabIndex = 33;
             this.label9.Text = "Kommentar til målingen:";
             // 
@@ -467,7 +477,7 @@ namespace PresentationLogic
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1119, 539);
+            this.ClientSize = new System.Drawing.Size(1914, 796);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtKommentar);
             this.Controls.Add(this.btn_UfiltrerMåling);
@@ -491,6 +501,7 @@ namespace PresentationLogic
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "Måling";
             this.Text = "G3-monitor: Måling";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

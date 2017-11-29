@@ -115,5 +115,10 @@ namespace BusinessLogic
         {
             _iDataAccess.StartProducer();
         }
+
+        public void StopMeasurement()
+        {
+            _consumer.CanRun = false;
+        }
     }
 }

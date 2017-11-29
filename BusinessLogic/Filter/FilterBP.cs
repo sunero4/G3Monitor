@@ -25,7 +25,7 @@ namespace BusinessLogic.Filter
                 double average = (containerData.GetRange(i, 5).Average());
                 ChartList.Add(average);
 
-                if (ChartList.Count > 64)
+                if (ChartList.Count > 100)
                 {
                     ChartList.RemoveAt(0);
                 }

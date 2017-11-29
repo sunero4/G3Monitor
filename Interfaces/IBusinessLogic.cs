@@ -34,5 +34,7 @@ namespace Interfaces
         KalibreringsDTO GetCalibration();
 
         void StartProducer();
+
+        void StopMeasurement();
     }
 }

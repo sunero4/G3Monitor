@@ -112,9 +112,13 @@ namespace PresentationLogic
         {
             _container.Attach(this);
             var t1 = new Thread(_iBusinessLogic.StartShowData);
+            t1.IsBackground = true;
             t1.Start();
+        }
 
-            _iBusinessLogic.StartProducer();
+        private void btn_StopMåling_Click(object sender, EventArgs e)
+        {
+            _iBusinessLogic.StopMeasurement();
         }
     }
 }

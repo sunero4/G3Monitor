@@ -15,6 +15,7 @@ namespace BusinessLogic
     {
         private Queue<double> _slidingWindow;
         private ConcurrentQueue<BPDataContainer> _queue;
+        private BlockingCollection<double> _slidingWindow2;
         private IFilter _filter;
         private Pulse _pulse;
         private Systolic _sys;

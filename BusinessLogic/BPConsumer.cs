@@ -29,6 +29,7 @@ namespace BusinessLogic
             _event = autoResetEvent;
             _filtering = filter;
             _kaliAndZero = kaliAndZero;
+            
         }
 
         public void HandleData()
@@ -43,10 +44,10 @@ namespace BusinessLogic
             //var convertedData = _conversion.ConvertToPressure(container.BloodPressure);
 
             //filteredData = _kaliAndZero.AddKalibreringAndZero(container.BloodPressure);
-            filteredData = _filtering.Smoothing(filteredData);
+            filteredData = _filtering.Smoothing(container.BloodPressure);
 
 
-            BPState = container.BloodPressure;
+            BPState = filteredData;
             //Set eventet sååååå controlleren får at vide den skal læse BPState
             _event.Set();
         }
@@ -54,9 +55,18 @@ namespace BusinessLogic
         public void Run()
         {
             CanRun = true;
+
+            var t1 = new Thread(_dataAccess.StartProducer);
+            t1.IsBackground = true;
+            t1.Start();
+
             while (CanRun)
             {
                 HandleData();
+            }
+            if (!CanRun)
+            {
+                _dataAccess.StopProducer();
             }
         }
     }

@@ -19,8 +19,9 @@ namespace DataAccessLogic
         private IDaqMeasurement _daqMeasurement;
         private SaveCalibrationXml _saveCalibrationXml;
         private PatientInfoRetrieval _patientInfoRetrieval;
-        private DAQData _producer;
+        private DAQData _daqData;
         private DAQ _daq;
+        private BPProducer _producer;
         private ICalibrationDataRetrieval _calibrationRetrieval;
 
         public SCDataAcess(ConcurrentQueue<BPDataContainer> queue)
@@ -30,8 +31,9 @@ namespace DataAccessLogic
             _salt = new Salt();
             _patientInfoRetrieval = new PatientInfoRetrieval();
             _daq = new DAQ();
-            _producer = new DAQData(_daq, queue);
+            _daqData = new DAQData(_daq, queue);
             _calibrationRetrieval = new CalibrationRetrievalXml();
+            _producer = new BPProducer(queue, _daqData);
         }
 
         public PatientDTO GetPatientInfo(PatientDTO patient)
@@ -66,7 +68,12 @@ namespace DataAccessLogic
 
         public void StartProducer()
         {
-            _producer.Start();
+            _producer.GetData();
+        }
+
+        public void StopProducer()
+        {
+            _producer.CanRun = false;
         }
     }
 

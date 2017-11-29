@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BloodPressureContainer.cs" />
     <Compile Include="BPDataContainer.cs" />
     <Compile Include="IPresentationObserver.cs" />
     <Compile Include="MeasurementSubjectBL.cs" />
