@@ -47,37 +47,41 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(43, 93);
             this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 32);
+            this.label1.Size = new System.Drawing.Size(274, 55);
             this.label1.TabIndex = 0;
             this.label1.Text = "Brugernavn";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 162);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(43, 180);
             this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 32);
+            this.label2.Size = new System.Drawing.Size(236, 55);
             this.label2.TabIndex = 1;
             this.label2.Text = "Password";
             // 
             // txtBrugernavn
             // 
-            this.txtBrugernavn.Location = new System.Drawing.Point(243, 93);
+            this.txtBrugernavn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBrugernavn.Location = new System.Drawing.Point(320, 98);
             this.txtBrugernavn.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtBrugernavn.Name = "txtBrugernavn";
-            this.txtBrugernavn.Size = new System.Drawing.Size(260, 38);
+            this.txtBrugernavn.Size = new System.Drawing.Size(260, 61);
             this.txtBrugernavn.TabIndex = 2;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(243, 162);
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(320, 179);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(260, 38);
+            this.txtPassword.Size = new System.Drawing.Size(260, 61);
             this.txtPassword.TabIndex = 3;
             // 
             // rbtnOP
@@ -86,7 +90,7 @@
             this.rbtnOP.Location = new System.Drawing.Point(61, 98);
             this.rbtnOP.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.rbtnOP.Name = "rbtnOP";
-            this.rbtnOP.Size = new System.Drawing.Size(278, 36);
+            this.rbtnOP.Size = new System.Drawing.Size(324, 43);
             this.rbtnOP.TabIndex = 5;
             this.rbtnOP.TabStop = true;
             this.rbtnOP.Text = "OP-sygeplejerske";
@@ -98,7 +102,7 @@
             this.rbtnTekniker.Location = new System.Drawing.Point(680, 98);
             this.rbtnTekniker.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.rbtnTekniker.Name = "rbtnTekniker";
-            this.rbtnTekniker.Size = new System.Drawing.Size(162, 36);
+            this.rbtnTekniker.Size = new System.Drawing.Size(186, 43);
             this.rbtnTekniker.TabIndex = 6;
             this.rbtnTekniker.TabStop = true;
             this.rbtnTekniker.Text = "Tekniker";
@@ -110,7 +114,7 @@
             this.rbtnStartMål.Location = new System.Drawing.Point(61, 117);
             this.rbtnStartMål.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.rbtnStartMål.Name = "rbtnStartMål";
-            this.rbtnStartMål.Size = new System.Drawing.Size(205, 36);
+            this.rbtnStartMål.Size = new System.Drawing.Size(236, 43);
             this.rbtnStartMål.TabIndex = 7;
             this.rbtnStartMål.TabStop = true;
             this.rbtnStartMål.Text = "Start måling";
@@ -122,7 +126,7 @@
             this.rbtnHentdata.Location = new System.Drawing.Point(389, 117);
             this.rbtnHentdata.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.rbtnHentdata.Name = "rbtnHentdata";
-            this.rbtnHentdata.Size = new System.Drawing.Size(176, 36);
+            this.rbtnHentdata.Size = new System.Drawing.Size(202, 43);
             this.rbtnHentdata.TabIndex = 8;
             this.rbtnHentdata.TabStop = true;
             this.rbtnHentdata.Text = "Hent data";
@@ -134,7 +138,7 @@
             this.rbtnStartKalib.Location = new System.Drawing.Point(680, 117);
             this.rbtnStartKalib.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.rbtnStartKalib.Name = "rbtnStartKalib";
-            this.rbtnStartKalib.Size = new System.Drawing.Size(253, 36);
+            this.rbtnStartKalib.Size = new System.Drawing.Size(293, 43);
             this.rbtnStartKalib.TabIndex = 9;
             this.rbtnStartKalib.TabStop = true;
             this.rbtnStartKalib.Text = "Start kalibrering";
@@ -142,10 +146,11 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(51, 825);
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(51, 907);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(213, 69);
+            this.btnLogin.Size = new System.Drawing.Size(245, 81);
             this.btnLogin.TabIndex = 10;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -155,7 +160,8 @@
             // 
             this.groupBox1.Controls.Add(this.rbtnTekniker);
             this.groupBox1.Controls.Add(this.rbtnOP);
-            this.groupBox1.Location = new System.Drawing.Point(51, 269);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(51, 314);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
@@ -169,7 +175,8 @@
             this.groupBox2.Controls.Add(this.rbtnStartMål);
             this.groupBox2.Controls.Add(this.rbtnHentdata);
             this.groupBox2.Controls.Add(this.rbtnStartKalib);
-            this.groupBox2.Location = new System.Drawing.Point(51, 534);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(51, 616);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
@@ -182,7 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1288, 1018);
+            this.ClientSize = new System.Drawing.Size(1330, 1185);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnLogin);

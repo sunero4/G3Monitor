@@ -30,9 +30,9 @@ namespace PresentationLogic
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btn_Nulpunktsjustering = new System.Windows.Forms.Button();
             this.btn_Indstillinger = new System.Windows.Forms.Button();
             this.btn_StartMåling = new System.Windows.Forms.Button();
@@ -77,10 +77,10 @@ namespace PresentationLogic
             this.btn_Nulpunktsjustering.BackColor = System.Drawing.SystemColors.Control;
             this.btn_Nulpunktsjustering.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Nulpunktsjustering.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_Nulpunktsjustering.Location = new System.Drawing.Point(38, 32);
-            this.btn_Nulpunktsjustering.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btn_Nulpunktsjustering.Location = new System.Drawing.Point(76, 62);
+            this.btn_Nulpunktsjustering.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_Nulpunktsjustering.Name = "btn_Nulpunktsjustering";
-            this.btn_Nulpunktsjustering.Size = new System.Drawing.Size(173, 61);
+            this.btn_Nulpunktsjustering.Size = new System.Drawing.Size(346, 118);
             this.btn_Nulpunktsjustering.TabIndex = 0;
             this.btn_Nulpunktsjustering.Text = "Nulpunktsjustering ";
             this.btn_Nulpunktsjustering.UseVisualStyleBackColor = false;
@@ -90,10 +90,10 @@ namespace PresentationLogic
             // 
             this.btn_Indstillinger.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Indstillinger.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_Indstillinger.Location = new System.Drawing.Point(38, 106);
-            this.btn_Indstillinger.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btn_Indstillinger.Location = new System.Drawing.Point(76, 205);
+            this.btn_Indstillinger.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_Indstillinger.Name = "btn_Indstillinger";
-            this.btn_Indstillinger.Size = new System.Drawing.Size(173, 58);
+            this.btn_Indstillinger.Size = new System.Drawing.Size(346, 112);
             this.btn_Indstillinger.TabIndex = 1;
             this.btn_Indstillinger.Text = "Indstillinger for måling";
             this.btn_Indstillinger.UseVisualStyleBackColor = true;
@@ -102,10 +102,10 @@ namespace PresentationLogic
             // 
             this.btn_StartMåling.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_StartMåling.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_StartMåling.Location = new System.Drawing.Point(38, 177);
-            this.btn_StartMåling.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btn_StartMåling.Location = new System.Drawing.Point(76, 343);
+            this.btn_StartMåling.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_StartMåling.Name = "btn_StartMåling";
-            this.btn_StartMåling.Size = new System.Drawing.Size(173, 56);
+            this.btn_StartMåling.Size = new System.Drawing.Size(346, 108);
             this.btn_StartMåling.TabIndex = 2;
             this.btn_StartMåling.Text = "Start måling";
             this.btn_StartMåling.UseVisualStyleBackColor = true;
@@ -115,10 +115,10 @@ namespace PresentationLogic
             // 
             this.btn_StopMåling.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_StopMåling.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_StopMåling.Location = new System.Drawing.Point(38, 247);
-            this.btn_StopMåling.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btn_StopMåling.Location = new System.Drawing.Point(76, 479);
+            this.btn_StopMåling.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_StopMåling.Name = "btn_StopMåling";
-            this.btn_StopMåling.Size = new System.Drawing.Size(173, 59);
+            this.btn_StopMåling.Size = new System.Drawing.Size(346, 114);
             this.btn_StopMåling.TabIndex = 3;
             this.btn_StopMåling.Text = "Stop måling";
             this.btn_StopMåling.UseVisualStyleBackColor = true;
@@ -128,10 +128,10 @@ namespace PresentationLogic
             // 
             this.btn_DeaktiverAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_DeaktiverAlarm.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_DeaktiverAlarm.Location = new System.Drawing.Point(18, 218);
-            this.btn_DeaktiverAlarm.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btn_DeaktiverAlarm.Location = new System.Drawing.Point(36, 422);
+            this.btn_DeaktiverAlarm.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_DeaktiverAlarm.Name = "btn_DeaktiverAlarm";
-            this.btn_DeaktiverAlarm.Size = new System.Drawing.Size(195, 72);
+            this.btn_DeaktiverAlarm.Size = new System.Drawing.Size(390, 140);
             this.btn_DeaktiverAlarm.TabIndex = 4;
             this.btn_DeaktiverAlarm.Text = "Deaktiver alarm";
             this.btn_DeaktiverAlarm.UseVisualStyleBackColor = true;
@@ -140,10 +140,10 @@ namespace PresentationLogic
             // 
             this.btn_AktiverAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AktiverAlarm.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_AktiverAlarm.Location = new System.Drawing.Point(20, 306);
-            this.btn_AktiverAlarm.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btn_AktiverAlarm.Location = new System.Drawing.Point(40, 593);
+            this.btn_AktiverAlarm.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_AktiverAlarm.Name = "btn_AktiverAlarm";
-            this.btn_AktiverAlarm.Size = new System.Drawing.Size(193, 74);
+            this.btn_AktiverAlarm.Size = new System.Drawing.Size(386, 143);
             this.btn_AktiverAlarm.TabIndex = 5;
             this.btn_AktiverAlarm.Text = "Aktiver alarm";
             this.btn_AktiverAlarm.UseVisualStyleBackColor = true;
@@ -151,186 +151,201 @@ namespace PresentationLogic
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.Black;
-            chartArea2.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisX2.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisX2.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisY2.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea2.BackColor = System.Drawing.Color.Black;
-            chartArea2.BorderColor = System.Drawing.Color.White;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend2.ForeColor = System.Drawing.Color.White;
-            legend2.HeaderSeparatorColor = System.Drawing.Color.White;
-            legend2.ItemColumnSeparatorColor = System.Drawing.Color.White;
-            legend2.Name = "Legend1";
-            legend2.TitleForeColor = System.Drawing.Color.White;
-            legend2.TitleSeparatorColor = System.Drawing.Color.White;
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(280, 32);
-            this.chart1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            chartArea1.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX2.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX2.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY2.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea1.BackColor = System.Drawing.Color.Black;
+            chartArea1.BorderColor = System.Drawing.Color.White;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Black;
+            legend1.BorderColor = System.Drawing.Color.Transparent;
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend1.ForeColor = System.Drawing.Color.Red;
+            legend1.HeaderSeparatorColor = System.Drawing.Color.White;
+            legend1.IsTextAutoFit = false;
+            legend1.ItemColumnSeparatorColor = System.Drawing.Color.White;
+            legend1.Name = "Legend1";
+            legend1.TitleBackColor = System.Drawing.Color.Black;
+            legend1.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(565, 177);
+            this.chart1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.chart1.Name = "chart1";
-            series2.BackImageTransparentColor = System.Drawing.Color.White;
-            series2.BackSecondaryColor = System.Drawing.Color.White;
-            series2.BorderColor = System.Drawing.Color.White;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Color = System.Drawing.Color.White;
-            series2.LabelForeColor = System.Drawing.Color.Red;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(1208, 692);
+            series1.BackImageTransparentColor = System.Drawing.Color.White;
+            series1.BackSecondaryColor = System.Drawing.Color.White;
+            series1.BorderColor = System.Drawing.Color.White;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Color = System.Drawing.Color.Red;
+            series1.LabelForeColor = System.Drawing.Color.Red;
+            series1.Legend = "Legend1";
+            series1.Name = "Blodtryk";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(2407, 1341);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "chart1";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(1567, 217);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(3102, 420);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 17);
+            this.label1.Size = new System.Drawing.Size(133, 63);
             this.label1.TabIndex = 7;
             this.label1.Text = "Puls";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(1567, 315);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(3103, 622);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 17);
+            this.label2.Size = new System.Drawing.Size(189, 55);
             this.label2.TabIndex = 8;
             this.label2.Text = "Sys/Dia";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label3.Location = new System.Drawing.Point(1567, 388);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(3102, 731);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 17);
+            this.label3.Size = new System.Drawing.Size(239, 55);
             this.label3.TabIndex = 9;
             this.label3.Text = "Middel BT";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(14, 42);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.MaximumSize = new System.Drawing.Size(200, 52);
+            this.label4.Location = new System.Drawing.Point(19, 46);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.MaximumSize = new System.Drawing.Size(400, 101);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(188, 51);
+            this.label4.Size = new System.Drawing.Size(400, 101);
             this.label4.TabIndex = 10;
             this.label4.Text = "Ændring af grænseværdier for alam aktivering:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 87);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(25, 169);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 17);
+            this.label5.Size = new System.Drawing.Size(215, 39);
             this.label5.TabIndex = 11;
             this.label5.Text = "Minimum sys";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(122, 87);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(273, 171);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(99, 17);
+            this.label6.Size = new System.Drawing.Size(241, 39);
             this.label6.TabIndex = 12;
             this.label6.Text = "Maksimum sys";
             // 
             // txt_minimumSys
             // 
-            this.txt_minimumSys.Location = new System.Drawing.Point(18, 115);
-            this.txt_minimumSys.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.txt_minimumSys.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_minimumSys.Location = new System.Drawing.Point(29, 217);
+            this.txt_minimumSys.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txt_minimumSys.Name = "txt_minimumSys";
-            this.txt_minimumSys.Size = new System.Drawing.Size(62, 22);
+            this.txt_minimumSys.Size = new System.Drawing.Size(140, 53);
             this.txt_minimumSys.TabIndex = 13;
             // 
             // txt_maksimumSys
             // 
-            this.txt_maksimumSys.Location = new System.Drawing.Point(124, 115);
-            this.txt_maksimumSys.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.txt_maksimumSys.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_maksimumSys.Location = new System.Drawing.Point(277, 225);
+            this.txt_maksimumSys.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txt_maksimumSys.Name = "txt_maksimumSys";
-            this.txt_maksimumSys.Size = new System.Drawing.Size(60, 22);
+            this.txt_maksimumSys.Size = new System.Drawing.Size(142, 53);
             this.txt_maksimumSys.TabIndex = 14;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 148);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(25, 287);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(86, 17);
+            this.label7.Size = new System.Drawing.Size(210, 39);
             this.label7.TabIndex = 15;
             this.label7.Text = "Minimum dia";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(122, 148);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(273, 289);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(97, 17);
+            this.label8.Size = new System.Drawing.Size(236, 39);
             this.label8.TabIndex = 16;
             this.label8.Text = "Maksimum dia";
             // 
             // txt_minimumDia
             // 
-            this.txt_minimumDia.Location = new System.Drawing.Point(20, 171);
-            this.txt_minimumDia.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.txt_minimumDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_minimumDia.Location = new System.Drawing.Point(33, 331);
+            this.txt_minimumDia.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txt_minimumDia.Name = "txt_minimumDia";
-            this.txt_minimumDia.Size = new System.Drawing.Size(60, 22);
+            this.txt_minimumDia.Size = new System.Drawing.Size(136, 53);
             this.txt_minimumDia.TabIndex = 17;
             // 
             // txt_maksimumDia
             // 
-            this.txt_maksimumDia.Location = new System.Drawing.Point(124, 171);
-            this.txt_maksimumDia.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.txt_maksimumDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_maksimumDia.Location = new System.Drawing.Point(277, 333);
+            this.txt_maksimumDia.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txt_maksimumDia.Name = "txt_maksimumDia";
-            this.txt_maksimumDia.Size = new System.Drawing.Size(60, 22);
+            this.txt_maksimumDia.Size = new System.Drawing.Size(142, 53);
             this.txt_maksimumDia.TabIndex = 18;
             // 
             // vScrollBar1
             // 
-            this.vScrollBar1.Location = new System.Drawing.Point(82, 115);
+            this.vScrollBar1.Location = new System.Drawing.Point(178, 217);
             this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(29, 20);
+            this.vScrollBar1.Size = new System.Drawing.Size(33, 53);
             this.vScrollBar1.TabIndex = 19;
             // 
             // vScrollBar2
             // 
-            this.vScrollBar2.Location = new System.Drawing.Point(184, 115);
+            this.vScrollBar2.Location = new System.Drawing.Point(426, 225);
             this.vScrollBar2.Name = "vScrollBar2";
-            this.vScrollBar2.Size = new System.Drawing.Size(29, 20);
+            this.vScrollBar2.Size = new System.Drawing.Size(34, 53);
             this.vScrollBar2.TabIndex = 20;
             // 
             // vScrollBar3
             // 
-            this.vScrollBar3.Location = new System.Drawing.Point(82, 171);
+            this.vScrollBar3.Location = new System.Drawing.Point(177, 331);
             this.vScrollBar3.Name = "vScrollBar3";
-            this.vScrollBar3.Size = new System.Drawing.Size(29, 20);
+            this.vScrollBar3.Size = new System.Drawing.Size(34, 53);
             this.vScrollBar3.TabIndex = 21;
             // 
             // vScrollBar4
             // 
-            this.vScrollBar4.Location = new System.Drawing.Point(186, 172);
+            this.vScrollBar4.Location = new System.Drawing.Point(425, 334);
             this.vScrollBar4.Name = "vScrollBar4";
-            this.vScrollBar4.Size = new System.Drawing.Size(28, 20);
+            this.vScrollBar4.Size = new System.Drawing.Size(35, 51);
             this.vScrollBar4.TabIndex = 22;
             // 
             // groupBox1
@@ -352,11 +367,11 @@ namespace PresentationLogic
             this.groupBox1.Controls.Add(this.txt_minimumDia);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox1.Location = new System.Drawing.Point(18, 315);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.groupBox1.Location = new System.Drawing.Point(22, 695);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.groupBox1.Size = new System.Drawing.Size(234, 409);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.groupBox1.Size = new System.Drawing.Size(526, 794);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Alarm";
@@ -367,11 +382,11 @@ namespace PresentationLogic
             this.label_Puls.AutoSize = true;
             this.label_Puls.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Puls.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            this.label_Puls.Location = new System.Drawing.Point(1671, 192);
-            this.label_Puls.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label_Puls.MaximumSize = new System.Drawing.Size(50, 52);
+            this.label_Puls.Location = new System.Drawing.Point(3327, 395);
+            this.label_Puls.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_Puls.MaximumSize = new System.Drawing.Size(100, 101);
             this.label_Puls.Name = "label_Puls";
-            this.label_Puls.Size = new System.Drawing.Size(42, 46);
+            this.label_Puls.Size = new System.Drawing.Size(83, 91);
             this.label_Puls.TabIndex = 24;
             this.label_Puls.Text = "0";
             // 
@@ -380,11 +395,11 @@ namespace PresentationLogic
             this.label_SysDia.AutoSize = true;
             this.label_SysDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_SysDia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label_SysDia.Location = new System.Drawing.Point(1671, 291);
-            this.label_SysDia.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label_SysDia.MaximumSize = new System.Drawing.Size(50, 52);
+            this.label_SysDia.Location = new System.Drawing.Point(3334, 601);
+            this.label_SysDia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_SysDia.MaximumSize = new System.Drawing.Size(100, 101);
             this.label_SysDia.Name = "label_SysDia";
-            this.label_SysDia.Size = new System.Drawing.Size(42, 46);
+            this.label_SysDia.Size = new System.Drawing.Size(83, 91);
             this.label_SysDia.TabIndex = 25;
             this.label_SysDia.Text = "0";
             // 
@@ -393,48 +408,51 @@ namespace PresentationLogic
             this.label_MiddelBT.AutoSize = true;
             this.label_MiddelBT.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_MiddelBT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.label_MiddelBT.Location = new System.Drawing.Point(1671, 362);
-            this.label_MiddelBT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label_MiddelBT.MaximumSize = new System.Drawing.Size(50, 52);
+            this.label_MiddelBT.Location = new System.Drawing.Point(3335, 710);
+            this.label_MiddelBT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_MiddelBT.MaximumSize = new System.Drawing.Size(100, 101);
             this.label_MiddelBT.Name = "label_MiddelBT";
-            this.label_MiddelBT.Size = new System.Drawing.Size(46, 46);
+            this.label_MiddelBT.Size = new System.Drawing.Size(93, 91);
             this.label_MiddelBT.TabIndex = 26;
             this.label_MiddelBT.Text = "--";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(1567, 32);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(3094, 62);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(151, 20);
+            this.label12.Size = new System.Drawing.Size(432, 55);
             this.label12.TabIndex = 27;
             this.label12.Text = "Patientoplysninger:";
             // 
             // txt_patientNavn
             // 
-            this.txt_patientNavn.Location = new System.Drawing.Point(1569, 61);
-            this.txt_patientNavn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.txt_patientNavn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_patientNavn.Location = new System.Drawing.Point(3106, 123);
+            this.txt_patientNavn.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txt_patientNavn.Name = "txt_patientNavn";
-            this.txt_patientNavn.Size = new System.Drawing.Size(197, 22);
+            this.txt_patientNavn.Size = new System.Drawing.Size(596, 53);
             this.txt_patientNavn.TabIndex = 28;
             // 
             // txt_patientCPR
             // 
-            this.txt_patientCPR.Location = new System.Drawing.Point(1569, 95);
-            this.txt_patientCPR.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.txt_patientCPR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_patientCPR.Location = new System.Drawing.Point(3106, 192);
+            this.txt_patientCPR.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txt_patientCPR.Name = "txt_patientCPR";
-            this.txt_patientCPR.Size = new System.Drawing.Size(197, 22);
+            this.txt_patientCPR.Size = new System.Drawing.Size(595, 53);
             this.txt_patientCPR.TabIndex = 29;
             // 
             // btn_filtrerMåling
             // 
+            this.btn_filtrerMåling.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_filtrerMåling.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_filtrerMåling.Location = new System.Drawing.Point(1530, 455);
-            this.btn_filtrerMåling.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btn_filtrerMåling.Location = new System.Drawing.Point(3068, 990);
+            this.btn_filtrerMåling.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_filtrerMåling.Name = "btn_filtrerMåling";
-            this.btn_filtrerMåling.Size = new System.Drawing.Size(163, 68);
+            this.btn_filtrerMåling.Size = new System.Drawing.Size(326, 132);
             this.btn_filtrerMåling.TabIndex = 30;
             this.btn_filtrerMåling.Text = "Filtrer måling";
             this.btn_filtrerMåling.UseVisualStyleBackColor = true;
@@ -442,11 +460,12 @@ namespace PresentationLogic
             // 
             // btn_UfiltrerMåling
             // 
+            this.btn_UfiltrerMåling.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_UfiltrerMåling.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_UfiltrerMåling.Location = new System.Drawing.Point(1530, 533);
-            this.btn_UfiltrerMåling.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btn_UfiltrerMåling.Location = new System.Drawing.Point(3068, 1141);
+            this.btn_UfiltrerMåling.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_UfiltrerMåling.Name = "btn_UfiltrerMåling";
-            this.btn_UfiltrerMåling.Size = new System.Drawing.Size(163, 72);
+            this.btn_UfiltrerMåling.Size = new System.Drawing.Size(326, 140);
             this.btn_UfiltrerMåling.TabIndex = 31;
             this.btn_UfiltrerMåling.Text = "Ufiltrer måling";
             this.btn_UfiltrerMåling.UseVisualStyleBackColor = true;
@@ -454,30 +473,30 @@ namespace PresentationLogic
             // 
             // txtKommentar
             // 
-            this.txtKommentar.Location = new System.Drawing.Point(1709, 455);
-            this.txtKommentar.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.txtKommentar.Location = new System.Drawing.Point(3426, 990);
+            this.txtKommentar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtKommentar.Multiline = true;
             this.txtKommentar.Name = "txtKommentar";
-            this.txtKommentar.Size = new System.Drawing.Size(160, 202);
+            this.txtKommentar.Size = new System.Drawing.Size(354, 388);
             this.txtKommentar.TabIndex = 32;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(1705, 419);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(3389, 920);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(190, 20);
+            this.label9.Size = new System.Drawing.Size(435, 44);
             this.label9.TabIndex = 33;
             this.label9.Text = "Kommentar til målingen:";
             // 
             // Måling
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1914, 796);
+            this.ClientSize = new System.Drawing.Size(3824, 1542);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtKommentar);
             this.Controls.Add(this.btn_UfiltrerMåling);
@@ -498,7 +517,7 @@ namespace PresentationLogic
             this.Controls.Add(this.btn_Indstillinger);
             this.Controls.Add(this.btn_Nulpunktsjustering);
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "Måling";
             this.Text = "G3-monitor: Måling";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
