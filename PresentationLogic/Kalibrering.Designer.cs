@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnNyMåling = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -157,25 +157,25 @@
             // 
             // chartMåltTryk
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartMåltTryk.ChartAreas.Add(chartArea2);
-            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend2.Name = "Legend1";
-            this.chartMåltTryk.Legends.Add(legend2);
-            this.chartMåltTryk.Location = new System.Drawing.Point(593, 536);
+            chartArea1.Name = "ChartArea1";
+            this.chartMåltTryk.ChartAreas.Add(chartArea1);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.Name = "Legend1";
+            this.chartMåltTryk.Legends.Add(legend1);
+            this.chartMåltTryk.Location = new System.Drawing.Point(412, 536);
             this.chartMåltTryk.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.chartMåltTryk.Name = "chartMåltTryk";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Indtastet tryk";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "Målte tryk";
-            this.chartMåltTryk.Series.Add(series3);
-            this.chartMåltTryk.Series.Add(series4);
-            this.chartMåltTryk.Size = new System.Drawing.Size(896, 708);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Indtastet tryk";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Målte tryk";
+            this.chartMåltTryk.Series.Add(series1);
+            this.chartMåltTryk.Series.Add(series2);
+            this.chartMåltTryk.Size = new System.Drawing.Size(1077, 708);
             this.chartMåltTryk.TabIndex = 1;
             this.chartMåltTryk.Text = "chart1";
             // 
@@ -187,15 +187,16 @@
             this.ListBoxMåltTryk.Location = new System.Drawing.Point(55, 536);
             this.ListBoxMåltTryk.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.ListBoxMåltTryk.Name = "ListBoxMåltTryk";
-            this.ListBoxMåltTryk.Size = new System.Drawing.Size(497, 556);
+            this.ListBoxMåltTryk.Size = new System.Drawing.Size(320, 556);
             this.ListBoxMåltTryk.TabIndex = 2;
             // 
             // btnAfslutKali
             // 
-            this.btnAfslutKali.Location = new System.Drawing.Point(1607, 1156);
+            this.btnAfslutKali.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAfslutKali.Location = new System.Drawing.Point(1597, 1118);
             this.btnAfslutKali.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnAfslutKali.Name = "btnAfslutKali";
-            this.btnAfslutKali.Size = new System.Drawing.Size(301, 88);
+            this.btnAfslutKali.Size = new System.Drawing.Size(314, 126);
             this.btnAfslutKali.TabIndex = 3;
             this.btnAfslutKali.Text = "Afslut kalibrering";
             this.btnAfslutKali.UseVisualStyleBackColor = true;
@@ -203,10 +204,11 @@
             // 
             // btnSletMåling
             // 
+            this.btnSletMåling.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSletMåling.Location = new System.Drawing.Point(55, 1118);
             this.btnSletMåling.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnSletMåling.Name = "btnSletMåling";
-            this.btnSletMåling.Size = new System.Drawing.Size(261, 76);
+            this.btnSletMåling.Size = new System.Drawing.Size(320, 126);
             this.btnSletMåling.TabIndex = 6;
             this.btnSletMåling.Text = "Slet måltpunkt";
             this.btnSletMåling.UseVisualStyleBackColor = true;
@@ -232,10 +234,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(1505, 536);
             this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(394, 32);
+            this.label3.Size = new System.Drawing.Size(525, 44);
             this.label3.TabIndex = 16;
             this.label3.Text = "Juster hældningskoefficienten";
             // 
