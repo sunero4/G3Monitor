@@ -20,12 +20,12 @@ namespace BusinessLogic.Tests.Unit
             _nulpunktsjustering = new Nulpunktsjustering();
         }
 
-        [Test]
-        public void VoltageToPressureConversion_Returns220mmHg()
-        {
-            var pressure = Convert.ToInt32(_conversion.ConvertToPressure(5));
-            Assert.That(pressure == 220);
-        }
+        //[Test]
+        //public void VoltageToPressureConversion_Returns220mmHg()
+        //{
+        //    var pressure = Convert.ToInt32(_conversion.ConvertToPressure(5));
+        //    Assert.That(pressure == 220);
+        //}
 
         [Test]
         public void PerformAdjustment_Returns220mmHg()

@@ -9,7 +9,7 @@ using Accord.Math.Transforms;
 
 namespace BusinessLogic
 {
-    public class Pulse
+    public class Pulse:IPulse
     {
         public int TimeDifferences(List<double> data)
         {
@@ -34,9 +34,9 @@ namespace BusinessLogic
             var threshold = btList.Max() * 0.8;
             List<int> times = new List<int>();
 
-            for (int i = 0; i < btList.Count; i++)
+            for (int i = 0; i < btList.Count - 1; i++)
             {
-                if (btList[i] > btList[i + 1] && btList[i] > threshold && btList[i] >= max)
+                if (btList[i] > btList[i + 1] && btList[i] > threshold)
                 {
                     max = btList[i];
                     times.Add(i);
@@ -45,9 +45,8 @@ namespace BusinessLogic
             return times;
         }
         public int Calculate(List<double> btList)
-        {
-            var times = Times(btList);
-            var diff = TimeDifferences(times);
+        {   
+            var diff = TimeDifferences(btList);
             var pulse = 60000 / diff / 1000; // 60000 sample divideret med den gennemsnitlige tidsforskel mellem toppunkterne og derefter dividere vi med en faktor 1000, da der er 1000 sample pr. sekund. 
             return Convert.ToInt32(pulse);
 

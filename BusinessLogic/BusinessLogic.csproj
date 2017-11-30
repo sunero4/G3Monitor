@@ -80,6 +80,7 @@
     <Compile Include="Filter\IFilter.cs" />
     <Compile Include="Filter\NetNoise.cs" />
     <Compile Include="Filter\RawFilter.cs" />
+    <Compile Include="IPulse.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Nulpunktsjustering.cs" />
     <Compile Include="PasswordSecurity.cs" />
