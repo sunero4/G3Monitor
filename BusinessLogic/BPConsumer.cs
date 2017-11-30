@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using BusinessLogic.Filter;
+using DTO;
 using Interfaces;
 using ObserverPattern;
 
@@ -19,17 +20,22 @@ namespace BusinessLogic
         private IDataAccess _dataAccess;
         private IFilter _filtering;
         private KaliAndZero _kaliAndZero;
+        private Saving _saving;
+        private PatientDTO _patient;
+        private AutoResetEvent _savingEvent;
 
         public bool CanRun { get; set; }
 
-        public BPConsumer(ConcurrentQueue<BPDataContainer> queue, IDataAccess dataAccess, AutoResetEvent autoResetEvent, IFilter filter, KaliAndZero kaliAndZero)
+        public BPConsumer(ConcurrentQueue<BPDataContainer> queue, IDataAccess dataAccess, AutoResetEvent autoResetEvent, IFilter filter, KaliAndZero kaliAndZero, PatientDTO patient)
         {
             _queue = queue;
             _dataAccess = dataAccess;
             _event = autoResetEvent;
             _filtering = filter;
             _kaliAndZero = kaliAndZero;
-            
+            _savingEvent = new AutoResetEvent(false);
+            _saving = new Saving(dataAccess, _savingEvent);
+            _patient = patient;
         }
 
         public void HandleData()
@@ -43,13 +49,15 @@ namespace BusinessLogic
             //Konverter (og måske filtrer) data her, så vi kan regne på det i controlleren
             //var convertedData = _conversion.ConvertToPressure(container.BloodPressure);
 
+            //Det her skal ske her
             //filteredData = _kaliAndZero.AddKalibreringAndZero(container.BloodPressure);
-            //filteredData = _filtering.Smoothing(container.BloodPressure);
+
 
 
             BPState = container.BloodPressure;
             //Set eventet sååååå controlleren får at vide den skal læse BPState
             _event.Set();
+            _savingEvent.Set();
         }
 
         public void Run()
@@ -60,6 +68,10 @@ namespace BusinessLogic
             t1.IsBackground = true;
             t1.Start();
 
+            var t2 = new Thread(_saving.StartSaving);
+            t2.IsBackground = true;
+            t2.Start(_patient);
+
             while (CanRun)
             {
                 HandleData();
@@ -67,6 +79,7 @@ namespace BusinessLogic
             if (!CanRun)
             {
                 _dataAccess.StopProducer();
+                _saving.CanRun = false;
             }
         }
     }

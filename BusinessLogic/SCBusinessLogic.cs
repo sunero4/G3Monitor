@@ -18,13 +18,14 @@ namespace BusinessLogic
         private IDataAccess _iDataAccess;
         private Nulpunktsjustering _nulpunkt;
         private Login _login;
-        private DataConverter _dataConverter;
         private IFilter _filter;
         private BPConsumer _consumer;
         private AutoResetEvent _event;
         private ShowData _showData;
         private NulpunktsjusteringDTO _nulpunktDTO;
         private KaliAndZero _kaliAndZero;
+        private PatientDTO _patientDTO;
+
 
         public SCBusinessLogic(IDataAccess iDataAccess, ConcurrentQueue<BPDataContainer> queue,
             PresentationDataContainer container)
@@ -33,9 +34,9 @@ namespace BusinessLogic
             _iDataAccess = iDataAccess;
             _nulpunkt = new Nulpunktsjustering();
             _login = new Login();
-            _dataConverter = new DataConverter();
             _filter = new FilterBP();
-            _consumer = new BPConsumer(queue, _iDataAccess, _event, _filter, new KaliAndZero(_nulpunktDTO, new KalibreringsDTO()));
+            _patientDTO = new PatientDTO();
+            _consumer = new BPConsumer(queue, _iDataAccess, _event, _filter, new KaliAndZero(_nulpunktDTO, new KalibreringsDTO()), _patientDTO);
             _kaliAndZero = new KaliAndZero(_nulpunktDTO, new KalibreringsDTO());
             _showData = new ShowData(container, queue, _consumer, _event, _filter);
         }
@@ -50,7 +51,7 @@ namespace BusinessLogic
         public List<double> ConvertArrayToDoubles(byte[] maaledata)
         {
             //var PatientOut = _iDataAccess.HentData(maaledata);
-            return _dataConverter.ConvertArrayToDoubles(maaledata);
+            return DataConverter.ConvertArrayToDoubles(maaledata);
             
         }
 
@@ -119,6 +120,11 @@ namespace BusinessLogic
         public void StopMeasurement()
         {
             _consumer.CanRun = false;
+        }
+
+        public void GetPatientInfoForSaving(PatientDTO patient)
+        {
+            _patientDTO = patient;
         }
     }
 }

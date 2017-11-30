@@ -19,7 +19,7 @@ namespace DataAccessLogic
             cmd.Parameters.AddWithValue("@kalibrering", input.ListOperation[0].Kalibrering);
             cmd.Parameters.AddWithValue("@nulpunktsjustering", input.ListOperation[0].Nulpunktjustering);
             cmd.Parameters.AddWithValue("@cpr", input.CPR);
-
+            cmd.Parameters.AddWithValue("@id", input.ListOperation[0].OperationsID);
             return cmd;
         }
     }

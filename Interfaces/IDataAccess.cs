@@ -21,5 +21,8 @@ namespace Interfaces
 
         void StartProducer();
         void StopProducer();
+
+        void SaveInitial(PatientDTO patient);
+        void SaveBloodPressureData(PatientDTO patient);
     }
 }

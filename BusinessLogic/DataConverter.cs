@@ -7,13 +7,21 @@ using DTO;
 
 namespace BusinessLogic
 {
-    class DataConverter
+    public class DataConverter
     {
-        public List<double> ConvertArrayToDoubles(byte[] maaledata)
+        public static List<double> ConvertArrayToDoubles(byte[] maaledata)
         {
             double[] darray = new double[maaledata.Length / sizeof(double)];
             Buffer.BlockCopy(maaledata, 0, darray, 0, maaledata.Length);
             return darray.ToList<double>();
+        }
+
+        public static byte[] ConvertDoublesToByteArray(List<double> data)
+        {
+            byte[] byteArray = new byte[data.Count * sizeof(double)];
+            Buffer.BlockCopy(data.ToArray(), 0, byteArray, 0, byteArray.Length);
+
+            return byteArray;
         }
     }
 }

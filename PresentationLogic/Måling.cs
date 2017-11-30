@@ -110,6 +110,8 @@ namespace PresentationLogic
 
         private void btn_StartMåling_Click_1(object sender, EventArgs e)
         {
+            var patient = _monitoring.Patient;
+            _iBusinessLogic.GetPatientInfoForSaving(patient);
             _container.Attach(this);
             var t1 = new Thread(_iBusinessLogic.StartShowData);
             t1.IsBackground = true;
@@ -119,6 +121,11 @@ namespace PresentationLogic
         private void btn_StopMåling_Click(object sender, EventArgs e)
         {
             _iBusinessLogic.StopMeasurement();
+        }
+
+        private void btn_Indstillinger_Click(object sender, EventArgs e)
+        {
+            _monitoring = new Monitoreringsindstillinger();
         }
     }
 }

@@ -22,9 +22,9 @@ namespace DataAccessLogic
         public RetrievedData()
         {
             _operationCommandBuilder = new OperationSaveCommandBuilder();
-            _measurementCommandBuilder = new MeasurementSaveCommandBuilder();
-            _operationQueryBuilder = new OperationSaveQueryBuilder();
-            _measurementQueryBuilder = new MeasurementSaveQueryBuilder();
+            _measurementCommandBuilder = new MeasurementCommandBuilder();
+            _operationQueryBuilder = new OperationQueryBuilder();
+            _measurementQueryBuilder = new MeasurementQueryBuilder();
         }
 
         public PatientDTO GetOperations (PatientDTO patient)

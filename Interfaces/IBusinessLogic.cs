@@ -36,5 +36,7 @@ namespace Interfaces
         void StartProducer();
 
         void StopMeasurement();
+
+        void GetPatientInfoForSaving(PatientDTO patient);
     }
 }
