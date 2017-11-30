@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lbl_cpr = new System.Windows.Forms.Label();
             this.txt_indtastCpr = new System.Windows.Forms.TextBox();
             this.btn_hentData = new System.Windows.Forms.Button();
@@ -51,6 +51,7 @@
             this.btn_filtreret = new System.Windows.Forms.Button();
             this.btn_ufiltreret = new System.Windows.Forms.Button();
             this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart_måling)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +71,7 @@
             // 
             this.txt_indtastCpr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_indtastCpr.Location = new System.Drawing.Point(30, 170);
-            this.txt_indtastCpr.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_indtastCpr.Margin = new System.Windows.Forms.Padding(6);
             this.txt_indtastCpr.Name = "txt_indtastCpr";
             this.txt_indtastCpr.Size = new System.Drawing.Size(568, 53);
             this.txt_indtastCpr.TabIndex = 1;
@@ -79,7 +80,7 @@
             // 
             this.btn_hentData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_hentData.Location = new System.Drawing.Point(30, 236);
-            this.btn_hentData.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_hentData.Margin = new System.Windows.Forms.Padding(6);
             this.btn_hentData.Name = "btn_hentData";
             this.btn_hentData.Size = new System.Drawing.Size(340, 102);
             this.btn_hentData.TabIndex = 2;
@@ -104,7 +105,7 @@
             this.combo_ældreData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.combo_ældreData.FormattingEnabled = true;
             this.combo_ældreData.Location = new System.Drawing.Point(30, 467);
-            this.combo_ældreData.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.combo_ældreData.Margin = new System.Windows.Forms.Padding(6);
             this.combo_ældreData.Name = "combo_ældreData";
             this.combo_ældreData.Size = new System.Drawing.Size(568, 54);
             this.combo_ældreData.TabIndex = 4;
@@ -125,7 +126,7 @@
             // txt_kommentarer
             // 
             this.txt_kommentarer.Location = new System.Drawing.Point(30, 1124);
-            this.txt_kommentarer.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_kommentarer.Margin = new System.Windows.Forms.Padding(6);
             this.txt_kommentarer.Multiline = true;
             this.txt_kommentarer.Name = "txt_kommentarer";
             this.txt_kommentarer.Size = new System.Drawing.Size(568, 536);
@@ -134,34 +135,34 @@
             // chart_måling
             // 
             this.chart_måling.BackColor = System.Drawing.Color.Black;
-            chartArea3.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea3.AxisX2.LineColor = System.Drawing.Color.White;
-            chartArea3.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea3.AxisY2.LineColor = System.Drawing.Color.White;
-            chartArea3.BackColor = System.Drawing.Color.Black;
-            chartArea3.Name = "ChartArea1";
-            this.chart_måling.ChartAreas.Add(chartArea3);
-            legend3.BackColor = System.Drawing.Color.Black;
-            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend3.ForeColor = System.Drawing.Color.Red;
-            legend3.Name = "Legend1";
-            this.chart_måling.Legends.Add(legend3);
+            chartArea2.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisX2.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisY2.LineColor = System.Drawing.Color.White;
+            chartArea2.BackColor = System.Drawing.Color.Black;
+            chartArea2.Name = "ChartArea1";
+            this.chart_måling.ChartAreas.Add(chartArea2);
+            legend2.BackColor = System.Drawing.Color.Black;
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend2.ForeColor = System.Drawing.Color.Red;
+            legend2.Name = "Legend1";
+            this.chart_måling.Legends.Add(legend2);
             this.chart_måling.Location = new System.Drawing.Point(636, 39);
-            this.chart_måling.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chart_måling.Margin = new System.Windows.Forms.Padding(6);
             this.chart_måling.Name = "chart_måling";
-            series3.BorderColor = System.Drawing.Color.Transparent;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Color = System.Drawing.Color.Red;
-            series3.LabelBackColor = System.Drawing.Color.Transparent;
-            series3.LabelBorderColor = System.Drawing.Color.Transparent;
-            series3.LabelForeColor = System.Drawing.Color.Red;
-            series3.Legend = "Legend1";
-            series3.MarkerBorderColor = System.Drawing.Color.Transparent;
-            series3.Name = "Blodtryk";
-            this.chart_måling.Series.Add(series3);
+            series2.BorderColor = System.Drawing.Color.Transparent;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.Color.Red;
+            series2.LabelBackColor = System.Drawing.Color.Transparent;
+            series2.LabelBorderColor = System.Drawing.Color.Transparent;
+            series2.LabelForeColor = System.Drawing.Color.Red;
+            series2.Legend = "Legend1";
+            series2.MarkerBorderColor = System.Drawing.Color.Transparent;
+            series2.Name = "Blodtryk";
+            this.chart_måling.Series.Add(series2);
             this.chart_måling.Size = new System.Drawing.Size(2478, 1891);
             this.chart_måling.TabIndex = 7;
             this.chart_måling.Text = "chart1";
@@ -171,7 +172,7 @@
             this.lbl_patientOplysninger.AutoSize = true;
             this.lbl_patientOplysninger.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_patientOplysninger.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbl_patientOplysninger.Location = new System.Drawing.Point(3284, 39);
+            this.lbl_patientOplysninger.Location = new System.Drawing.Point(3284, 177);
             this.lbl_patientOplysninger.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_patientOplysninger.Name = "lbl_patientOplysninger";
             this.lbl_patientOplysninger.Size = new System.Drawing.Size(432, 55);
@@ -181,8 +182,8 @@
             // txt_patientNavn
             // 
             this.txt_patientNavn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_patientNavn.Location = new System.Drawing.Point(3290, 110);
-            this.txt_patientNavn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_patientNavn.Location = new System.Drawing.Point(3290, 248);
+            this.txt_patientNavn.Margin = new System.Windows.Forms.Padding(6);
             this.txt_patientNavn.Name = "txt_patientNavn";
             this.txt_patientNavn.Size = new System.Drawing.Size(448, 53);
             this.txt_patientNavn.TabIndex = 9;
@@ -190,8 +191,8 @@
             // txt_patientCpr
             // 
             this.txt_patientCpr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_patientCpr.Location = new System.Drawing.Point(3290, 179);
-            this.txt_patientCpr.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_patientCpr.Location = new System.Drawing.Point(3290, 317);
+            this.txt_patientCpr.Margin = new System.Windows.Forms.Padding(6);
             this.txt_patientCpr.Name = "txt_patientCpr";
             this.txt_patientCpr.Size = new System.Drawing.Size(448, 53);
             this.txt_patientCpr.TabIndex = 10;
@@ -204,7 +205,7 @@
             this.lbl_puls.Location = new System.Drawing.Point(3279, 560);
             this.lbl_puls.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_puls.Name = "lbl_puls";
-            this.lbl_puls.Size = new System.Drawing.Size(133, 63);
+            this.lbl_puls.Size = new System.Drawing.Size(131, 61);
             this.lbl_puls.TabIndex = 11;
             this.lbl_puls.Text = "Puls";
             // 
@@ -216,7 +217,7 @@
             this.lbl_sys_dia.Location = new System.Drawing.Point(3279, 830);
             this.lbl_sys_dia.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_sys_dia.Name = "lbl_sys_dia";
-            this.lbl_sys_dia.Size = new System.Drawing.Size(214, 63);
+            this.lbl_sys_dia.Size = new System.Drawing.Size(211, 61);
             this.lbl_sys_dia.TabIndex = 12;
             this.lbl_sys_dia.Text = "Sys/Dia";
             // 
@@ -228,7 +229,7 @@
             this.lbl_middelBT.Location = new System.Drawing.Point(3282, 1012);
             this.lbl_middelBT.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_middelBT.Name = "lbl_middelBT";
-            this.lbl_middelBT.Size = new System.Drawing.Size(271, 63);
+            this.lbl_middelBT.Size = new System.Drawing.Size(265, 61);
             this.lbl_middelBT.TabIndex = 13;
             this.lbl_middelBT.Text = "Middel BT";
             // 
@@ -272,7 +273,7 @@
             // 
             this.btn_filtreret.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_filtreret.Location = new System.Drawing.Point(3290, 1261);
-            this.btn_filtreret.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_filtreret.Margin = new System.Windows.Forms.Padding(6);
             this.btn_filtreret.Name = "btn_filtreret";
             this.btn_filtreret.Size = new System.Drawing.Size(490, 194);
             this.btn_filtreret.TabIndex = 17;
@@ -283,7 +284,7 @@
             // 
             this.btn_ufiltreret.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ufiltreret.Location = new System.Drawing.Point(3294, 1466);
-            this.btn_ufiltreret.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_ufiltreret.Margin = new System.Windows.Forms.Padding(6);
             this.btn_ufiltreret.Name = "btn_ufiltreret";
             this.btn_ufiltreret.Size = new System.Drawing.Size(490, 194);
             this.btn_ufiltreret.TabIndex = 18;
@@ -298,12 +299,24 @@
             this.hScrollBar1.TabIndex = 19;
             this.hScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1_Scroll);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(3594, 39);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(186, 76);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Log ud ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // HentData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(3824, 2025);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.hScrollBar1);
             this.Controls.Add(this.btn_ufiltreret);
             this.Controls.Add(this.btn_filtreret);
@@ -324,7 +337,7 @@
             this.Controls.Add(this.btn_hentData);
             this.Controls.Add(this.txt_indtastCpr);
             this.Controls.Add(this.lbl_cpr);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "HentData";
             this.Text = "G3-monitor: Hent data";
             this.Load += new System.EventHandler(this.HentData_Load);
@@ -356,5 +369,6 @@
         private System.Windows.Forms.Button btn_filtreret;
         private System.Windows.Forms.Button btn_ufiltreret;
         private System.Windows.Forms.HScrollBar hScrollBar1;
+        private System.Windows.Forms.Button button1;
     }
 }

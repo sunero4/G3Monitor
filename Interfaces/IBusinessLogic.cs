@@ -36,5 +36,6 @@ namespace Interfaces
         void StartProducer();
 
         void StopMeasurement();
+        bool CPRchecker(string cprnr);
     }
 }

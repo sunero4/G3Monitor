@@ -25,6 +25,7 @@ namespace BusinessLogic
         private ShowData _showData;
         private NulpunktsjusteringDTO _nulpunktDTO;
         private KaliAndZero _kaliAndZero;
+        private CPRChecker _checker;
 
         public SCBusinessLogic(IDataAccess iDataAccess, ConcurrentQueue<BPDataContainer> queue,
             PresentationDataContainer container)
@@ -38,6 +39,7 @@ namespace BusinessLogic
             _consumer = new BPConsumer(queue, _iDataAccess, _event, _filter, new KaliAndZero(_nulpunktDTO, new KalibreringsDTO()));
             _kaliAndZero = new KaliAndZero(_nulpunktDTO, new KalibreringsDTO());
             _showData = new ShowData(container, queue, _consumer, _event);
+            _checker= new CPRChecker();
         }
 
         public bool CheckLogin(MedarbejderDTO medarbejder)
@@ -119,6 +121,11 @@ namespace BusinessLogic
         public void StopMeasurement()
         {
             _consumer.CanRun = false;
+        }
+
+        public bool CPRchecker(string cprnr)
+        {
+           return _checker.CPRchecker(cprnr); 
         }
     }
 }

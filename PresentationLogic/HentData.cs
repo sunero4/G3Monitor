@@ -19,6 +19,7 @@ namespace PresentationLogic
         private PatientDTO _patient;
         private int _bpSegmentIndex;
         private int _operationIndex;
+        private Login _login;
 
         public HentData(IBusinessLogic iBusinessLogic)
         {
@@ -100,6 +101,11 @@ namespace PresentationLogic
                 _bpSegmentIndex++;
                 Chart(_operationIndex);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _login.ShowDialog(); 
         }
     }
 }

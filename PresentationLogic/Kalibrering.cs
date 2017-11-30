@@ -17,11 +17,13 @@ namespace PresentationLogic
     {
         private IBusinessLogic _iBusinessLogic;
         private KalibreringsDTO _kalibrering;
+        private Login _login;
         public Kalibrering(IBusinessLogic iBusiness)
         {
             InitializeComponent();
             _iBusinessLogic = iBusiness;
             _kalibrering = new KalibreringsDTO();
+          
         }
         private void btnAfslutKali_Click(object sender, EventArgs e)
         {
@@ -58,31 +60,16 @@ namespace PresentationLogic
             //}
         }
 
-        private void ScrollBarHældning_Scroll(object sender, ScrollEventArgs e)
-        {
-
-            // Scrollbar går op og ned 
-            if (e.OldValue > e.NewValue)
-            {
-                _kalibrering.Slope -= 1;
-                txtHældningskoefficient.Text = _kalibrering.ToString();
-                txtHældningskoefficient.Text = _kalibrering.Slope.ToString();
-            }
-            if (e.OldValue < e.NewValue)
-            {
-                txtHældningskoefficient.Text = _kalibrering.ToString();
-                txtHældningskoefficient.Text = _kalibrering.Slope.ToString();
-            }
-        }
-
-        private void txtHældningskoefficient_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+   
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _login.ShowDialog();
         }
     }
 }

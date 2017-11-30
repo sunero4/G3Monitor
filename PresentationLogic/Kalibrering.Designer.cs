@@ -47,6 +47,7 @@
             this.btnSletMåling = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartMåltTryk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -78,7 +79,7 @@
             this.btnNyMåling.Location = new System.Drawing.Point(50, 83);
             this.btnNyMåling.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnNyMåling.Name = "btnNyMåling";
-            this.btnNyMåling.Size = new System.Drawing.Size(229, 55);
+            this.btnNyMåling.Size = new System.Drawing.Size(231, 70);
             this.btnNyMåling.TabIndex = 7;
             this.btnNyMåling.Text = "Ny måling";
             this.btnNyMåling.UseVisualStyleBackColor = true;
@@ -233,11 +234,23 @@
             this.numericUpDown1.Size = new System.Drawing.Size(131, 61);
             this.numericUpDown1.TabIndex = 17;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1946, 79);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(197, 75);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Log ud";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Kalibrering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2940, 1408);
+            this.ClientSize = new System.Drawing.Size(2196, 1408);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSletMåling);
@@ -275,5 +288,6 @@
         private System.Windows.Forms.Button btnSletMåling;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -22,6 +22,7 @@ namespace PresentationLogic
         private PresentationDataContainer _container;
         private Nulpunktsjustering _nulpunktForm;
         private NulpunktsjusteringDTO _nulpunkt;
+        private Login _login;
         public Måling(IBusinessLogic iBusinessLogic, Monitoreringsindstillinger monitoring, PresentationDataContainer container)
         {
             InitializeComponent();
@@ -119,6 +120,13 @@ namespace PresentationLogic
         private void btn_StopMåling_Click(object sender, EventArgs e)
         {
             _iBusinessLogic.StopMeasurement();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _iBusinessLogic.StopMeasurement();
+            _login.ShowDialog(); 
+
         }
     }
 }

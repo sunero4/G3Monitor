@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    class CPRChecker
+    public class CPRChecker
     {
         //Metode til at tjekke gyldigheden af CPR-nr: 
         public bool CPRchecker(string cprnr)
