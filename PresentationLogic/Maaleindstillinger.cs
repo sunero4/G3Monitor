@@ -67,7 +67,7 @@ namespace PresentationLogic
             }
             else if (dialogResult == DialogResult.No)
             {
-                
+                // ingen kode, messageBox lukker ned og går tilbage til måleindstillingsformen
             }
 
 

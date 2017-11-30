@@ -8,7 +8,6 @@ namespace BusinessLogic
 {
     public class AverageBloodPressure
     {
-
         public int Calculate(List<double> btList)
         {
             var average = btList.Average();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using ObserverPattern;
@@ -9,30 +10,15 @@ namespace BusinessLogic
 {
     public class Systolic
     {
-
-        public Systolic()
+        // vi anvender timediff til at indele målingen, således at vi kun ser på den sidste del af listen hvor der er én systole og én diastole. 
+        
+        public int Calculate(List<double> btList, int timediff)
         {
-        }
+            var startIndex = btList.Count - timediff;
+            var currentSamples = btList.Skip(startIndex);
 
-        public int Calculate(List<double> btList)
-        {
-            //var complex = btList.Select(x => (Complex) x).ToArray();
-
-            //FourierTransform2.FFT(complex, FourierTransform.Direction.Forward);
-
-            //var sys = complex.Select(x => x.Magnitude).Max();
-
-            //return Convert.ToInt32(sys);
-            double max = 0;
-            var threshold = btList.Max() * 0.8;
-            for (int i = 0, n = btList.Count - 1; i < n; i++)
-            {
-                if (btList[i] > btList[i + 1] && btList[i] > threshold && btList[i] >= max)
-                {
-                    max = btList[i];
-                }
-            }
-            return Convert.ToInt32(max);
+            var systolic = Convert.ToInt32(currentSamples.Max());
+            return systolic;      
         }
 
     }

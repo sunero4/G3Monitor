@@ -65,9 +65,11 @@ namespace BusinessLogic
             //var tf = new TaskFactory();
 
             //Faster in parallel than sequential
+            _container.Pulse = _pulse.Calculate(_container.FilteredBPValues);
+            var timediff = _pulse.TimeDifferences(_container.FilteredBPValues);
             _container.AverageBloodPressure = _average.Calculate(_container.GetSlidingWindow());
-            _container.SystolicPressure = _sys.Calculate(_container.GetSlidingWindow());
-            _container.DiastolicPressure = _dia.Calculate(_container.GetSlidingWindow());
+            _container.SystolicPressure = _sys.Calculate(_container.GetSlidingWindow(), timediff);
+            _container.DiastolicPressure = _dia.Calculate(_container.GetSlidingWindow(), timediff);
 
             //var t2 = tf.StartNew(() => _container.AverageBloodPressure = _average.Calculate(currentData));
             //var t3 = tf.StartNew(() => _container.SystolicPressure = _sys.Calculate(currentData));

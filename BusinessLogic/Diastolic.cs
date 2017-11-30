@@ -11,64 +11,15 @@ namespace BusinessLogic
 {
     public class Diastolic
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="btList"></param>
-        /// <returns></returns>
-        public int Calculate(List<double> btList)
+        // vi anvender timediff til at indele målingen, således at vi kun ser på den sidste del af listen hvor der er én systole og én diastole. 
+
+        public int Calculate(List<double> btList, int timediff)
         {
-            //////FFT???
-            ////Converts the blood pressure values to complex numbers
-            //var complex = btList.Select(x => (Complex)x).ToArray();
+            var startIndex = btList.Count - timediff;
+            var currentSamples = btList.Skip(startIndex);
 
-            ////Performs fast fourier transformation on the complex numbers
-            //FourierTransform2.FFT(complex, FourierTransform.Direction.Forward);
-
-            ////Creates an array of the magnitudes of the fft bins
-            //var diaFFT = complex.Select(x => x.Magnitude).ToArray();
-
-            ////Finds the index that holds the largest amplitude and takes the bloodpressure value at that index
-            //var diaIndex = IndexCalculation.FindMaxIndex(diaFFT);   
-            //var dia = btList[diaIndex];
-
-            //return dia;
-
-            double min = 0;
-            var threshold = btList.Max() * 0.8;
-            for (int i = 0, n = btList.Count - 1; i < n; i++)
-            {
-                if (btList[i] < btList[i + 1] && btList[i] < threshold && btList[i] <= min)
-                {
-                    min = btList[i];
-                }
-            }
-            return Convert.ToInt32(min);
-
-        }
-
-    }
-
-    public class IndexCalculation
-    {
-        public static int FindMaxIndex(IEnumerable<double> collection)
-        {
-            int index = 0;
-            if (collection == null) return index;
-
-            var temp = collection.ToArray();
-
-            double max = 0;
-            for (int i = 0; i < temp.Length; i++)
-            {
-                if (temp[i] > max)
-                {
-                    max = temp[i];
-                    index = i;
-                }
-            }
-
-            return index;
+            var diastolic = Convert.ToInt32(currentSamples.Min());
+            return diastolic;
         }
     }
 }

@@ -11,34 +11,46 @@ namespace BusinessLogic
 {
     public class Pulse
     {
-        private double _factor;
-
-        public Pulse()
+        public int TimeDifferences(List<double> data)
         {
-            //Multiply the bin number from the FFT with this - nth bin has value of: n * F_s / N
-            _factor = Convert.ToDouble(1000 / 4000);
-        }
-        public int Calculate(List<double> data)
-        {
-            var complex = data.Select(x => (Complex) x).ToArray();
+            var times = Times(data);
 
-            FourierTransform.FFT(complex, FourierTransform.Direction.Forward);
+            var differences = new List<double>();
+            double oldDifference = 0;
 
-            double max = 0;
-            double maxFrequency = -1;
-            for (int i = 1; i < complex.Length; i++)
+            for (int i = 0; i < times.Count; i++)
             {
-                if (complex[i].Magnitude > max)
+                var diff = times[i] - oldDifference;
+                differences.Add(diff);
+                oldDifference = times[i];
+            }
+            var averageDifference = differences.Average();
+
+            return Convert.ToInt32(averageDifference);
+        }
+        public List<int> Times(List<double> btList)
+        {
+            double max = 0;
+            var threshold = btList.Max() * 0.8;
+            List<int> times = new List<int>();
+
+            for (int i = 0; i < btList.Count; i++)
+            {
+                if (btList[i] > btList[i + 1] && btList[i] > threshold && btList[i] >= max)
                 {
-                    max = complex[i].Magnitude;
-                    maxFrequency = i * _factor;
+                    max = btList[i];
+                    times.Add(i);
                 }
             }
-
-            var result = maxFrequency * 120;
-            return Convert.ToInt32(result);
+            return times;
         }
+        public int Calculate(List<double> btList)
+        {
+            var times = Times(btList);
+            var diff = TimeDifferences(times);
+            var pulse = 60000 / diff / 1000; // 60000 sample divideret med den gennemsnitlige tidsforskel mellem toppunkterne og derefter dividere vi med en faktor 1000, da der er 1000 sample pr. sekund. 
+            return Convert.ToInt32(pulse);
 
-
+        }
     }
 }

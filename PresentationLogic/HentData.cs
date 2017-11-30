@@ -37,14 +37,18 @@ namespace PresentationLogic
         private void btn_hentData_Click(object sender, EventArgs e)
         {
             var patient = new PatientDTO();
-            patient.CPR = txt_indtastCpr.Text;
+            string messageTekst = "Der er intet data tilknyttet CPR-nummeret";
+            if (patient.CPR == txt_indtastCpr.Text)
+            {
+                _patient = _iBusinessLogic.HentData(patient);
+                Chart(0);
+                //Aksetitler til charten:
+                chart_måling.ChartAreas[0].AxisX.Title = "Sekunder";
+                chart_måling.ChartAreas[0].AxisY.Title = "mmHg";
+            }
+            else
+                MessageBox.Show(messageTekst); 
 
-            _patient = _iBusinessLogic.HentData(patient);
-            Chart(0);
-
-            //Aksetitler til charten:
-            chart_måling.ChartAreas[0].AxisX.Title = "Sekunder";
-            chart_måling.ChartAreas[0].AxisY.Title = "mmHg";
         }
 
         private void Chart(int index)
@@ -103,7 +107,7 @@ namespace PresentationLogic
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) // log ud knap
         {
             _login.ShowDialog(); 
         }
