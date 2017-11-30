@@ -18,10 +18,8 @@ namespace BusinessLogic
 
         public static byte[] ConvertDoublesToByteArray(List<double> data)
         {
-            byte[] byteArray = new byte[data.Count * sizeof(double)];
-            Buffer.BlockCopy(data.ToArray(), 0, byteArray, 0, byteArray.Length);
-
-            return byteArray;
+            var array = data.ToArray();
+            return array.SelectMany
         }
     }
 }

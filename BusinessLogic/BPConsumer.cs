@@ -57,6 +57,8 @@ namespace BusinessLogic
             BPState = container.BloodPressure;
             //Set eventet sååååå controlleren får at vide den skal læse BPState
             _event.Set();
+
+            _saving.Values = BPState;
             _savingEvent.Set();
         }
 
