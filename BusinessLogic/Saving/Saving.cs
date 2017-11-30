@@ -47,7 +47,7 @@ namespace BusinessLogic
         {
             var patientIn = (PatientDTO) patient;
 
-            patientIn.CPR = "1234567818";
+            patientIn.CPR = "4944867195";
             patientIn.Fornavn = "Anders";
             patientIn.Efternavn = "Kloborg";
             patientIn.ListOperation = new List<OperationsDTO>()
@@ -58,7 +58,7 @@ namespace BusinessLogic
                     Kommentar = "Test",
                     MaaleTidspunkt = DateTime.Now,
                     Nulpunktjustering = 1,
-                    OperationsID = 12
+                    OperationsID = 40
                 }
             };
 
@@ -72,9 +72,13 @@ namespace BusinessLogic
                 {
                     var bytes = DataConverter.ConvertDoublesToByteArray(_bpValues);
                     Patient.ListOperation[0].Maaling = new List<MaalingDTO>();
-                    Patient.ListOperation[0].Maaling[0].MaaleData = bytes;
-                    Patient.ListOperation[0].Maaling[0].Sekvensnr = _sekvensNummer;
+                    Patient.ListOperation[0].Maaling.Add(new MaalingDTO()
+                    {
+                        MaaleData = bytes,
+                        Sekvensnr = _sekvensNummer
+                    });
                     SaveMeasurement(Patient);
+                    Patient.ListOperation[0].Maaling.Clear();
                     _sekvensNummer++;
                     _bpValues.Clear();
                 }

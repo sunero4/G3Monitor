@@ -23,6 +23,7 @@ namespace DataAccessLogic
 
             cmd.Parameters.AddWithValue("@operationsid", _operationID);
             cmd.Parameters.AddWithValue("@maaledata", input.MaaleData);
+            cmd.Parameters.AddWithValue("@sekvensnummer", input.Sekvensnr);
 
             return cmd;
         }

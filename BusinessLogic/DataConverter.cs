@@ -19,7 +19,7 @@ namespace BusinessLogic
         public static byte[] ConvertDoublesToByteArray(List<double> data)
         {
             var array = data.ToArray();
-            return array.SelectMany
+            return array.SelectMany(x => BitConverter.GetBytes(x)).ToArray();
         }
     }
 }

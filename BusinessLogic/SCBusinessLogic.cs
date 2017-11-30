@@ -38,7 +38,7 @@ namespace BusinessLogic
             _patientDTO = new PatientDTO();
             _consumer = new BPConsumer(queue, _iDataAccess, _event, _filter, new KaliAndZero(_nulpunktDTO, new KalibreringsDTO()), _patientDTO);
             _kaliAndZero = new KaliAndZero(_nulpunktDTO, new KalibreringsDTO());
-            _showData = new ShowData(container, queue, _consumer, _event, _filter);
+            _showData = new ShowData(container, _consumer, _event, _filter);
         }
 
         public bool CheckLogin(MedarbejderDTO medarbejder)

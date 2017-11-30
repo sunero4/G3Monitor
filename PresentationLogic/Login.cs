@@ -26,6 +26,7 @@ namespace PresentationLogic
             _container = container;
         }
         private Måling _myMåling;
+        private HentData _hentForm;
         
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -48,8 +49,8 @@ namespace PresentationLogic
                     if (rbtnHentdata.Checked)
                     {
                         this.Hide();
-                        _myMåling = new Måling(_iBusinessLogic, new Monitoreringsindstillinger(), new PresentationDataContainer());
-                        _myMåling.Show();
+                        _hentForm = new HentData(_iBusinessLogic);
+                        _hentForm.Show();
                     }
                 }
 

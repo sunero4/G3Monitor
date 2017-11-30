@@ -53,7 +53,6 @@ namespace BusinessLogic
             //filteredData = _kaliAndZero.AddKalibreringAndZero(container.BloodPressure);
 
 
-
             BPState = container.BloodPressure;
             //Set eventet sååååå controlleren får at vide den skal læse BPState
             _event.Set();

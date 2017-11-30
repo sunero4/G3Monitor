@@ -20,9 +20,9 @@ namespace BusinessLogic.Filter
 
         public List<double> Smoothing(List<double> containerData)
         {
-            for (int i = 0; i < containerData.Count; i = i + 5)
+            for (int i = 0; i < containerData.Count; i = i + 10)
             {
-                double average = (containerData.GetRange(i, 5).Average());
+                double average = (containerData.GetRange(i, 10).Average());
                 ChartList.Add(average);
 
                 if (ChartList.Count > 400)
