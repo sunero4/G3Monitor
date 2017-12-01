@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AvarrangePBTestUnit.cs" />
     <Compile Include="DiastolicTestUnit.cs" />
     <Compile Include="LoginTest.cs" />
     <Compile Include="NulpunktsjusteringTests.cs" />

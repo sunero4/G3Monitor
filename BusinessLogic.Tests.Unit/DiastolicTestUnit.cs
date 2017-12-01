@@ -7,6 +7,7 @@ using NUnit.Framework;
 
 namespace BusinessLogic.Tests.Unit
 {
+    [TestFixture]
     class DiastolicTestUnit
     {
         // Test af Diastole  
@@ -19,7 +20,7 @@ namespace BusinessLogic.Tests.Unit
             int resualt = 2;
             _uut.Calculate(list, timesdiff);
 
-            Assert.That(_uut.Calculate(list, timesdiff), Is.EqualTo(resualt), "List count should be 2, but is {0}", resualt);
+            Assert.That(_uut.Calculate(list, timesdiff), Is.EqualTo(resualt), "Resualt should be 2, but is {0}", resualt);
         }
 
         [Test]
@@ -31,7 +32,7 @@ namespace BusinessLogic.Tests.Unit
             int resualt = 1;
             _uut.Calculate(list, timesdiff);
 
-            Assert.That(_uut.Calculate(list, timesdiff), Is.EqualTo(resualt), "List count should be 2, but is {0}", resualt);
+            Assert.That(_uut.Calculate(list, timesdiff), Is.EqualTo(resualt), "Resualt should be 1, but is {0}", resualt);
         }
     }
 }

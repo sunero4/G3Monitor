@@ -8,7 +8,7 @@ using NUnit.Framework;
 namespace BusinessLogic.Tests.Unit
 {
     [TestFixture]
-    class Puls
+    class PulsTestUnit
     {
         //[SetUp]
         //public void Setup()
