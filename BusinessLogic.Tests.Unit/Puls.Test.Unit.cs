@@ -10,11 +10,6 @@ namespace BusinessLogic.Tests.Unit
     [TestFixture]
     class PulsTestUnit
     {
-        //[SetUp]
-        //public void Setup()
-        //{
-        //    var _uut = new Pulse();
-        //}
         [Test]
         public void TwoTops_Times_TimesTrue()
         {
@@ -25,18 +20,14 @@ namespace BusinessLogic.Tests.Unit
            
             Assert.That(_uut.Times(list), Is.EqualTo(resualt), "List count should be 2, but is {0}", resualt.Count);
         }
-        [Test] // Troels 
+        [Test]  
         public void Avarage_TimesDifferent_TimesDifferentTrue()
         {
             var _uut = new Pulse();
             var list = new List<double>() { 3, 5,9, 6, 7, 10 };
             int resualt = 2;
 
-            _uut.TimeDifferences(list);
-
-            Assert.That(_uut.Times(list), Is.EqualTo(resualt), "List count should be 2, but is {0}", resualt);
+            Assert.That(_uut.TimeDifferences(list), Is.EqualTo(resualt), "List count should be 2, but is {0}", resualt);
         }
-
-
     }
 }

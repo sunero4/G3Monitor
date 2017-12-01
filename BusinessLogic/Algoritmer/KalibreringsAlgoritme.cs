@@ -11,7 +11,7 @@ using DataAccessLogic;
 
 namespace BusinessLogic
 {
-    class KalibreringsAlgoritme
+    class KalibreringsAlgoritme:IKalibrering
     {
         private IDataAccess _iDataAccess;
         private KalibreringsDTO _kalibreringsDto;
