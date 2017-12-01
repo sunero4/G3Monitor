@@ -25,6 +25,7 @@ namespace BusinessLogic
         private NulpunktsjusteringDTO _nulpunktDTO;
         private KaliAndZero _kaliAndZero;
         private PatientDTO _patientDTO;
+        private KalibreringsAlgoritme _kalibreringsAlgoritme;
 
 
         public SCBusinessLogic(IDataAccess iDataAccess, ConcurrentQueue<BPDataContainer> queue,
@@ -32,13 +33,14 @@ namespace BusinessLogic
         {
             _event = new AutoResetEvent(false);
             _iDataAccess = iDataAccess;
-            _nulpunkt = new Nulpunktsjustering();
+            _nulpunkt = new Nulpunktsjustering(_iDataAccess);
             _login = new Login();
             _filter = new FilterBP();
             _patientDTO = new PatientDTO();
             _consumer = new BPConsumer(queue, _iDataAccess, _event, _filter, new KaliAndZero(_nulpunktDTO, new KalibreringsDTO()), _patientDTO);
             _kaliAndZero = new KaliAndZero(_nulpunktDTO, new KalibreringsDTO());
             _showData = new ShowData(container, _consumer, _event, _filter);
+            _kalibreringsAlgoritme = new KalibreringsAlgoritme();
         }
 
         public bool CheckLogin(MedarbejderDTO medarbejder)
@@ -125,6 +127,21 @@ namespace BusinessLogic
         public void GetPatientInfoForSaving(PatientDTO patient)
         {
             _patientDTO = patient;
+        }
+
+        public double GetCalibrationPoint()
+        {
+            return _iDataAccess.GetSinglePressureValue();
+        }
+
+        public void PerformCalibration(KalibreringsDTO calibration)
+        {
+            _kalibreringsAlgoritme.CalibrateSystem(calibration);
+        }
+
+        public void SaveCalibration(KalibreringsDTO calibration)
+        {
+            _iDataAccess.SaveCalibration(calibration);
         }
     }
 }

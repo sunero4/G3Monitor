@@ -58,7 +58,7 @@ namespace PresentationLogic
                     {
                         MessageBox.Show("Brugernavn eller password er forkert, prøv igen. ");
                     }
-            }
+                }
 
             // Tekniker Ikke færdig, mangler forbindelsen til kalibrering 
             

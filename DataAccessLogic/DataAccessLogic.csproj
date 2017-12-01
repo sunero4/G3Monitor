@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="BPProducer.cs" />
     <Compile Include="DAQData.cs" />
+    <Compile Include="DaqGetSingleValue.cs" />
     <Compile Include="Gem\PatientSaveQueryBuilder.cs" />
     <Compile Include="Gem\Saving.cs" />
     <Compile Include="Hent\CalibrationRetrievalXml.cs" />
@@ -78,7 +79,6 @@
     <Compile Include="DAQ.cs" />
     <Compile Include="MeasurementSaveCommandBuilder.cs" />
     <Compile Include="MeasurementSaveQueryBuilder.cs" />
-    <Compile Include="Nulpunktsjustering\DaqMeasurementNulpunkt.cs" />
     <Compile Include="IDaqMeasurement.cs" />
     <Compile Include="Login\IRetrivedLoginData.cs" />
     <Compile Include="ConnectionInfo.cs" />
@@ -117,6 +117,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Nulpunktsjustering\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

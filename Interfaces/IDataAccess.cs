@@ -24,5 +24,7 @@ namespace Interfaces
 
         void SaveInitial(PatientDTO patient);
         void SaveBloodPressureData(PatientDTO patient);
+
+        double GetSinglePressureValue();
     }
 }

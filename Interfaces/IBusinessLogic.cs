@@ -38,5 +38,10 @@ namespace Interfaces
         void StopMeasurement();
 
         void GetPatientInfoForSaving(PatientDTO patient);
+
+        double GetCalibrationPoint();
+
+        void PerformCalibration(KalibreringsDTO calibration);
+        void SaveCalibration(KalibreringsDTO calibration);
     }
 }

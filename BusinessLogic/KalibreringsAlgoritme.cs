@@ -11,21 +11,20 @@ using DataAccessLogic;
 
 namespace BusinessLogic
 {
-    class KalibreringsAlgoritme
+    public class KalibreringsAlgoritme
     {
         private IDataAccess _iDataAccess;
         private KalibreringsDTO _kalibreringsDto;
         public KalibreringsAlgoritme()
         {
             //_iDataAccess = new SCDataAcess();
-            
             _kalibreringsDto = new KalibreringsDTO();
         }
 
-        public void CalibrateSystem()
+        public void CalibrateSystem(KalibreringsDTO calibration)
         {
-            List<double> expected = _kalibreringsDto.ExpectedValue.Select<int, double>(i => i).ToList();
-            List<double> actual = _kalibreringsDto.ActualValue.Select<int, double>(i => i).ToList();
+            List<double> expected = calibration.ExpectedValue.Select<int, double>(i => i).ToList();
+            List<double> actual = calibration.ActualValue.Select<int, double>(i => i).ToList();
 
             OrdinaryLeastSquares ols = new OrdinaryLeastSquares();
             SimpleLinearRegression linearRegression = ols.Learn(expected.ToArray(), actual.ToArray());
@@ -33,10 +32,9 @@ namespace BusinessLogic
             double slope = linearRegression.Slope;
             double intercept = linearRegression.Intercept;
 
-            _kalibreringsDto.Slope = slope;
-            _kalibreringsDto.Intercept = intercept;
-
-            _iDataAccess.SaveCalibration(_kalibreringsDto);
+            calibration.Slope = slope;
+            calibration.Intercept = intercept;
         }
+
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using Interfaces;
+using TaskFactory = System.Threading.Tasks.TaskFactory;
 
 namespace PresentationLogic
 {
@@ -16,6 +17,8 @@ namespace PresentationLogic
     {
         private IBusinessLogic _businessLogic;
         private NulpunktsjusteringDTO _nulpunkt;
+        private bool _isFinished;
+
         public Nulpunktsjustering(IBusinessLogic businessLogic, NulpunktsjusteringDTO nulpunkt)
         {
             InitializeComponent();
@@ -25,7 +28,14 @@ namespace PresentationLogic
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            _nulpunkt = _businessLogic.PerformAdjustment();
+            var nulpunkt = new NulpunktsjusteringDTO();
+            var tf = new TaskFactory();
+            var t = tf.StartNew(() => nulpunkt = _businessLogic.PerformAdjustment());
+
+            Task.WaitAll(t);
+
+            _nulpunkt = nulpunkt;
+            _isFinished = true;
         }
     }
 }
