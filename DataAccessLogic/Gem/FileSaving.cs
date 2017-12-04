@@ -33,13 +33,13 @@ namespace DataAccessLogic
         //    //SaveValues(patient.Maalinger, patient.CPR, _xDoc);
         //}
 
-        ///// <summary>
-        ///// Used to generate a starting tag for the measuring of a patient
-        ///// </summary>
-        ///// <param name="maaling">The DTO holding the values of the blood pressure measuring</param>
-        ///// <param name="cpr">The cpr-number of the patient in question</param>
-        ///// <param name="xDoc">The XDocument to save in</param>
-        //private void SaveNewPatient(MaalingDTO maaling, string cpr, XDocument xDoc)
+        /// <summary>
+        /// Used to generate a starting tag for the measuring of a patient
+        /// </summary>
+        /// <param name="maaling">The DTO holding the values of the blood pressure measuring</param>
+        /// <param name="cpr">The cpr-number of the patient in question</param>
+        /// <param name="xDoc">The XDocument to save in</param>
+        //private void SaveNewPatient(, string cpr, XDocument xDoc)
         //{
         //    //var e = xDoc.Root;
 
@@ -53,32 +53,41 @@ namespace DataAccessLogic
         //    //xDoc.Save(FileInformation.FilePath);
         //}
 
-        ///// <summary>
-        ///// Saves a block of data from the MaalingDTO to the xml file
-        ///// </summary>
-        ///// <param name="maaling">The DTO holding the values of the blood pressure measuring</param>
-        ///// <param name="cpr">The cpr-number of the patient in question</param>
-        ///// <param name="xDoc">The XDocument to save in</param>
-        //private void SaveValues(MaalingDTO maaling, string cpr, XDocument xDoc)
-        //{
 
-        //    var e = xDoc.Descendants("Maaling")
-        //        .FirstOrDefault(x => (string) x.Attribute("CPR") == cpr);
-
-        //    e?.Add(new XElement("Maalingdata", Convert.ToBase64String(maaling.MaaleData)));
-        //    xDoc.Save(FileInformation.FilePath);
-        //}
         public void SaveBloodPressureData(PatientDTO patient)
         {
-            SaveData(patient.CPR, patient.ListOperation[0].Maaling[0]);
+            foreach (var m in patient.ListOperation[0].Maaling)
+            {
+                SaveData(patient.CPR, m, patient.ListOperation[0].OperationsID);
+            }
         }
 
-        public void SaveData(string cpr, MaalingDTO maaling)
+        private void SaveNewPatient(int operationsid)
+        {
+            var xdoc = XDocument.Load(FileInformation.FilePath);
+
+            var e = xdoc.Root;
+            e?.Add(new XElement("Operation", new XAttribute("OperationsId", operationsid)));
+
+            xdoc.Save(FileInformation.FilePath);
+        }
+
+        public void SaveData(string cpr, MaalingDTO maaling, int operationsId)
         {
             var xDoc = XDocument.Load(FileInformation.FilePath);
 
+
             var e = xDoc.Descendants("Operation")
                 .FirstOrDefault(x => (string)x.Attribute("CPR") == cpr);
+
+            if (e == null)
+            {
+                SaveNewPatient(operationsId);
+            }
+
+            e = xDoc.Descendants("Operation")
+                .FirstOrDefault(x => (string)x.Attribute("CPR") == cpr);
+
             e?.Add(new XElement("Maalingdata", maaling.MaaleData, 
                 new XAttribute("SekvensNr", maaling.Sekvensnr)));
 
