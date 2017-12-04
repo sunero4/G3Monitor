@@ -20,19 +20,19 @@ namespace DataAccessLogic.Gem
             _remove = new ClearXmlFileContent();
         }
 
-        public void SaveData()
+        public void SaveData(PatientDTO patient)
         {
             try
             {
-                if (_transfer.GetData(new PatientDTO()) != null)
+                if (_transfer.GetData(patient) != null)
                 {
-                    _transfer.TransferToDatabase(new PatientDTO());
+                    _transfer.TransferToDatabase(patient);
                     _remove.ClearData();
-                    _iSaving.SaveBloodPressureData(new PatientDTO());
+                    _iSaving.SaveBloodPressureData(patient);
                 }
                 else
                 {
-                    _iSaving.SaveBloodPressureData(new PatientDTO());
+                    _iSaving.SaveBloodPressureData(patient);
                 }
             }
             catch (Exception)

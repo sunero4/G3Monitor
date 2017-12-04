@@ -47,7 +47,7 @@ namespace BusinessLogic
         {
             var patientIn = (PatientDTO) patient;
 
-            patientIn.CPR = "4944867195";
+            patientIn.CPR = "5964367195";
             patientIn.Fornavn = "Anders";
             patientIn.Efternavn = "Kloborg";
             patientIn.ListOperation = new List<OperationsDTO>()
@@ -58,7 +58,7 @@ namespace BusinessLogic
                     Kommentar = "Test",
                     MaaleTidspunkt = DateTime.Now,
                     Nulpunktjustering = 1,
-                    OperationsID = 40
+                    OperationsID = 44
                 }
             };
 
