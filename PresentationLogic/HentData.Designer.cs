@@ -279,6 +279,7 @@
             this.btn_filtreret.TabIndex = 17;
             this.btn_filtreret.Text = "Filtrer måling";
             this.btn_filtreret.UseVisualStyleBackColor = true;
+            this.btn_filtreret.Click += new System.EventHandler(this.btn_filtreret_Click);
             // 
             // btn_ufiltreret
             // 
@@ -290,6 +291,7 @@
             this.btn_ufiltreret.TabIndex = 18;
             this.btn_ufiltreret.Text = "Ufiltreret måling";
             this.btn_ufiltreret.UseVisualStyleBackColor = true;
+            this.btn_ufiltreret.Click += new System.EventHandler(this.btn_ufiltreret_Click);
             // 
             // hScrollBar1
             // 

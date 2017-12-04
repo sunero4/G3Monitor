@@ -33,10 +33,17 @@ namespace DataAccessLogic
 
         public List<double> MeasureBP()
         {
-            _daq2.getVoltageSeqBlocking();
+            try
+            {
+                _daq2.getVoltageSeqBlocking();
 
-            var data = _daq2.currentVoltageSeq;
-            return data;
+                var data = _daq2.currentVoltageSeq;
+                return data;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Målingen kunne ikke startes, tjek forbindelsen og prøv igen");
+            }
         }
 
         public void GetData()

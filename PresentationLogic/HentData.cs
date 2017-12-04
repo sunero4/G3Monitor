@@ -111,5 +111,19 @@ namespace PresentationLogic
         {
             _login.ShowDialog(); 
         }
+
+        private void btn_filtreret_Click(object sender, EventArgs e)
+        {
+            _iBusinessLogic.CreateFilter(true); // Evt forkert, da det ikke kører i en tråd, men mere skal konverteres 
+            btn_filtreret.Enabled = false;
+            btn_ufiltreret.Enabled = true;
+        }
+
+        private void btn_ufiltreret_Click(object sender, EventArgs e)
+        {
+            _iBusinessLogic.CreateFilter(false);
+            btn_filtreret.Enabled = true;
+            btn_ufiltreret.Enabled = false;
+        }
     }
 }
