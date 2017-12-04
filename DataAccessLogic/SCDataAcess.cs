@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccessLogic.Gem;
 using DTO;
 using Interfaces;
 using ObserverPattern;
@@ -23,6 +24,7 @@ namespace DataAccessLogic
         private DAQ _daq;
         private BPProducer _producer;
         private ICalibrationDataRetrieval _calibrationRetrieval;
+        private Saving _saving;
         private DatabaseSaving _databaseSaving;
         private DaqGetSingleValue _daqGetSingleValue;
 
@@ -36,6 +38,7 @@ namespace DataAccessLogic
             _daqData = new DAQData(_daq, queue);
             _calibrationRetrieval = new CalibrationRetrievalXml();
             _producer = new BPProducer(queue, _daqData);
+            _saving = new Saving();
             _databaseSaving = new DatabaseSaving();
             _daqGetSingleValue = new DaqGetSingleValue();
         }
@@ -87,7 +90,7 @@ namespace DataAccessLogic
 
         public void SaveBloodPressureData(PatientDTO patient)
         {
-            _databaseSaving.SaveBloodPressureData(patient);
+            _saving.SaveData(patient);
         }
 
         public double GetSinglePressureValue()

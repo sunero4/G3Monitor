@@ -56,6 +56,7 @@
     <Compile Include="Gem\PatientSaveQueryBuilder.cs" />
     <Compile Include="Gem\Saving.cs" />
     <Compile Include="Hent\CalibrationRetrievalXml.cs" />
+    <Compile Include="Hent\DataRetrievalXml.cs" />
     <Compile Include="Hent\MeasurementCommandBuilder.cs" />
     <Compile Include="Hent\MeasurementQueryBuilder.cs" />
     <Compile Include="Hent\OperationCommandBuilder.cs" />
@@ -99,7 +100,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Login\Salt.cs" />
     <Compile Include="SCDataAcess.cs" />
-    <Compile Include="MeasurementRetrievalXml.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">
