@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnNyMåling = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -88,12 +88,12 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1521, 208);
+            this.label5.Location = new System.Drawing.Point(1640, 211);
             this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(134, 44);
+            this.label5.Size = new System.Drawing.Size(86, 44);
             this.label5.TabIndex = 6;
-            this.label5.Text = "mmHg";
+            this.label5.Text = "Volt";
             // 
             // label4
             // 
@@ -124,14 +124,14 @@
             this.label2.Location = new System.Drawing.Point(1169, 210);
             this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(165, 44);
+            this.label2.Size = new System.Drawing.Size(270, 44);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Målt tryk";
+            this.label2.Text = "Målt spænding";
             // 
             // txtMåltTryk
             // 
             this.txtMåltTryk.Enabled = false;
-            this.txtMåltTryk.Location = new System.Drawing.Point(1345, 198);
+            this.txtMåltTryk.Location = new System.Drawing.Point(1455, 205);
             this.txtMåltTryk.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtMåltTryk.Name = "txtMåltTryk";
             this.txtMåltTryk.ReadOnly = true;
@@ -158,24 +158,24 @@
             // 
             // chartMåltTryk
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartMåltTryk.ChartAreas.Add(chartArea2);
-            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend2.Name = "Legend1";
-            this.chartMåltTryk.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chartMåltTryk.ChartAreas.Add(chartArea1);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.Name = "Legend1";
+            this.chartMåltTryk.Legends.Add(legend1);
             this.chartMåltTryk.Location = new System.Drawing.Point(412, 536);
             this.chartMåltTryk.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.chartMåltTryk.Name = "chartMåltTryk";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Indtastet tryk";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "Målte tryk";
-            this.chartMåltTryk.Series.Add(series3);
-            this.chartMåltTryk.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Indtastet tryk";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Målte tryk";
+            this.chartMåltTryk.Series.Add(series1);
+            this.chartMåltTryk.Series.Add(series2);
             this.chartMåltTryk.Size = new System.Drawing.Size(1077, 708);
             this.chartMåltTryk.TabIndex = 1;
             this.chartMåltTryk.Text = "chart1";
