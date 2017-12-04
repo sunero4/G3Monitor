@@ -62,7 +62,7 @@
             this.groupBox1.Controls.Add(this.txtMåltTryk);
             this.groupBox1.Controls.Add(this.txtIndtastTryk);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(48, 55);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.groupBox1.Name = "groupBox1";
@@ -90,7 +90,7 @@
             this.label5.Location = new System.Drawing.Point(1640, 211);
             this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 44);
+            this.label5.Size = new System.Drawing.Size(46, 25);
             this.label5.TabIndex = 6;
             this.label5.Text = "Volt";
             // 
@@ -100,7 +100,7 @@
             this.label4.Location = new System.Drawing.Point(486, 215);
             this.label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(134, 44);
+            this.label4.Size = new System.Drawing.Size(69, 25);
             this.label4.TabIndex = 5;
             this.label4.Text = "mmHg";
             // 
@@ -124,7 +124,7 @@
             this.label2.Location = new System.Drawing.Point(1169, 210);
             this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(270, 44);
+            this.label2.Size = new System.Drawing.Size(140, 25);
             this.label2.TabIndex = 3;
             this.label2.Text = "Målt spænding";
             // 
@@ -135,7 +135,7 @@
             this.txtMåltTryk.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtMåltTryk.Name = "txtMåltTryk";
             this.txtMåltTryk.ReadOnly = true;
-            this.txtMåltTryk.Size = new System.Drawing.Size(169, 49);
+            this.txtMåltTryk.Size = new System.Drawing.Size(169, 30);
             this.txtMåltTryk.TabIndex = 2;
             // 
             // txtIndtastTryk
@@ -143,7 +143,7 @@
             this.txtIndtastTryk.Location = new System.Drawing.Point(264, 206);
             this.txtIndtastTryk.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.txtIndtastTryk.Name = "txtIndtastTryk";
-            this.txtIndtastTryk.Size = new System.Drawing.Size(212, 49);
+            this.txtIndtastTryk.Size = new System.Drawing.Size(212, 30);
             this.txtIndtastTryk.TabIndex = 1;
             // 
             // label1
@@ -152,7 +152,7 @@
             this.label1.Location = new System.Drawing.Point(44, 210);
             this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 44);
+            this.label1.Size = new System.Drawing.Size(106, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Indtast tryk";
             // 
@@ -179,11 +179,11 @@
             // 
             this.ListBoxMåltTryk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ListBoxMåltTryk.FormattingEnabled = true;
-            this.ListBoxMåltTryk.ItemHeight = 46;
+            this.ListBoxMåltTryk.ItemHeight = 25;
             this.ListBoxMåltTryk.Location = new System.Drawing.Point(55, 536);
             this.ListBoxMåltTryk.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.ListBoxMåltTryk.Name = "ListBoxMåltTryk";
-            this.ListBoxMåltTryk.Size = new System.Drawing.Size(320, 556);
+            this.ListBoxMåltTryk.Size = new System.Drawing.Size(320, 554);
             this.ListBoxMåltTryk.TabIndex = 2;
             // 
             // btnAfslutKali
@@ -217,7 +217,7 @@
             this.label3.Location = new System.Drawing.Point(1505, 536);
             this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(422, 88);
+            this.label3.Size = new System.Drawing.Size(209, 48);
             this.label3.TabIndex = 16;
             this.label3.Text = "Juster \r\nhældningskoefficienten:";
             // 
@@ -226,7 +226,7 @@
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown1.Location = new System.Drawing.Point(1513, 647);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(131, 61);
+            this.numericUpDown1.Size = new System.Drawing.Size(131, 34);
             this.numericUpDown1.TabIndex = 17;
             // 
             // button1
@@ -244,7 +244,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2196, 1408);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label3);
@@ -254,7 +254,7 @@
             this.Controls.Add(this.chartMåltTryk);
             this.Controls.Add(this.groupBox1);
             this.Enabled = false;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Kalibrering";
             this.Text = "G3-monitor: Kalibrering";
             this.groupBox1.ResumeLayout(false);

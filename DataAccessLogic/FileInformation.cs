@@ -8,7 +8,7 @@ namespace DataAccessLogic
 {
     static class FileInformation
     {
-        public static string FilePath = @"File location here";
+        public static string FilePath = @"C:\Users\Anders\Desktop\test.xml";
 
     }
 }

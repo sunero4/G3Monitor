@@ -57,20 +57,25 @@ public void HandleData()
     _event.WaitOne();
     var data = _consumer.BPState;
 
-            SetSlidingWindow(data);
+    SetSlidingWindow(data);
 
-            data = GetSlidingWindow();
-            //var correctData = _kaliAndZero.AddKalibreringAndZero(data);
-            var currentData = _filter.Smoothing(data);
+    data = GetSlidingWindow();
+    //var correctData = _kaliAndZero.AddKalibreringAndZero(data);
+    var currentData = _filter.Smoothing(data);
 
     //var tf = new TaskFactory();
 
     //Faster in parallel than sequential
-    _container.Pulse = _pulse.Calculate(_container.FilteredBPValues);
-    var timediff = _pulse.TimeDifferences(_container.FilteredBPValues);
-    _container.AverageBloodPressure = _average.Calculate(_container.GetSlidingWindow());
-    _container.SystolicPressure = _sys.Calculate(_container.GetSlidingWindow(), timediff);
-    _container.DiastolicPressure = _dia.Calculate(_container.GetSlidingWindow(), timediff);
+    if (data.Count > 2000)
+    {
+        _container.Pulse = _pulse.Calculate(currentData);
+        var timediff = _pulse.TimeDifferences(currentData);
+        _container.AverageBloodPressure = _average.Calculate(currentData);
+        _container.SystolicPressure = _sys.Calculate(currentData, timediff);
+        _container.DiastolicPressure = _dia.Calculate(currentData, timediff);
+    }
+
+    _container.FilteredBPValues = currentData;
 
     //var t2 = tf.StartNew(() => _container.AverageBloodPressure = _average.Calculate(currentData));
     //var t3 = tf.StartNew(() => _container.SystolicPressure = _sys.Calculate(currentData));
@@ -106,7 +111,7 @@ public void Start()
         }
         public void SetSlidingWindow(List<double> data)
         {
-            if (_slidingWindow.Count >= 4000)
+            if (_slidingWindow.Count >= 2000)
             {
                 _slidingWindow.DequeueMultipleElements(data.Count);
             }

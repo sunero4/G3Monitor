@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.Alarm
 {
-    interface IAlarm
+    public interface IAlarm
     {
         void StartAlarm(int sys, int dia);
     }

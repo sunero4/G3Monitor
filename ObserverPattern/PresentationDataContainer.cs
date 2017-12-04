@@ -42,7 +42,7 @@ namespace ObserverPattern
         public int SystolicPressure { get; set; }
         public int DiastolicPressure { get; set; }
         public int AverageBloodPressure { get; set; }
-        public int Pulse { get; set; }
+        public double Pulse { get; set; }
 
     }
 }

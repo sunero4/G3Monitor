@@ -42,7 +42,7 @@ namespace BusinessLogic
             _kaliAndZero = new KaliAndZero(_nulpunktDTO, new KalibreringsDTO());
             _showData = new ShowData(container, _consumer, _event, _filter);
             _kalibreringsAlgoritme = new KalibreringsAlgoritme();
-            _showData = new ShowData(container, queue, _consumer, _event);
+            _showData = new ShowData(container, _consumer, _event, _filter);
             _checker= new CPRChecker();
         }
 
