@@ -191,9 +191,9 @@
             this.btnAfslutKali.Location = new System.Drawing.Point(1513, 1118);
             this.btnAfslutKali.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnAfslutKali.Name = "btnAfslutKali";
-            this.btnAfslutKali.Size = new System.Drawing.Size(314, 126);
+            this.btnAfslutKali.Size = new System.Drawing.Size(351, 126);
             this.btnAfslutKali.TabIndex = 3;
-            this.btnAfslutKali.Text = "Afslut kalibrering";
+            this.btnAfslutKali.Text = "Afslut og gem kalibrering";
             this.btnAfslutKali.UseVisualStyleBackColor = true;
             this.btnAfslutKali.Click += new System.EventHandler(this.btnAfslutKali_Click);
             // 
