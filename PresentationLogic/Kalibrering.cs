@@ -19,7 +19,7 @@ namespace PresentationLogic
     {
         private IBusinessLogic _iBusinessLogic;
         private KalibreringsDTO _kalibrering;
-
+        private Login _login;
         public Kalibrering(IBusinessLogic iBusiness)
         {
             InitializeComponent();
@@ -74,22 +74,14 @@ namespace PresentationLogic
             //}
         }
 
-        private void ScrollBarHældning_Scroll(object sender, ScrollEventArgs e)
+   
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
-            // Scrollbar går op og ned 
-            if (e.OldValue > e.NewValue)
-            {
-                _kalibrering.Slope--;
-                txtHældningskoefficient.Text = Convert.ToString(_kalibrering.Slope);
-            }
-            if (e.OldValue < e.NewValue)
-            {
-                _kalibrering.Slope++;
-                txtHældningskoefficient.Text = Convert.ToString(_kalibrering.Slope);
-            }
+
         }
 
-        private void txtHældningskoefficient_TextChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

@@ -43,5 +43,6 @@ namespace Interfaces
 
         void PerformCalibration(KalibreringsDTO calibration);
         void SaveCalibration(KalibreringsDTO calibration);
+        bool CPRchecker(string cprnr);
     }
 }

@@ -24,6 +24,7 @@ namespace BusinessLogic
         private ShowData _showData;
         private NulpunktsjusteringDTO _nulpunktDTO;
         private KaliAndZero _kaliAndZero;
+        private CPRChecker _checker;
         private PatientDTO _patientDTO;
         private KalibreringsAlgoritme _kalibreringsAlgoritme;
 
@@ -41,6 +42,8 @@ namespace BusinessLogic
             _kaliAndZero = new KaliAndZero(_nulpunktDTO, new KalibreringsDTO());
             _showData = new ShowData(container, _consumer, _event, _filter);
             _kalibreringsAlgoritme = new KalibreringsAlgoritme();
+            _showData = new ShowData(container, queue, _consumer, _event);
+            _checker= new CPRChecker();
         }
 
         public bool CheckLogin(MedarbejderDTO medarbejder)
@@ -142,6 +145,11 @@ namespace BusinessLogic
         public void SaveCalibration(KalibreringsDTO calibration)
         {
             _iDataAccess.SaveCalibration(calibration);
+        }
+
+        public bool CPRchecker(string cprnr)
+        {
+           return _checker.CPRchecker(cprnr); 
         }
     }
 }

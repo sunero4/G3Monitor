@@ -15,15 +15,15 @@ namespace BusinessLogic
     {
         private Queue<double> _slidingWindow;
         private IFilter _filter;
-        private Pulse _pulse;
-        private Systolic _sys;
-        private Diastolic _dia;
-        private AverageBloodPressure _average;
+        private IPulse _pulse;
+        private ICalculateSysDia _sys;
+        private ICalculateSysDia _dia;
+        private IAverangePB _average;
         private PresentationDataContainer _container;
         private VoltageToPressureConversion _convert;
         private BPConsumer _consumer;
         private AutoResetEvent _event;
-        private KaliAndZero _kaliAndZero;
+        //private KaliAndZero _kaliAndZero;
 
         public bool CanRun { get; set; }
 
@@ -51,11 +51,11 @@ namespace BusinessLogic
             _filter = filter;
         }
 
-        public void HandleData()
-        {
-            //Venter på et set event fra consumeren
-            _event.WaitOne();
-            var data = _consumer.BPState;
+public void HandleData()
+{
+    //Venter på et set event fra consumeren
+    _event.WaitOne();
+    var data = _consumer.BPState;
 
             SetSlidingWindow(data);
 
@@ -63,36 +63,37 @@ namespace BusinessLogic
             //var correctData = _kaliAndZero.AddKalibreringAndZero(data);
             var currentData = _filter.Smoothing(data);
 
-            //var tf = new TaskFactory();
+    //var tf = new TaskFactory();
 
-            //Faster in parallel than sequential
-            _container.AverageBloodPressure = _average.Calculate(data);
-            _container.SystolicPressure = _sys.Calculate(data);
-            _container.DiastolicPressure = _dia.Calculate(data);
-            _container.FilteredBPValues = currentData;
+    //Faster in parallel than sequential
+    _container.Pulse = _pulse.Calculate(_container.FilteredBPValues);
+    var timediff = _pulse.TimeDifferences(_container.FilteredBPValues);
+    _container.AverageBloodPressure = _average.Calculate(_container.GetSlidingWindow());
+    _container.SystolicPressure = _sys.Calculate(_container.GetSlidingWindow(), timediff);
+    _container.DiastolicPressure = _dia.Calculate(_container.GetSlidingWindow(), timediff);
 
-            //var t2 = tf.StartNew(() => _container.AverageBloodPressure = _average.Calculate(currentData));
-            //var t3 = tf.StartNew(() => _container.SystolicPressure = _sys.Calculate(currentData));
-            //var t4 = tf.StartNew(() => _container.DiastolicPressure = _dia.Calculate(currentData));
+    //var t2 = tf.StartNew(() => _container.AverageBloodPressure = _average.Calculate(currentData));
+    //var t3 = tf.StartNew(() => _container.SystolicPressure = _sys.Calculate(currentData));
+    //var t4 = tf.StartNew(() => _container.DiastolicPressure = _dia.Calculate(currentData));
 
-            //if (data.Count == 4096)
-            //{
-            //    var t5 = tf.StartNew(() => _container.Pulse = _pulse.Calculate(currentData));
-            //}
+    //if (data.Count == 4096)
+    //{
+    //    var t5 = tf.StartNew(() => _container.Pulse = _pulse.Calculate(currentData));
+    //}
 
 
-            //Wait for all tasks to finish
-            //Task.WaitAll(t2, t3, t4);
+    //Wait for all tasks to finish
+    //Task.WaitAll(t2, t3, t4);
 
-            //Datacontainer is the subject, tell it to notify its observers
-            _container.Notify();
-        }
+    //Datacontainer is the subject, tell it to notify its observers
+    _container.Notify();
+}
 
-        public void Start()
-        {
-            CanRun = true;
-            Thread t1 = new Thread(_consumer.Run);
-            t1.Start();
+public void Start()
+{
+    CanRun = true;
+    Thread t1 = new Thread(_consumer.Run);
+    t1.Start();
 
             while (CanRun)
             {
@@ -118,5 +119,5 @@ namespace BusinessLogic
         }
 
 
-    }
+}
 }

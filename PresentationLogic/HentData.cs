@@ -19,6 +19,7 @@ namespace PresentationLogic
         private PatientDTO _patient;
         private int _bpSegmentIndex;
         private int _operationIndex;
+        private Login _login;
 
         public HentData(IBusinessLogic iBusinessLogic)
         {
@@ -36,14 +37,18 @@ namespace PresentationLogic
         private void btn_hentData_Click(object sender, EventArgs e)
         {
             var patient = new PatientDTO();
-            patient.CPR = txt_indtastCpr.Text;
+            string messageTekst = "Der er intet data tilknyttet CPR-nummeret";
+            if (patient.CPR == txt_indtastCpr.Text)
+            {
+                _patient = _iBusinessLogic.HentData(patient);
+                Chart(0);
+                //Aksetitler til charten:
+                chart_måling.ChartAreas[0].AxisX.Title = "Sekunder";
+                chart_måling.ChartAreas[0].AxisY.Title = "mmHg";
+            }
+            else
+                MessageBox.Show(messageTekst); 
 
-            _patient = _iBusinessLogic.HentData(patient);
-            Chart(0);
-
-            //Aksetitler til charten:
-            chart_måling.ChartAreas[0].AxisX.Title = "Sekunder";
-            chart_måling.ChartAreas[0].AxisY.Title = "mmHg";
         }
 
         private void Chart(int index)
@@ -100,6 +105,25 @@ namespace PresentationLogic
                 _bpSegmentIndex++;
                 Chart(_operationIndex);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e) // log ud knap
+        {
+            _login.ShowDialog(); 
+        }
+
+        private void btn_filtreret_Click(object sender, EventArgs e)
+        {
+            _iBusinessLogic.CreateFilter(true); // Evt forkert, da det ikke kører i en tråd, men mere skal konverteres 
+            btn_filtreret.Enabled = false;
+            btn_ufiltreret.Enabled = true;
+        }
+
+        private void btn_ufiltreret_Click(object sender, EventArgs e)
+        {
+            _iBusinessLogic.CreateFilter(false);
+            btn_filtreret.Enabled = true;
+            btn_ufiltreret.Enabled = false;
         }
     }
 }

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public class AverageBloodPressure
+    public class AverageBloodPressure:IAverangePB
     {
-
         public int Calculate(List<double> btList)
         {
             var average = btList.Average();

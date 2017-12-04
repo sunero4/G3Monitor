@@ -22,6 +22,7 @@ namespace PresentationLogic
         private PresentationDataContainer _container;
         private Nulpunktsjustering _nulpunktForm;
         private NulpunktsjusteringDTO _nulpunkt;
+        private Login _login;
         public Måling(IBusinessLogic iBusinessLogic, Monitoreringsindstillinger monitoring, PresentationDataContainer container)
         {
             InitializeComponent();
@@ -96,11 +97,15 @@ namespace PresentationLogic
         private void btn_filtrerMåling_Click(object sender, EventArgs e)
         {
             _iBusinessLogic.CreateFilter(true);
+            btn_filtrerMåling.Enabled = false;
+            btn_UfiltrerMåling.Enabled = true; 
         }
 
         private void btn_UfiltrerMåling_Click(object sender, EventArgs e)
         {
             _iBusinessLogic.CreateFilter(false);
+            btn_filtrerMåling.Enabled = true;
+            btn_UfiltrerMåling.Enabled = false;
         }
 
         private void btn_Nulpunktsjustering_Click(object sender, EventArgs e)
@@ -120,7 +125,29 @@ namespace PresentationLogic
 
         private void btn_StopMåling_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Er du sikker på du vil stoppe målingen?", "Stop måling", MessageBoxButtons.YesNo);
+           
+            if (dialogResult == DialogResult.Yes)
+            {
+                _iBusinessLogic.StopMeasurement();
+                btn_AktiverAlarm.Enabled = false;
+                btn_DeaktiverAlarm.Enabled = false;
+                btn_UfiltrerMåling.Enabled = false;
+                btn_filtrerMåling.Enabled = false;
+                btn_StartMåling.Enabled = false;
+                btn_StopMåling.Enabled = false;
+                btn_Indstillinger.Enabled = false;             
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                // ingen kode, messageBox lukker ned og går tilbage til måling
+            }    
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             _iBusinessLogic.StopMeasurement();
+            _login.ShowDialog(); 
         }
 
         private void btn_Indstillinger_Click(object sender, EventArgs e)
