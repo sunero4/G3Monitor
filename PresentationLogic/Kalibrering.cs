@@ -24,7 +24,11 @@ namespace PresentationLogic
         {
             InitializeComponent();
             _iBusinessLogic = iBusiness;
-            _kalibrering = new KalibreringsDTO();
+            _kalibrering = new KalibreringsDTO()
+            {
+                ActualValue = new List<int>(),
+                ExpectedValue = new List<int>()
+            };
 
             chartMåltTryk.Series[0] = new Series("Expected value");
             chartMåltTryk.Series[1] = new Series("Actual value");

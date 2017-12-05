@@ -17,7 +17,7 @@ namespace DataAccessLogic.Hent
         /// <returns>Operation DTO containing all retrieved information</returns>
         public OperationsDTO HentData(PatientDTO patient)
         {
-            var xDoc = XDocument.Load(FileInformation.FilePath);
+            var xDoc = XDocument.Load(FileInformation.BPFilePath);
 
             var e = (from x in xDoc.Descendants("Operations").Elements("Operation")
                 where (string) x.Attribute("CPR") == patient.CPR

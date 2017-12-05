@@ -23,13 +23,13 @@ namespace DataAccessLogic
         /// </summary>
         private void ClearFile()
         {
-            var xDoc = XDocument.Load(FileInformation.FilePath);
+            var xDoc = XDocument.Load(FileInformation.BPFilePath);
 
             var root = xDoc.Root;
 
             root?.RemoveAll();
 
-            xDoc.Save(FileInformation.FilePath);
+            xDoc.Save(FileInformation.BPFilePath);
         }
     }
 }

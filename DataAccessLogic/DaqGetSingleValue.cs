@@ -15,7 +15,7 @@ namespace DataAccessLogic
         {
             _daq = new NI_DAQVoltage()
             {
-                deviceName = "Dev2/ai0",
+                deviceName = "Dev3/ai0",
                 rangeMinimumVolt = 0,
                 rangeMaximumVolt = 5,
                 sampleRateInHz = 1000,

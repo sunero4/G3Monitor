@@ -12,7 +12,7 @@ namespace DataAccessLogic
         private XDocument _xDoc;
         public IEnumerable<string> BuildQuery()
         {
-            _xDoc = new XDocument(FileInformation.FilePath);
+            _xDoc = new XDocument(FileInformation.BPFilePath);
 
             var e1 = (from x in _xDoc.Element("Calibrations")?.Elements("Calibration")
                 select (string) x.Element("Maaledata"));

@@ -19,7 +19,7 @@ namespace DataAccessLogic
         {
             try
             {
-                var xDoc = XDocument.Load(FileInformation.FilePath);
+                var xDoc = XDocument.Load(FileInformation.CalibrationFilePath);
 
                 var e = xDoc.Root;
 
@@ -49,7 +49,7 @@ namespace DataAccessLogic
                     }
                 }
 
-                xDoc.Save(FileInformation.FilePath);
+                xDoc.Save(FileInformation.CalibrationFilePath);
 
             }
             catch (XmlException exception)

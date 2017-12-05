@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnNyMåling = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -158,19 +159,23 @@
             // 
             // chartMåltTryk
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartMåltTryk.ChartAreas.Add(chartArea1);
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.Name = "Legend1";
-            this.chartMåltTryk.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chartMåltTryk.ChartAreas.Add(chartArea2);
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend2.Name = "Legend1";
+            this.chartMåltTryk.Legends.Add(legend2);
             this.chartMåltTryk.Location = new System.Drawing.Point(412, 536);
             this.chartMåltTryk.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.chartMåltTryk.Name = "chartMåltTryk";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Målt spænding ";
-            this.chartMåltTryk.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Målt spænding ";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series2";
+            this.chartMåltTryk.Series.Add(series3);
+            this.chartMåltTryk.Series.Add(series4);
             this.chartMåltTryk.Size = new System.Drawing.Size(1077, 708);
             this.chartMåltTryk.TabIndex = 1;
             this.chartMåltTryk.Text = "chart1";
@@ -244,6 +249,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.numericUpDown1);
@@ -253,7 +259,6 @@
             this.Controls.Add(this.ListBoxMåltTryk);
             this.Controls.Add(this.chartMåltTryk);
             this.Controls.Add(this.groupBox1);
-            this.Enabled = false;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Kalibrering";
             this.Text = "G3-monitor: Kalibrering";

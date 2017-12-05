@@ -28,12 +28,12 @@ namespace DataAccessLogic
         /// <param name="cpr">CPR number for the patient</param>
         private void SaveNewPatient(int operationsid, string cpr)
         {
-            var xdoc = XDocument.Load(FileInformation.FilePath);
+            var xdoc = XDocument.Load(FileInformation.BPFilePath);
 
             var e = xdoc.Root;
             e?.Add(new XElement("Operation", new XAttribute("OperationsId", operationsid), new XAttribute("CPR", cpr)));
 
-            xdoc.Save(FileInformation.FilePath);
+            xdoc.Save(FileInformation.BPFilePath);
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace DataAccessLogic
         /// <param name="operationsId">Id for the current operation</param>
         public void SaveData(string cpr, MaalingDTO maaling, int operationsId)
         {
-            var xDoc = XDocument.Load(FileInformation.FilePath);
+            var xDoc = XDocument.Load(FileInformation.BPFilePath);
 
 
             var e = xDoc.Descendants("Operation")
@@ -53,7 +53,7 @@ namespace DataAccessLogic
             if (e == null)
             {
                 SaveNewPatient(operationsId, cpr);
-                xDoc = XDocument.Load(FileInformation.FilePath);
+                xDoc = XDocument.Load(FileInformation.BPFilePath);
             }
 
             e = xDoc.Descendants("Operation")
@@ -62,7 +62,7 @@ namespace DataAccessLogic
             e?.Add(new XElement("Maalingdata", Convert.ToBase64String(maaling.MaaleData), 
                 new XAttribute("SekvensNr", maaling.Sekvensnr)));
 
-            xDoc.Save(FileInformation.FilePath);
+            xDoc.Save(FileInformation.BPFilePath);
         }
     }
 }

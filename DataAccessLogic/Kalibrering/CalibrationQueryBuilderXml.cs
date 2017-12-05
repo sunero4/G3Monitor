@@ -19,7 +19,7 @@ namespace DataAccessLogic
         public KalibreringsDTO BuildQuery()
         {
             //Load the xml file into our XDocument
-            _calibrations = XDocument.Load(FileInformation.FilePath);
+            _calibrations = XDocument.Load(FileInformation.CalibrationFilePath);
 
             //Get the dates from all calibrations in file
             List<DateTime> dates = (from x in _calibrations.Element("Calibrations")?.Elements("Calibration")

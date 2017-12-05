@@ -19,6 +19,7 @@ namespace PresentationLogic
     {
         private IBusinessLogic _iBusinessLogic;
         private PresentationDataContainer _container;
+        private Kalibrering _kalibrering;
         public Login(IBusinessLogic iBusiness, PresentationDataContainer container)
         {
             InitializeComponent();
@@ -59,6 +60,25 @@ namespace PresentationLogic
                         MessageBox.Show("Brugernavn eller password er forkert, prøv igen. ");
                     }
                 }
+
+            if (rbtnTekniker.Checked && txtBrugernavn.Text.Length == 8)
+            {
+                //TeknikerDTO tekniker = new TeknikerDTO();
+                //tekniker.Brugernavn = txtBrugernavn.Text;
+                //tekniker.HashedPassword =
+                //    _iBusinessLogic.HashAndSaltPassword(txtPassword.Text, _iBusinessLogic.GetSalt(tekniker));
+                //var loginSucceeded = _iBusinessLogic.CheckLogin(tekniker);
+                var loginSucceeded = true;
+                if (loginSucceeded)
+                {
+                    if (rbtnStartKalib.Checked)
+                    {
+                        this.Hide();
+                        _kalibrering = new Kalibrering(_iBusinessLogic);
+                        _kalibrering.Show();
+                    }
+                }
+            }
 
             // Tekniker Ikke færdig, mangler forbindelsen til kalibrering 
             
