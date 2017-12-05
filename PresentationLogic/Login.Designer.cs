@@ -70,7 +70,7 @@
             // 
             this.txtBrugernavn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBrugernavn.Location = new System.Drawing.Point(160, 51);
-            this.txtBrugernavn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBrugernavn.Margin = new System.Windows.Forms.Padding(4);
             this.txtBrugernavn.Name = "txtBrugernavn";
             this.txtBrugernavn.Size = new System.Drawing.Size(177, 30);
             this.txtBrugernavn.TabIndex = 2;
@@ -79,7 +79,7 @@
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(160, 92);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(177, 30);
@@ -89,31 +89,34 @@
             // 
             this.rbtnOP.AutoSize = true;
             this.rbtnOP.Location = new System.Drawing.Point(30, 51);
-            this.rbtnOP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnOP.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnOP.Name = "rbtnOP";
             this.rbtnOP.Size = new System.Drawing.Size(189, 29);
             this.rbtnOP.TabIndex = 5;
             this.rbtnOP.TabStop = true;
             this.rbtnOP.Text = "OP-sygeplejerske";
             this.rbtnOP.UseVisualStyleBackColor = true;
+            this.rbtnOP.CheckedChanged += new System.EventHandler(this.rbtnOP_CheckedChanged);
             // 
             // rbtnTekniker
             // 
             this.rbtnTekniker.AutoSize = true;
             this.rbtnTekniker.Location = new System.Drawing.Point(340, 51);
-            this.rbtnTekniker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnTekniker.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnTekniker.Name = "rbtnTekniker";
             this.rbtnTekniker.Size = new System.Drawing.Size(109, 29);
             this.rbtnTekniker.TabIndex = 6;
             this.rbtnTekniker.TabStop = true;
             this.rbtnTekniker.Text = "Tekniker";
             this.rbtnTekniker.UseVisualStyleBackColor = true;
+            this.rbtnTekniker.CheckedChanged += new System.EventHandler(this.rbtnTekniker_CheckedChanged);
             // 
             // rbtnStartMål
             // 
             this.rbtnStartMål.AutoSize = true;
+            this.rbtnStartMål.Enabled = false;
             this.rbtnStartMål.Location = new System.Drawing.Point(30, 60);
-            this.rbtnStartMål.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnStartMål.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnStartMål.Name = "rbtnStartMål";
             this.rbtnStartMål.Size = new System.Drawing.Size(136, 29);
             this.rbtnStartMål.TabIndex = 7;
@@ -124,8 +127,9 @@
             // rbtnHentdata
             // 
             this.rbtnHentdata.AutoSize = true;
+            this.rbtnHentdata.Enabled = false;
             this.rbtnHentdata.Location = new System.Drawing.Point(194, 60);
-            this.rbtnHentdata.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnHentdata.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnHentdata.Name = "rbtnHentdata";
             this.rbtnHentdata.Size = new System.Drawing.Size(117, 29);
             this.rbtnHentdata.TabIndex = 8;
@@ -136,8 +140,9 @@
             // rbtnStartKalib
             // 
             this.rbtnStartKalib.AutoSize = true;
+            this.rbtnStartKalib.Enabled = false;
             this.rbtnStartKalib.Location = new System.Drawing.Point(340, 60);
-            this.rbtnStartKalib.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnStartKalib.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnStartKalib.Name = "rbtnStartKalib";
             this.rbtnStartKalib.Size = new System.Drawing.Size(168, 29);
             this.rbtnStartKalib.TabIndex = 9;
@@ -149,7 +154,7 @@
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.Location = new System.Drawing.Point(26, 468);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(122, 42);
             this.btnLogin.TabIndex = 10;
@@ -163,9 +168,9 @@
             this.groupBox1.Controls.Add(this.rbtnOP);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(26, 162);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(522, 123);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
@@ -178,9 +183,9 @@
             this.groupBox2.Controls.Add(this.rbtnStartKalib);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(26, 318);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(522, 123);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
@@ -198,7 +203,7 @@
             this.Controls.Add(this.txtBrugernavn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Text = "G3-monitor: Login";
             this.groupBox1.ResumeLayout(false);

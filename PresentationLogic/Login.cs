@@ -38,7 +38,6 @@ namespace PresentationLogic
                 opSygeplejerske.Brugernavn = txtBrugernavn.Text;
                 opSygeplejerske.HashedPassword = _iBusinessLogic.HashAndSaltPassword(txtPassword.Text, _iBusinessLogic.GetSalt(opSygeplejerske));
                 bool validerLogin = _iBusinessLogic.CheckLogin(opSygeplejerske);
-                rbtnStartKalib.Enabled = false;
                 if (validerLogin)
                 {
                     if (rbtnStartMål.Checked)
@@ -52,6 +51,10 @@ namespace PresentationLogic
                         this.Hide();
                         _hentForm = new HentData(_iBusinessLogic);
                         _hentForm.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vælg venligst den ønskede funktion.");
                     }
                 }
 
@@ -77,6 +80,14 @@ namespace PresentationLogic
                         _kalibrering = new Kalibrering(_iBusinessLogic, txtBrugernavn.Text);
                         _kalibrering.Show();
                     }
+                    else
+                    {
+                        MessageBox.Show("Vælg venligst den ønskede funktion");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Brugernavn eller password er forkert, prøv igen.");
                 }
             }
 
@@ -107,7 +118,30 @@ namespace PresentationLogic
                 //    MessageBox.Show("Brugernavn eller password er forkert, prøv igen.. ");
                 //}
             }
+
+        private void rbtnTekniker_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnTekniker.Checked)
+            {
+                rbtnHentdata.Enabled = false;
+                rbtnStartMål.Enabled = false;
+                rbtnStartMål.Checked = false;
+                rbtnHentdata.Checked = false;
+                rbtnStartKalib.Enabled = true;
+            }
         }
+
+        private void rbtnOP_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnOP.Checked)
+            {
+                rbtnStartKalib.Enabled = false;
+                rbtnStartKalib.Checked = false;
+                rbtnHentdata.Enabled = true;
+                rbtnStartMål.Enabled = true;
+            }
+        }
+    }
         
     
 }

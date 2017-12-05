@@ -30,9 +30,9 @@ namespace PresentationLogic
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btn_Nulpunktsjustering = new System.Windows.Forms.Button();
             this.btn_Indstillinger = new System.Windows.Forms.Button();
             this.btn_StartMåling = new System.Windows.Forms.Button();
@@ -153,42 +153,42 @@ namespace PresentationLogic
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.Black;
-            chartArea1.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX2.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX2.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisY2.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea1.BackColor = System.Drawing.Color.Black;
-            chartArea1.BorderColor = System.Drawing.Color.White;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.BackColor = System.Drawing.Color.Black;
-            legend1.BorderColor = System.Drawing.Color.Transparent;
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend1.ForeColor = System.Drawing.Color.Red;
-            legend1.HeaderSeparatorColor = System.Drawing.Color.White;
-            legend1.IsTextAutoFit = false;
-            legend1.ItemColumnSeparatorColor = System.Drawing.Color.White;
-            legend1.Name = "Legend1";
-            legend1.TitleBackColor = System.Drawing.Color.Black;
-            legend1.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chart1.Legends.Add(legend1);
+            chartArea2.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisX2.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisX2.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisY2.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.BackColor = System.Drawing.Color.Black;
+            chartArea2.BorderColor = System.Drawing.Color.White;
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.BackColor = System.Drawing.Color.Black;
+            legend2.BorderColor = System.Drawing.Color.Transparent;
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend2.ForeColor = System.Drawing.Color.Red;
+            legend2.HeaderSeparatorColor = System.Drawing.Color.White;
+            legend2.IsTextAutoFit = false;
+            legend2.ItemColumnSeparatorColor = System.Drawing.Color.White;
+            legend2.Name = "Legend1";
+            legend2.TitleBackColor = System.Drawing.Color.Black;
+            legend2.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(282, 91);
             this.chart1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.chart1.Name = "chart1";
-            series1.BackImageTransparentColor = System.Drawing.Color.White;
-            series1.BackSecondaryColor = System.Drawing.Color.White;
-            series1.BorderColor = System.Drawing.Color.White;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series1.Color = System.Drawing.Color.Red;
-            series1.LabelForeColor = System.Drawing.Color.Red;
-            series1.Legend = "Legend1";
-            series1.Name = "Blodtryk";
-            this.chart1.Series.Add(series1);
+            series2.BackImageTransparentColor = System.Drawing.Color.White;
+            series2.BackSecondaryColor = System.Drawing.Color.White;
+            series2.BorderColor = System.Drawing.Color.White;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series2.Color = System.Drawing.Color.Red;
+            series2.LabelForeColor = System.Drawing.Color.Red;
+            series2.Legend = "Legend1";
+            series2.Name = "Blodtryk";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1204, 692);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "chart1";
@@ -315,7 +315,7 @@ namespace PresentationLogic
             // 
             this.numericUpDown4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown4.Location = new System.Drawing.Point(140, 171);
-            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(77, 28);
             this.numericUpDown4.TabIndex = 20;
@@ -324,7 +324,7 @@ namespace PresentationLogic
             // 
             this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown3.Location = new System.Drawing.Point(16, 170);
-            this.numericUpDown3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown3.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.Size = new System.Drawing.Size(76, 28);
             this.numericUpDown3.TabIndex = 19;
@@ -333,7 +333,7 @@ namespace PresentationLogic
             // 
             this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown2.Location = new System.Drawing.Point(140, 110);
-            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(77, 28);
             this.numericUpDown2.TabIndex = 18;
@@ -342,23 +342,22 @@ namespace PresentationLogic
             // 
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown1.Location = new System.Drawing.Point(16, 109);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(76, 28);
             this.numericUpDown1.TabIndex = 17;
             // 
             // label_Puls
             // 
-            this.label_Puls.AutoSize = true;
             this.label_Puls.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Puls.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
             this.label_Puls.Location = new System.Drawing.Point(1664, 245);
             this.label_Puls.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label_Puls.MaximumSize = new System.Drawing.Size(50, 52);
+            this.label_Puls.MaximumSize = new System.Drawing.Size(150, 52);
             this.label_Puls.Name = "label_Puls";
-            this.label_Puls.Size = new System.Drawing.Size(42, 46);
+            this.label_Puls.Size = new System.Drawing.Size(150, 52);
             this.label_Puls.TabIndex = 24;
-            this.label_Puls.Text = "0";
+            this.label_Puls.Text = "00";
             // 
             // label_SysDia
             // 
@@ -367,7 +366,7 @@ namespace PresentationLogic
             this.label_SysDia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label_SysDia.Location = new System.Drawing.Point(1668, 351);
             this.label_SysDia.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label_SysDia.MaximumSize = new System.Drawing.Size(50, 52);
+            this.label_SysDia.MaximumSize = new System.Drawing.Size(250, 52);
             this.label_SysDia.Name = "label_SysDia";
             this.label_SysDia.Size = new System.Drawing.Size(42, 46);
             this.label_SysDia.TabIndex = 25;
@@ -380,7 +379,7 @@ namespace PresentationLogic
             this.label_MiddelBT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.label_MiddelBT.Location = new System.Drawing.Point(1668, 408);
             this.label_MiddelBT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label_MiddelBT.MaximumSize = new System.Drawing.Size(50, 52);
+            this.label_MiddelBT.MaximumSize = new System.Drawing.Size(150, 52);
             this.label_MiddelBT.Name = "label_MiddelBT";
             this.label_MiddelBT.Size = new System.Drawing.Size(46, 46);
             this.label_MiddelBT.TabIndex = 26;
@@ -466,7 +465,7 @@ namespace PresentationLogic
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button1.Location = new System.Drawing.Point(1774, 13);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 42);
             this.button1.TabIndex = 34;
@@ -478,8 +477,9 @@ namespace PresentationLogic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(962, 545);
+            this.ClientSize = new System.Drawing.Size(1861, 545);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtKommentar);

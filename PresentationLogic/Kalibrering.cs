@@ -28,7 +28,8 @@ namespace PresentationLogic
             {
                 ActualValue = new List<double>(),
                 ExpectedValue = new List<int>(),
-                Technician = username
+                Technician = username,
+                Time = DateTime.Now
             };
 
             //chartMåltTryk.Series[0] = new Series("Expected value");
@@ -39,6 +40,11 @@ namespace PresentationLogic
             if (ListBoxMåltTryk.Items.Count >= 3)
             {
                 _iBusinessLogic.SaveCalibration(_kalibrering);
+                MessageBox.Show("Calibration saved");
+                btnAfslutKali.Enabled = false;
+                txtIndtastTryk.Clear();
+                txtMåltTryk.Clear();
+                ListBoxMåltTryk.Items.Clear();
             }
             else
             {
@@ -102,10 +108,10 @@ namespace PresentationLogic
             {
                 chartMåltTryk.Series[0].Points.AddXY(calibration.ActualValue[i], calibration.ExpectedValue[i]);
 
-                //var linear = /*calibration.Slope * */calibration.ActualValue[i] + calibration.Intercept;
+                var linear = calibration.Slope + calibration.Intercept;
 
 
-                //chartMåltTryk.Series[1].Points.AddXY(linear, calibration.ActualValue[i]);
+                chartMåltTryk.Series[1].Points.AddY(linear);
             }
 
         }

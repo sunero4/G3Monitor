@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -16,13 +17,12 @@ namespace BusinessLogic
             var times = Times(data);
 
             var differences = new List<double>();
-            double oldDifference = 0;
 
-            for (int i = 0; i < times.Count; i++)
+            //var oldDifference = 0;
+            for (int i = 1; i < times.Count; i++)
             {
-                var diff = times[i] - oldDifference;
+                var diff = times[i] - times[i - 1];
                 differences.Add(diff);
-                oldDifference = times[i];
             }
             var averageDifference = differences.Average();
 
@@ -30,57 +30,127 @@ namespace BusinessLogic
         }
 
 
-        public List<int> Times(List<double> btList)
+        public List<int> Times(List<double> values)
         {
-            var times = new List<int>();
-            var tempList = new List<MaxValue>();
-            var superMegaList = new List<List<MaxValue>>();
-            var threshold = btList.Max() * 0.8;
+            var peaks = new List<int>();
+            var count = 0;
 
-            for (int i = 0, n = btList.Count; i < n; i++)
+            for (int i = 1; i < values.Count - 1; i++)
             {
-                if (btList[i] > threshold)
+                if (i >= 3 && i < values.Count - 3)
                 {
-                    var value = new MaxValue()
+                    for (int j = 0; j < 3; j++)
                     {
-                        Index = i,
-                        Value = btList[i]
-                    };
-                    tempList.Add(value);
-                }
-                if (btList[i] < threshold)
-                {
-                    if (tempList.Count > 0)
-                    {
-                        List<MaxValue> temp = CopyList(tempList);
-                        superMegaList.Add(temp);
-                        tempList.Clear();
+                        if (values[i] > values[i - j] && values[i] > values[i + j])
+                        {
+                            count++;
+                        }
                     }
                 }
-            }
-
-
-            double sum = 0;
-            int indexsum = 0;
-
-            for (int i = 0; i < superMegaList.Count; i++)
-            {
-                foreach (var value in superMegaList[i])
+                if (count == 5)
                 {
-                    sum += value.Value;
-                    indexsum += value.Index;
+                    peaks.Add(i);
                 }
-
-                var temp = new MaxValue()
-                {
-                    Value = sum / superMegaList[i].Count,
-                    Index = indexsum / superMegaList[i].Count
-                };
-
-                times.Add(temp.Index);
+                count = 0;
             }
 
-            return times;
+            return peaks;
+            //var rangeOfPeaks = 20;
+
+            //List<int> peaks = new List<int>();
+            //double current;
+            //List<double> range;
+            //var beforeCount = 0;
+            //var afterCount = 0;
+
+
+            //int checksOnEachSide = rangeOfPeaks / 2;
+            //for (int i = 0; i < values.Count; i++)
+            //{
+            //    current = values[i];
+            //    range = values;
+
+            //    if (i > checksOnEachSide)
+            //    {
+            //        range = range.Skip(i - checksOnEachSide).ToList();
+            //        for (int j = 10; j < 0; j--)
+            //        {
+            //            if (range[i - j] < range[i])
+            //            {
+            //                beforeCount++;
+            //            }
+            //        }
+            //    }
+
+            //    range = range.Take(rangeOfPeaks).ToList();
+            //    if ((range.Count() > 0) && (current == range.Max()))
+            //    {
+            //        for (int j = 0; j < 10; j++)
+            //        {
+            //            if (range[i] > range[checksOnEachSide + j])
+            //            {
+            //                afterCount++;
+            //            }
+            //        }
+            //    }
+
+            //    if (beforeCount == 10 && afterCount == 10)
+            //    {
+            //        peaks.Add(i);
+            //    }
+            //}
+
+            //return peaks;
+            ////var tempList = new List<MaxValue>();
+            ////var superMegaList = new List<List<MaxValue>>();
+
+            //var tempList = new List<double>();
+            //var superMegaList = new List<List<double>>();
+
+            //var threshold = btList.Max() * 0.8;
+
+            //for (int i = 0, n = btList.Count; i < n; i++)
+            //{
+            //    if (btList[i] > threshold)
+            //    {
+            //        //var value = new MaxValue()
+            //        //{
+            //        //    Index = i,
+            //        //    Value = btList[i]
+            //        //};
+            //        tempList.Add(btList[i]);
+            //    }
+            //    if (btList[i] < threshold)
+            //    {
+            //        if (tempList.Count > 0)
+            //        {
+            //            List<double> temp = CopyList(tempList);
+            //            superMegaList.Add(temp);
+            //            tempList.Clear();
+            //        }
+            //    }
+            //}
+
+
+            //double sum = 0;
+            //int indexsum = 0;
+
+            //double max = 0;
+
+
+
+            //var times = superMegaList.Select(x => x.IndexOf(x.Max())).ToList();
+
+            //foreach (var list in superMegaList)
+            //{
+            //    var tempmax = list.Max();
+
+            //    var index = btList.IndexOf(tempmax);
+            //    times.Add(index);
+            //    //  var test = list.Select(x => list.IndexOf(x.Value == ))
+            //}
+
+            //return times;
         }
 
        
@@ -158,9 +228,9 @@ namespace BusinessLogic
 
         }
 
-        private List<MaxValue> CopyList(List<MaxValue> list)
+        private List<double> CopyList(List<double> list)
         {
-            List<MaxValue> newList = new List<MaxValue>();
+            List<double> newList = new List<double>();
             foreach (var x in list)
             {
                 newList.Add(x);

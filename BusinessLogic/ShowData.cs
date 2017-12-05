@@ -66,13 +66,13 @@ public void HandleData()
     //var tf = new TaskFactory();
 
     //Faster in parallel than sequential
-    if (data.Count > 2000)
+    if (data.Count > 1900)
     {
-        _container.Pulse = _pulse.Calculate(currentData);
-        var timediff = _pulse.TimeDifferences(currentData);
-        _container.AverageBloodPressure = _average.Calculate(currentData);
-        _container.SystolicPressure = _sys.Calculate(currentData, timediff);
-        _container.DiastolicPressure = _dia.Calculate(currentData, timediff);
+        _container.Pulse = _pulse.Calculate(data);
+        var timediff = _pulse.TimeDifferences(data);
+        _container.AverageBloodPressure = _average.Calculate(data);
+        _container.SystolicPressure = _sys.Calculate(data, timediff);
+        _container.DiastolicPressure = _dia.Calculate(data, timediff);
     }
 
     _container.FilteredBPValues = currentData;
@@ -108,7 +108,7 @@ public void Start()
             {
                 _consumer.CanRun = false;
             }
-        }
+}
         public void SetSlidingWindow(List<double> data)
         {
             if (_slidingWindow.Count >= 2000)

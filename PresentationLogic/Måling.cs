@@ -111,6 +111,7 @@ namespace PresentationLogic
         private void btn_Nulpunktsjustering_Click(object sender, EventArgs e)
         {
             _nulpunktForm = new Nulpunktsjustering(_iBusinessLogic, _nulpunkt);
+            _nulpunktForm.Show();
         }
 
         private void btn_StartMåling_Click_1(object sender, EventArgs e)

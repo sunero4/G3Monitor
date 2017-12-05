@@ -8,11 +8,11 @@ namespace BusinessLogic
 {
     public static class QueueExtensions
     {
-        public static IEnumerable<T> DequeueMultipleElements<T>(this Queue<T> queue, int size)
+        public static void DequeueMultipleElements<T>(this Queue<T> queue, int size)
         {
             for (int i = 0; i < size; i++)
             {
-                yield return queue.Dequeue();
+                queue.Dequeue();
             }
         }
 

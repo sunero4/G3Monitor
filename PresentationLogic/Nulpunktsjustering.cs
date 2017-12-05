@@ -28,14 +28,29 @@ namespace PresentationLogic
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            var nulpunkt = new NulpunktsjusteringDTO();
-            var tf = new TaskFactory();
-            var t = tf.StartNew(() => nulpunkt = _businessLogic.PerformAdjustment());
+            try
+            {
+                var nulpunkt = new NulpunktsjusteringDTO();
+                var tf = new TaskFactory();
+                var t = tf.StartNew(() => nulpunkt = _businessLogic.PerformAdjustment());
 
-            Task.WaitAll(t);
+                Task.WaitAll(t);
 
-            _nulpunkt = nulpunkt;
-            _isFinished = true;
+                _nulpunkt = nulpunkt;
+                _isFinished = true;
+
+                var dialogResult = MessageBox.Show("Nulpunktsjustering er gennemført", "Afslut", MessageBoxButtons.OK);
+                if (dialogResult == DialogResult.OK)
+                {
+                    this.Hide();
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Noget gik galt under nulpunktsjusteringen. Prøv igen.");
+            }
+
+            
         }
     }
 }
