@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,12 +83,12 @@ namespace DataAccessLogic
         /// <param name="closestTime">The time for the most recent calibration</param>
         /// <param name="calibrations">The XDocument containing the calibration data</param>
         /// <returns>All actual values measured from the calibration</returns>
-        private List<int> GetActualValues(DateTime closestTime, XDocument calibrations)
+        private List<double> GetActualValues(DateTime closestTime, XDocument calibrations)
         {
             var act = (from x in calibrations.Elements("Calibrations").Elements("Calibration")
                     .Elements("SingleCalibration")
                        where (DateTime)x.Parent.Attribute("Time") == closestTime
-                       select (int)x.Element("ActualValue")).ToList();
+                       select (double)x.Element("ActualValue")).ToList();
 
             return act;
         }
@@ -102,7 +103,7 @@ namespace DataAccessLogic
         {
             var slope = (from x in calibrations.Elements("Calibrations")
                     .Elements("Calibration")
-                         where (DateTime)x.Parent.Attribute("Time") == closestTime
+                         where (DateTime)x.Attribute("Time") == closestTime
                          select (double)x.Element("Slope")).SingleOrDefault();
 
             return slope;
@@ -118,8 +119,8 @@ namespace DataAccessLogic
         {
             var intercept = (from x in calibrations.Elements("Calibrations")
                     .Elements("Calibration")
-                             where (DateTime)x.Parent.Attribute("Time") == closestTime
-                             select (double)x.Element("Slope")).SingleOrDefault();
+                             where (DateTime)x.Attribute("Time") == closestTime
+                             select (double)x.Element("Intercept")).SingleOrDefault();
 
             return intercept;
         }

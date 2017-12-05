@@ -74,7 +74,7 @@ namespace PresentationLogic
                     if (rbtnStartKalib.Checked)
                     {
                         this.Hide();
-                        _kalibrering = new Kalibrering(_iBusinessLogic);
+                        _kalibrering = new Kalibrering(_iBusinessLogic, txtBrugernavn.Text);
                         _kalibrering.Show();
                     }
                 }

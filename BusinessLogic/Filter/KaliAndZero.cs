@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using Accord.Math;
+using Interfaces;
 using MathNet.Filtering;
 using MathNet.Filtering.IIR;
 using MathNet.Numerics;
@@ -27,11 +28,12 @@ namespace BusinessLogic.Filter
         //Tilføjer kalibrering og nulpunktsjustering. Og Fjerner netstøj. 
         public List<double> AddKalibreringAndZero(List<double> containerData)
         {
-            double nul = _nulpunkt.Nulpunktsjustering;
-            double kali = new KalibreringsDTO().Slope;
+            //double nul = _nulpunkt.Nulpunktsjustering;
+            var nul = 0;
+            double kali = _kalibrering.Slope;
             for (int i = 0; i < containerData.Count; i++)
             {
-                containerData[i] = containerData[i] * nul * kali;
+                containerData[i] = kali * containerData[i] + nul;
             }
             return containerData;
         }

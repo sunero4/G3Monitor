@@ -20,18 +20,19 @@ namespace PresentationLogic
         private IBusinessLogic _iBusinessLogic;
         private KalibreringsDTO _kalibrering;
         private Login _login;
-        public Kalibrering(IBusinessLogic iBusiness)
+        public Kalibrering(IBusinessLogic iBusiness, string username)
         {
             InitializeComponent();
             _iBusinessLogic = iBusiness;
             _kalibrering = new KalibreringsDTO()
             {
-                ActualValue = new List<int>(),
-                ExpectedValue = new List<int>()
+                ActualValue = new List<double>(),
+                ExpectedValue = new List<int>(),
+                Technician = username
             };
 
-            chartMåltTryk.Series[0] = new Series("Expected value");
-            chartMåltTryk.Series[1] = new Series("Actual value");
+            //chartMåltTryk.Series[0] = new Series("Expected value");
+            //chartMåltTryk.Series[1] = new Series("Actual value");
         }
         private void btnAfslutKali_Click(object sender, EventArgs e)
         {
@@ -64,7 +65,9 @@ namespace PresentationLogic
             // Slet målepunkt i listbox
             var index = ListBoxMåltTryk.SelectedIndex;
             ListBoxMåltTryk.Items.RemoveAt(index);
-            
+            _kalibrering.ActualValue.RemoveAt(index);
+            _kalibrering.ExpectedValue.RemoveAt(index);
+            UpdateChart(_kalibrering);
 
 
             //// tjek om metoden til at slette markerede items virker!!!!
@@ -90,7 +93,24 @@ namespace PresentationLogic
 
         }
 
-        private void btnKalibrerMål_Click(object sender, EventArgs e)
+        private void UpdateChart(KalibreringsDTO calibration)
+        {
+            chartMåltTryk.Series[0].Points.Clear();
+            chartMåltTryk.Series[1].Points.Clear();
+
+            for (int i = 0; i < calibration.ExpectedValue.Count; i++)
+            {
+                chartMåltTryk.Series[0].Points.AddXY(calibration.ActualValue[i], calibration.ExpectedValue[i]);
+
+                //var linear = /*calibration.Slope * */calibration.ActualValue[i] + calibration.Intercept;
+
+
+                //chartMåltTryk.Series[1].Points.AddXY(linear, calibration.ActualValue[i]);
+            }
+
+        }
+
+        private void btnKalibrerMål_Click_1(object sender, EventArgs e)
         {
             var expected = Convert.ToInt32(txtIndtastTryk.Text);
             _kalibrering.ExpectedValue.Add(expected);
@@ -107,19 +127,21 @@ namespace PresentationLogic
             _iBusinessLogic.PerformCalibration(_kalibrering);
 
             UpdateChart(_kalibrering);
+            txtMåltTryk.Text = Convert.ToString(value);
+            ListBoxMåltTryk.Items.Add(value);
+
+            numericUpDown1.Text = Convert.ToString(_kalibrering.Slope);
+
+            if (ListBoxMåltTryk.Items.Count >= 3)
+            {
+                btnAfslutKali.Enabled = true;
+            }
         }
 
-        private void UpdateChart(KalibreringsDTO calibration)
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            chartMåltTryk.Series[0].Points.Clear();
-            chartMåltTryk.Series[1].Points.Clear();
-
-            for (int i = 0; i < calibration.ExpectedValue.Count; i++)
-            {
-                chartMåltTryk.Series[0].Points.AddXY(calibration.ExpectedValue[i], i);
-                chartMåltTryk.Series[1].Points.AddXY(calibration.ActualValue[i], i);
-            }
-
+            _kalibrering.Slope = Convert.ToDouble(numericUpDown1.Text) / 10;
+            UpdateChart(_kalibrering);
         }
     }
 }

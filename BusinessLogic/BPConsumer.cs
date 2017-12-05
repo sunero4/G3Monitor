@@ -50,10 +50,10 @@ namespace BusinessLogic
             //var convertedData = _conversion.ConvertToPressure(container.BloodPressure);
 
             //Det her skal ske her
-            //filteredData = _kaliAndZero.AddKalibreringAndZero(container.BloodPressure);
+            filteredData = _kaliAndZero.AddKalibreringAndZero(container.BloodPressure);
 
 
-            BPState = container.BloodPressure;
+            BPState = filteredData;
             //Set eventet sååååå controlleren får at vide den skal læse BPState
             _event.Set();
 

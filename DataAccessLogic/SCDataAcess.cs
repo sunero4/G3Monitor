@@ -41,6 +41,7 @@ namespace DataAccessLogic
             _saving = new Saving();
             _databaseSaving = new DatabaseSaving();
             _daqGetSingleValue = new DaqGetSingleValue();
+            _saveCalibrationXml = new SaveCalibrationXml();
         }
 
         public PatientDTO GetPatientInfo(PatientDTO patient)

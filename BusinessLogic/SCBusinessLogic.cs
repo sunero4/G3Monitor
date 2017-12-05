@@ -38,8 +38,8 @@ namespace BusinessLogic
             _login = new Login();
             _filter = new FilterBP();
             _patientDTO = new PatientDTO();
-            _consumer = new BPConsumer(queue, _iDataAccess, _event, _filter, new KaliAndZero(_nulpunktDTO, new KalibreringsDTO()), _patientDTO);
-            _kaliAndZero = new KaliAndZero(_nulpunktDTO, new KalibreringsDTO());
+            _kaliAndZero = new KaliAndZero(_nulpunktDTO, GetCalibration());
+            _consumer = new BPConsumer(queue, _iDataAccess, _event, _filter, _kaliAndZero, _patientDTO);
             _showData = new ShowData(container, _consumer, _event, _filter);
             _kalibreringsAlgoritme = new KalibreringsAlgoritme();
             _showData = new ShowData(container, _consumer, _event, _filter);
