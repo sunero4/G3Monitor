@@ -34,24 +34,17 @@ namespace BusinessLogic
         {
             var peaks = new List<int>();
             var count = 0;
+            var threshold = values.Max() * 0.8;
 
-            for (int i = 1; i < values.Count - 1; i++)
+            for (int i = 20; i < values.Count - 20; i += 20)
             {
-                if (i >= 3 && i < values.Count - 3)
+                if (values[i] > threshold && i >= 20)
                 {
-                    for (int j = 0; j < 3; j++)
+                    if (values[i] > values[i - 20] && values[i] > values[i + 20])
                     {
-                        if (values[i] > values[i - j] && values[i] > values[i + j])
-                        {
-                            count++;
-                        }
+                        peaks.Add(i);
                     }
                 }
-                if (count == 5)
-                {
-                    peaks.Add(i);
-                }
-                count = 0;
             }
 
             return peaks;

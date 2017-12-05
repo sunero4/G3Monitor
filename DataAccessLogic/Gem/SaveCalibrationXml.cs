@@ -29,12 +29,10 @@ namespace DataAccessLogic
                     new XAttribute("Time", kalibrering.Time.Date),
                     new XAttribute("Technician", kalibrering.Technician)));
 
-                xDoc.Save(FileInformation.CalibrationFilePath);
-                xDoc = XDocument.Load(FileInformation.CalibrationFilePath);
 
                 //Get the time attribute closest to now, to get the most recent calibration
                 var e1 = xDoc.Descendants("Calibration")
-                    .FirstOrDefault(x => (DateTime)x.Attribute("Time") == kalibrering.Time);
+                    .FirstOrDefault(x => (DateTime)x.Attribute("Time") == kalibrering.Time.Date);
 
                 if (e1 != null)
                 {
