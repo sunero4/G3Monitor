@@ -38,6 +38,7 @@ namespace PresentationLogic
 
                 _nulpunkt = nulpunkt;
                 _isFinished = true;
+                _businessLogic.GetNulpunkt(_nulpunkt);
 
                 var dialogResult = MessageBox.Show("Nulpunktsjustering er gennemført", "Afslut", MessageBoxButtons.OK);
                 if (dialogResult == DialogResult.OK)

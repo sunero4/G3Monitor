@@ -10,8 +10,8 @@ namespace DTO
     {
         private string _kommentar;
         public List<MaalingDTO> Maaling { get; set; }
-        public int Kalibrering { get; set; }
-        public int Nulpunktjustering { get; set; }
+        public double Kalibrering { get; set; }
+        public double Nulpunktjustering { get; set; }
         public int OperationsID { get; set; }
         
         

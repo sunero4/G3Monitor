@@ -12,6 +12,12 @@ namespace DataAccessLogic
     {
         private PatientInfoCommandBuilder _commandBuilder;
         private PatientInfoQueryBuilder _queryBuilder;
+
+        public PatientInfoRetrieval()
+        {
+            _commandBuilder = new PatientInfoCommandBuilder();
+            _queryBuilder = new PatientInfoQueryBuilder();
+        }
         public PatientDTO HentData(PatientDTO patient)
         {
             var patientOut = new PatientDTO();
@@ -27,6 +33,7 @@ namespace DataAccessLogic
                             patientOut.CPR = patient.CPR;
                             patientOut.Fornavn = rdr.GetString(rdr.GetOrdinal("Fornavn"));
                             patientOut.Efternavn = rdr.GetString(rdr.GetOrdinal("Efternavn"));
+                            patientOut.FindesData = true;
                         }
                     }
                 }

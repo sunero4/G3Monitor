@@ -47,21 +47,6 @@ namespace BusinessLogic
         {
             var patientIn = (PatientDTO) patient;
 
-            patientIn.CPR = "9394010002";
-            patientIn.Fornavn = "Anders";
-            patientIn.Efternavn = "Kloborg";
-            patientIn.ListOperation = new List<OperationsDTO>()
-            {
-                new OperationsDTO()
-                {
-                    Kalibrering = 1,
-                    Kommentar = "Test",
-                    MaaleTidspunkt = DateTime.Now,
-                    Nulpunktjustering = 1,
-                    OperationsID = 118
-                }
-            };
-
             SaveInitial(patientIn);
             
             while (CanRun)

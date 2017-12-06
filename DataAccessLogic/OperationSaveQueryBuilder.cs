@@ -18,7 +18,7 @@ namespace DataAccessLogic
         public string BuildQuery(OperationsDTO input)
         {
             _stringBuilder.Append(
-                "INSERT INTO OperationsData (Maaletidspunkt, Kommentar, Kalibrering, Nulpunktsjustering, CPR, OperationsID) OUTPUT INSERTED.OperationsID VALUES (@maaletidspunkt, @kommentar, @kalibrering, @nulpunktsjustering, @cpr, @id)");
+                "INSERT INTO OperationsData (Maaletidspunkt, Kalibrering, Nulpunktsjustering, CPR) OUTPUT INSERTED.OperationsID VALUES (@maaletidspunkt, @kalibrering, @nulpunktsjustering, @cpr)");
 
             return _stringBuilder.ToString();
         }

@@ -19,6 +19,7 @@ namespace PresentationLogic
     {
         private IBusinessLogic _iBusinessLogic;
         private Monitoreringsindstillinger _monitoring;
+        private Maaleindstillinger _maaleindstillinger;
         private PresentationDataContainer _container;
         private Nulpunktsjustering _nulpunktForm;
         private NulpunktsjusteringDTO _nulpunkt;
@@ -116,7 +117,7 @@ namespace PresentationLogic
 
         private void btn_StartMåling_Click_1(object sender, EventArgs e)
         {
-            var patient = _monitoring.Patient;
+            var patient = _iBusinessLogic.GetMonitoring().Patient;
             _iBusinessLogic.GetPatientInfoForSaving(patient);
             _container.Attach(this);
             var t1 = new Thread(_iBusinessLogic.StartShowData);
@@ -153,7 +154,8 @@ namespace PresentationLogic
 
         private void btn_Indstillinger_Click(object sender, EventArgs e)
         {
-            _monitoring = new Monitoreringsindstillinger();
+            _maaleindstillinger = new Maaleindstillinger(_iBusinessLogic, _monitoring);
+            _maaleindstillinger.Show();
         }
     }
 }

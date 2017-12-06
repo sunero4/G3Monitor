@@ -61,8 +61,9 @@ namespace BusinessLogic
             _savingEvent.Set();
         }
 
-        public void Run()
+        public void Run(object patient)
         {
+            var patientIn = (PatientDTO) patient;
             CanRun = true;
 
             var t1 = new Thread(_dataAccess.StartProducer);
@@ -71,7 +72,7 @@ namespace BusinessLogic
 
             var t2 = new Thread(_saving.StartSaving);
             t2.IsBackground = true;
-            t2.Start(_patient);
+            t2.Start(patientIn);
 
             while (CanRun)
             {

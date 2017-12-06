@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using BusinessLogic.Filter;
+using DTO;
 using Interfaces;
 using ObserverPattern;
 
@@ -23,6 +24,7 @@ namespace BusinessLogic
         private VoltageToPressureConversion _convert;
         private BPConsumer _consumer;
         private AutoResetEvent _event;
+        public PatientDTO Patient { get; set; }
         //private KaliAndZero _kaliAndZero;
 
         public bool CanRun { get; set; }
@@ -49,6 +51,7 @@ namespace BusinessLogic
             CanRun = true;
             _slidingWindow = new Queue<double>();
             _filter = filter;
+            Patient = new PatientDTO();
         }
 
 public void HandleData()
@@ -98,7 +101,7 @@ public void Start()
 {
     CanRun = true;
     Thread t1 = new Thread(_consumer.Run);
-    t1.Start();
+    t1.Start(Patient);
 
             while (CanRun)
             {

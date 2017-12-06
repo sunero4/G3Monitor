@@ -19,10 +19,13 @@ namespace PresentationLogic
         private Monitoreringsindstillinger _monitoring;
         private IBusinessLogic _iBusinessLogic;
         private Måling _maalingForm;
-        public Maaleindstillinger(IBusinessLogic iBusinessLogic)
+        private Maaleindstillinger _maaleindstillinger;
+
+        public Maaleindstillinger(IBusinessLogic iBusinessLogic, Monitoreringsindstillinger monitoring)
         {
             InitializeComponent();
             _iBusinessLogic = iBusinessLogic;
+            _monitoring = monitoring;
         }
 
         private void btnGemIndstillinger_Click(object sender, EventArgs e)
@@ -41,19 +44,28 @@ namespace PresentationLogic
                     {
                         CPR = txtCPR.Text,
                         Fornavn = txtFornavn.Text,
-                        Efternavn = txtEfternavn.Text
+                        Efternavn = txtEfternavn.Text,
+                        ListOperation = new List<OperationsDTO>()
+                        {
+                            new OperationsDTO()
+                            {
+                                MaaleTidspunkt = DateTime.Now,
+                                Kommentar = txtKommentar.Text
+                            }
+                        }
+                        
                     }
                 };
+                _iBusinessLogic.SetMonitoring(_monitoring);
             }
-            _maalingForm = new Måling(_iBusinessLogic, _monitoring, new PresentationDataContainer());
-            _maalingForm.Show();
+
             this.Close();
         }
 
         private void btnFindPatient_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("CPR-nummer er ugyldigt, vil du fortsætte alligvel?", "Ugyldigt CPR-nummer", MessageBoxButtons.YesNo);
-            if (_iBusinessLogic.CPRchecker(txtCPR.Text)==true)
+            if (_iBusinessLogic.CPRchecker(txtCPR.Text))
             {
                 var patientInfo = _iBusinessLogic.GetPatientInfo(new PatientDTO() { CPR = txtCPR.Text });
                 txtFornavn.Text = patientInfo.Fornavn;

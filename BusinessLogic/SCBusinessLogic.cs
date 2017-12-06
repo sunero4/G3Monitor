@@ -27,6 +27,7 @@ namespace BusinessLogic
         private CPRChecker _checker;
         private PatientDTO _patientDTO;
         private KalibreringsAlgoritme _kalibreringsAlgoritme;
+        private Monitoreringsindstillinger _monitoring;
 
 
         public SCBusinessLogic(IDataAccess iDataAccess, ConcurrentQueue<BPDataContainer> queue,
@@ -104,7 +105,7 @@ namespace BusinessLogic
 
         public void RunConsumer()
         {
-            _consumer.Run();
+            _consumer.Run(_patientDTO);
         }
 
         public void StartShowData()
@@ -129,7 +130,12 @@ namespace BusinessLogic
 
         public void GetPatientInfoForSaving(PatientDTO patient)
         {
-            _patientDTO = patient;
+            _patientDTO = _monitoring.Patient;
+            _patientDTO.ListOperation = new List<OperationsDTO>()
+            {
+                new OperationsDTO() {Kalibrering = GetCalibration().Slope, Nulpunktjustering = _nulpunktDTO.Nulpunktsjustering, MaaleTidspunkt = DateTime.Now, Kommentar = ""}
+            };
+            _showData.Patient = _patientDTO;
         }
 
         public double GetCalibrationPoint()
@@ -150,6 +156,16 @@ namespace BusinessLogic
         public bool CPRchecker(string cprnr)
         {
            return _checker.CPRchecker(cprnr); 
+        }
+
+        public Monitoreringsindstillinger GetMonitoring()
+        {
+            return _monitoring;
+        }
+
+        public void SetMonitoring(Monitoreringsindstillinger monitoring)
+        {
+            _monitoring = monitoring;
         }
     }
 }

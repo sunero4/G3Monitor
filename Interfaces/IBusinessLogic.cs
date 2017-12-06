@@ -44,5 +44,8 @@ namespace Interfaces
         void PerformCalibration(KalibreringsDTO calibration);
         void SaveCalibration(KalibreringsDTO calibration);
         bool CPRchecker(string cprnr);
+        void GetNulpunkt(NulpunktsjusteringDTO nulpunkt);
+        Monitoreringsindstillinger GetMonitoring();
+        void SetMonitoring(Monitoreringsindstillinger monitoring);
     }
 }

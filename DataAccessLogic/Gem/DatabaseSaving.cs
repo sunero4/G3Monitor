@@ -19,6 +19,7 @@ namespace DataAccessLogic
         private IQueryBuilder<PatientDTO> _patientQueryBuilder;
         private IQueryBuilder<OperationsDTO> _operationQueryBuilder;
         private IQueryBuilder<MaalingDTO> _measurementQueryBuilder;
+        private PatientInfoRetrieval _patientInfoRetrieval;
         private int _operationID;
 
         public DatabaseSaving()
@@ -28,6 +29,7 @@ namespace DataAccessLogic
             _measurementQueryBuilder = new MeasurementSaveQueryBuilder();
             _patientCommandBuilder = new PatientSaveCommandBuilder();
             _operationCommandBuilder = new OperationSaveCommandBuilder();
+            _patientInfoRetrieval = new PatientInfoRetrieval();
         }
 
 
@@ -57,7 +59,10 @@ namespace DataAccessLogic
 
         public void InitialSave(PatientDTO patient)
         {
-            InitalSavePatientData(patient);
+            if (!_patientInfoRetrieval.HentData(patient).FindesData)
+            {
+                InitalSavePatientData(patient);
+            }
             InitialSaveOperationData(patient);
         }
 
