@@ -11,16 +11,11 @@ namespace BusinessLogic.Filter
         private List<double> ChartList;
         public List<double> Smoothing(List<double> containerData)
         {
-
+            ChartList.Clear();
             for (int i = 0; i < containerData.Count - 5; i = i + 5)
             {
                 double average = (containerData.GetRange(i, 5).Average());
                 ChartList.Add(average);
-
-                if (ChartList.Count > 400)
-                {
-                    ChartList.RemoveAt(0);
-                }
             }
             return ChartList;
         }

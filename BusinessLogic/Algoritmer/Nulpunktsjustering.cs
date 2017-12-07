@@ -10,16 +10,14 @@ namespace BusinessLogic
 {
     public class Nulpunktsjustering
     {
-        private VoltageToPressureConversion _conversion;
         private IDataAccess _dataAccess;
 
         public Nulpunktsjustering(IDataAccess dataAccess)
         {
-            _conversion = new VoltageToPressureConversion();
             _dataAccess = dataAccess;
         }
 
-        public NulpunktsjusteringDTO PerformAdjustment(double voltage)
+        public NulpunktsjusteringDTO PerformAdjustment()
         {
             var nulpunkt = new NulpunktsjusteringDTO();
             nulpunkt.Nulpunktsjustering = _dataAccess.GetSinglePressureValue();

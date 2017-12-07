@@ -24,21 +24,22 @@ namespace BusinessLogic.Filter
         {
             ChartList.Clear();
             OutList.Clear();
-            for (int i = 0; i < containerData.Count - 2; i++)
-            {
-                double average = (containerData.GetRange(i, 2).Average());
-                ChartList.Add(average);
-            }
 
-            for (int i = 0; i < ChartList.Count - 5; i = i + 5)
+            for (int i = 0, n = containerData.Count; i < n - 10; i = i + 10)
             {
-                double average = (ChartList.GetRange(i, 5).Average());
-                OutList.Add(average);
+                double average = (containerData.GetRange(i, 10).Average());
+                ChartList.Add(average);
 
                 //if (ChartList.Count > 400)
                 //{
                 //    ChartList.RemoveAt(0);
                 //}
+            }
+
+            for (int i = 0, n = ChartList.Count; i < n - 2; i++)
+            {
+                double average = (containerData.GetRange(i, 2).Average());
+                OutList.Add(average);
             }
             return OutList;
             //ChartList.Clear();

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using ObserverPattern;
 
 
 namespace Interfaces
@@ -47,5 +48,6 @@ namespace Interfaces
         void GetNulpunkt(NulpunktsjusteringDTO nulpunkt);
         Monitoreringsindstillinger GetMonitoring();
         void SetMonitoring(Monitoreringsindstillinger monitoring);
+        void ToggleAlarmOn(PresentationDataContainer container, Monitoreringsindstillinger monitoring);
     }
 }

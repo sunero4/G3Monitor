@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using BusinessLogic.Alarm;
 using BusinessLogic.Filter;
 using DataAccessLogic;
 using DTO;
@@ -28,6 +29,7 @@ namespace BusinessLogic
         private PatientDTO _patientDTO;
         private KalibreringsAlgoritme _kalibreringsAlgoritme;
         private Monitoreringsindstillinger _monitoring;
+        private IAlarm _alarm;
 
 
         public SCBusinessLogic(IDataAccess iDataAccess, ConcurrentQueue<BPDataContainer> queue,
@@ -45,6 +47,7 @@ namespace BusinessLogic
             _kalibreringsAlgoritme = new KalibreringsAlgoritme();
             _showData = new ShowData(container, _consumer, _event, _filter);
             _checker= new CPRChecker();
+
         }
 
         public bool CheckLogin(MedarbejderDTO medarbejder)
@@ -84,7 +87,7 @@ namespace BusinessLogic
         public NulpunktsjusteringDTO PerformAdjustment()
         {
             var voltage = 4; //temporary
-            return _nulpunkt.PerformAdjustment(voltage);
+            return _nulpunkt.PerformAdjustment();
         }
 
         public PatientDTO GetPatientInfo(PatientDTO patient)
@@ -166,6 +169,12 @@ namespace BusinessLogic
         public void SetMonitoring(Monitoreringsindstillinger monitoring)
         {
             _monitoring = monitoring;
+        }
+
+        public void ToggleAlarmOn(PresentationDataContainer container, Monitoreringsindstillinger monitoring)
+        {
+            _alarm = AlarmFactory.CreateAlarm(container, monitoring);
+            container.Attach(_alarm);
         }
     }
 }

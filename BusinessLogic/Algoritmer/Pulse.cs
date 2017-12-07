@@ -50,7 +50,7 @@ namespace BusinessLogic
 
             for (int i = 20; i < values.Count - 20; i += 20)
             {
-                if (values[i] > threshold && i >= 20)
+                if (values[i] > threshold)
                 {
                     if (values[i] > values[i - 20] && values[i] > values[i + 20])
                     {

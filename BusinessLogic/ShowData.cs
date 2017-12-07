@@ -114,7 +114,7 @@ public void Start()
 }
         public void SetSlidingWindow(List<double> data)
         {
-            if (_slidingWindow.Count >= 2000)
+            if (_slidingWindow.Count >= 4000)
             {
                 _slidingWindow.DequeueMultipleElements(data.Count);
             }

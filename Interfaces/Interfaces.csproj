@@ -60,6 +60,10 @@
       <Project>{4b1f2ce6-e5b7-4174-bf52-3c1cc13db93a}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ObserverPattern\ObserverPattern.csproj">
+      <Project>{66d58343-c253-4310-9bc3-a358a08642c5}</Project>
+      <Name>ObserverPattern</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

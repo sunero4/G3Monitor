@@ -20,7 +20,7 @@ namespace BusinessLogic.Alarm
         private PresentationDataContainer _PresentationDataContainer;
 
         private Monitoreringsindstillinger _monitoreringsindstillinger;
-        SoundPlayer myAlarmSound = new SoundPlayer("//Mac/Home/Documents/1.Sundhedsteknologi/DSB/Del 1 Digital Signalbehandling/OpgaveløsningerL1(1)/sound.wav"); // STIEN skal være til computeren, der kører programmet!
+        SoundPlayer myAlarmSound = new SoundPlayer(@"C:\Users\Anders\Desktop\alarm.wav"); // STIEN skal være til computeren, der kører programmet!
 
         public AlarmSound(PresentationDataContainer presentationDataContainer, Monitoreringsindstillinger monitoreringsindstillinger)
         {

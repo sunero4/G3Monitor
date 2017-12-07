@@ -120,6 +120,7 @@ namespace PresentationLogic
             var patient = _iBusinessLogic.GetMonitoring().Patient;
             _iBusinessLogic.GetPatientInfoForSaving(patient);
             _container.Attach(this);
+            _iBusinessLogic.ToggleAlarmOn(_container, _monitoring);
             var t1 = new Thread(_iBusinessLogic.StartShowData);
             t1.IsBackground = true;
             t1.Start();
