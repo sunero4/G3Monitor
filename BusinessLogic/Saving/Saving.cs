@@ -60,11 +60,9 @@ namespace BusinessLogic
                     Patient.ListOperation[0].Maaling.Add(new MaalingDTO()
                     {
                         MaaleData = bytes,
-                        Sekvensnr = _sekvensNummer
                     });
                     SaveMeasurement(Patient);
                     Patient.ListOperation[0].Maaling.Clear();
-                    _sekvensNummer++;
                     _bpValues.Clear();
                 }
             }

@@ -35,11 +35,10 @@ namespace DataAccessLogic
 
         public void SaveBloodPressureData(PatientDTO patient)
         {
-            _measurementCommandBuilder = new MeasurementSaveCommandBuilder(_operationID);
-            foreach (var maaling in patient.ListOperation[0].Maaling)
-            {
-                SaveMeasurementData(maaling, _measurementCommandBuilder);
-            }
+            _measurementCommandBuilder = new MeasurementSaveCommandBuilder(patient.ListOperation[0].OperationsID);
+
+            SaveMeasurementData(patient.ListOperation[0].Maaling[0], _measurementCommandBuilder);
+            
 
         }
 
@@ -50,7 +49,7 @@ namespace DataAccessLogic
             using (SqlConnection conn = new SqlConnection(ConnectionInfo.Connectionstring))
             {
                 conn.Open();
-                using (SqlCommand cmd = _measurementCommandBuilder.BuildCommand(maaling, conn, query))
+                using (SqlCommand cmd = cmdBuilder.BuildCommand(maaling, conn, query))
                 {
                     cmd.ExecuteNonQuery();
                 }
@@ -59,11 +58,12 @@ namespace DataAccessLogic
 
         public void InitialSave(PatientDTO patient)
         {
-            if (!_patientInfoRetrieval.HentData(patient).FindesData)
+            if (_patientInfoRetrieval.HentData(patient).CPR == null)
             {
                 InitalSavePatientData(patient);
             }
             InitialSaveOperationData(patient);
+            _operationID = patient.ListOperation[0].OperationsID;
         }
 
         private void InitalSavePatientData(PatientDTO patient)
@@ -89,6 +89,7 @@ namespace DataAccessLogic
                 using (SqlCommand cmd = _operationCommandBuilder.BuildCommand(patient, conn, operationQuery))
                 {
                     _operationID = (int) cmd.ExecuteScalar();
+                    patient.ListOperation[0].OperationsID = _operationID;
                 }
             }
         }

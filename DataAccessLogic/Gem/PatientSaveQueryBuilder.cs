@@ -20,6 +20,7 @@ namespace DataAccessLogic.Gem
 
         public string BuildQuery(PatientDTO input)
         {
+            _builder.Clear();
             _builder.Append("INSERT INTO Patient (Fornavn, Efternavn, CPR) VALUES (@fornavn, @efternavn, @cpr)");
 
             return _builder.ToString();

@@ -21,7 +21,7 @@ namespace DataAccessLogic
 
         public RetrievedData()
         {
-            _operationCommandBuilder = new OperationSaveCommandBuilder();
+            _operationCommandBuilder = new OperationCommandBuilder();
             _measurementCommandBuilder = new MeasurementCommandBuilder();
             _operationQueryBuilder = new OperationQueryBuilder();
             _measurementQueryBuilder = new MeasurementQueryBuilder();
@@ -34,10 +34,10 @@ namespace DataAccessLogic
 
             var operationQuery = _operationQueryBuilder.BuildQuery(new List<OperationsDTO>());
 
-            var tempOperation = new OperationsDTO();
+            
             try
             {
-                using (SqlConnection conn = new SqlConnection(operationQuery))
+                using (SqlConnection conn = new SqlConnection(ConnectionInfo.Connectionstring))
                 {
                     conn.Open();
                     using (SqlCommand cmd = _operationCommandBuilder.BuildCommand(patient, conn, operationQuery))
@@ -46,6 +46,7 @@ namespace DataAccessLogic
                         {
                             while (rdr.Read())
                             {
+                                var tempOperation = new OperationsDTO();
                                 tempOperation.OperationsID = rdr.GetInt32(rdr.GetOrdinal("OperationsID"));
                                 tempOperation.Kalibrering = rdr.GetInt32(rdr.GetOrdinal("Kalibrering"));
                                 tempOperation.Kommentar = SafeGetString(rdr, "Kommentar");
@@ -73,12 +74,12 @@ namespace DataAccessLogic
             var patientOut = GetOperations(patient);
 
             var query = _measurementQueryBuilder.BuildQuery(patient);
-            var measurement = new MaalingDTO();
 
 
             foreach (var operation in patientOut.ListOperation)
             {
-                using (SqlConnection conn = new SqlConnection(query))
+                operation.Maaling = new List<MaalingDTO>();
+                using (SqlConnection conn = new SqlConnection(ConnectionInfo.Connectionstring))
                 {
                     conn.Open();
                     using (SqlCommand cmd = _measurementCommandBuilder.BuildCommand(operation, conn, query))
@@ -87,9 +88,10 @@ namespace DataAccessLogic
                         {
                             while (rdr.Read())
                             {
-                                measurement.MaaleData = (byte[]) rdr["Måledata"];
-                                measurement.Sekvensnr = rdr.GetInt32(rdr.GetOrdinal("Sekvensnr"));
-                                measurement.MaaleID = rdr.GetInt32(rdr.GetOrdinal("Maaleid"));
+                                var measurement = new MaalingDTO();
+                                measurement.MaaleData = (byte[]) rdr["Maaledata"];
+                                measurement.Sekvensnr = rdr.GetInt32(rdr.GetOrdinal("SekvensNummer"));
+                                measurement.MaaleID = rdr.GetInt32(rdr.GetOrdinal("MaaleID"));
 
                                 operation.Maaling.Add(measurement);
                             }

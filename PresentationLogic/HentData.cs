@@ -36,7 +36,9 @@ namespace PresentationLogic
 
         private void btn_hentData_Click(object sender, EventArgs e)
         {
-            var patient = new PatientDTO();
+            var tempPatient = new PatientDTO() {CPR = txt_indtastCpr.Text};
+            var patient = _iBusinessLogic.GetPatientInfo(tempPatient);
+
             string messageTekst = "Der er intet data tilknyttet CPR-nummeret";
             if (patient.CPR == txt_indtastCpr.Text)
             {
@@ -45,6 +47,8 @@ namespace PresentationLogic
                 //Aksetitler til charten:
                 chart_måling.ChartAreas[0].AxisX.Title = "Sekunder";
                 chart_måling.ChartAreas[0].AxisY.Title = "mmHg";
+                txt_patientCpr.Text = patient.CPR;
+                txt_patientNavn.Text = patient.Fornavn + " " + patient.Efternavn;
             }
             else
                 MessageBox.Show(messageTekst); 
@@ -70,20 +74,27 @@ namespace PresentationLogic
             else
             {
                 List<MaalingDTO> separatedbpValues = _patient.ListOperation[_operationIndex].Maaling;
-                List<double> bpValues = _iBusinessLogic.ConvertArrayToDoubles(separatedbpValues[_bpSegmentIndex].MaaleData);
-                for (int i = 0; i < 5000; i++)
+                if (separatedbpValues.Count > 0)
                 {
-                    chart_måling.Series[0].Points.AddXY(i, 0.001, bpValues[i]);
+                    List<double> bpValues = _iBusinessLogic.ConvertArrayToDoubles(separatedbpValues[_bpSegmentIndex].MaaleData);
+                    for (int i = 0; i < 5000; i++)
+                    {
+                        chart_måling.Series[0].Points.AddXY(i * 0.001, bpValues[i]);
+                    }
                 }
-
             }
        
             // Udfyld patient/ data oplysninger 
-
             txt_kommentarer.Text = _patient.ListOperation[_operationIndex].Kommentar;
             txt_patientNavn.Text = _patient.Fornavn + " " + _patient.Efternavn;
             txt_patientCpr.Text = _patient.CPR;
-            combo_ældreData.Text = _patient.ListOperation[_bpSegmentIndex].MaaleTidspunkt.ToLongDateString(); // tjek om det virker SS og LD 
+
+            foreach (var item in _patient.ListOperation)
+            {
+                combo_ældreData.Items.Add(item.MaaleTidspunkt);
+            }
+
+            combo_ældreData.Text = _patient.ListOperation[index].MaaleTidspunkt.ToShortDateString(); // tjek om det virker SS og LD 
 
             //Set the scrollbar values to match the number of blood pressure segments for the current operation
             hScrollBar1.Minimum = 0;
@@ -92,10 +103,10 @@ namespace PresentationLogic
 
         private void combo_ældreData_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PatientDTO patient = new PatientDTO();
-            _operationIndex = patient.ListOperation.FindIndex(x =>
+            _operationIndex = _patient.ListOperation.FindIndex(x =>
                 x.MaaleTidspunkt == Convert.ToDateTime(combo_ældreData.SelectedItem)); 
             Chart(_operationIndex);
+            _bpSegmentIndex = 0;
         }
 
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
@@ -103,6 +114,11 @@ namespace PresentationLogic
             if (e.OldValue < e.NewValue)
             {
                 _bpSegmentIndex++;
+                Chart(_operationIndex);
+            }
+            if (e.OldValue > e.NewValue)
+            {
+                _bpSegmentIndex--;
                 Chart(_operationIndex);
             }
         }

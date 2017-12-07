@@ -19,7 +19,7 @@ namespace DataAccessLogic.Hent
 
         public string BuildQuery(PatientDTO input)
         {
-            _stringBuilder.Append("SELECT * FROM Maaling WHERE MaaleID = @id");
+            _stringBuilder.Append("SELECT * FROM Måling WHERE OperationsId = @id");
             return _stringBuilder.ToString();
         }
     }

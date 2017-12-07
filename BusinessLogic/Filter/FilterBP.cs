@@ -12,34 +12,36 @@ namespace BusinessLogic.Filter
     public class FilterBP:IFilter
     {
         private List<double> ChartList;
+        private List<double> OutList;
 
         public FilterBP()
         {
             ChartList = new List<double>();
+            OutList = new List<double>();
         }
 
         public List<double> Smoothing(List<double> containerData)
         {
-            //ChartList.Clear();
-            for (int i = 0; i < containerData.Count; i = i + 5)
+            ChartList.Clear();
+            OutList.Clear();
+            for (int i = 0; i < containerData.Count - 2; i++)
             {
-                double average = (containerData.GetRange(i, 5).Average());
+                double average = (containerData.GetRange(i, 2).Average());
                 ChartList.Add(average);
-
-                if (ChartList.Count > 400)
-                {
-                    ChartList.RemoveAt(0);
-                }
             }
-            return ChartList;
-            //ChartList.Clear();
 
-            //for (int i = 0; i < containerData.Count - 2; i++)
-            //{
-            //    double average = (containerData.GetRange(i, 2).Average());
-            //    ChartList.Add(average);
-            //}
-            //return ChartList;
+            for (int i = 0; i < ChartList.Count - 5; i = i + 5)
+            {
+                double average = (ChartList.GetRange(i, 5).Average());
+                OutList.Add(average);
+
+                //if (ChartList.Count > 400)
+                //{
+                //    ChartList.RemoveAt(0);
+                //}
+            }
+            return OutList;
+            //ChartList.Clear();
         }
     }
 }

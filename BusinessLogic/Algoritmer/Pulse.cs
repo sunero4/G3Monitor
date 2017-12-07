@@ -12,6 +12,7 @@ namespace BusinessLogic
 {
     public class Pulse:IPulse
     {
+        private double _lastPulse;
         public int TimeDifferences(List<double> data)
         {
             var times = Times(data);
@@ -24,7 +25,18 @@ namespace BusinessLogic
                 var diff = times[i] - times[i - 1];
                 differences.Add(diff);
             }
-            var averageDifference = differences.Average();
+            double averageDifference;
+
+            if (differences.Count == 0)
+            {
+                averageDifference = _lastPulse;
+            }
+            else
+            {
+                averageDifference = differences.Average();
+            }
+
+            _lastPulse = averageDifference;
 
             return Convert.ToInt32(averageDifference);
         }

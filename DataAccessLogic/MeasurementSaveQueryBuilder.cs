@@ -18,6 +18,7 @@ namespace DataAccessLogic
 
         public string BuildQuery(MaalingDTO input)
         {
+            _stringBuilder.Clear();
             _stringBuilder.Append("INSERT INTO Måling (OperationsID, Maaledata, SekvensNummer) VALUES (@operationsid, @maaledata, @sekvensnummer)");
 
             return _stringBuilder.ToString();

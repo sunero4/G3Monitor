@@ -12,7 +12,7 @@ namespace BusinessLogic.Filter
         public List<double> Smoothing(List<double> containerData)
         {
 
-            for (int i = 0; i < containerData.Count; i = i + 5)
+            for (int i = 0; i < containerData.Count - 5; i = i + 5)
             {
                 double average = (containerData.GetRange(i, 5).Average());
                 ChartList.Add(average);
