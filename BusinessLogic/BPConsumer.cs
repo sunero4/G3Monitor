@@ -46,10 +46,7 @@ namespace BusinessLogic
             {
                 Thread.Sleep(0);
             }
-            //Konverter (og måske filtrer) data her, så vi kan regne på det i controlleren
-            //var convertedData = _conversion.ConvertToPressure(container.BloodPressure);
 
-            //Det her skal ske her
             filteredData = _kaliAndZero.AddKalibreringAndZero(container.BloodPressure);
 
 

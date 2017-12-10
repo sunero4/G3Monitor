@@ -64,23 +64,29 @@ namespace PresentationLogic
 
         private void btnFindPatient_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("CPR-nummer er ugyldigt, vil du fortsætte alligvel?", "Ugyldigt CPR-nummer", MessageBoxButtons.YesNo);
             if (_iBusinessLogic.CPRchecker(txtCPR.Text))
             {
                 var patientInfo = _iBusinessLogic.GetPatientInfo(new PatientDTO() { CPR = txtCPR.Text });
                 txtFornavn.Text = patientInfo.Fornavn;
                 txtEfternavn.Text = patientInfo.Efternavn;
             }
-            else if (dialogResult == DialogResult.Yes)
+            else
             {
-                var patientInfo = _iBusinessLogic.GetPatientInfo(new PatientDTO() { CPR = txtCPR.Text });
-                txtFornavn.Text = patientInfo.Fornavn;
-                txtEfternavn.Text = patientInfo.Efternavn;
+                DialogResult dialogResult = MessageBox.Show("CPR-nummer er ugyldigt, vil du fortsætte alligevel?", "Ugyldigt CPR-nummer", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    var patientInfo = _iBusinessLogic.GetPatientInfo(new PatientDTO() { CPR = txtCPR.Text });
+                    txtFornavn.Text = patientInfo.Fornavn;
+                    txtEfternavn.Text = patientInfo.Efternavn;
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    // ingen kode, messageBox lukker ned og går tilbage til måleindstillingsformen
+                }
             }
-            else if (dialogResult == DialogResult.No)
-            {
-                // ingen kode, messageBox lukker ned og går tilbage til måleindstillingsformen
-            }
+
+            
 
 
 

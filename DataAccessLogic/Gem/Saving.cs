@@ -24,27 +24,31 @@ namespace DataAccessLogic.Gem
 
         public void SaveData(PatientDTO patient)
         {
+            _iSaving = new DatabaseSaving();
             patient.ListOperation[0].Maaling[0].Sekvensnr = _sekvensNummer;
-            _iSaving.SaveBloodPressureData(patient);
 
-            _sekvensNummer++;
-            //try
-            //{
-            //    if (_transfer.GetData(patient) != null)
-            //    {
-            //        _transfer.TransferToDatabase(patient);
-            //        _remove.ClearData();
-            //        _iSaving.SaveBloodPressureData(patient);
-            //    }
-            //    else
-            //    {
-            //        _iSaving.SaveBloodPressureData(patient);
-            //    }
-            //}
-            //catch (Exception)
-            //{
-            //    _iSaving= new FileSaving();
-            //}
+            try
+            {
+                if (_transfer.GetData(patient) != null)
+                {
+                    _transfer.TransferToDatabase(patient);
+                    _remove.ClearData();
+                    _iSaving.SaveBloodPressureData(patient);
+                }
+                else
+                {
+                    _iSaving.SaveBloodPressureData(patient);
+                }
+            }
+            catch (Exception e)
+            {
+                _iSaving = new FileSaving();
+                _iSaving.SaveBloodPressureData(patient);
+            }
+            finally
+            {
+                _sekvensNummer++;
+            }
         }
 
     }

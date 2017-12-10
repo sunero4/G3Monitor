@@ -37,9 +37,10 @@ namespace DataAccessLogic
         {
             _measurementCommandBuilder = new MeasurementSaveCommandBuilder(patient.ListOperation[0].OperationsID);
 
-            SaveMeasurementData(patient.ListOperation[0].Maaling[0], _measurementCommandBuilder);
-            
-
+            foreach (var maaling in patient.ListOperation[0].Maaling)
+            {
+                SaveMeasurementData(maaling, _measurementCommandBuilder);
+            }
         }
 
         private void SaveMeasurementData(MaalingDTO maaling, ICommandBuilder<MaalingDTO> cmdBuilder)

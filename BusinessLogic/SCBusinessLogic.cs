@@ -28,8 +28,12 @@ namespace BusinessLogic
         private CPRChecker _checker;
         private PatientDTO _patientDTO;
         private KalibreringsAlgoritme _kalibreringsAlgoritme;
-        private Monitoreringsindstillinger _monitoring;
         private IAlarm _alarm;
+        private MonitoringSettings _monitoringSettings;
+        private ICalculateSysDia _dia;
+        private ICalculateSysDia _sys;
+        private IPulse _pulse;
+        private IAverageBP _averageBP;
 
 
         public SCBusinessLogic(IDataAccess iDataAccess, ConcurrentQueue<BPDataContainer> queue,
@@ -47,7 +51,11 @@ namespace BusinessLogic
             _kalibreringsAlgoritme = new KalibreringsAlgoritme();
             _showData = new ShowData(container, _consumer, _event, _filter);
             _checker= new CPRChecker();
-
+            _monitoringSettings = new MonitoringSettings();
+            _sys = new Systolic();
+            _dia = new Diastolic();
+            _averageBP = new AverageBloodPressure();
+            _pulse = new Pulse();
         }
 
         public bool CheckLogin(MedarbejderDTO medarbejder)
@@ -133,7 +141,7 @@ namespace BusinessLogic
 
         public void GetPatientInfoForSaving(PatientDTO patient)
         {
-            _patientDTO = _monitoring.Patient;
+            _patientDTO = _monitoringSettings.GetMonitoring().Patient;
             _patientDTO.ListOperation = new List<OperationsDTO>()
             {
                 new OperationsDTO() {Kalibrering = GetCalibration().Slope, Nulpunktjustering = _nulpunktDTO.Nulpunktsjustering, MaaleTidspunkt = DateTime.Now, Kommentar = ""}
@@ -163,18 +171,37 @@ namespace BusinessLogic
 
         public Monitoreringsindstillinger GetMonitoring()
         {
-            return _monitoring;
+            return _monitoringSettings.GetMonitoring();
         }
 
         public void SetMonitoring(Monitoreringsindstillinger monitoring)
         {
-            _monitoring = monitoring;
+            _monitoringSettings.SetMonitoring(monitoring);
         }
 
         public void ToggleAlarmOn(PresentationDataContainer container, Monitoreringsindstillinger monitoring)
         {
             _alarm = AlarmFactory.CreateAlarm(container, monitoring);
             container.Attach(_alarm);
+        }
+
+        public void ToggleAlarmOff(PresentationDataContainer container)
+        {
+            _alarm.DetachFromSubject(container);
+        }
+
+        public PresentationDataContainer CalculateValues(List<double> bpValues)
+        {
+            var timediff = _pulse.TimeDifferences(bpValues);
+            var container = new PresentationDataContainer()
+            {
+                AverageBloodPressure = _averageBP.Calculate(bpValues),
+                Pulse = _pulse.Calculate(bpValues),
+                DiastolicPressure = _dia.Calculate(bpValues, timediff),
+                SystolicPressure = _sys.Calculate(bpValues, timediff)
+            };
+
+            return container;
         }
     }
 }

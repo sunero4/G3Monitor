@@ -14,7 +14,7 @@ namespace BusinessLogic.Tests.Unit
         private IFilter _iFilter;
         private IPulse _pulse;
         private ICalculateSysDia _sysDia;
-        private IAverangePB _averange;
+        private IAverageBP _averange;
         private ShowData _uut;
 
 
@@ -24,7 +24,7 @@ namespace BusinessLogic.Tests.Unit
             _iFilter = Substitute.For<IFilter>();
             _pulse = Substitute.For<IPulse>();
             _sysDia = Substitute.For<ICalculateSysDia>();
-            _averange = Substitute.For<IAverangePB>(); 
+            _averange = Substitute.For<IAverageBP>(); 
            var _uut = new ShowData();
         }
 

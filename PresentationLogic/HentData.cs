@@ -39,8 +39,11 @@ namespace PresentationLogic
             var tempPatient = new PatientDTO() {CPR = txt_indtastCpr.Text};
             var patient = _iBusinessLogic.GetPatientInfo(tempPatient);
 
-            string messageTekst = "Der er intet data tilknyttet CPR-nummeret";
-            if (patient.CPR == txt_indtastCpr.Text)
+            if (!patient.FindesData)
+            {
+                MessageBox.Show("Intet data tilknyttet CPR-nummeret");
+            }
+            else
             {
                 _patient = _iBusinessLogic.HentData(patient);
                 Chart(0);
@@ -50,10 +53,12 @@ namespace PresentationLogic
                 txt_patientCpr.Text = patient.CPR;
                 txt_patientNavn.Text = patient.Fornavn + " " + patient.Efternavn;
             }
-            else
-                MessageBox.Show(messageTekst); 
 
         }
+
+
+
+        
 
         private void Chart(int index)
         {
@@ -62,28 +67,21 @@ namespace PresentationLogic
             txt_kommentarer.Clear();
             txt_patientNavn.Clear();
             txt_patientCpr.Clear();
-            combo_ældreData.Items.Clear(); // Tjek om denne virker SS og LD 
+            combo_ældreData.Items.Clear(); 
             chart_måling.Series["Blodtryk"].Points.Clear();
             // Chart kode 
 
-
-            if (!_patient.FindesData)
+            var separatedbpValues = _patient.ListOperation[_operationIndex].Maaling;
+            if (separatedbpValues.Count > 0)
             {
-                MessageBox.Show("Intet data tilknyttet CPR-nummeret");
-            }
-            else
-            {
-                List<MaalingDTO> separatedbpValues = _patient.ListOperation[_operationIndex].Maaling;
-                if (separatedbpValues.Count > 0)
+                List<double> bpValues = _iBusinessLogic.ConvertArrayToDoubles(separatedbpValues[_bpSegmentIndex].MaaleData);
+                for (int i = 0; i < 5000; i++)
                 {
-                    List<double> bpValues = _iBusinessLogic.ConvertArrayToDoubles(separatedbpValues[_bpSegmentIndex].MaaleData);
-                    for (int i = 0; i < 5000; i++)
-                    {
-                        chart_måling.Series[0].Points.AddXY(i * 0.001, bpValues[i]);
-                    }
+                    chart_måling.Series[0].Points.AddXY(i * 0.001, bpValues[i]);
                 }
+                UpdateLabels(bpValues);
             }
-       
+
             // Udfyld patient/ data oplysninger 
             txt_kommentarer.Text = _patient.ListOperation[_operationIndex].Kommentar;
             txt_patientNavn.Text = _patient.Fornavn + " " + _patient.Efternavn;
@@ -140,6 +138,14 @@ namespace PresentationLogic
             _iBusinessLogic.CreateFilter(false);
             btn_filtreret.Enabled = true;
             btn_ufiltreret.Enabled = false;
+        }
+
+        private void UpdateLabels(List<double> bpValues)
+        {
+            var container = _iBusinessLogic.CalculateValues(bpValues);
+            lbl_middelBT_value.Text = Convert.ToString(container.AverageBloodPressure);
+            lbl_sys_dia_value.Text = Convert.ToString(container.SystolicPressure + " / " + container.DiastolicPressure);
+            lbl_puls_value.Text = Convert.ToString(container.Pulse);
         }
     }
 }

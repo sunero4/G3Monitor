@@ -52,7 +52,7 @@ namespace PresentationLogic
                         _hentForm = new HentData(_iBusinessLogic);
                         _hentForm.Show();
                     }
-                    else
+                    else if(!rbtnStartMål.Checked && !rbtnHentdata.Checked)
                     {
                         MessageBox.Show("Vælg venligst den ønskede funktion.");
                     }
@@ -90,34 +90,7 @@ namespace PresentationLogic
                     MessageBox.Show("Brugernavn eller password er forkert, prøv igen.");
                 }
             }
-
-            // Tekniker Ikke færdig, mangler forbindelsen til kalibrering 
-            
-            
-            //if (rbtnTekniker.Checked && txtBrugernavn.Text.Length == 8 )
-            //{
-            //    TeknikerDTO _tekniker = new TeknikerDTO();
-            //    _tekniker.Brugernavn = txtBrugernavn.Text;
-            //    _tekniker.HashedPassword = _iBusinessLogic.HashAndSaltPassword(txtPassword.Text, _iBusinessLogic.GetSalt(_tekniker));
-            //    bool validerLogin = _iBusinessLogic.CheckLogin(_tekniker);
-            //    rbtnStartMål.Enabled = false;
-            //    rbtnHentdata.Enabled = false; 
-            //    if (validerLogin)
-            //    {
-            //        if (rbtnStartKalib.Checked)
-            //        {
-            //            this.Hide();
-            //            _myStartKalib = new Kalibrering();
-            //            _myStartKalib.Show();
-            //        }
-                  
-            //    }
-
-                //if (validerLogin)
-                //{
-                //    MessageBox.Show("Brugernavn eller password er forkert, prøv igen.. ");
-                //}
-            }
+        }
 
         private void rbtnTekniker_CheckedChanged(object sender, EventArgs e)
         {

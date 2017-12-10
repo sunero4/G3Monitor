@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public interface IAverangePB
+    public interface IAverageBP
     {
         int Calculate(List<double> btList); 
     }

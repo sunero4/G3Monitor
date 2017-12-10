@@ -17,28 +17,41 @@ namespace DataAccessLogic.Hent
         /// <returns>Operation DTO containing all retrieved information</returns>
         public OperationsDTO HentData(PatientDTO patient)
         {
-            var xDoc = XDocument.Load(FileInformation.BPFilePath);
-
-            var e = (from x in xDoc.Descendants("Operations").Elements("Operation")
-                where (string) x.Attribute("CPR") == patient.CPR
-                select x).ToList();
-
-            var operation = new OperationsDTO()
+            try
             {
-                OperationsID = (int) e[0].Parent.Attribute("OperationsId"),
-                Maaling = new List<MaalingDTO>()
-            };
+                var xDoc = XDocument.Load(FileInformation.BPFilePath);
 
-            for (int i = 0; i < e.Count; i++)
-            {
-                var m = new MaalingDTO()
+                var e = (from x in xDoc.Descendants("Operationer").Elements("Operation")
+                    where (string)x.Attribute("CPR") == patient.CPR
+                    select x).ToList();
+
+                var operation = new OperationsDTO()
                 {
-                    MaaleData = Convert.FromBase64String(e[i].Value),
-                    Sekvensnr = Convert.ToInt32(e[i].Attribute("SekvensNr"))
+                    OperationsID = (int)e[0]?.Attribute("OperationsId"),
+                    Maaling = new List<MaalingDTO>()
                 };
-                operation.Maaling.Add(m);
+
+                var data = (from x in e.Elements("Maalingdata")
+                    select x).ToList();
+
+                foreach (var element in data)
+                {
+                    var measurement = element.Value;
+                    var m = new MaalingDTO()
+                    {
+                        MaaleData = Convert.FromBase64String(measurement),
+                        Sekvensnr = Convert.ToInt32((string)element.Attribute("SekvensNr"))
+                    };
+                    operation.Maaling.Add(m);
+                }
+
+                return operation;
             }
-            return operation;
+            catch (Exception exception)
+            {
+                return null;
+            }
+          
         }
     }
 }

@@ -25,9 +25,9 @@ namespace BusinessLogic.Filter
             ChartList.Clear();
             OutList.Clear();
 
-            for (int i = 0, n = containerData.Count; i < n - 10; i = i + 10)
+            for (int i = 0, n = containerData.Count; i < n - 5; i += 5)
             {
-                double average = (containerData.GetRange(i, 10).Average());
+                double average = (containerData.GetRange(i, 5).Average());
                 ChartList.Add(average);
 
                 //if (ChartList.Count > 400)

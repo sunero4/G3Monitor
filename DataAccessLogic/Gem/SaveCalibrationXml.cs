@@ -26,13 +26,13 @@ namespace DataAccessLogic
                 //If root element is not null, add new element "Calibration" with two attributes,
                 //time and technician
                 e?.Add(new XElement("Calibration",
-                    new XAttribute("Time", kalibrering.Time.Date),
+                    new XAttribute("Time", kalibrering.Time),
                     new XAttribute("Technician", kalibrering.Technician)));
 
 
                 //Get the time attribute closest to now, to get the most recent calibration
                 var e1 = xDoc.Descendants("Calibration")
-                    .FirstOrDefault(x => (DateTime)x.Attribute("Time") == kalibrering.Time.Date);
+                    .FirstOrDefault(x => (DateTime)x.Attribute("Time") == kalibrering.Time);
 
                 if (e1 != null)
                 {

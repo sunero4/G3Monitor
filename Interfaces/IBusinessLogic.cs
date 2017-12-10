@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
@@ -49,5 +50,7 @@ namespace Interfaces
         Monitoreringsindstillinger GetMonitoring();
         void SetMonitoring(Monitoreringsindstillinger monitoring);
         void ToggleAlarmOn(PresentationDataContainer container, Monitoreringsindstillinger monitoring);
+        void ToggleAlarmOff(PresentationDataContainer container);
+        PresentationDataContainer CalculateValues(List<double> bpValues);
     }
 }

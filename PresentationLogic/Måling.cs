@@ -12,6 +12,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using DTO;
 using Interfaces;
 using ObserverPattern;
+using Timer = System.Windows.Forms.Timer;
 
 namespace PresentationLogic
 {
@@ -24,6 +25,8 @@ namespace PresentationLogic
         private Nulpunktsjustering _nulpunktForm;
         private NulpunktsjusteringDTO _nulpunkt;
         private Login _login;
+        private System.Windows.Forms.Timer _timer;
+
         public Måling(IBusinessLogic iBusinessLogic, Monitoreringsindstillinger monitoring, PresentationDataContainer container)
         {
             InitializeComponent();
@@ -31,6 +34,8 @@ namespace PresentationLogic
             _monitoring = monitoring;
             _container = container;
             _nulpunkt = new NulpunktsjusteringDTO();
+            _timer = new Timer() {Interval = 120000};
+            _timer.Tick += HandleAlarmDeactivationTimer;
         }
 
         public new void Update()
@@ -113,17 +118,21 @@ namespace PresentationLogic
         {
             _nulpunktForm = new Nulpunktsjustering(_iBusinessLogic, _nulpunkt);
             _nulpunktForm.Show();
+            btn_Indstillinger.Enabled = true;
         }
 
         private void btn_StartMåling_Click_1(object sender, EventArgs e)
         {
-            var patient = _iBusinessLogic.GetMonitoring().Patient;
+            btn_StopMåling.Enabled = true;
+            _monitoring = _iBusinessLogic.GetMonitoring();
+            var patient = _monitoring.Patient;
             _iBusinessLogic.GetPatientInfoForSaving(patient);
             _container.Attach(this);
             _iBusinessLogic.ToggleAlarmOn(_container, _monitoring);
             var t1 = new Thread(_iBusinessLogic.StartShowData);
             t1.IsBackground = true;
             t1.Start();
+            
         }
 
         private void btn_StopMåling_Click(object sender, EventArgs e)
@@ -157,6 +166,39 @@ namespace PresentationLogic
         {
             _maaleindstillinger = new Maaleindstillinger(_iBusinessLogic, _monitoring);
             _maaleindstillinger.Show();
+            btn_StartMåling.Enabled = true;
+        }
+
+        private void btn_DeaktiverAlarm_Click(object sender, EventArgs e)
+        {
+            _iBusinessLogic.ToggleAlarmOff(_container);
+            _timer.Start();
+        }
+
+        private void HandleAlarmDeactivationTimer(object sender, EventArgs e)
+        {
+            _iBusinessLogic.ToggleAlarmOn(_container, _monitoring);
+            _timer.Stop();
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            _monitoring.MinimumSystolic = Convert.ToInt32(numericUpDown1.Value);
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            _monitoring.MaximumSystolic = Convert.ToInt32(numericUpDown2.Value);
+        }
+
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+            _monitoring.MinimumDiastolic = Convert.ToInt32(numericUpDown3.Value);
+        }
+
+        private void numericUpDown4_ValueChanged(object sender, EventArgs e)
+        {
+            _monitoring.MaximumDiastolic = Convert.ToInt32(numericUpDown4.Value);
         }
     }
 }

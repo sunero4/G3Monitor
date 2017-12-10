@@ -31,11 +31,11 @@ namespace BusinessLogic.Alarm
         {
             if (_monitoreringsindstillinger.MaximumDiastolic < dia || _monitoreringsindstillinger.MinimumDiastolic > dia || _monitoreringsindstillinger.MaximumSystolic < sys || _monitoreringsindstillinger.MinimumSystolic > sys)
             {
-                myAlarmSound.PlayLooping();
+                //myAlarmSound.PlayLooping();
             }
             else if (_monitoreringsindstillinger.MaximumDiastolic > dia & _monitoreringsindstillinger.MinimumDiastolic < dia & _monitoreringsindstillinger.MaximumSystolic > sys & _monitoreringsindstillinger.MinimumSystolic < sys)
             {
-                myAlarmSound.Stop();
+                //myAlarmSound.Stop();
             }
         }
 
