@@ -36,6 +36,7 @@ namespace PresentationLogic
             _nulpunkt = new NulpunktsjusteringDTO();
             _timer = new Timer() {Interval = 120000};
             _timer.Tick += HandleAlarmDeactivationTimer;
+            ChartSetup();
         }
 
         public new void Update()
@@ -114,6 +115,8 @@ namespace PresentationLogic
                 var t1 = new Thread(_iBusinessLogic.StartShowData);
                 t1.IsBackground = true;
                 t1.Start();
+
+                
             }
             catch (Exception exception)
             {
@@ -212,8 +215,12 @@ namespace PresentationLogic
 
         private void ChartSetup()
         {
-            chart1.ChartAreas[0].AxisX.Minimum = 40;
-            ch
+            //chart1.ChartAreas[0].AxisX.Minimum = 0;
+            //chart1.ChartAreas[0].AxisX.Interval = 1;
+            //chart1.ChartAreas[0].AxisX.Maximum = 4;
+            chart1.ChartAreas[0].AxisY.Minimum = 40;
+            chart1.ChartAreas[0].AxisY.Maximum = 240;
+            chart1.ChartAreas[0].AxisY.Interval = 20;
         }
 
         private void Måling_Load(object sender, EventArgs e)

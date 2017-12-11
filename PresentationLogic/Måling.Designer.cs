@@ -30,9 +30,9 @@ namespace PresentationLogic
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btn_Nulpunktsjustering = new System.Windows.Forms.Button();
             this.btn_Indstillinger = new System.Windows.Forms.Button();
             this.btn_StartMåling = new System.Windows.Forms.Button();
@@ -76,12 +76,12 @@ namespace PresentationLogic
             // btn_Nulpunktsjustering
             // 
             this.btn_Nulpunktsjustering.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_Nulpunktsjustering.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Nulpunktsjustering.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Nulpunktsjustering.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_Nulpunktsjustering.Location = new System.Drawing.Point(38, 32);
             this.btn_Nulpunktsjustering.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btn_Nulpunktsjustering.Name = "btn_Nulpunktsjustering";
-            this.btn_Nulpunktsjustering.Size = new System.Drawing.Size(173, 61);
+            this.btn_Nulpunktsjustering.Size = new System.Drawing.Size(215, 72);
             this.btn_Nulpunktsjustering.TabIndex = 0;
             this.btn_Nulpunktsjustering.Text = "Nulpunktsjustering ";
             this.btn_Nulpunktsjustering.UseVisualStyleBackColor = false;
@@ -90,12 +90,12 @@ namespace PresentationLogic
             // btn_Indstillinger
             // 
             this.btn_Indstillinger.Enabled = false;
-            this.btn_Indstillinger.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Indstillinger.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Indstillinger.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_Indstillinger.Location = new System.Drawing.Point(38, 106);
+            this.btn_Indstillinger.Location = new System.Drawing.Point(38, 112);
             this.btn_Indstillinger.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btn_Indstillinger.Name = "btn_Indstillinger";
-            this.btn_Indstillinger.Size = new System.Drawing.Size(173, 58);
+            this.btn_Indstillinger.Size = new System.Drawing.Size(215, 69);
             this.btn_Indstillinger.TabIndex = 1;
             this.btn_Indstillinger.Text = "Indstillinger for måling";
             this.btn_Indstillinger.UseVisualStyleBackColor = true;
@@ -104,12 +104,12 @@ namespace PresentationLogic
             // btn_StartMåling
             // 
             this.btn_StartMåling.Enabled = false;
-            this.btn_StartMåling.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_StartMåling.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_StartMåling.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_StartMåling.Location = new System.Drawing.Point(38, 177);
+            this.btn_StartMåling.Location = new System.Drawing.Point(38, 190);
             this.btn_StartMåling.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btn_StartMåling.Name = "btn_StartMåling";
-            this.btn_StartMåling.Size = new System.Drawing.Size(173, 56);
+            this.btn_StartMåling.Size = new System.Drawing.Size(215, 66);
             this.btn_StartMåling.TabIndex = 2;
             this.btn_StartMåling.Text = "Start måling";
             this.btn_StartMåling.UseVisualStyleBackColor = true;
@@ -118,12 +118,12 @@ namespace PresentationLogic
             // btn_StopMåling
             // 
             this.btn_StopMåling.Enabled = false;
-            this.btn_StopMåling.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_StopMåling.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_StopMåling.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_StopMåling.Location = new System.Drawing.Point(38, 247);
+            this.btn_StopMåling.Location = new System.Drawing.Point(38, 267);
             this.btn_StopMåling.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btn_StopMåling.Name = "btn_StopMåling";
-            this.btn_StopMåling.Size = new System.Drawing.Size(173, 59);
+            this.btn_StopMåling.Size = new System.Drawing.Size(215, 66);
             this.btn_StopMåling.TabIndex = 3;
             this.btn_StopMåling.Text = "Stop måling";
             this.btn_StopMåling.UseVisualStyleBackColor = true;
@@ -132,46 +132,46 @@ namespace PresentationLogic
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.Black;
-            chartArea1.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX.MajorGrid.Interval = 0D;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX.Title = "Tid (sekunder)";
-            chartArea1.AxisX2.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX2.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisY.MajorGrid.Interval = 0D;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisY.Title = "Tryk (mmHg)";
-            chartArea1.AxisY2.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea1.BackColor = System.Drawing.Color.Black;
-            chartArea1.BorderColor = System.Drawing.Color.White;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.BackColor = System.Drawing.Color.Black;
-            legend1.BorderColor = System.Drawing.Color.Transparent;
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend1.ForeColor = System.Drawing.Color.Red;
-            legend1.HeaderSeparatorColor = System.Drawing.Color.White;
-            legend1.IsTextAutoFit = false;
-            legend1.ItemColumnSeparatorColor = System.Drawing.Color.White;
-            legend1.Name = "Legend1";
-            legend1.TitleBackColor = System.Drawing.Color.Black;
-            legend1.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chart1.Legends.Add(legend1);
+            chartArea5.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea5.AxisX.MajorGrid.Interval = 0D;
+            chartArea5.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea5.AxisX.Title = "Tid (sekunder)";
+            chartArea5.AxisX2.LineColor = System.Drawing.Color.White;
+            chartArea5.AxisX2.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea5.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea5.AxisY.MajorGrid.Interval = 0D;
+            chartArea5.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea5.AxisY.Title = "Tryk (mmHg)";
+            chartArea5.AxisY2.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea5.BackColor = System.Drawing.Color.Black;
+            chartArea5.BorderColor = System.Drawing.Color.White;
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
+            legend5.BackColor = System.Drawing.Color.Black;
+            legend5.BorderColor = System.Drawing.Color.Transparent;
+            legend5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend5.ForeColor = System.Drawing.Color.Red;
+            legend5.HeaderSeparatorColor = System.Drawing.Color.White;
+            legend5.IsTextAutoFit = false;
+            legend5.ItemColumnSeparatorColor = System.Drawing.Color.White;
+            legend5.Name = "Legend1";
+            legend5.TitleBackColor = System.Drawing.Color.Black;
+            legend5.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chart1.Legends.Add(legend5);
             this.chart1.Location = new System.Drawing.Point(331, 32);
             this.chart1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.chart1.Name = "chart1";
-            series1.BackImageTransparentColor = System.Drawing.Color.White;
-            series1.BackSecondaryColor = System.Drawing.Color.White;
-            series1.BorderColor = System.Drawing.Color.White;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series1.Color = System.Drawing.Color.Red;
-            series1.LabelForeColor = System.Drawing.Color.Red;
-            series1.Legend = "Legend1";
-            series1.Name = "Blodtryk";
-            this.chart1.Series.Add(series1);
+            series5.BackImageTransparentColor = System.Drawing.Color.White;
+            series5.BackSecondaryColor = System.Drawing.Color.White;
+            series5.BorderColor = System.Drawing.Color.White;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series5.Color = System.Drawing.Color.Red;
+            series5.LabelForeColor = System.Drawing.Color.Red;
+            series5.Legend = "Legend1";
+            series5.Name = "Blodtryk";
+            this.chart1.Series.Add(series5);
             this.chart1.Size = new System.Drawing.Size(1155, 751);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "chart1";
@@ -281,6 +281,7 @@ namespace PresentationLogic
             // 
             // btn_filtrerMåling
             // 
+            this.btn_filtrerMåling.Enabled = false;
             this.btn_filtrerMåling.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_filtrerMåling.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_filtrerMåling.Location = new System.Drawing.Point(1530, 583);
@@ -294,6 +295,7 @@ namespace PresentationLogic
             // 
             // btn_UfiltrerMåling
             // 
+            this.btn_UfiltrerMåling.Enabled = false;
             this.btn_UfiltrerMåling.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_UfiltrerMåling.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_UfiltrerMåling.Location = new System.Drawing.Point(1530, 661);
@@ -352,6 +354,7 @@ namespace PresentationLogic
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox1.Location = new System.Drawing.Point(40, 342);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
@@ -448,7 +451,8 @@ namespace PresentationLogic
             // 
             // btn_DeaktiverAlarm
             // 
-            this.btn_DeaktiverAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_DeaktiverAlarm.Enabled = false;
+            this.btn_DeaktiverAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_DeaktiverAlarm.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_DeaktiverAlarm.Location = new System.Drawing.Point(18, 218);
             this.btn_DeaktiverAlarm.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
@@ -461,7 +465,8 @@ namespace PresentationLogic
             // 
             // btn_AktiverAlarm
             // 
-            this.btn_AktiverAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AktiverAlarm.Enabled = false;
+            this.btn_AktiverAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AktiverAlarm.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_AktiverAlarm.Location = new System.Drawing.Point(20, 306);
             this.btn_AktiverAlarm.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);

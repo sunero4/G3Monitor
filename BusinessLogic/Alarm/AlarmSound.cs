@@ -30,7 +30,7 @@ namespace BusinessLogic.Alarm
         }
         public void StartAlarm(int sys, int dia)
         {
-            if (_monitoreringsindstillinger.MaximumDiastolic < dia || _monitoreringsindstillinger.MinimumDiastolic > dia || _monitoreringsindstillinger.MaximumSystolic < sys || _monitoreringsindstillinger.MinimumSystolic > sys && _isPlaying == false)
+            if ((_monitoreringsindstillinger.MaximumDiastolic < dia || _monitoreringsindstillinger.MinimumDiastolic > dia || _monitoreringsindstillinger.MaximumSystolic < sys || _monitoreringsindstillinger.MinimumSystolic > sys) && _isPlaying == false)
             {
                 myAlarmSound.PlayLooping();
                 _isPlaying = true;
