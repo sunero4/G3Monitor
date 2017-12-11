@@ -25,7 +25,6 @@ namespace BusinessLogic
         private AutoResetEvent _event;
         public PatientDTO Patient { get; set; }
         public Monitoreringsindstillinger Monitoring { get; set; }
-
         public bool CanRun { get; set; }
         public IFilter Filter { get { return _filter; } set { _filter = value; } }
 
@@ -42,6 +41,7 @@ namespace BusinessLogic
             _slidingWindow = new Queue<double>();
             _filter = filter;
             Patient = new PatientDTO();
+            FillWindow();
         }
 
 public void HandleData()
@@ -85,19 +85,28 @@ public void Start()
             {
                 _consumer.CanRun = false;
             }
-}
-public void SetSlidingWindow(List<double> data)
-    {
-        if (_slidingWindow.Count >= 4000)
+    }
+        public void SetSlidingWindow(List<double> data)
         {
-            _slidingWindow.DequeueMultipleElements(data.Count);
+            if (_slidingWindow.Count >= 4000)
+            {
+                _slidingWindow.DequeueMultipleElements(data.Count);
+            }
+            _slidingWindow.EnqueueMultipleElements(data);
         }
-        _slidingWindow.EnqueueMultipleElements(data);
-    }
 
-public List<double> GetSlidingWindow()
-    {
-        return _slidingWindow.ToList();
-    }
+        public List<double> GetSlidingWindow()
+        {
+            return _slidingWindow.ToList();
+        }
+
+        private void FillWindow()
+        {
+            for (int i = 0; i < 4000; i++)
+            {
+                _slidingWindow.Enqueue(0);
+            }
+        }
+
     }
 }

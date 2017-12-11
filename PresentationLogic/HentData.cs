@@ -40,6 +40,7 @@ namespace PresentationLogic
         {
             var tempPatient = new PatientDTO() {CPR = txt_indtastCpr.Text};
             var patient = _iBusinessLogic.GetPatientInfo(tempPatient);
+            txt_patientNavn.Text = patient.Fornavn + " " + patient.Efternavn;
 
             if (!patient.FindesData)
             {
@@ -47,7 +48,9 @@ namespace PresentationLogic
             }
             else
             {
+                Cursor.Current = Cursors.WaitCursor;
                 _patient = _iBusinessLogic.HentData(patient);
+                Cursor.Current = Cursors.Default;
                 Chart(0, _filterType);
                 //Aksetitler til charten:
                 chart_måling.ChartAreas[0].AxisX.Title = "Sekunder";
@@ -67,8 +70,6 @@ namespace PresentationLogic
             //Resettting af værdier:   
             txt_indtastCpr.Clear();
             txt_kommentarer.Clear();
-            txt_patientNavn.Clear();
-            txt_patientCpr.Clear();
             combo_ældreData.Items.Clear(); 
             chart_måling.Series["Blodtryk"].Points.Clear();
             // Chart kode 
@@ -88,8 +89,6 @@ namespace PresentationLogic
 
             // Udfyld patient/ data oplysninger 
             txt_kommentarer.Text = _patient.ListOperation[_operationIndex].Kommentar;
-            txt_patientNavn.Text = _patient.Fornavn + " " + _patient.Efternavn;
-            txt_patientCpr.Text = _patient.CPR;
 
             foreach (var item in _patient.ListOperation)
             {

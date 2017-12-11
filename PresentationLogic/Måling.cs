@@ -116,7 +116,9 @@ namespace PresentationLogic
                 t1.IsBackground = true;
                 t1.Start();
 
-                
+                btn_AktiverAlarm.Enabled = true;
+                btn_DeaktiverAlarm.Enabled = true;
+                btn_UfiltrerMåling.Enabled = true;
             }
             catch (Exception exception)
             {
@@ -221,6 +223,10 @@ namespace PresentationLogic
             chart1.ChartAreas[0].AxisY.Minimum = 40;
             chart1.ChartAreas[0].AxisY.Maximum = 240;
             chart1.ChartAreas[0].AxisY.Interval = 20;
+            chart1.ChartAreas[0].AxisX.Title = "Tid (sekunder)";
+            chart1.ChartAreas[0].AxisY.Title = "Tryk (mmHg)";
+            chart1.ChartAreas[0].AxisX.MajorGrid.Interval = 200;
+            chart1.ChartAreas[0].AxisY.MajorGrid.Interval = 20;
         }
 
         private void Måling_Load(object sender, EventArgs e)

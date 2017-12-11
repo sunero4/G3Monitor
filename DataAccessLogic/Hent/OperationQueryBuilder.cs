@@ -18,6 +18,7 @@ namespace DataAccessLogic.Hent
 
         public string BuildQuery(List<OperationsDTO> input)
         {
+            _stringBuilder.Clear();
             _stringBuilder.Append("SELECT * FROM OperationsData WHERE CPR = @cpr");
             return _stringBuilder.ToString();
         }

@@ -44,6 +44,8 @@ namespace BusinessLogic.Filter
                 //double average = (containerData.GetRange(i, 2).Average());
                 //OutList.Add(average);
             }
+            OutList.Add(ChartList[ChartList.Count - 2]);
+            OutList.Add(ChartList[ChartList.Count - 1]);
             return OutList;
             //ChartList.Clear();
         }

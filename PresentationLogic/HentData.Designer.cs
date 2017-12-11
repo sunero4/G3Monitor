@@ -130,9 +130,11 @@
             this.chart_måling.BackColor = System.Drawing.Color.Black;
             chartArea1.AxisX.LineColor = System.Drawing.Color.White;
             chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX.TitleForeColor = System.Drawing.Color.White;
             chartArea1.AxisX2.LineColor = System.Drawing.Color.White;
             chartArea1.AxisY.LineColor = System.Drawing.Color.White;
             chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.TitleForeColor = System.Drawing.Color.White;
             chartArea1.AxisY2.LineColor = System.Drawing.Color.White;
             chartArea1.BackColor = System.Drawing.Color.Black;
             chartArea1.Name = "ChartArea1";
@@ -145,9 +147,11 @@
             this.chart_måling.Location = new System.Drawing.Point(318, 20);
             this.chart_måling.Name = "chart_måling";
             series1.BorderColor = System.Drawing.Color.Transparent;
+            series1.BorderWidth = 3;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Color = System.Drawing.Color.Red;
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series1.LabelBackColor = System.Drawing.Color.Transparent;
             series1.LabelBorderColor = System.Drawing.Color.Transparent;
             series1.LabelForeColor = System.Drawing.Color.Red;
@@ -286,7 +290,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(1797, 20);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 39);
             this.button1.TabIndex = 20;
@@ -322,6 +326,7 @@
             this.Controls.Add(this.btn_hentData);
             this.Controls.Add(this.txt_indtastCpr);
             this.Controls.Add(this.lbl_cpr);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "HentData";
             this.Text = "G3-monitor: Hent data";
             this.Load += new System.EventHandler(this.HentData_Load);
