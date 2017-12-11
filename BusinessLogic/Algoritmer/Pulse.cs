@@ -44,15 +44,40 @@ namespace BusinessLogic
 
         public List<int> Times(List<double> values)
         {
+
+            //var rangeOfPeaks = 30;
+            //List<int> peaks = new List<int>();
+            //double current;
+            //IEnumerable<double> range;
+
+            //int checksOnEachSide = rangeOfPeaks / 2;
+            //for (int i = 0, n = values.Count - checksOnEachSide; i < n; i++)
+            //{
+            //    current = values[i];
+            //    range = values;
+
+            //    if (i > checksOnEachSide)
+            //    {
+            //        range = range.Skip(i - checksOnEachSide);
+            //    }
+
+            //    range = range.Take(rangeOfPeaks);
+            //    if ((range.Count() > 0) && (current == range.Max()))
+            //    {
+            //        peaks.Add(i);
+            //    }
+            //}
+
+            //return peaks;
             var peaks = new List<int>();
             var count = 0;
             var threshold = values.Max() * 0.8;
 
-            for (int i = 20; i < values.Count - 20; i += 20)
+            for (int i = 30; i < values.Count - 30; i += 30)
             {
                 if (values[i] > threshold)
                 {
-                    if (values[i] > values[i - 20] && values[i] > values[i + 20])
+                    if (values[i] > values[i - 30] && values[i] > values[i + 30])
                     {
                         peaks.Add(i);
                     }
@@ -106,8 +131,8 @@ namespace BusinessLogic
             //}
 
             //return peaks;
-            ////var tempList = new List<MaxValue>();
-            ////var superMegaList = new List<List<MaxValue>>();
+            //var tempList = new List<MaxValue>();
+            //var superMegaList = new List<List<MaxValue>>();
 
             //var tempList = new List<double>();
             //var superMegaList = new List<List<double>>();
@@ -158,7 +183,7 @@ namespace BusinessLogic
             //return times;
         }
 
-       
+
 
         //public List<int> Times(List<double> btList)
         //{
@@ -198,30 +223,30 @@ namespace BusinessLogic
 
 
         //double max = 0;
-            //var threshold = btList.Max() * 0.8;
-            //List<int> times = new List<int>();
+////        var threshold = btList.Max() * 0.8;
+////        List<int> times = new List<int>();
 
-            //for (int i = 1; i < btList.Count - 1; i++)
-            //{
-            //    //if (btList[i] <= btList[i + 1])
-            //    //{
-            //    //    max = btList[i + 1];
-            //    //}
-            //    //if (max == btList[i] && max > btList[i + 1])
-            //    //{
-            //    //    times.Add(i);
-            //    //}
+////            for (int i = 1; i<btList.Count - 1; i++)
+////            {
+////                if (btList[i] <= btList[i + 1])
+////                {
+////                    max = btList[i + 1];
+////                }
+////                if (max == btList[i] && max > btList[i + 1])
+////                {
+////                    times.Add(i);
+////                }
 
-            //    if (btList[i] > btList[i + 1] && btList[i] > threshold && btList[i] > btList[i - 1])
-            //    {
-            //        times.Add(i);
-            //    }
-            //}
-            //return times;
+////                if (btList[i] > btList[i + 1] && btList[i] > threshold && btList[i] > btList[i - 1])
+////                {
+////                    times.Add(i);
+////                }
+////}
+////            return times;
 
-        public double Calculate(List<double> btList)
+        public int Calculate(List<double> btList)
         {
-            double pulse = 0;
+            int pulse = 0;
             var diff = TimeDifferences(btList);
 
             if (diff != 0)
@@ -229,18 +254,8 @@ namespace BusinessLogic
                 pulse = 60000 / diff; // 60000 sample divideret med den gennemsnitlige tidsforskel mellem toppunkterne og derefter dividere vi med en faktor 1000, da der er 1000 sample pr. sekund. 
             }
             
-            return pulse;
+            return Convert.ToInt32(pulse * 0.9);
 
-        }
-
-        private List<double> CopyList(List<double> list)
-        {
-            List<double> newList = new List<double>();
-            foreach (var x in list)
-            {
-                newList.Add(x);
-            }
-            return newList;
         }
     }
 

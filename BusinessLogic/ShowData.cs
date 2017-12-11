@@ -24,8 +24,10 @@ namespace BusinessLogic
         private BPConsumer _consumer;
         private AutoResetEvent _event;
         public PatientDTO Patient { get; set; }
+        public Monitoreringsindstillinger Monitoring { get; set; }
 
         public bool CanRun { get; set; }
+        public IFilter Filter { get { return _filter; } set { _filter = value; } }
 
         public ShowData(PresentationDataContainer container, BPConsumer consumer, AutoResetEvent autoResetEvent, IFilter filter)
         {
@@ -54,8 +56,6 @@ public void HandleData()
 
     var currentData = _filter.Smoothing(data);
 
-    //var tf = new TaskFactory();
-
     if (data.Count > 1900)
     {
         _container.Pulse = _pulse.Calculate(data);
@@ -75,7 +75,7 @@ public void Start()
 {
     CanRun = true;
     Thread t1 = new Thread(_consumer.Run);
-    t1.Start(Patient);
+    t1.Start(Monitoring);
 
             while (CanRun)
             {

@@ -63,9 +63,8 @@ namespace PresentationLogic
         {
             txtIndtastTryk.Clear();
             txtMåltTryk.Clear();
-          
-                  // _kalibreringsDto.addValue(_iDataAccess.getSingleReading());
         }
+
         private void btnSletMåling_Click(object sender, EventArgs e)
         {
             // Slet målepunkt i listbox
@@ -74,17 +73,6 @@ namespace PresentationLogic
             _kalibrering.ActualValue.RemoveAt(index);
             _kalibrering.ExpectedValue.RemoveAt(index);
             UpdateChart(_kalibrering);
-
-
-            //// tjek om metoden til at slette markerede items virker!!!!
-            //foreach (string item in ListBoxMåltTryk.Items)
-            //{
-            //    string removelistitem = "Linje";
-            //    if (item.Contains(removelistitem))
-            //    {
-            //        ListBoxMåltTryk.Items.Remove(item);
-            //    }
-            //}
         }
 
    

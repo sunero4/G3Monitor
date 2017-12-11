@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Interfaces;
 using DTO;
+using ObserverPattern;
 
 namespace PresentationLogic
 {
@@ -20,13 +21,14 @@ namespace PresentationLogic
         private int _bpSegmentIndex;
         private int _operationIndex;
         private Login _login;
-
+        private bool _filterType;
         public HentData(IBusinessLogic iBusinessLogic)
         {
             InitializeComponent();
             _iBusinessLogic = iBusinessLogic;
             _bpSegmentIndex = 0;
             _operationIndex = 0;
+            _filterType = true;
         }
 
         private void HentData_Load(object sender, EventArgs e)
@@ -46,7 +48,7 @@ namespace PresentationLogic
             else
             {
                 _patient = _iBusinessLogic.HentData(patient);
-                Chart(0);
+                Chart(0, _filterType);
                 //Aksetitler til charten:
                 chart_måling.ChartAreas[0].AxisX.Title = "Sekunder";
                 chart_måling.ChartAreas[0].AxisY.Title = "mmHg";
@@ -60,7 +62,7 @@ namespace PresentationLogic
 
         
 
-        private void Chart(int index)
+        private void Chart(int index, bool filterType)
         {
             //Resettting af værdier:   
             txt_indtastCpr.Clear();
@@ -72,12 +74,14 @@ namespace PresentationLogic
             // Chart kode 
 
             var separatedbpValues = _patient.ListOperation[_operationIndex].Maaling;
+
             if (separatedbpValues.Count > 0)
             {
                 List<double> bpValues = _iBusinessLogic.ConvertArrayToDoubles(separatedbpValues[_bpSegmentIndex].MaaleData);
-                for (int i = 0; i < 5000; i++)
+                var chartValues = _iBusinessLogic.FilterBPValues(bpValues, filterType);
+                for (int i = 0; i < chartValues.Count; i++)
                 {
-                    chart_måling.Series[0].Points.AddXY(i * 0.001, bpValues[i]);
+                    chart_måling.Series[0].Points.AddXY(i * 0.005, chartValues[i]);
                 }
                 UpdateLabels(bpValues);
             }
@@ -102,9 +106,9 @@ namespace PresentationLogic
         private void combo_ældreData_SelectedIndexChanged(object sender, EventArgs e)
         {
             _operationIndex = _patient.ListOperation.FindIndex(x =>
-                x.MaaleTidspunkt == Convert.ToDateTime(combo_ældreData.SelectedItem)); 
-            Chart(_operationIndex);
+                x.MaaleTidspunkt == Convert.ToDateTime(combo_ældreData.SelectedItem));
             _bpSegmentIndex = 0;
+            Chart(_operationIndex, _filterType);
         }
 
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
@@ -112,30 +116,35 @@ namespace PresentationLogic
             if (e.OldValue < e.NewValue)
             {
                 _bpSegmentIndex++;
-                Chart(_operationIndex);
+                Chart(_operationIndex, _filterType);
             }
             if (e.OldValue > e.NewValue)
             {
                 _bpSegmentIndex--;
-                Chart(_operationIndex);
+                Chart(_operationIndex, _filterType);
             }
         }
 
         private void button1_Click(object sender, EventArgs e) // log ud knap
         {
-            _login.ShowDialog(); 
+            _login = new Login(_iBusinessLogic, new PresentationDataContainer());
+            _login.Show();
+
+            this.Close();
         }
 
         private void btn_filtreret_Click(object sender, EventArgs e)
         {
-            _iBusinessLogic.CreateFilter(true); // Evt forkert, da det ikke kører i en tråd, men mere skal konverteres 
+            _filterType = true;
+            Chart(_operationIndex, _filterType);
             btn_filtreret.Enabled = false;
             btn_ufiltreret.Enabled = true;
         }
 
         private void btn_ufiltreret_Click(object sender, EventArgs e)
         {
-            _iBusinessLogic.CreateFilter(false);
+            _filterType = false;
+            Chart(_operationIndex, _filterType);
             btn_filtreret.Enabled = true;
             btn_ufiltreret.Enabled = false;
         }

@@ -29,15 +29,14 @@ namespace DataAccessLogic.Gem
 
             try
             {
+                _iSaving = new DatabaseSaving();
+                _iSaving.SaveBloodPressureData(patient);
+
                 if (_transfer.GetData(patient) != null)
                 {
                     _transfer.TransferToDatabase(patient);
+                    _iSaving.SaveBloodPressureData(patient);
                     _remove.ClearData();
-                    _iSaving.SaveBloodPressureData(patient);
-                }
-                else
-                {
-                    _iSaving.SaveBloodPressureData(patient);
                 }
             }
             catch (Exception e)

@@ -16,7 +16,7 @@ namespace BusinessLogic.Alarm
         private int _maxValueSys;
         private int _minValueDia;
         private int _minValueSys;
-        //private int _newValue;
+        private bool _isPlaying;
         private PresentationDataContainer _PresentationDataContainer;
 
         private Monitoreringsindstillinger _monitoreringsindstillinger;
@@ -26,22 +26,30 @@ namespace BusinessLogic.Alarm
         {
             _PresentationDataContainer = presentationDataContainer;
             _monitoreringsindstillinger = monitoreringsindstillinger;
+            _isPlaying = false;
         }
         public void StartAlarm(int sys, int dia)
         {
-            if (_monitoreringsindstillinger.MaximumDiastolic < dia || _monitoreringsindstillinger.MinimumDiastolic > dia || _monitoreringsindstillinger.MaximumSystolic < sys || _monitoreringsindstillinger.MinimumSystolic > sys)
+            if (_monitoreringsindstillinger.MaximumDiastolic < dia || _monitoreringsindstillinger.MinimumDiastolic > dia || _monitoreringsindstillinger.MaximumSystolic < sys || _monitoreringsindstillinger.MinimumSystolic > sys && _isPlaying == false)
             {
-                //myAlarmSound.PlayLooping();
+                myAlarmSound.PlayLooping();
+                _isPlaying = true;
             }
             else if (_monitoreringsindstillinger.MaximumDiastolic > dia & _monitoreringsindstillinger.MinimumDiastolic < dia & _monitoreringsindstillinger.MaximumSystolic > sys & _monitoreringsindstillinger.MinimumSystolic < sys)
             {
-                //myAlarmSound.Stop();
+                StopAlarm();
             }
         }
 
         public void Update()
         {
             StartAlarm(_PresentationDataContainer.SystolicPressure, _PresentationDataContainer.DiastolicPressure);
+        }
+
+        public void StopAlarm()
+        {
+            myAlarmSound.Stop();
+            _isPlaying = false;
         }
 
         public void AttachToSubject(MeasurementSubjectBL subject)

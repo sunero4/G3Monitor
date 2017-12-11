@@ -15,6 +15,11 @@ namespace BusinessLogic
 
         public int Calculate(List<double> btList, int timediff)
         {
+            if (timediff == 0)
+            {
+                return 0;
+            }
+
             var startIndex = btList.Count - timediff;
             var currentSamples = btList.Skip(startIndex);
 

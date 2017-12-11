@@ -8,7 +8,7 @@ namespace BusinessLogic
 {
     public interface IPulse
     {
-        double Calculate(List<double> btList);
+        int Calculate(List<double> btList);
         int TimeDifferences(List<double> data);
         List<int> Times(List<double> btList);
     }

@@ -24,6 +24,7 @@ namespace BusinessLogic.Filter
         {
             ChartList.Clear();
             OutList.Clear();
+            double sum = 0;
 
             for (int i = 0, n = containerData.Count; i < n - 5; i += 5)
             {
@@ -38,8 +39,10 @@ namespace BusinessLogic.Filter
 
             for (int i = 0, n = ChartList.Count; i < n - 2; i++)
             {
-                double average = (containerData.GetRange(i, 2).Average());
-                OutList.Add(average);
+                sum = ChartList[i] + ChartList[i + 1] + ChartList[i + 2];
+                OutList.Add(sum / 3);
+                //double average = (containerData.GetRange(i, 2).Average());
+                //OutList.Add(average);
             }
             return OutList;
             //ChartList.Clear();

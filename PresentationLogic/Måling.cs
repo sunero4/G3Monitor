@@ -43,30 +43,10 @@ namespace PresentationLogic
             UpdateBPValues(_container);
         }
 
-        //private void UpdateChart(List<double> data) 
-        //{
-        //    if (InvokeRequired)
-        //    {
-        //        BeginInvoke(new Action(() => UpdateChart(data)));
-        //    }
-        //    else
-        //    {
-        //        chart1.Series[0].Points.Clear();
-        //        for (int i = 0; i < data.Count; i++)
-        //        {
-        //            chart1.Series[0].Points.Add(data[i], i);
-        //        }
-        //        //var bleh = data.Count - 1;
-        //        //for (int i = bleh; i < 4000; i++)
-        //        //{
-        //        //    chart1.Series[0].Points.AddXY(0, 0);
-        //        //}
-        //    }
-        //}
-
         private void UpdateBPValues(PresentationDataContainer container)
         {
-
+            //If called from another thread, invoke this method from the GUI thread. When called from
+            //the GUI, no invoke is required and the code will enter the else-block.
             if (InvokeRequired)
             {
                 BeginInvoke(new Action(() => UpdateBPValues(container)));
@@ -78,7 +58,7 @@ namespace PresentationLogic
                 chart1.Series[0].Points.Clear();
                 for (int i = 0; i < data.Count; i++)
                 {
-                    chart1.Series[0].Points.Add(data[i], i);
+                    chart1.Series[0].Points.Add(data[i], (i * 0.005));
                 }
                 label_SysDia.Text = Convert.ToString(container.SystolicPressure) + " / " +
                                     Convert.ToString(container.DiastolicPressure);
@@ -123,15 +103,22 @@ namespace PresentationLogic
 
         private void btn_StartMåling_Click_1(object sender, EventArgs e)
         {
-            btn_StopMåling.Enabled = true;
-            _monitoring = _iBusinessLogic.GetMonitoring();
-            var patient = _monitoring.Patient;
-            _iBusinessLogic.GetPatientInfoForSaving(patient);
-            _container.Attach(this);
-            _iBusinessLogic.ToggleAlarmOn(_container, _monitoring);
-            var t1 = new Thread(_iBusinessLogic.StartShowData);
-            t1.IsBackground = true;
-            t1.Start();
+            try
+            {
+                btn_StopMåling.Enabled = true;
+                _monitoring = _iBusinessLogic.GetMonitoring();
+                var patient = _monitoring.Patient;
+                _iBusinessLogic.GetPatientInfoForSaving(patient);
+                _container.Attach(this);
+                _iBusinessLogic.ToggleAlarmOn(_container, _monitoring);
+                var t1 = new Thread(_iBusinessLogic.StartShowData);
+                t1.IsBackground = true;
+                t1.Start();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Måling blev ikke foretaget, prøv igen.");
+            }
             
         }
 
@@ -158,21 +145,18 @@ namespace PresentationLogic
 
         private void button1_Click(object sender, EventArgs e)
         {
+            _login = new Login(_iBusinessLogic, _container);
             _iBusinessLogic.StopMeasurement();
+            this.Close();
+
             _login.ShowDialog(); 
         }
 
         private void btn_Indstillinger_Click(object sender, EventArgs e)
         {
-            _maaleindstillinger = new Maaleindstillinger(_iBusinessLogic, _monitoring);
+            _maaleindstillinger = new Maaleindstillinger(_iBusinessLogic, _monitoring, this);
             _maaleindstillinger.Show();
             btn_StartMåling.Enabled = true;
-        }
-
-        private void btn_DeaktiverAlarm_Click(object sender, EventArgs e)
-        {
-            _iBusinessLogic.ToggleAlarmOff(_container);
-            _timer.Start();
         }
 
         private void HandleAlarmDeactivationTimer(object sender, EventArgs e)
@@ -199,6 +183,42 @@ namespace PresentationLogic
         private void numericUpDown4_ValueChanged(object sender, EventArgs e)
         {
             _monitoring.MaximumDiastolic = Convert.ToInt32(numericUpDown4.Value);
+        }
+
+        private void btn_DeaktiverAlarm_Click_1(object sender, EventArgs e)
+        {
+            _iBusinessLogic.ToggleAlarmOff(_container);
+            _timer.Start();
+        }
+
+        private void btn_AktiverAlarm_Click(object sender, EventArgs e)
+        {
+            _iBusinessLogic.ToggleAlarmOn(_container, _monitoring);
+            _timer.Stop();
+        }
+
+        public void UpdateThresholds(int minSys, int maxSys, int minDia, int maxDia)
+        {
+            numericUpDown1.Value = minSys;
+            numericUpDown2.Value = maxSys;
+            numericUpDown3.Value = minDia;
+            numericUpDown4.Value = maxDia;
+
+            numericUpDown1.Text = Convert.ToString(minSys);
+            numericUpDown2.Text = Convert.ToString(maxSys);
+            numericUpDown3.Text = Convert.ToString(minDia);
+            numericUpDown4.Text = Convert.ToString(maxDia);
+        }
+
+        private void ChartSetup()
+        {
+            chart1.ChartAreas[0].AxisX.Minimum = 40;
+            ch
+        }
+
+        private void Måling_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

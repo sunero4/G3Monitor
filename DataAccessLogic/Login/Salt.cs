@@ -30,13 +30,23 @@ namespace DataAccessLogic
 
         public byte[] GetSalt(MedarbejderDTO medarbejder)
         {
+            string tableName = "";
+            if (medarbejder.GetType() == new OPSygeplejerskeDTO().GetType())
+            {
+                tableName = "OPSygeplejerske";
+            }
+            else if(medarbejder.GetType() == new TeknikerDTO().GetType())
+            {
+                tableName = "Tekniker";
+            }
+
             byte[] salt = new byte[32];
 
             using (SqlConnection conn = new SqlConnection(ConnectionInfo.Connectionstring))
             {
                 conn.Open();
                 using (SqlCommand cmd =
-                    new SqlCommand("SELECT Salt FROM OPSygeplejerske WHERE Brugernavn = @brugernavn", conn))
+                    new SqlCommand("SELECT Salt FROM " + tableName +" WHERE Brugernavn = @brugernavn", conn))
                 {
                     cmd.Parameters.AddWithValue("@brugernavn", medarbejder.Brugernavn);
                     using (SqlDataReader rdr = cmd.ExecuteReader())

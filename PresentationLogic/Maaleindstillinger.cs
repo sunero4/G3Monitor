@@ -21,11 +21,12 @@ namespace PresentationLogic
         private Måling _maalingForm;
         private Maaleindstillinger _maaleindstillinger;
 
-        public Maaleindstillinger(IBusinessLogic iBusinessLogic, Monitoreringsindstillinger monitoring)
+        public Maaleindstillinger(IBusinessLogic iBusinessLogic, Monitoreringsindstillinger monitoring, Måling maaling)
         {
             InitializeComponent();
             _iBusinessLogic = iBusinessLogic;
             _monitoring = monitoring;
+            _maalingForm = maaling;
         }
 
         private void btnGemIndstillinger_Click(object sender, EventArgs e)
@@ -59,6 +60,8 @@ namespace PresentationLogic
                 _iBusinessLogic.SetMonitoring(_monitoring);
             }
 
+            _maalingForm.UpdateThresholds(_monitoring.MinimumSystolic, _monitoring.MaximumSystolic, _monitoring.MinimumDiastolic, _monitoring.MaximumDiastolic);
+
             this.Close();
         }
 
@@ -77,8 +80,11 @@ namespace PresentationLogic
                 if (dialogResult == DialogResult.Yes)
                 {
                     var patientInfo = _iBusinessLogic.GetPatientInfo(new PatientDTO() { CPR = txtCPR.Text });
-                    txtFornavn.Text = patientInfo.Fornavn;
-                    txtEfternavn.Text = patientInfo.Efternavn;
+                    if (patientInfo.FindesData)
+                    {
+                        txtFornavn.Text = patientInfo.Fornavn;
+                        txtEfternavn.Text = patientInfo.Efternavn;
+                    }
                 }
                 else if (dialogResult == DialogResult.No)
                 {

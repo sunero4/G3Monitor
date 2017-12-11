@@ -26,18 +26,14 @@ namespace PresentationLogic
             _nulpunkt = nulpunkt;
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
+        private async void btnStart_Click(object sender, EventArgs e)
         {
             try
             {
-                var nulpunkt = new NulpunktsjusteringDTO();
-                var tf = new TaskFactory();
-                var t = tf.StartNew(() => nulpunkt = _businessLogic.PerformAdjustment());
-
-                Task.WaitAll(t);
+                var nulpunkt = _businessLogic.PerformAdjustment();
 
                 _nulpunkt = nulpunkt;
-                _isFinished = true;
+
                 _businessLogic.GetNulpunkt(_nulpunkt);
 
                 var dialogResult = MessageBox.Show("Nulpunktsjustering er gennemført", "Afslut", MessageBoxButtons.OK);

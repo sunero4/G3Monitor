@@ -66,12 +66,12 @@ namespace PresentationLogic
 
             if (rbtnTekniker.Checked && txtBrugernavn.Text.Length == 8)
             {
-                //TeknikerDTO tekniker = new TeknikerDTO();
-                //tekniker.Brugernavn = txtBrugernavn.Text;
-                //tekniker.HashedPassword =
-                //    _iBusinessLogic.HashAndSaltPassword(txtPassword.Text, _iBusinessLogic.GetSalt(tekniker));
-                //var loginSucceeded = _iBusinessLogic.CheckLogin(tekniker);
-                var loginSucceeded = true;
+                TeknikerDTO tekniker = new TeknikerDTO();
+                tekniker.Brugernavn = txtBrugernavn.Text;
+                tekniker.HashedPassword =
+                    _iBusinessLogic.HashAndSaltPassword(txtPassword.Text, _iBusinessLogic.GetSalt(tekniker));
+                var loginSucceeded = _iBusinessLogic.CheckLogin(tekniker);
+
                 if (loginSucceeded)
                 {
                     if (rbtnStartKalib.Checked)

@@ -30,29 +30,17 @@ namespace PresentationLogic
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btn_Nulpunktsjustering = new System.Windows.Forms.Button();
             this.btn_Indstillinger = new System.Windows.Forms.Button();
             this.btn_StartMåling = new System.Windows.Forms.Button();
             this.btn_StopMåling = new System.Windows.Forms.Button();
-            this.btn_DeaktiverAlarm = new System.Windows.Forms.Button();
-            this.btn_AktiverAlarm = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label_Puls = new System.Windows.Forms.Label();
             this.label_SysDia = new System.Windows.Forms.Label();
@@ -65,6 +53,18 @@ namespace PresentationLogic
             this.txtKommentar = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btn_DeaktiverAlarm = new System.Windows.Forms.Button();
+            this.btn_AktiverAlarm = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
@@ -129,71 +129,50 @@ namespace PresentationLogic
             this.btn_StopMåling.UseVisualStyleBackColor = true;
             this.btn_StopMåling.Click += new System.EventHandler(this.btn_StopMåling_Click);
             // 
-            // btn_DeaktiverAlarm
-            // 
-            this.btn_DeaktiverAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_DeaktiverAlarm.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_DeaktiverAlarm.Location = new System.Drawing.Point(18, 218);
-            this.btn_DeaktiverAlarm.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btn_DeaktiverAlarm.Name = "btn_DeaktiverAlarm";
-            this.btn_DeaktiverAlarm.Size = new System.Drawing.Size(195, 72);
-            this.btn_DeaktiverAlarm.TabIndex = 4;
-            this.btn_DeaktiverAlarm.Text = "Deaktiver alarm";
-            this.btn_DeaktiverAlarm.UseVisualStyleBackColor = true;
-            this.btn_DeaktiverAlarm.Click += new System.EventHandler(this.btn_DeaktiverAlarm_Click);
-            // 
-            // btn_AktiverAlarm
-            // 
-            this.btn_AktiverAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AktiverAlarm.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_AktiverAlarm.Location = new System.Drawing.Point(20, 306);
-            this.btn_AktiverAlarm.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.btn_AktiverAlarm.Name = "btn_AktiverAlarm";
-            this.btn_AktiverAlarm.Size = new System.Drawing.Size(193, 74);
-            this.btn_AktiverAlarm.TabIndex = 5;
-            this.btn_AktiverAlarm.Text = "Aktiver alarm";
-            this.btn_AktiverAlarm.UseVisualStyleBackColor = true;
-            // 
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.Black;
-            chartArea7.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea7.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea7.AxisX2.LineColor = System.Drawing.Color.White;
-            chartArea7.AxisX2.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea7.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea7.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea7.AxisY2.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea7.BackColor = System.Drawing.Color.Black;
-            chartArea7.BorderColor = System.Drawing.Color.White;
-            chartArea7.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea7);
-            legend7.BackColor = System.Drawing.Color.Black;
-            legend7.BorderColor = System.Drawing.Color.Transparent;
-            legend7.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend7.ForeColor = System.Drawing.Color.Red;
-            legend7.HeaderSeparatorColor = System.Drawing.Color.White;
-            legend7.IsTextAutoFit = false;
-            legend7.ItemColumnSeparatorColor = System.Drawing.Color.White;
-            legend7.Name = "Legend1";
-            legend7.TitleBackColor = System.Drawing.Color.Black;
-            legend7.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chart1.Legends.Add(legend7);
-            this.chart1.Location = new System.Drawing.Point(282, 91);
+            chartArea1.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX.MajorGrid.Interval = 0D;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX.Title = "Tid (sekunder)";
+            chartArea1.AxisX2.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX2.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.MajorGrid.Interval = 0D;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.Title = "Tryk (mmHg)";
+            chartArea1.AxisY2.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea1.BackColor = System.Drawing.Color.Black;
+            chartArea1.BorderColor = System.Drawing.Color.White;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Black;
+            legend1.BorderColor = System.Drawing.Color.Transparent;
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend1.ForeColor = System.Drawing.Color.Red;
+            legend1.HeaderSeparatorColor = System.Drawing.Color.White;
+            legend1.IsTextAutoFit = false;
+            legend1.ItemColumnSeparatorColor = System.Drawing.Color.White;
+            legend1.Name = "Legend1";
+            legend1.TitleBackColor = System.Drawing.Color.Black;
+            legend1.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(331, 32);
             this.chart1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.chart1.Name = "chart1";
-            series7.BackImageTransparentColor = System.Drawing.Color.White;
-            series7.BackSecondaryColor = System.Drawing.Color.White;
-            series7.BorderColor = System.Drawing.Color.White;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series7.Color = System.Drawing.Color.Red;
-            series7.LabelForeColor = System.Drawing.Color.Red;
-            series7.Legend = "Legend1";
-            series7.Name = "Blodtryk";
-            this.chart1.Series.Add(series7);
-            this.chart1.Size = new System.Drawing.Size(1204, 692);
+            series1.BackImageTransparentColor = System.Drawing.Color.White;
+            series1.BackSecondaryColor = System.Drawing.Color.White;
+            series1.BorderColor = System.Drawing.Color.White;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series1.Color = System.Drawing.Color.Red;
+            series1.LabelForeColor = System.Drawing.Color.Red;
+            series1.Legend = "Legend1";
+            series1.Name = "Blodtryk";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(1155, 751);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "chart1";
             // 
@@ -232,128 +211,6 @@ namespace PresentationLogic
             this.label3.Size = new System.Drawing.Size(125, 29);
             this.label3.TabIndex = 9;
             this.label3.Text = "Middel BT";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(10, 24);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.MaximumSize = new System.Drawing.Size(200, 52);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(169, 52);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Ændring af grænseværdier for alam aktivering:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 87);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 20);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Minimum sys";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(136, 88);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 20);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Maksimum sys";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 148);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 20);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Minimum dia";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(136, 149);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(117, 20);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Maksimum dia";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupBox1.Controls.Add(this.numericUpDown4);
-            this.groupBox1.Controls.Add(this.numericUpDown3);
-            this.groupBox1.Controls.Add(this.numericUpDown2);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.btn_DeaktiverAlarm);
-            this.groupBox1.Controls.Add(this.btn_AktiverAlarm);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox1.Location = new System.Drawing.Point(11, 359);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.groupBox1.Size = new System.Drawing.Size(263, 410);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Alarm";
-            this.groupBox1.Visible = false;
-            // 
-            // numericUpDown4
-            // 
-            this.numericUpDown4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown4.Location = new System.Drawing.Point(140, 171);
-            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(2);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(77, 28);
-            this.numericUpDown4.TabIndex = 20;
-            this.numericUpDown4.ValueChanged += new System.EventHandler(this.numericUpDown4_ValueChanged);
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown3.Location = new System.Drawing.Point(16, 170);
-            this.numericUpDown3.Margin = new System.Windows.Forms.Padding(2);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(76, 28);
-            this.numericUpDown3.TabIndex = 19;
-            this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown2.Location = new System.Drawing.Point(140, 110);
-            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(2);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(77, 28);
-            this.numericUpDown2.TabIndex = 18;
-            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(16, 109);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(76, 28);
-            this.numericUpDown1.TabIndex = 17;
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // label_Puls
             // 
@@ -481,13 +338,181 @@ namespace PresentationLogic
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox1.Controls.Add(this.numericUpDown4);
+            this.groupBox1.Controls.Add(this.numericUpDown3);
+            this.groupBox1.Controls.Add(this.numericUpDown2);
+            this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.btn_DeaktiverAlarm);
+            this.groupBox1.Controls.Add(this.btn_AktiverAlarm);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox1.Location = new System.Drawing.Point(40, 342);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.groupBox1.Size = new System.Drawing.Size(263, 410);
+            this.groupBox1.TabIndex = 35;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Alarm";
+            // 
+            // numericUpDown4
+            // 
+            this.numericUpDown4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown4.Location = new System.Drawing.Point(140, 171);
+            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(2);
+            this.numericUpDown4.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.numericUpDown4.Name = "numericUpDown4";
+            this.numericUpDown4.Size = new System.Drawing.Size(77, 28);
+            this.numericUpDown4.TabIndex = 20;
+            this.numericUpDown4.ValueChanged += new System.EventHandler(this.numericUpDown4_ValueChanged);
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown3.Location = new System.Drawing.Point(16, 170);
+            this.numericUpDown3.Margin = new System.Windows.Forms.Padding(2);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(76, 28);
+            this.numericUpDown3.TabIndex = 19;
+            this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown2.Location = new System.Drawing.Point(140, 110);
+            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(2);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(77, 28);
+            this.numericUpDown2.TabIndex = 18;
+            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown1.Location = new System.Drawing.Point(16, 109);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(76, 28);
+            this.numericUpDown1.TabIndex = 17;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 87);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(108, 20);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Minimum sys";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label4.Location = new System.Drawing.Point(10, 24);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.MaximumSize = new System.Drawing.Size(200, 52);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(169, 52);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Ændring af grænseværdier for alam aktivering:";
+            // 
+            // btn_DeaktiverAlarm
+            // 
+            this.btn_DeaktiverAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_DeaktiverAlarm.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_DeaktiverAlarm.Location = new System.Drawing.Point(18, 218);
+            this.btn_DeaktiverAlarm.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btn_DeaktiverAlarm.Name = "btn_DeaktiverAlarm";
+            this.btn_DeaktiverAlarm.Size = new System.Drawing.Size(195, 72);
+            this.btn_DeaktiverAlarm.TabIndex = 4;
+            this.btn_DeaktiverAlarm.Text = "Deaktiver alarm";
+            this.btn_DeaktiverAlarm.UseVisualStyleBackColor = true;
+            this.btn_DeaktiverAlarm.Click += new System.EventHandler(this.btn_DeaktiverAlarm_Click_1);
+            // 
+            // btn_AktiverAlarm
+            // 
+            this.btn_AktiverAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AktiverAlarm.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_AktiverAlarm.Location = new System.Drawing.Point(20, 306);
+            this.btn_AktiverAlarm.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btn_AktiverAlarm.Name = "btn_AktiverAlarm";
+            this.btn_AktiverAlarm.Size = new System.Drawing.Size(193, 74);
+            this.btn_AktiverAlarm.TabIndex = 5;
+            this.btn_AktiverAlarm.Text = "Aktiver alarm";
+            this.btn_AktiverAlarm.UseVisualStyleBackColor = true;
+            this.btn_AktiverAlarm.Click += new System.EventHandler(this.btn_AktiverAlarm_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(136, 88);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(121, 20);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Maksimum sys";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 148);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(104, 20);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Minimum dia";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(136, 149);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(117, 20);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Maksimum dia";
+            // 
             // Måling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1861, 650);
+            this.ClientSize = new System.Drawing.Size(1861, 807);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtKommentar);
@@ -499,7 +524,6 @@ namespace PresentationLogic
             this.Controls.Add(this.label_MiddelBT);
             this.Controls.Add(this.label_SysDia);
             this.Controls.Add(this.label_Puls);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -513,6 +537,7 @@ namespace PresentationLogic
             this.Name = "Måling";
             this.Text = "G3-monitor: Måling";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Måling_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -531,18 +556,10 @@ namespace PresentationLogic
         private System.Windows.Forms.Button btn_Indstillinger;
         private System.Windows.Forms.Button btn_StartMåling;
         private System.Windows.Forms.Button btn_StopMåling;
-        private System.Windows.Forms.Button btn_DeaktiverAlarm;
-        private System.Windows.Forms.Button btn_AktiverAlarm;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label_Puls;
         private System.Windows.Forms.Label label_SysDia;
@@ -554,10 +571,18 @@ namespace PresentationLogic
         private System.Windows.Forms.Button btn_UfiltrerMåling;
         private System.Windows.Forms.TextBox txtKommentar;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.NumericUpDown numericUpDown4;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btn_DeaktiverAlarm;
+        private System.Windows.Forms.Button btn_AktiverAlarm;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }

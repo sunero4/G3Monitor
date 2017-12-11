@@ -58,18 +58,23 @@ namespace BusinessLogic
             _savingEvent.Set();
         }
 
-        public void Run(object patient)
+        public void Run(object monitoring)
         {
-            var patientIn = (PatientDTO) patient;
+            var monitorSettings = (Monitoreringsindstillinger) monitoring;
+            var patientIn = (PatientDTO) monitorSettings.Patient;
             CanRun = true;
 
             var t1 = new Thread(_dataAccess.StartProducer);
             t1.IsBackground = true;
             t1.Start();
 
-            var t2 = new Thread(_saving.StartSaving);
-            t2.IsBackground = true;
-            t2.Start(patientIn);
+            if (monitorSettings.Saving)
+            {
+                var t2 = new Thread(_saving.StartSaving);
+                t2.IsBackground = true;
+                t2.Start(patientIn);
+            }
+
 
             while (CanRun)
             {

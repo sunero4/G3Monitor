@@ -31,13 +31,16 @@ namespace DataAccessLogic
             if (medarbejder.GetType() == new OPSygeplejerskeDTO().GetType())
             {
                 medarbejderOut = new OPSygeplejerskeDTO();
-                tableName = "OPsygeplerjske"; 
+                tableName = "OPSygeplejerske"; 
             }
             else
             {
                 medarbejderOut = new TeknikerDTO();
-                tableName = "Tekniker"; 
+                tableName = "Tekniker";
+                
             }
+            _queryBuilder = new RetrivedLoginQueryBuilder(tableName);
+
             var query = _queryBuilder.BuildQuery(medarbejder); 
 
             try

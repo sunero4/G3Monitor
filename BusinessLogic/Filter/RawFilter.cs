@@ -9,6 +9,12 @@ namespace BusinessLogic.Filter
     public class RawFilter : IFilter
     {
         private List<double> ChartList;
+
+        public RawFilter()
+        {
+            ChartList = new List<double>();
+        }
+
         public List<double> Smoothing(List<double> containerData)
         {
             ChartList.Clear();

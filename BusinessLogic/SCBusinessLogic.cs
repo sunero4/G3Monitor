@@ -35,7 +35,6 @@ namespace BusinessLogic
         private IPulse _pulse;
         private IAverageBP _averageBP;
 
-
         public SCBusinessLogic(IDataAccess iDataAccess, ConcurrentQueue<BPDataContainer> queue,
             PresentationDataContainer container)
         {
@@ -94,7 +93,6 @@ namespace BusinessLogic
 
         public NulpunktsjusteringDTO PerformAdjustment()
         {
-            var voltage = 4; //temporary
             return _nulpunkt.PerformAdjustment();
         }
 
@@ -111,12 +109,13 @@ namespace BusinessLogic
 
         public void CreateFilter(bool button)
         {
-            _filter = FilterFactory.CreateFilter(button);
+            var filter = FilterFactory.CreateFilter(button);
+            _showData.Filter = filter;
         }
 
         public void RunConsumer()
         {
-            _consumer.Run(_patientDTO);
+            _consumer.Run(_monitoringSettings);
         }
 
         public void StartShowData()
@@ -177,6 +176,7 @@ namespace BusinessLogic
         public void SetMonitoring(Monitoreringsindstillinger monitoring)
         {
             _monitoringSettings.SetMonitoring(monitoring);
+            _showData.Monitoring = _monitoringSettings.GetMonitoring();
         }
 
         public void ToggleAlarmOn(PresentationDataContainer container, Monitoreringsindstillinger monitoring)
@@ -188,6 +188,7 @@ namespace BusinessLogic
         public void ToggleAlarmOff(PresentationDataContainer container)
         {
             _alarm.DetachFromSubject(container);
+            _alarm.StopAlarm();
         }
 
         public PresentationDataContainer CalculateValues(List<double> bpValues)
@@ -202,6 +203,14 @@ namespace BusinessLogic
             };
 
             return container;
+        }
+
+        public List<double> FilterBPValues(List<double> values, bool filterType)
+        {
+            var filter = FilterFactory.CreateFilter(filterType);
+            var output = filter.Smoothing(values);
+
+            return output;
         }
     }
 }

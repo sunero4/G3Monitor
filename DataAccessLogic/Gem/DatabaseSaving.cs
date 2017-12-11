@@ -49,9 +49,11 @@ namespace DataAccessLogic
 
             using (SqlConnection conn = new SqlConnection(ConnectionInfo.Connectionstring))
             {
+
                 conn.Open();
                 using (SqlCommand cmd = cmdBuilder.BuildCommand(maaling, conn, query))
                 {
+                    
                     cmd.ExecuteNonQuery();
                 }
             }

@@ -52,5 +52,6 @@ namespace Interfaces
         void ToggleAlarmOn(PresentationDataContainer container, Monitoreringsindstillinger monitoring);
         void ToggleAlarmOff(PresentationDataContainer container);
         PresentationDataContainer CalculateValues(List<double> bpValues);
+        List<double> FilterBPValues(List<double> values, bool filterType);
     }
 }
