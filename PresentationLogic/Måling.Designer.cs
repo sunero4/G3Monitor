@@ -132,17 +132,21 @@ namespace PresentationLogic
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.Black;
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
             chartArea1.AxisX.LineColor = System.Drawing.Color.White;
             chartArea1.AxisX.MajorGrid.Interval = 0D;
             chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
             chartArea1.AxisX.Title = "Tid (sekunder)";
+            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartArea1.AxisX.TitleForeColor = System.Drawing.Color.White;
             chartArea1.AxisX2.LineColor = System.Drawing.Color.White;
             chartArea1.AxisX2.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
             chartArea1.AxisY.LineColor = System.Drawing.Color.White;
             chartArea1.AxisY.MajorGrid.Interval = 0D;
             chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
             chartArea1.AxisY.Title = "Tryk (mmHg)";
+            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartArea1.AxisY.TitleForeColor = System.Drawing.Color.White;
             chartArea1.AxisY2.MajorGrid.LineColor = System.Drawing.Color.Transparent;
             chartArea1.BackColor = System.Drawing.Color.Black;
@@ -161,7 +165,7 @@ namespace PresentationLogic
             legend1.TitleBackColor = System.Drawing.Color.Black;
             legend1.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(331, 32);
+            this.chart1.Location = new System.Drawing.Point(332, 43);
             this.chart1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.chart1.Name = "chart1";
             series1.BackImageTransparentColor = System.Drawing.Color.White;

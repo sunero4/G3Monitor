@@ -42,21 +42,28 @@ namespace PresentationLogic
             var patient = _iBusinessLogic.GetPatientInfo(tempPatient);
             txt_patientNavn.Text = patient.Fornavn + " " + patient.Efternavn;
 
-            if (!patient.FindesData)
+            try
+            {
+                if (!patient.FindesData)
+                {
+                    MessageBox.Show("Intet data tilknyttet CPR-nummeret");
+                }
+                else
+                {
+                    Cursor.Current = Cursors.WaitCursor;
+                    _patient = _iBusinessLogic.HentData(patient);
+                    Cursor.Current = Cursors.Default;
+                    Chart(0, _filterType);
+                    //Aksetitler til charten:
+                    chart_måling.ChartAreas[0].AxisX.Title = "Sekunder";
+                    chart_måling.ChartAreas[0].AxisY.Title = "mmHg";
+                    txt_patientCpr.Text = patient.CPR;
+                    txt_patientNavn.Text = patient.Fornavn + " " + patient.Efternavn;
+                }
+            }
+            catch (Exception exception)
             {
                 MessageBox.Show("Intet data tilknyttet CPR-nummeret");
-            }
-            else
-            {
-                Cursor.Current = Cursors.WaitCursor;
-                _patient = _iBusinessLogic.HentData(patient);
-                Cursor.Current = Cursors.Default;
-                Chart(0, _filterType);
-                //Aksetitler til charten:
-                chart_måling.ChartAreas[0].AxisX.Title = "Sekunder";
-                chart_måling.ChartAreas[0].AxisY.Title = "mmHg";
-                txt_patientCpr.Text = patient.CPR;
-                txt_patientNavn.Text = patient.Fornavn + " " + patient.Efternavn;
             }
 
         }

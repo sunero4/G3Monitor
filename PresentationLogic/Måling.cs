@@ -123,6 +123,7 @@ namespace PresentationLogic
             catch (Exception exception)
             {
                 MessageBox.Show("Måling blev ikke foretaget, prøv igen.");
+                
             }
             
         }
@@ -140,7 +141,8 @@ namespace PresentationLogic
                 btn_filtrerMåling.Enabled = false;
                 btn_StartMåling.Enabled = false;
                 btn_StopMåling.Enabled = false;
-                btn_Indstillinger.Enabled = false;             
+                btn_Indstillinger.Enabled = false;  
+                _iBusinessLogic.ToggleAlarmOff(_container);
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -220,7 +222,7 @@ namespace PresentationLogic
             //chart1.ChartAreas[0].AxisX.Minimum = 0;
             //chart1.ChartAreas[0].AxisX.Interval = 1;
             //chart1.ChartAreas[0].AxisX.Maximum = 4;
-            chart1.ChartAreas[0].AxisY.Minimum = 40;
+            chart1.ChartAreas[0].AxisY.Minimum = 20;
             chart1.ChartAreas[0].AxisY.Maximum = 240;
             chart1.ChartAreas[0].AxisY.Interval = 20;
             chart1.ChartAreas[0].AxisX.Title = "Tid (sekunder)";
