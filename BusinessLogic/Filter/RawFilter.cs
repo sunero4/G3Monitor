@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLogic.Filter
 {
@@ -15,6 +12,11 @@ namespace BusinessLogic.Filter
             ChartList = new List<double>();
         }
 
+        /// <summary>
+        /// Filters the supplied data with a smoothing filter using only average
+        /// </summary>
+        /// <param name="containerData">Bloodpressure values</param>
+        /// <returns>Smoothed bloodpressure values</returns>
         public List<double> Smoothing(List<double> containerData)
         {
             ChartList.Clear();

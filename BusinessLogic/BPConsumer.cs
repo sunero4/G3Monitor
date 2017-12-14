@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using BusinessLogic.Filter;
 using DTO;
 using Interfaces;
@@ -38,12 +34,16 @@ namespace BusinessLogic
             _patient = patient;
         }
 
+        /// <summary>
+        /// Handles consuming of data from the producer - is to be run continuously on its own thread
+        /// </summary>
         public void HandleData()
         {
             BPDataContainer container;
             List<double> filteredData = new List<double>();
             while (!_queue.TryDequeue(out container))
             {
+                //Yield
                 Thread.Sleep(0);
             }
 
@@ -58,6 +58,12 @@ namespace BusinessLogic
             _savingEvent.Set();
         }
 
+        /// <summary>
+        /// Starts the continuous process of consuming the data from the producer. Starts the producer and 
+        /// optionally the saving process
+        /// </summary>
+        /// <param name="monitoring">Monitoring object that holds patient info and info about whether
+        /// or not to save data</param>
         public void Run(object monitoring)
         {
             var monitorSettings = (Monitoreringsindstillinger) monitoring;

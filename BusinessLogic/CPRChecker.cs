@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
     public class CPRChecker
     {
-        //Metode til at tjekke gyldigheden af CPR-nr: 
+        /// <summary>
+        /// Uses the modulo-11 test to verify if the CPR is valid
+        /// </summary>
+        /// <param name="cprnr">CPR number to check</param>
+        /// <returns>True if valid, else false</returns>
         public bool CPRchecker(string cprnr)
         {
             int[] array = new int[10];

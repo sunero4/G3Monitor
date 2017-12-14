@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading;
-using System.Threading.Tasks;
-using DataAccessLogic;
 using DTO;
 using Interfaces;
-using ObserverPattern;
 
 namespace BusinessLogic
 {
@@ -20,7 +14,6 @@ namespace BusinessLogic
 
         public PatientDTO Patient { get; set; }
         public List<double> Values { get; set; }
-
         public bool CanRun { get; set; }
 
         public Saving(IDataAccess dataAccess, AutoResetEvent autoResetEvent)
@@ -33,16 +26,30 @@ namespace BusinessLogic
             Patient = new PatientDTO();
         }
 
+        /// <summary>
+        /// Saves the initial data that does not need to be saved continuously (patient and operation)
+        /// </summary>
+        /// <param name="patient">Patient to save data for</param>
         public void SaveInitial(PatientDTO patient)
         {
             Patient = patient;
             _dataAccess.SaveInitial(patient);
         }
 
+
+        /// <summary>
+        /// Saves the measurement data
+        /// </summary>
+        /// <param name="patient">Patient to save data for</param>
         public void SaveMeasurement(PatientDTO patient)
         {
             _dataAccess.SaveBloodPressureData(patient);
         }
+
+        /// <summary>
+        /// Saves patient and operation data initially, and continuously saves measurement data
+        /// </summary>
+        /// <param name="patient">Patient to save data for</param>
         public void StartSaving(object patient)
         {
             var patientIn = (PatientDTO) patient;

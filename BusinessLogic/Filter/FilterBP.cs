@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Accord.Statistics.Distributions.Fitting;
-using Accord.Statistics.Models.Regression.Linear;
-using MathNet.Filtering;
 
 namespace BusinessLogic.Filter
 {
-    public class FilterBP:IFilter
+    public class FilterBP : IFilter
     {
         private List<double> ChartList;
         private List<double> OutList;
@@ -20,6 +14,11 @@ namespace BusinessLogic.Filter
             OutList = new List<double>();
         }
 
+        /// <summary>
+        /// Filters the supplied data with a smoothing filter using both average and moving average
+        /// </summary>
+        /// <param name="containerData">Bloodpressure values</param>
+        /// <returns>Smoothed bloodpressure values</returns>
         public List<double> Smoothing(List<double> containerData)
         {
             ChartList.Clear();
@@ -30,24 +29,16 @@ namespace BusinessLogic.Filter
             {
                 double average = (containerData.GetRange(i, 5).Average());
                 ChartList.Add(average);
-
-                //if (ChartList.Count > 400)
-                //{
-                //    ChartList.RemoveAt(0);
-                //}
             }
 
             for (int i = 0, n = ChartList.Count; i < n - 2; i++)
             {
                 sum = ChartList[i] + ChartList[i + 1] + ChartList[i + 2];
                 OutList.Add(sum / 3);
-                //double average = (containerData.GetRange(i, 2).Average());
-                //OutList.Add(average);
             }
             OutList.Add(ChartList[ChartList.Count - 2]);
             OutList.Add(ChartList[ChartList.Count - 1]);
             return OutList;
-            //ChartList.Clear();
         }
     }
 }

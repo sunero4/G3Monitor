@@ -55,11 +55,14 @@ namespace PresentationLogic
             else
             {
                 var data = container.FilteredBPValues;
+                var time = 0.005;
 
                 chart1.Series[0].Points.Clear();
                 for (int i = 0; i < data.Count; i++)
                 {
-                    chart1.Series[0].Points.Add(data[i], (i * 0.005));
+
+                    chart1.Series[0].Points.AddXY(time, data[i]);
+                    time += 0.005;
                 }
                 label_SysDia.Text = Convert.ToString(container.SystolicPressure) + " / " +
                                     Convert.ToString(container.DiastolicPressure);
@@ -227,7 +230,7 @@ namespace PresentationLogic
             chart1.ChartAreas[0].AxisY.Interval = 20;
             chart1.ChartAreas[0].AxisX.Title = "Tid (sekunder)";
             chart1.ChartAreas[0].AxisY.Title = "Tryk (mmHg)";
-            chart1.ChartAreas[0].AxisX.MajorGrid.Interval = 200;
+            chart1.ChartAreas[0].AxisX.MajorGrid.Interval = 1;
             chart1.ChartAreas[0].AxisY.MajorGrid.Interval = 20;
         }
 

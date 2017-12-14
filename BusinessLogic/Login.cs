@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using DTO;
-using Interfaces;
 
 namespace BusinessLogic
 {
     public class Login
     {
-        // Lav en metode der tjekker om første parameter er lig anden parameter (DTO parameter med retrieved data) 
-        // herved tjekker vi om der findes en bruger og om password eksitere 
+
   
+        /// <summary>
+        /// Verifies whether the supplied login information matches a user in the database
+        /// </summary>
+        /// <param name="medarbejder">DTO holding the entered login values</param>
+        /// <param name="medarbejder2">DTO holding login information retrieved from the database</param>
+        /// <returns>True if username and password match, false otherwise</returns>
         public bool CheckLogin(MedarbejderDTO medarbejder, MedarbejderDTO medarbejder2)
         {
             if (medarbejder.Brugernavn == medarbejder2.Brugernavn && medarbejder.HashedPassword.SequenceEqual(medarbejder2.HashedPassword))
@@ -24,8 +23,6 @@ namespace BusinessLogic
             {
                 return false;
             }
-            
-
         }
     }
 }

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using BusinessLogic.Filter;
 using DTO;
-using Interfaces;
 using ObserverPattern;
 
 namespace BusinessLogic
@@ -44,6 +38,10 @@ namespace BusinessLogic
             FillWindow();
         }
 
+/// <summary>
+/// Continuously handles the incoming data and ensures that calculations are made and that the subject notifies
+/// its observers when all values are set
+/// </summary>
 public void HandleData()
 {
     //Venter på et set event fra consumeren
@@ -55,8 +53,9 @@ public void HandleData()
     data = GetSlidingWindow();
 
     var currentData = _filter.Smoothing(data);
-
-    if (data.Count > 1900)
+    
+    //Wait until we have a significant amount of data before trying to calculate anything
+    if (data.Count > 3000)
     {
         _container.Pulse = _pulse.Calculate(data);
         var timediff = _pulse.TimeDifferences(data);
@@ -71,11 +70,11 @@ public void HandleData()
     _container.Notify();
 }
 
-public void Start()
-{
-    CanRun = true;
-    Thread t1 = new Thread(_consumer.Run);
-    t1.Start(Monitoring);
+    public void Start()
+    {
+        CanRun = true;
+        Thread t1 = new Thread(_consumer.Run);
+        t1.Start(Monitoring);
 
             while (CanRun)
             {
@@ -86,6 +85,10 @@ public void Start()
                 _consumer.CanRun = false;
             }
     }
+        /// <summary>
+        /// Enqueues new elements and dequeues corresponding amount if the sliding window is full
+        /// </summary>
+        /// <param name="data">Bloodpressure values</param>
         public void SetSlidingWindow(List<double> data)
         {
             if (_slidingWindow.Count >= 4000)
@@ -95,11 +98,18 @@ public void Start()
             _slidingWindow.EnqueueMultipleElements(data);
         }
 
+        /// <summary>
+        /// Returns sliding window as a list
+        /// </summary>
+        /// <returns>Sliding window as list</returns>
         public List<double> GetSlidingWindow()
         {
             return _slidingWindow.ToList();
         }
 
+        /// <summary>
+        /// Fills sliding window with 0's so that the chart keeps a consistent size when drawing the points
+        /// </summary>
         private void FillWindow()
         {
             for (int i = 0; i < 4000; i++)

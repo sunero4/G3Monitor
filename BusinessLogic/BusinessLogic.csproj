@@ -98,7 +98,6 @@
     <Compile Include="SCBusinessLogic.cs" />
     <Compile Include="ShowData.cs" />
     <Compile Include="Algoritmer\Systolic.cs" />
-    <Compile Include="VoltageToPressureConversion.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLogic\DataAccessLogic.csproj">

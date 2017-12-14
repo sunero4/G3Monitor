@@ -69,9 +69,7 @@
     <Compile Include="Kalibrering\ICalibrationDataRetrieval.cs" />
     <Compile Include="IDataRemoval.cs" />
     <Compile Include="Kalibrering\ISaveCalibration.cs" />
-    <Compile Include="Hent\RetrievedCommandBuilder.cs" />
     <Compile Include="Hent\RetrievedData.cs" />
-    <Compile Include="Hent\RetrievedQueryBuilder.cs" />
     <Compile Include="Login\RetrivedLoginData.cs" />
     <Compile Include="IXmlQueryBuilder.cs" />
     <Compile Include="Hent\PatientInfoCommandBuilder.cs" />

@@ -32,12 +32,14 @@ namespace PresentationLogic
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // OP-sygeplejerske
-                if (rbtnOP.Checked && txtBrugernavn.Text.Length == 10)
+            if(true)
+                //if (rbtnOP.Checked && txtBrugernavn.Text.Length == 10)
             {
-                OPSygeplejerskeDTO opSygeplejerske = new OPSygeplejerskeDTO();
-                opSygeplejerske.Brugernavn = txtBrugernavn.Text;
-                opSygeplejerske.HashedPassword = _iBusinessLogic.HashAndSaltPassword(txtPassword.Text, _iBusinessLogic.GetSalt(opSygeplejerske));
-                bool validerLogin = _iBusinessLogic.CheckLogin(opSygeplejerske);
+                //OPSygeplejerskeDTO opSygeplejerske = new OPSygeplejerskeDTO();
+                //opSygeplejerske.Brugernavn = txtBrugernavn.Text;
+                //opSygeplejerske.HashedPassword = _iBusinessLogic.HashAndSaltPassword(txtPassword.Text, _iBusinessLogic.GetSalt(opSygeplejerske));
+                //bool validerLogin = _iBusinessLogic.CheckLogin(opSygeplejerske);
+                bool validerLogin = true;
                 if (validerLogin)
                 {
                     if (rbtnStartMål.Checked)

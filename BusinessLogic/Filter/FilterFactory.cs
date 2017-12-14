@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BusinessLogic.Filter;
-using DTO;
-using ObserverPattern;
+﻿using BusinessLogic.Filter;
 
 namespace BusinessLogic
 {
     public class FilterFactory
     {
-        // hvordan kommer det fra formen, er det også en string eller er det en bool
+        /// <summary>
+        /// Creates a filter object corresponding to the supplied boolean argument
+        /// </summary>
+        /// <param name="button">The bool value from the button choosing filter type</param>
+        /// <returns>The chosen type of filter</returns>
         public static IFilter CreateFilter(bool button)
         {
             if (button)

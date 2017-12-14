@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 using DTO;
 
 namespace DataAccessLogic
@@ -18,6 +13,11 @@ namespace DataAccessLogic
             _commandBuilder = new PatientInfoCommandBuilder();
             _queryBuilder = new PatientInfoQueryBuilder();
         }
+        /// <summary>
+        /// Gets patient information for the patient with the corresponding CPR
+        /// </summary>
+        /// <param name="patient">PatientDTO holding the CPR</param>
+        /// <returns>PatientDTO with retrieved information</returns>
         public PatientDTO HentData(PatientDTO patient)
         {
             var patientOut = new PatientDTO();

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DTO;
-using Interfaces;
+﻿using Interfaces;
 
 namespace BusinessLogic
 {
@@ -19,6 +13,10 @@ namespace BusinessLogic
             _dataAccess = dataAccess;
         }
 
+        /// <summary>
+        /// Gets a single pressure value from the transducer (average over a second)
+        /// </summary>
+        /// <returns>Single pressure value</returns>
         public double GetCalibrationPoint()
         {
             var value = _dataAccess.GetSinglePressureValue();

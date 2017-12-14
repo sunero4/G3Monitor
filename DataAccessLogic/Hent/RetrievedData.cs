@@ -1,19 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DataAccessLogic.Hent;
 using DTO;
-using Interfaces;
 
 namespace DataAccessLogic
 {
     public class RetrievedData :IRetrievedData<PatientDTO>
     {
-
-
         private ICommandBuilder<PatientDTO> _operationCommandBuilder;
         private ICommandBuilder<OperationsDTO> _measurementCommandBuilder;
         private IQueryBuilder<List<OperationsDTO>> _operationQueryBuilder;
@@ -27,13 +21,17 @@ namespace DataAccessLogic
             _measurementQueryBuilder = new MeasurementQueryBuilder();
         }
 
+        /// <summary>
+        /// Gets all operations associated with the patients CPR
+        /// </summary>
+        /// <param name="patient">The patient whose operations we want to retrieve</param>
+        /// <returns>PatientDTO holding the retrieved operation data</returns>
         public PatientDTO GetOperations (PatientDTO patient)
         {
             var patientOut = new PatientDTO() {ListOperation = new List<OperationsDTO>()};
             var idList = new List<int>();
 
             var operationQuery = _operationQueryBuilder.BuildQuery(new List<OperationsDTO>());
-
             
             try
             {
@@ -69,6 +67,12 @@ namespace DataAccessLogic
             return patientOut;
         }
 
+        /// <summary>
+        /// Gets all measurement for each operation associated with the patients CPR
+        /// </summary>
+        /// <param name="patient">The patient whose measurements we want to retrieve</param>
+        /// <returns>PatientDTO holding the retrieved measurement data corresponding to the correct 
+        /// operations</returns>
         public PatientDTO HentData(PatientDTO patient)
         {
             var patientOut = GetOperations(patient);
