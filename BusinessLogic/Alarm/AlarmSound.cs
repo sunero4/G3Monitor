@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Media;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Media;
 using DTO;
 using ObserverPattern;
 
@@ -28,6 +23,11 @@ namespace BusinessLogic.Alarm
             _monitoreringsindstillinger = monitoreringsindstillinger;
             _isPlaying = false;
         }
+        /// <summary>
+        /// Evaluates whether or not to start the alarm based on the supplied bloodpressure values
+        /// </summary>
+        /// <param name="sys">Systolic pressure</param>
+        /// <param name="dia">Diastolic pressure</param>
         public void StartAlarm(int sys, int dia)
         {
             if ((_monitoreringsindstillinger.MaximumDiastolic < dia || _monitoreringsindstillinger.MinimumDiastolic > dia || _monitoreringsindstillinger.MaximumSystolic < sys || _monitoreringsindstillinger.MinimumSystolic > sys) && _isPlaying == false)
@@ -41,11 +41,17 @@ namespace BusinessLogic.Alarm
             }
         }
 
+        /// <summary>
+        /// Update method for observer pattern
+        /// </summary>
         public void Update()
         {
             StartAlarm(_PresentationDataContainer.SystolicPressure, _PresentationDataContainer.DiastolicPressure);
         }
 
+        /// <summary>
+        /// Stops the alarm playing
+        /// </summary>
         public void StopAlarm()
         {
             myAlarmSound.Stop();

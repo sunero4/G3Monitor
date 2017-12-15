@@ -195,7 +195,7 @@
             this.lbl_puls.AutoSize = true;
             this.lbl_puls.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_puls.ForeColor = System.Drawing.Color.Lime;
-            this.lbl_puls.Location = new System.Drawing.Point(1640, 289);
+            this.lbl_puls.Location = new System.Drawing.Point(1580, 289);
             this.lbl_puls.Name = "lbl_puls";
             this.lbl_puls.Size = new System.Drawing.Size(67, 31);
             this.lbl_puls.TabIndex = 11;
@@ -206,7 +206,7 @@
             this.lbl_sys_dia.AutoSize = true;
             this.lbl_sys_dia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_sys_dia.ForeColor = System.Drawing.Color.Red;
-            this.lbl_sys_dia.Location = new System.Drawing.Point(1640, 428);
+            this.lbl_sys_dia.Location = new System.Drawing.Point(1580, 428);
             this.lbl_sys_dia.Name = "lbl_sys_dia";
             this.lbl_sys_dia.Size = new System.Drawing.Size(109, 31);
             this.lbl_sys_dia.TabIndex = 12;
@@ -216,8 +216,8 @@
             // 
             this.lbl_middelBT.AutoSize = true;
             this.lbl_middelBT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_middelBT.ForeColor = System.Drawing.Color.Blue;
-            this.lbl_middelBT.Location = new System.Drawing.Point(1641, 522);
+            this.lbl_middelBT.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbl_middelBT.Location = new System.Drawing.Point(1581, 522);
             this.lbl_middelBT.Name = "lbl_middelBT";
             this.lbl_middelBT.Size = new System.Drawing.Size(135, 31);
             this.lbl_middelBT.TabIndex = 13;
@@ -226,40 +226,40 @@
             // lbl_puls_value
             // 
             this.lbl_puls_value.AutoSize = true;
-            this.lbl_puls_value.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_puls_value.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_puls_value.ForeColor = System.Drawing.Color.Lime;
-            this.lbl_puls_value.Location = new System.Drawing.Point(1774, 283);
+            this.lbl_puls_value.Location = new System.Drawing.Point(1714, 283);
             this.lbl_puls_value.Name = "lbl_puls_value";
-            this.lbl_puls_value.Size = new System.Drawing.Size(64, 46);
+            this.lbl_puls_value.Size = new System.Drawing.Size(78, 55);
             this.lbl_puls_value.TabIndex = 14;
             this.lbl_puls_value.Text = "80";
             // 
             // lbl_sys_dia_value
             // 
             this.lbl_sys_dia_value.AutoSize = true;
-            this.lbl_sys_dia_value.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_sys_dia_value.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_sys_dia_value.ForeColor = System.Drawing.Color.Red;
-            this.lbl_sys_dia_value.Location = new System.Drawing.Point(1772, 414);
+            this.lbl_sys_dia_value.Location = new System.Drawing.Point(1712, 414);
             this.lbl_sys_dia_value.Name = "lbl_sys_dia_value";
-            this.lbl_sys_dia_value.Size = new System.Drawing.Size(141, 46);
+            this.lbl_sys_dia_value.Size = new System.Drawing.Size(172, 55);
             this.lbl_sys_dia_value.TabIndex = 15;
             this.lbl_sys_dia_value.Text = "120/60";
             // 
             // lbl_middelBT_value
             // 
             this.lbl_middelBT_value.AutoSize = true;
-            this.lbl_middelBT_value.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_middelBT_value.ForeColor = System.Drawing.Color.Blue;
-            this.lbl_middelBT_value.Location = new System.Drawing.Point(1782, 508);
+            this.lbl_middelBT_value.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_middelBT_value.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbl_middelBT_value.Location = new System.Drawing.Point(1722, 508);
             this.lbl_middelBT_value.Name = "lbl_middelBT_value";
-            this.lbl_middelBT_value.Size = new System.Drawing.Size(64, 46);
+            this.lbl_middelBT_value.Size = new System.Drawing.Size(78, 55);
             this.lbl_middelBT_value.TabIndex = 16;
             this.lbl_middelBT_value.Text = "80";
             // 
             // btn_filtreret
             // 
             this.btn_filtreret.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_filtreret.Location = new System.Drawing.Point(1645, 651);
+            this.btn_filtreret.Location = new System.Drawing.Point(1586, 651);
             this.btn_filtreret.Name = "btn_filtreret";
             this.btn_filtreret.Size = new System.Drawing.Size(245, 100);
             this.btn_filtreret.TabIndex = 17;
@@ -270,7 +270,7 @@
             // btn_ufiltreret
             // 
             this.btn_ufiltreret.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ufiltreret.Location = new System.Drawing.Point(1647, 757);
+            this.btn_ufiltreret.Location = new System.Drawing.Point(1587, 757);
             this.btn_ufiltreret.Name = "btn_ufiltreret";
             this.btn_ufiltreret.Size = new System.Drawing.Size(245, 100);
             this.btn_ufiltreret.TabIndex = 18;

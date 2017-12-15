@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DTO;
+﻿using DTO;
 using Interfaces;
 
 namespace BusinessLogic
@@ -17,6 +12,10 @@ namespace BusinessLogic
             _dataAccess = dataAccess;
         }
 
+        /// <summary>
+        /// Gets DTO holding the value measured
+        /// </summary>
+        /// <returns>DTO holding the value measured</returns>
         public NulpunktsjusteringDTO PerformAdjustment()
         {
             var nulpunkt = new NulpunktsjusteringDTO();

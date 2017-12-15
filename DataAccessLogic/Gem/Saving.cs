@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DTO;
 
 namespace DataAccessLogic.Gem
@@ -22,6 +18,10 @@ namespace DataAccessLogic.Gem
             _sekvensNummer = 1;
         }
 
+        /// <summary>
+        /// Saves data for the supplied patient
+        /// </summary>
+        /// <param name="patient">PatientDTO holding values to save</param>
         public void SaveData(PatientDTO patient)
         {
             _iSaving = new DatabaseSaving();

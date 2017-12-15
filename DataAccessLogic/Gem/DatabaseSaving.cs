@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 using DataAccessLogic.Gem;
-using DataAccessLogic.Hent;
 using DTO;
 
 namespace DataAccessLogic
@@ -33,6 +26,10 @@ namespace DataAccessLogic
         }
 
 
+        /// <summary>
+        /// Saves bloodpressure data associated with the supplied patientDTO
+        /// </summary>
+        /// <param name="patient">PatientDTO holding the measurement values</param>
         public void SaveBloodPressureData(PatientDTO patient)
         {
             _measurementCommandBuilder = new MeasurementSaveCommandBuilder(patient.ListOperation[0].OperationsID);
@@ -43,6 +40,11 @@ namespace DataAccessLogic
             }
         }
 
+        /// <summary>
+        /// Saves measurement data
+        /// </summary>
+        /// <param name="maaling">Measurement data</param>
+        /// <param name="cmdBuilder">The commandbuilder class used to create the sqlcommand</param>
         private void SaveMeasurementData(MaalingDTO maaling, ICommandBuilder<MaalingDTO> cmdBuilder)
         {
             var query = _measurementQueryBuilder.BuildQuery(maaling);
@@ -59,6 +61,11 @@ namespace DataAccessLogic
             }
         }
 
+        /// <summary>
+        /// Saves initial data (patient and operation data) and saves the operation ID generated from the
+        /// query
+        /// </summary>
+        /// <param name="patient">PatientDTO holding the data to be saved</param>
         public void InitialSave(PatientDTO patient)
         {
             if (_patientInfoRetrieval.HentData(patient).CPR == null)
@@ -69,6 +76,10 @@ namespace DataAccessLogic
             _operationID = patient.ListOperation[0].OperationsID;
         }
 
+        /// <summary>
+        /// Saves initial patient data
+        /// </summary>
+        /// <param name="patient">PatientDTO holding the data to be saved</param>
         private void InitalSavePatientData(PatientDTO patient)
         {
             var patientQuery = _patientQueryBuilder.BuildQuery(patient);
@@ -82,6 +93,10 @@ namespace DataAccessLogic
             }
         }
 
+        /// <summary>
+        /// Saves initial operation data
+        /// </summary>
+        /// <param name="patient">PatientDTO holding the data to be saved</param>
         private void InitialSaveOperationData(PatientDTO patient)
         {
             var operationQuery = _operationQueryBuilder.BuildQuery(patient.ListOperation[0]);

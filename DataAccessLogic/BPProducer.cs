@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ObserverPattern;
 using ST2Prj2LibNI_DAQ;
 
@@ -31,6 +28,10 @@ namespace DataAccessLogic
 
 
 
+        /// <summary>
+        /// Measures bloodpressure values
+        /// </summary>
+        /// <returns>Bloodpressure values</returns>
         public List<double> MeasureBP()
         {
             try
@@ -46,6 +47,9 @@ namespace DataAccessLogic
             }
         }
 
+        /// <summary>
+        /// Continuously measures data. Is to be run on its own thread
+        /// </summary>
         public void GetData()
         { 
             var container = new BPDataContainer();

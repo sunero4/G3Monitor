@@ -28,7 +28,7 @@ namespace G3Monitor
         {
             var queue = new ConcurrentQueue<BPDataContainer>();
             var presentationContainer = new PresentationDataContainer();
-            _dataAccess = new SCDataAcess(queue);
+            _dataAccess = new SCDataAccess(queue);
             _businessLogic = new SCBusinessLogic(_dataAccess, queue, presentationContainer);
             _presentationLogic = new SCPresentationLogic(_businessLogic, presentationContainer);
 

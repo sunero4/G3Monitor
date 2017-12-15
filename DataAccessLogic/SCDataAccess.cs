@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Concurrent;
 using DataAccessLogic.Gem;
 using DTO;
 using Interfaces;
@@ -11,7 +6,7 @@ using ObserverPattern;
 
 namespace DataAccessLogic
 {
-    public class SCDataAcess: IDataAccess
+    public class SCDataAccess: IDataAccess
 
     {
         private RetrivedLoginData retrivedLoginData;
@@ -28,7 +23,7 @@ namespace DataAccessLogic
         private DatabaseSaving _databaseSaving;
         private DaqGetSingleValue _daqGetSingleValue;
 
-        public SCDataAcess(ConcurrentQueue<BPDataContainer> queue)
+        public SCDataAccess(ConcurrentQueue<BPDataContainer> queue)
         {
             retrivedLoginData = new RetrivedLoginData();
             retrievedData = new RetrievedData();

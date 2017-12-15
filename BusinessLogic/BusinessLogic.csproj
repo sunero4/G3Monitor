@@ -79,7 +79,6 @@
     <Compile Include="Filter\FilterFactory.cs" />
     <Compile Include="Filter\KaliAndZero.cs" />
     <Compile Include="Filter\IFilter.cs" />
-    <Compile Include="Filter\NetNoise.cs" />
     <Compile Include="Filter\RawFilter.cs" />
     <Compile Include="Algoritmer\IPulse.cs" />
     <Compile Include="Algoritmer\ICalculateSysDia.cs" />

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace DataAccessLogic
@@ -10,6 +7,10 @@ namespace DataAccessLogic
     class DataRetrievalQueryBuilderXml : IXmlQueryBuilder<IEnumerable<string>>
     {
         private XDocument _xDoc;
+        /// <summary>
+        /// Returns the measurement data from the file
+        /// </summary>
+        /// <returns>Measurement data</returns>
         public IEnumerable<string> BuildQuery()
         {
             _xDoc = new XDocument(FileInformation.BPFilePath);

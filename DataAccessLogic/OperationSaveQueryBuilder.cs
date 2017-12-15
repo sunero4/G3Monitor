@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using DTO;
 
 namespace DataAccessLogic
@@ -15,6 +11,11 @@ namespace DataAccessLogic
             _stringBuilder = new StringBuilder();
         }
 
+        /// <summary>
+        /// Returns an SQL query
+        /// </summary>
+        /// <param name="input">DTO</param>
+        /// <returns>SQL query</returns>
         public string BuildQuery(OperationsDTO input)
         {
             _stringBuilder.Clear();

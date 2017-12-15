@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using DTO;
 
 namespace DataAccessLogic.Gem
@@ -18,6 +13,11 @@ namespace DataAccessLogic.Gem
 
         }
 
+        /// <summary>
+        /// Returns an SQL query
+        /// </summary>
+        /// <param name="input">PatientDTO</param>
+        /// <returns>SQL query</returns>
         public string BuildQuery(PatientDTO input)
         {
             _builder.Clear();

@@ -126,6 +126,7 @@ namespace BusinessLogic
         public void GetNulpunkt(NulpunktsjusteringDTO nulpunkt)
         {
             _nulpunktDTO = nulpunkt;
+            _kaliAndZero.Nulpunkt = _nulpunktDTO;
         }
 
         public void StartProducer()

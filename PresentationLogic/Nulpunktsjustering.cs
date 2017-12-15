@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using Interfaces;
-using TaskFactory = System.Threading.Tasks.TaskFactory;
 
 namespace PresentationLogic
 {
@@ -26,7 +25,7 @@ namespace PresentationLogic
             _nulpunkt = nulpunkt;
         }
 
-        private async void btnStart_Click(object sender, EventArgs e)
+        private void btnStart_Click(object sender, EventArgs e)
         {
             try
             {

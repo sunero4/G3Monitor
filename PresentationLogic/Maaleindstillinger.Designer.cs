@@ -62,9 +62,9 @@
             this.groupBox1.Controls.Add(this.rbtnØnskerGem);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(42, 207);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(568, 98);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -74,7 +74,7 @@
             // 
             this.rbtnØnskerIKKEGem.AutoSize = true;
             this.rbtnØnskerIKKEGem.Location = new System.Drawing.Point(296, 44);
-            this.rbtnØnskerIKKEGem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnØnskerIKKEGem.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnØnskerIKKEGem.Name = "rbtnØnskerIKKEGem";
             this.rbtnØnskerIKKEGem.Size = new System.Drawing.Size(259, 24);
             this.rbtnØnskerIKKEGem.TabIndex = 1;
@@ -86,7 +86,7 @@
             // 
             this.rbtnØnskerGem.AutoSize = true;
             this.rbtnØnskerGem.Location = new System.Drawing.Point(14, 44);
-            this.rbtnØnskerGem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnØnskerGem.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnØnskerGem.Name = "rbtnØnskerGem";
             this.rbtnØnskerGem.Size = new System.Drawing.Size(217, 24);
             this.rbtnØnskerGem.TabIndex = 0;
@@ -106,9 +106,9 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(42, 7);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(568, 182);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
@@ -117,7 +117,7 @@
             // txtMaksDia
             // 
             this.txtMaksDia.Location = new System.Drawing.Point(202, 134);
-            this.txtMaksDia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaksDia.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaksDia.Name = "txtMaksDia";
             this.txtMaksDia.Size = new System.Drawing.Size(82, 26);
             this.txtMaksDia.TabIndex = 11;
@@ -125,7 +125,7 @@
             // txtMaksSys
             // 
             this.txtMaksSys.Location = new System.Drawing.Point(202, 58);
-            this.txtMaksSys.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaksSys.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaksSys.Name = "txtMaksSys";
             this.txtMaksSys.Size = new System.Drawing.Size(82, 26);
             this.txtMaksSys.TabIndex = 10;
@@ -133,7 +133,7 @@
             // txtMinsys
             // 
             this.txtMinsys.Location = new System.Drawing.Point(12, 58);
-            this.txtMinsys.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMinsys.Margin = new System.Windows.Forms.Padding(4);
             this.txtMinsys.Name = "txtMinsys";
             this.txtMinsys.Size = new System.Drawing.Size(82, 26);
             this.txtMinsys.TabIndex = 9;
@@ -141,7 +141,7 @@
             // txtMinDia
             // 
             this.txtMinDia.Location = new System.Drawing.Point(12, 134);
-            this.txtMinDia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMinDia.Margin = new System.Windows.Forms.Padding(4);
             this.txtMinDia.Name = "txtMinDia";
             this.txtMinDia.Size = new System.Drawing.Size(82, 26);
             this.txtMinDia.TabIndex = 8;
@@ -200,9 +200,9 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(42, 322);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(568, 333);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
@@ -211,7 +211,7 @@
             // btnGemIndstillinger
             // 
             this.btnGemIndstillinger.Location = new System.Drawing.Point(372, 244);
-            this.btnGemIndstillinger.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGemIndstillinger.Margin = new System.Windows.Forms.Padding(4);
             this.btnGemIndstillinger.Name = "btnGemIndstillinger";
             this.btnGemIndstillinger.Size = new System.Drawing.Size(148, 63);
             this.btnGemIndstillinger.TabIndex = 9;
@@ -232,7 +232,7 @@
             // txtKommentar
             // 
             this.txtKommentar.Location = new System.Drawing.Point(14, 205);
-            this.txtKommentar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtKommentar.Margin = new System.Windows.Forms.Padding(4);
             this.txtKommentar.Multiline = true;
             this.txtKommentar.Name = "txtKommentar";
             this.txtKommentar.Size = new System.Drawing.Size(322, 104);
@@ -241,7 +241,7 @@
             // txtEfternavn
             // 
             this.txtEfternavn.Location = new System.Drawing.Point(202, 129);
-            this.txtEfternavn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEfternavn.Margin = new System.Windows.Forms.Padding(4);
             this.txtEfternavn.Name = "txtEfternavn";
             this.txtEfternavn.Size = new System.Drawing.Size(132, 26);
             this.txtEfternavn.TabIndex = 6;
@@ -249,7 +249,7 @@
             // txtFornavn
             // 
             this.txtFornavn.Location = new System.Drawing.Point(14, 129);
-            this.txtFornavn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFornavn.Margin = new System.Windows.Forms.Padding(4);
             this.txtFornavn.Name = "txtFornavn";
             this.txtFornavn.Size = new System.Drawing.Size(132, 26);
             this.txtFornavn.TabIndex = 5;
@@ -277,7 +277,7 @@
             // btnFindPatient
             // 
             this.btnFindPatient.Location = new System.Drawing.Point(202, 47);
-            this.btnFindPatient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFindPatient.Margin = new System.Windows.Forms.Padding(4);
             this.btnFindPatient.Name = "btnFindPatient";
             this.btnFindPatient.Size = new System.Drawing.Size(130, 35);
             this.btnFindPatient.TabIndex = 2;
@@ -288,7 +288,7 @@
             // txtCPR
             // 
             this.txtCPR.Location = new System.Drawing.Point(14, 59);
-            this.txtCPR.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCPR.Margin = new System.Windows.Forms.Padding(4);
             this.txtCPR.Name = "txtCPR";
             this.txtCPR.Size = new System.Drawing.Size(132, 26);
             this.txtCPR.TabIndex = 1;
@@ -312,9 +312,9 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Maaleindstillinger";
-            this.Text = "G3-monitor: Måleindstillinger";
+            this.Text = "G3-Monitor: Monitoreringsindstillinger";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

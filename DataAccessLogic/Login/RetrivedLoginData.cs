@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DTO;
 
 namespace DataAccessLogic
@@ -22,12 +18,14 @@ namespace DataAccessLogic
         /// <summary>
         /// Retrieved data which matches medarbejder dto.brugernavn object in the database
         /// </summary>
-        /// <param name="medarbejder"></param>
-        /// <returns></returns>
+        /// <param name="medarbejder">The employee whose user information to retrieve</param>
+        /// <returns>DTO holding the user information</returns>
         public MedarbejderDTO CheckLogin (MedarbejderDTO medarbejder)
         {
             MedarbejderDTO medarbejderOut;
             string tableName;
+
+            //Decide which table to check
             if (medarbejder.GetType() == new OPSygeplejerskeDTO().GetType())
             {
                 medarbejderOut = new OPSygeplejerskeDTO();

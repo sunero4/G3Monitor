@@ -179,7 +179,7 @@ namespace PresentationLogic
             series1.Legend = "Legend1";
             series1.Name = "Blodtryk";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(1155, 989);
+            this.chart1.Size = new System.Drawing.Size(1155, 963);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "chart1";
             // 
@@ -547,7 +547,7 @@ namespace PresentationLogic
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "Måling";
-            this.Text = "z";
+            this.Text = "G3-Monitor: Måling";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Måling_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();

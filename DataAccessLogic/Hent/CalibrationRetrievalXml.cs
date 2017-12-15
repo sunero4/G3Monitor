@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using DTO;
+﻿using DTO;
 
 namespace DataAccessLogic
 {
@@ -16,6 +10,10 @@ namespace DataAccessLogic
         {
             _queryBuilder = new CalibrationQueryBuilderXml();
         }
+        /// <summary>
+        /// Retrieves calibration data
+        /// </summary>
+        /// <returns>DTO holding the retrieved calibration data</returns>
         public KalibreringsDTO GetCalibrationData()
         {
             var result = _queryBuilder.BuildQuery();

@@ -106,6 +106,12 @@ namespace DataAccessLogic
             return patientOut;
         }
 
+        /// <summary>
+        /// Performs null checking when reading strings from database, as string in C# cannot be null
+        /// </summary>
+        /// <param name="reader">SqlDataReader to read the data</param>
+        /// <param name="columnName">Name of the column to read from</param>
+        /// <returns></returns>
         private string SafeGetString(SqlDataReader reader, string columnName)
         {
             if (!reader.IsDBNull(reader.GetOrdinal(columnName)))
