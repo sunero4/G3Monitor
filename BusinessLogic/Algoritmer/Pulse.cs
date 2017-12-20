@@ -32,6 +32,8 @@ namespace BusinessLogic
             }
             double averageDifference;
 
+            //If for some reason an error occurred and no time difference was found, return last measured
+            //pulse
             if (differences.Count == 0)
             {
                 averageDifference = _lastPulse;
@@ -58,11 +60,11 @@ namespace BusinessLogic
             var count = 0;
             var threshold = values.Max() * 0.8;
 
-            for (int i = 30; i < values.Count - 30; i += 30)
+            for (int i = 20; i < values.Count - 20; i += 20)
             {
                 if (values[i] > threshold)
                 {
-                    if (values[i] > values[i - 30] && values[i] > values[i + 30])
+                    if (values[i] > values[i - 20] && values[i] > values[i + 20])
                     {
                         peaks.Add(i);
                     }
@@ -82,9 +84,10 @@ namespace BusinessLogic
             int pulse = 0;
             var diff = TimeDifferences(btList);
 
+            //60000 samples = 1 minute, divide with average time difference to find beats per minute
             if (diff != 0)
             {
-                pulse = 60000 / diff; // 60000 sample divideret med den gennemsnitlige tidsforskel mellem toppunkterne og derefter dividere vi med en faktor 1000, da der er 1000 sample pr. sekund. 
+                pulse = 60000 / diff; 
             }
             
             return Convert.ToInt32(pulse * 0.9);

@@ -82,18 +82,20 @@ namespace PresentationLogic
             // Chart kode 
 
             var separatedbpValues = _patient.ListOperation[_operationIndex].Maaling;
-
+            var count = 0.005;
             if (separatedbpValues.Count > 0)
             {
+
                 List<double> bpValues = _iBusinessLogic.ConvertArrayToDoubles(separatedbpValues[_bpSegmentIndex].MaaleData);
                 var chartValues = _iBusinessLogic.FilterBPValues(bpValues, filterType);
                 for (int i = 0; i < chartValues.Count; i++)
                 {
-                    chart_måling.Series[0].Points.AddXY(i * 0.005, chartValues[i]);
+                    chart_måling.Series[0].Points.AddXY(count, chartValues[i]);
+                    count += 0.005;
                 }
                 UpdateLabels(bpValues);
             }
-
+            
             // Udfyld patient/ data oplysninger 
             txt_kommentarer.Text = _patient.ListOperation[_operationIndex].Kommentar;
 

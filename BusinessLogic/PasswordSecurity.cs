@@ -27,7 +27,8 @@ namespace BusinessLogic
         /// <summary>
         /// This method uses the SHA256 hashing algorithm to hash the password and the salt so the password is not
         /// stored in plaintext in the database. When authenticating the password the entered password is hashed 
-        /// with the salt stored with the user and matched with the hashed and salted password stored in the database
+        /// with the salt stored with the user and matched with the hashed and salted password stored in the 
+        /// database
         /// </summary>
         /// <param name="password">The plaintext password entered by the user</param>
         /// <param name="salt">The sequence of bytes used as salt</param>

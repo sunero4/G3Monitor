@@ -25,7 +25,6 @@ namespace BusinessLogic.Tests.Unit
             _pulse = Substitute.For<IPulse>();
             _sysDia = Substitute.For<ICalculateSysDia>();
             _averange = Substitute.For<IAverageBP>(); 
-           var _uut = new ShowData();
         }
 
 

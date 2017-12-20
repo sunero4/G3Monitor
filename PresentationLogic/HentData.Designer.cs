@@ -128,12 +128,18 @@
             // chart_måling
             // 
             this.chart_måling.BackColor = System.Drawing.Color.Black;
+            chartArea1.AxisX.Interval = 1D;
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
             chartArea1.AxisX.LineColor = System.Drawing.Color.White;
             chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
             chartArea1.AxisX.TitleForeColor = System.Drawing.Color.White;
             chartArea1.AxisX2.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.Interval = 20D;
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
             chartArea1.AxisY.LineColor = System.Drawing.Color.White;
             chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.Maximum = 240D;
+            chartArea1.AxisY.Minimum = 20D;
             chartArea1.AxisY.TitleForeColor = System.Drawing.Color.White;
             chartArea1.AxisY2.LineColor = System.Drawing.Color.White;
             chartArea1.BackColor = System.Drawing.Color.Black;
@@ -195,7 +201,7 @@
             this.lbl_puls.AutoSize = true;
             this.lbl_puls.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_puls.ForeColor = System.Drawing.Color.Lime;
-            this.lbl_puls.Location = new System.Drawing.Point(1580, 289);
+            this.lbl_puls.Location = new System.Drawing.Point(1581, 302);
             this.lbl_puls.Name = "lbl_puls";
             this.lbl_puls.Size = new System.Drawing.Size(67, 31);
             this.lbl_puls.TabIndex = 11;
@@ -206,7 +212,7 @@
             this.lbl_sys_dia.AutoSize = true;
             this.lbl_sys_dia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_sys_dia.ForeColor = System.Drawing.Color.Red;
-            this.lbl_sys_dia.Location = new System.Drawing.Point(1580, 428);
+            this.lbl_sys_dia.Location = new System.Drawing.Point(1580, 433);
             this.lbl_sys_dia.Name = "lbl_sys_dia";
             this.lbl_sys_dia.Size = new System.Drawing.Size(109, 31);
             this.lbl_sys_dia.TabIndex = 12;
@@ -217,7 +223,7 @@
             this.lbl_middelBT.AutoSize = true;
             this.lbl_middelBT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_middelBT.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lbl_middelBT.Location = new System.Drawing.Point(1581, 522);
+            this.lbl_middelBT.Location = new System.Drawing.Point(1580, 527);
             this.lbl_middelBT.Name = "lbl_middelBT";
             this.lbl_middelBT.Size = new System.Drawing.Size(135, 31);
             this.lbl_middelBT.TabIndex = 13;
